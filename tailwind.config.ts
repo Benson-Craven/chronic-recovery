@@ -19,6 +19,7 @@ const config: Config = {
         // customFont: ['"Custom Font"', 'sans-serif'],
         // Add more custom font families as needed
         PlayfairDisplay: ['Playfair Display', 'serif'],
+        Jost: ['Jost', 'sans-serif'],
       },
     },
   },
