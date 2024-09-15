@@ -5,6 +5,7 @@ import WeDoSection from "./WhatWeDoSection/page"
 import IllnessSection from "./illnessSection/page"
 import { StickyScrollRevealDemo } from "./AppointmentSection/page"
 import { motion } from "framer-motion"
+import HeroSection from "./HeroSection/page"
 
 export default function Home() {
     const words = ["better", "cute", "beautiful", "modern"]
@@ -34,6 +35,7 @@ export default function Home() {
                     <IllnessSection />
                     <WeDoSection />
                     <MindBodySection />
+
                     {/* <StickyScrollRevealDemo /> */}
                 </section>
             </main>

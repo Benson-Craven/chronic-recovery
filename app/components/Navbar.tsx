@@ -24,7 +24,7 @@ const Navbar = ({ className }: NavbarProps) => {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [prevScrollPos])
 
-    const navbarClassName = `duration-700 sticky top-0 z-10 flex items-center justify-between bg-white p-4 text-textPrimary transition-transform ${
+    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-white p-4 text-textPrimary transition-transform ${
         visible ? "translate-y-0" : "-translate-y-full"
     } ${className}`
 

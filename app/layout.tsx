@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Lenis from "lenis"
-import { useEffect } from "react"
 import LenisProvider from "./components/SmoothScroller"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
