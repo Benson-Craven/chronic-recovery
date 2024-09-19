@@ -22,13 +22,25 @@ const config: Config = {
                 textPrimary: "#595358",
                 textSecondary: "#A4AC96",
                 textThird: "#CFDDA5",
+                "custom-green": "#c9fd74", // Added for the Button component
             },
             fontFamily: {
-                // customFont: ['"Custom Font"', 'sans-serif'],
-                // Add more custom font families as needed
                 PlayfairDisplay: ["Playfair Display", "serif"],
                 Jost: ["Jost", "sans-serif"],
+                butler: ["Butler", "serif"],
+                Satoshi: ["Satoshi", "sans-serif"],
             },
+            transitionTimingFunction: {
+                "custom-ease": "cubic-bezier(0.76, 0, 0.24, 1)", // Added for the Button component
+            },
+        },
+    },
+    variants: {
+        extend: {
+            transform: ["group-hover"],
+            translate: ["group-hover"],
+            rotate: ["group-hover"],
+            opacity: ["group-hover"],
         },
     },
     plugins: [addVariablesForColors],

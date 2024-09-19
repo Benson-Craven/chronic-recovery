@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import React, { useRef } from "react"
 import Image from "next/image"
+import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 
 const RevealImageSection = () => {
     const container = useRef(null)
@@ -18,23 +19,32 @@ const RevealImageSection = () => {
                 {/* Left scaling div */}
                 <motion.div
                     style={{ scaleX: scaleTransform }}
-                    className="absolute left-0 top-0 z-10 h-full w-1/3 origin-left bg-white"
+                    className="absolute left-0 top-0 z-10 h-full w-1/3 origin-left bg-[#fafafa]"
                 />
-                {/* Image */}
+                {/* Image */}{" "}
                 <div className="sticky top-0 h-[100vh] w-full">
-                    <div className="relative h-full w-full">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                            delay: 0.25,
+                            duration: 1,
+                            ease: "easeInOut",
+                        }}
+                        className="relative h-full w-full"
+                    >
                         <Image
                             src="/images/forest.png"
                             alt="Forest Image"
                             layout="fill"
                             objectFit="cover"
                         />
-                    </div>
-                </div>
+                    </motion.div>
+                </div>{" "}
                 {/* Right scaling div */}
                 <motion.div
                     style={{ scaleX: scaleTransform }}
-                    className="absolute right-0 top-0 z-10 h-full w-1/3 origin-right bg-white"
+                    className="absolute right-0 top-0 z-10 h-full w-1/3 origin-right bg-[#fafafa]"
                 />
             </div>
         </section>

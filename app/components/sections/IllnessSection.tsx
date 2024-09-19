@@ -2,7 +2,7 @@
 import { motion, useTransform, useScroll } from "framer-motion"
 import { useRef } from "react"
 import React from "react"
-import { FadeInOnScroll } from "../components/animations/FadeInOnScroll"
+import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 
 const IllnessSection = () => {
     return (
@@ -10,31 +10,26 @@ const IllnessSection = () => {
             <div className="flex h-48 items-center justify-center">
                 <FadeInOnScroll>
                     {" "}
-                    <span className="font-Jost font-semibold uppercase text-textThird md:text-3xl">
-                        what we do
+                    <span className="font-Satoshi font-semibold text-textThird md:text-3xl">
+                        What We Do
                     </span>
                 </FadeInOnScroll>
             </div>
-            <h1 className="mb-2 text-center font-Jost text-5xl text-neutral-200">
+            <h1 className="font-Satoshi mb-2 text-center text-5xl text-neutral-200">
                 <FadeInOnScroll threshold={0.5}>
                     {" "}
                     Are you{" "}
-                    <span className="font-PlayfairDisplay italic">
-                        suffering
-                    </span>{" "}
-                    from?
+                    <span className="font-butler italic">suffering</span> from?
                 </FadeInOnScroll>
             </h1>
             <IllnessSectionCarousel />
             <FadeInOnScroll>
-                <div className="flex h-80 items-center justify-center">
-                    <span className="p-5 font-semibold leading-tight text-textThird md:text-5xl">
+                <div className="flex h-[50vh] items-center justify-center border-2 border-red-600">
+                    <span className="font-Satoshi p-5 text-center leading-tight text-textThird md:text-5xl">
                         Have you seen{" "}
-                        <span className="font-PlayfairDisplay italic">
-                            multiple
-                        </span>{" "}
+                        <span className="font-butler italic">multiple</span>{" "}
                         medical professionals without finding{" "}
-                        <span className="font-PlayfairDisplay italic">
+                        <span className="font-butler italic">
                             lasting relief?
                         </span>
                     </span>

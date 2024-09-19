@@ -1,16 +1,18 @@
 "use client"
 
-import MindBodySection from "./components/sections/MindBodySection"
-import WeDoSection from "./components/sections/WhatWeDoSection"
-import IllnessSection from "./components/sections/IllnessSection"
-import { StickyScrollRevealDemo } from "./AppointmentSection/page"
-import { motion } from "framer-motion"
-import HeroSection from "./components/sections/HeroSection"
-import ScienceSection from "./components/sections/ScienceSection"
+import { motion, useScroll, useTransform } from "framer-motion"
+import React, { useRef } from "react"
+import RevealInfoSection from "../components/sections/RevealInfoSection"
 
-export default function Home() {
-    const words = ["better", "cute", "beautiful", "modern"]
+const Info = () => {
+    const container = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ["start start", "end end"],
+    })
 
+    const leftTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"])
+    const rightTransform = useTransform(scrollYProgress, [0, 1], ["0%", "5%"])
     return (
         <>
             <main>
@@ -25,22 +27,18 @@ export default function Home() {
                             ease: "easeInOut",
                         }}
                     >
-                        The <i>Biophysical Approach </i> to{" "}
+                        The <i>Brain & Body </i> can{" "}
                         <span className="text-textSecondary">
-                            chronic pain recovery
+                            work together beautifully
                         </span>
                     </motion.h1>
                 </section>
-
                 <section>
-                    <MindBodySection />
-                    <IllnessSection />
-                    <WeDoSection />
-                    <ScienceSection />
-
-                    {/* <StickyScrollRevealDemo /> */}
+                    <RevealInfoSection />
                 </section>
             </main>
         </>
     )
 }
+
+export default Info
