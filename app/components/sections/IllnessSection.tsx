@@ -15,7 +15,7 @@ const IllnessSection = () => {
                     </span>
                 </FadeInOnScroll>
             </div>
-            <h1 className="font-Satoshi mb-2 text-center text-5xl text-neutral-200">
+            <h1 className="mb-2 text-center font-Satoshi text-5xl text-neutral-200">
                 <FadeInOnScroll threshold={0.5}>
                     {" "}
                     Are you{" "}
@@ -24,8 +24,8 @@ const IllnessSection = () => {
             </h1>
             <IllnessSectionCarousel />
             <FadeInOnScroll>
-                <div className="flex h-[50vh] items-center justify-center border-2 border-red-600">
-                    <span className="font-Satoshi p-5 text-center leading-tight text-textThird md:text-5xl">
+                <div className="flex h-[80vh] items-center justify-center">
+                    <span className="p-5 text-center font-Satoshi leading-tight text-textThird md:text-5xl">
                         Have you seen{" "}
                         <span className="font-butler italic">multiple</span>{" "}
                         medical professionals without finding{" "}

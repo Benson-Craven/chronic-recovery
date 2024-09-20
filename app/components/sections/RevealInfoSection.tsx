@@ -67,7 +67,7 @@ const RevealInfoSection = () => {
                     />
                 </div>
             </section>
-            <section className="bg-[#F9F9F9] py-16 md:py-24">
+            <section className="flex h-[120vh] items-center justify-center bg-[#F9F9F9] py-16 md:py-24">
                 <div ref={secondContainer} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
@@ -79,7 +79,7 @@ const RevealInfoSection = () => {
                                     >
                                         <Image
                                             src="/images/forest.png"
-                                            alt="Anai Wood Factory"
+                                            alt="Forest"
                                             width={400}
                                             height={600}
                                             className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
@@ -91,7 +91,7 @@ const RevealInfoSection = () => {
                                     >
                                         <Image
                                             src="/images/forest.png"
-                                            alt="Anai Wood Products"
+                                            alt="Forest"
                                             width={100}
                                             height={150}
                                             className="h-full w-full transform object-cover transition duration-500 hover:scale-105"

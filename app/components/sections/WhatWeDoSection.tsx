@@ -78,7 +78,7 @@ const WeDoSection = () => {
                     />
                 </div>
             </section> */}
-            <section className="bg-[#F9F9F9] py-16 md:py-24">
+            <section className="h-[100vh] bg-[#F9F9F9] py-16 md:py-24">
                 <div ref={container} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">

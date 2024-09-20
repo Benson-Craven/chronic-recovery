@@ -114,14 +114,6 @@ const Footer = () => {
                                     </ShineUnderlineEffect>
                                 </Link>
                             </li>
-
-                            <li>
-                                <Link href="#">
-                                    <ShineUnderlineEffect>
-                                        Careers{" "}
-                                    </ShineUnderlineEffect>
-                                </Link>
-                            </li>
                         </ul>
                     </div>
 
@@ -136,18 +128,6 @@ const Footer = () => {
                                 >
                                     <ShineUnderlineEffect>
                                         Facebook
-                                    </ShineUnderlineEffect>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                >
-                                    <ShineUnderlineEffect>
-                                        Twitter
                                     </ShineUnderlineEffect>
                                 </a>
                             </li>
