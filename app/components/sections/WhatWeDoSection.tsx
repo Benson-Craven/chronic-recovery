@@ -3,6 +3,7 @@ import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import ShineUnderlineEffect from "../UnderlineEffect"
 
 const WeDoSection = () => {
     const container = useRef(null)
@@ -20,7 +21,7 @@ const WeDoSection = () => {
             <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
                 <div className="flex h-2/3 w-2/3 flex-col items-center justify-center">
                     <FadeInOnScroll threshold={0.7}>
-                        <h1 className="font-Satoshi p-5 text-center text-5xl font-bold text-textPrimary">
+                        <h1 className="p-5 text-center font-Satoshi text-5xl font-bold text-textPrimary">
                             Our approach has helped countless individuals of all
                             ages{" "}
                             <span className="font-butler italic">overcome</span>{" "}
@@ -31,14 +32,14 @@ const WeDoSection = () => {
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         {" "}
-                        <p className="font-Satoshi mt-2 p-5 text-center text-2xl font-bold text-textSecondary">
+                        <p className="mt-2 p-5 text-center font-Satoshi text-2xl font-bold text-textSecondary">
                             Experience life-changing results with our proven
                             methods
                         </p>
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         <motion.button
-                            className="text-l font-Satoshi mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-bold text-secondary md:text-2xl"
+                            className="text-l mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi font-bold text-secondary md:text-2xl"
                             whileTap={{ scale: 0.85 }}
                             whileHover={{ scale: 1.05 }}
                         >
@@ -152,26 +153,28 @@ const WeDoSection = () => {
                                 all ages and ailments with amazing,
                                 life-changing, results. Let me help you too.
                             </p>
-                            <Link
-                                href="/about"
-                                className="inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
-                            >
-                                <span className="mr-2">About us</span>
-                                <svg
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            <ShineUnderlineEffect>
+                                <Link
+                                    href="/about"
+                                    className="inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                    />
-                                </svg>
-                            </Link>
+                                    <span className="mr-2">About us</span>
+                                    <svg
+                                        className="h-5 w-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </Link>
+                            </ShineUnderlineEffect>
                         </div>
                     </div>
                 </div>

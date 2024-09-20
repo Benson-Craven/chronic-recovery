@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link"
+import ShineUnderlineEffect from "./UnderlineEffect"
 
 const Footer = () => {
     return (
-        <footer className="font-Satoshi bg-secondary pb-6 pt-12">
+        <footer className="bg-secondary pb-6 pt-12 font-Satoshi text-[#fafafa]">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {/* Newsletter Section */}
@@ -26,9 +29,10 @@ const Footer = () => {
                                 <input
                                     type="email"
                                     name="EMAIL"
+                                    placeholder="Keep up to date"
                                     id="email"
                                     required
-                                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                    className="w-full border-b-2 border-gray-300 bg-transparent px-2 py-2"
                                 />
                             </div>
                             <button
@@ -38,7 +42,7 @@ const Footer = () => {
                                 Subscribe
                             </button>
                         </form>
-                        <p className="mt-4 text-sm text-gray-600">
+                        <p className="mt-4 text-sm">
                             Subscribe for updates on chronic pain management and
                             relief strategies.
                         </p>
@@ -51,23 +55,34 @@ const Footer = () => {
                         </h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Treatment Options
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Treatment Options{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Pain Types
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Pain Types{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Resources
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Resources
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Support Groups
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Support Groups
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
                         </ul>
@@ -77,23 +92,34 @@ const Footer = () => {
                         <h3 className="mb-4 text-lg font-bold">About Us</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Our Mission
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Our Mission{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Team
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Team{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Testimonials
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Testimonials{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link href="#" className="hover:underline">
-                                    Careers
+                                <Link href="#">
+                                    <ShineUnderlineEffect>
+                                        Careers{" "}
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
                         </ul>
@@ -107,39 +133,46 @@ const Footer = () => {
                                     href="#"
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="hover:underline"
                                 >
-                                    Facebook
+                                    <ShineUnderlineEffect>
+                                        Facebook
+                                    </ShineUnderlineEffect>
                                 </a>
                             </li>
+
                             <li>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="hover:underline"
                                 >
-                                    Twitter
+                                    <ShineUnderlineEffect>
+                                        Twitter
+                                    </ShineUnderlineEffect>
                                 </a>
                             </li>
+
                             <li>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="hover:underline"
                                 >
-                                    Instagram
+                                    <ShineUnderlineEffect>
+                                        Instagram
+                                    </ShineUnderlineEffect>
                                 </a>
                             </li>
+
                             <li>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="hover:underline"
                                 >
-                                    LinkedIn
+                                    <ShineUnderlineEffect>
+                                        LinkedIn
+                                    </ShineUnderlineEffect>
                                 </a>
                             </li>
                         </ul>
@@ -147,26 +180,25 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Footer */}
-                <div className="mt-12 flex flex-col items-center justify-between border-t border-gray-200 pt-6 md:flex-row">
-                    <p className="text-sm text-gray-600">
+                <div className="mt-12 flex flex-col items-center justify-between border-t pt-6 md:flex-row">
+                    <p className="text-sm">
                         © <Link href="/">Chronic Pain Relief</Link> 2024
                     </p>
                     <nav className="mt-4 md:mt-0">
                         <ul className="flex space-x-4">
                             <li>
-                                <Link
-                                    href="#"
-                                    className="text-sm text-gray-600 hover:underline"
-                                >
-                                    Privacy Policy
+                                <Link href="#" className="text-sm">
+                                    <ShineUnderlineEffect>
+                                        Privacy Policy
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
+
                             <li>
-                                <Link
-                                    href="#"
-                                    className="text-sm text-gray-600 hover:underline"
-                                >
-                                    Terms of Service
+                                <Link href="#" className="text-sm">
+                                    <ShineUnderlineEffect>
+                                        Terms of Service
+                                    </ShineUnderlineEffect>
                                 </Link>
                             </li>
                         </ul>

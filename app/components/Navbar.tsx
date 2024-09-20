@@ -4,6 +4,7 @@ import Link from "next/link"
 import React, { useEffect, useState } from "react"
 import Button from "./Button"
 import { motion, AnimatePresence } from "framer-motion"
+import ShineUnderlineEffect from "./UnderlineEffect"
 
 type NavbarProps = {
     className?: string
@@ -77,45 +78,38 @@ const Navbar = ({ className }: NavbarProps) => {
             }}
         >
             <div className="flex w-full items-center justify-between">
-                <Link href="/" className="flex-shrink-0">
-                    <p className="text-2xl font-bold">CPR</p>
-                </Link>
+                <ShineUnderlineEffect>
+                    <Link href="/" className="flex-shrink-0">
+                        <p>CPR</p>
+                    </Link>
+                </ShineUnderlineEffect>
 
                 <div className="hidden flex-grow items-center justify-center md:flex">
                     <ul className="flex space-x-10 uppercase">
                         <li>
-                            <Link
-                                href="/patient"
-                                className="hover:text-gray-300"
-                            >
-                                For Patients
-                            </Link>
+                            <ShineUnderlineEffect>
+                                <Link href="/patient">For Patients</Link>
+                            </ShineUnderlineEffect>
                         </li>
                         <li>
-                            <Link
-                                href="/patient"
-                                className="hover:text-gray-300"
-                            >
-                                The Science
-                            </Link>
+                            <ShineUnderlineEffect>
+                                <Link href="/patient">The Science</Link>
+                            </ShineUnderlineEffect>
                         </li>
                         <li>
-                            <Link
-                                href="/our-plans"
-                                className="hover:text-gray-300"
-                            >
-                                Services
-                            </Link>
+                            <ShineUnderlineEffect>
+                                <Link href="/our-plans">Services</Link>
+                            </ShineUnderlineEffect>
                         </li>
                         <li>
-                            <Link href="/info" className="hover:text-gray-300">
-                                About
-                            </Link>
+                            <ShineUnderlineEffect>
+                                <Link href="/info">About</Link>
+                            </ShineUnderlineEffect>
                         </li>
                     </ul>
                 </div>
                 <motion.div
-                    className="fixed flex flex-col items-center justify-center rounded-[25px] bg-white md:bg-textSecondary"
+                    className="fixed z-50 flex flex-col items-center justify-center rounded-[25px] bg-white md:bg-textSecondary"
                     variants={menu}
                     animate={isActive ? "open" : "closed"}
                     initial="closed"
@@ -262,13 +256,14 @@ const Navbar = ({ className }: NavbarProps) => {
                         )}
                     </AnimatePresence>
                 </motion.div>
-
-                <Button
-                    isActive={isActive}
-                    toggleMenu={() => {
-                        setIsActive(!isActive)
-                    }}
-                />
+                <span className="z-50">
+                    <Button
+                        isActive={isActive}
+                        toggleMenu={() => {
+                            setIsActive(!isActive)
+                        }}
+                    />
+                </span>
             </div>
         </nav>
     )

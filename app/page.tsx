@@ -3,20 +3,16 @@
 import MindBodySection from "./components/sections/MindBodySection"
 import WeDoSection from "./components/sections/WhatWeDoSection"
 import IllnessSection from "./components/sections/IllnessSection"
-import { StickyScrollRevealDemo } from "./AppointmentSection/page"
 import { motion } from "framer-motion"
-import HeroSection from "./components/sections/HeroSection"
 import ScienceSection from "./components/sections/ScienceSection"
 
 export default function Home() {
-    const words = ["better", "cute", "beautiful", "modern"]
-
     return (
         <>
             <main>
                 <section className="flex h-[80vh] items-center justify-center bg-[#fafafa]">
                     <motion.h1
-                        className="font-butler mx-11 flex-wrap text-center text-6xl font-extralight uppercase text-textPrimary md:text-7xl lg:text-9xl"
+                        className="mx-11 flex-wrap text-center font-butler text-6xl font-extralight uppercase text-textPrimary md:text-7xl lg:text-9xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
@@ -37,8 +33,6 @@ export default function Home() {
                     <IllnessSection />
                     <WeDoSection />
                     <ScienceSection />
-
-                    {/* <StickyScrollRevealDemo /> */}
                 </section>
             </main>
         </>
