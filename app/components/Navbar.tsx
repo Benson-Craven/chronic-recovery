@@ -88,17 +88,12 @@ const Navbar = ({ className }: NavbarProps) => {
                     <ul className="flex space-x-10 uppercase">
                         <li>
                             <ShineUnderlineEffect>
-                                <Link href="/patient">For Patients</Link>
+                                <Link href="/#science">The Science</Link>
                             </ShineUnderlineEffect>
                         </li>
                         <li>
                             <ShineUnderlineEffect>
-                                <Link href="/patient">The Science</Link>
-                            </ShineUnderlineEffect>
-                        </li>
-                        <li>
-                            <ShineUnderlineEffect>
-                                <Link href="/our-plans">Services</Link>
+                                <Link href="/#services">Services</Link>
                             </ShineUnderlineEffect>
                         </li>
                         <li>

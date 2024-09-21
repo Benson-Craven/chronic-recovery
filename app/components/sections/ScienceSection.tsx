@@ -14,8 +14,9 @@ const ScienceSection = () => {
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [0, 1])
     return (
         <section
+            id="science"
             ref={container}
-            className="font-Satoshi relative h-[200vh] bg-gray-900 text-white"
+            className="relative h-[200vh] bg-gray-900 font-Satoshi text-white"
         >
             <div className="sticky top-0 z-10 flex min-h-screen w-full items-center justify-center">
                 <motion.div

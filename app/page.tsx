@@ -5,6 +5,7 @@ import WeDoSection from "./components/sections/WhatWeDoSection"
 import IllnessSection from "./components/sections/IllnessSection"
 import { motion } from "framer-motion"
 import ScienceSection from "./components/sections/ScienceSection"
+import Services from "./components/sections/Services"
 
 export default function Home() {
     return (
@@ -32,6 +33,7 @@ export default function Home() {
                     <MindBodySection />
                     <IllnessSection />
                     <WeDoSection />
+                    <Services />
                     <ScienceSection />
                 </section>
             </main>
