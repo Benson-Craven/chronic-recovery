@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({
                     top: `calc(-5vh + ${i * 25}px)`,
                     backgroundColor: color,
                 }} // Apply dynamic color here
-                className="relative flex h-[500px] w-[1000px] overflow-hidden rounded-[32px] border-2 border-black"
+                className="relative flex h-[500px] w-[1000px] overflow-hidden rounded-[32px] border-2 border-black shadow-md"
             >
                 <div className="flex flex-1 flex-col justify-center p-12">
                     <h2 className="mb-4 text-5xl font-bold text-black">

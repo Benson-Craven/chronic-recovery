@@ -106,38 +106,33 @@ type CardType = {
 
 const cards: CardType[] = [
     {
-        url: "",
+        url: "/images/stomach-pain.jpg",
         title: "Title 1",
         id: 1,
     },
     {
-        url: "",
+        url: "/images/neck-pain.jpg",
         title: "Title 2",
         id: 2,
     },
     {
-        url: "",
+        url: "/images/headache.jpg",
         title: "Title 3",
         id: 3,
     },
     {
-        url: "",
+        url: "/images/wrist-pain.jpg",
         title: "Title 4",
         id: 4,
     },
     {
-        url: "",
+        url: "/images/monstera.jpg",
         title: "Title 5",
         id: 5,
     },
     {
-        url: "",
+        url: "/images/meeting1.jpg",
         title: "Title 6",
         id: 6,
-    },
-    {
-        url: "",
-        title: "Title 7",
-        id: 7,
     },
 ]

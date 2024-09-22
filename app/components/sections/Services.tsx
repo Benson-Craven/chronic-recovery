@@ -16,7 +16,7 @@ const projects: Project[] = [
         title: "Structured approach to resolving the causes of chronic pain",
         description:
             "I specialise in helping people with persistent pain conditions and have worked with many people of all ages and ailments and seen fantastic results.",
-        src: "forest.png",
+        src: "phone.jpg",
         url: "https://example.com/project1",
         color: "#cfdda5",
     },
@@ -24,14 +24,14 @@ const projects: Project[] = [
         title: "1-1 50 minute sessions",
         description:
             "I will work with your body, nervous system and brain to get you back to good health.",
-        src: "forest.png",
+        src: "meeting1.jpg",
         url: "https://example.com/project2",
         color: "#a4ac96",
     },
     {
         title: "In person sessions in Cork, Ireland or online*",
         description: "€65 per session",
-        src: "forest.png",
+        src: "cork.jpg",
         url: "https://example.com/project3",
         color: "#cfdda5",
     },
