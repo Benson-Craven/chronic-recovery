@@ -78,7 +78,7 @@ const ScienceSection = () => {
                         loop
                         muted
                         playsInline
-                        src={`/videos/big-waterfall.mp4`}
+                        src={`/videos/remedies.mp4`}
                         className="h-full w-full object-cover brightness-50 filter"
                     />
                     {/* {[1, 2, 3].map((colIndex) => (
