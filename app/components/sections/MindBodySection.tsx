@@ -38,6 +38,7 @@ const RevealImageSection = () => {
                             alt="Forest Image"
                             fill
                             style={{ objectFit: "cover" }}
+                            priority
                         />
                     </motion.div>
                 </div>{" "}

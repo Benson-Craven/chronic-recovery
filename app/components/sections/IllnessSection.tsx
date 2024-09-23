@@ -55,7 +55,12 @@ const IllnessSectionCarousel = () => {
     const renderCard = (card: CardType) => <Card card={card} key={card.id} />
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-secondary">
+        <section
+            aria-label="Illness types carousel"
+            role="region"
+            ref={targetRef}
+            className="relative h-[300vh] bg-secondary"
+        >
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 <motion.div
                     style={{
@@ -74,7 +79,7 @@ const Card = ({ card }: { card: CardType }) => {
     return (
         <div
             key={card.id}
-            className="group relative h-[450px] w-[450px] cursor-pointer overflow-hidden bg-neutral-200 duration-300 hover:scale-95"
+            className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200 duration-300"
         >
             <div
                 style={{

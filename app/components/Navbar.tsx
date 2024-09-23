@@ -104,7 +104,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     </ul>
                 </div>
                 <motion.div
-                    className="fixed z-50 flex flex-col items-center justify-center rounded-[25px] bg-white md:bg-textSecondary"
+                    className="fixed z-50 flex flex-col items-center justify-center rounded-[25px] border-2 border-black bg-white shadow-lg md:bg-textSecondary"
                     variants={menu}
                     animate={isActive ? "open" : "closed"}
                     initial="closed"
@@ -117,6 +117,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                 initial="hidden"
                                 animate="visible"
                                 exit="hidden"
+                                onWheel={(e) => e.preventDefault()}
                             >
                                 <div className="flex h-full w-full rounded-[25px] bg-textSecondary">
                                     {/* Left side */}
@@ -126,8 +127,9 @@ const Navbar = ({ className }: NavbarProps) => {
                                         </h1>
                                         <p className="mb-4">
                                             Please fill out the form to learn
-                                            more about Chronic Pain Relief and
-                                            how it can be utilized.
+                                            more about Chronic Pain Recovery and
+                                            how it can be applied to your
+                                            everyday life.
                                         </p>
                                         <p className="mb-4">
                                             We will get back to you as quickly
@@ -136,11 +138,10 @@ const Navbar = ({ className }: NavbarProps) => {
                                         <p className="mb-2">
                                             hello@cprhealth.com
                                         </p>
-                                        <p>1.833.888.3697</p>
                                     </div>
 
                                     {/* Right side */}
-                                    <div className="flex w-full flex-col justify-center rounded-l-[25px] bg-white p-12 md:w-1/2">
+                                    <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
                                         <form className="space-y-6">
                                             <div>
                                                 <label
@@ -223,9 +224,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                         </form>
                                     </div>
                                 </div>
-                                <h2 className="mb-6 text-center text-2xl font-bold">
-                                    Book a Consultation
-                                </h2>
+
                                 {/* <motion.input
                                     type="text"
                                     placeholder="Name"

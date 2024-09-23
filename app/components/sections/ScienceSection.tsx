@@ -16,14 +16,17 @@ const ScienceSection = () => {
         <section
             id="science"
             ref={container}
-            className="relative h-[200vh] bg-gray-900 font-Satoshi text-white"
+            className="relative h-[200vh] font-Satoshi text-white"
         >
             <div className="sticky top-0 z-10 flex min-h-screen w-full items-center justify-center">
                 <motion.div
-                    style={{ scaleX: scaleTransform }}
-                    className="absolute left-0 top-0 z-10 h-full w-1/5 origin-left bg-[#fafafa]"
+                    style={{
+                        scaleX: scaleTransform,
+                        clipPath: "ellipse(50% 100% at 0% 50%)",
+                    }}
+                    className="absolute left-0 top-0 z-10 h-full w-1/2 origin-left bg-[#fafafa]"
                 />
-                <div className="absolute inset-0 mx-auto flex h-[100vh] max-w-4xl flex-col items-center justify-center px-4 text-center text-white">
+                <div className="absolute inset-0 mx-auto flex h-[100vh] max-w-4xl flex-col items-center justify-center px-4 text-center text-white mix-blend-difference">
                     <h3
                         className="mb-4 text-xl opacity-75"
                         style={{ position: "absolute", top: "10%" }}
@@ -89,8 +92,12 @@ const ScienceSection = () => {
                 </div>
             </div>
             <motion.div
-                style={{ scaleX: scaleTransform }}
-                className="absolute right-0 top-0 z-10 h-full w-1/5 origin-right bg-[#fafafa]"
+                style={{
+                    scaleX: scaleTransform,
+
+                    clipPath: "ellipse(50% 100% at 100% 50%)",
+                }}
+                className="absolute right-0 top-0 z-10 h-full w-1/2 origin-right bg-[#fafafa]"
             />
         </section>
     )
