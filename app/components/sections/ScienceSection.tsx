@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
 const ScienceSection = () => {
     const container = useRef(null)
@@ -10,14 +10,6 @@ const ScienceSection = () => {
         target: container,
         offset: ["start start", "end end"],
     })
-
-    const videoRef = useRef(null)
-
-    useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.playbackRate = 0.7 // Set the playback speed to 0.3x
-        }
-    }, [])
 
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [0, 1])
     return (
@@ -73,7 +65,6 @@ const ScienceSection = () => {
             <div className="sticky inset-0 z-0 h-[100vh]">
                 <div className="flex h-full">
                     <video
-                        ref={videoRef}
                         autoPlay
                         loop
                         muted
@@ -88,8 +79,8 @@ const ScienceSection = () => {
                                     <Image
                                         src={`/img/oguni-sugi-${colIndex}-${imgIndex}.jpg`}
                                         alt={`Oguni Sugi ${colIndex}-${imgIndex}`}
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
                                     />
                                 </div>
                             ))}

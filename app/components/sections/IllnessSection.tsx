@@ -45,12 +45,15 @@ const IllnessSectionCarousel = () => {
     const { scrollYProgress } = useScroll({
         target: targetRef,
     })
-    console.log(cards.length)
+
     const x = useTransform(
         scrollYProgress,
         [0, 1, 1 - 1 / cards.length],
         ["1%", -(100 - cards.length) + "%", -(100 - cards.length) + "%"],
     )
+
+    const renderCard = (card: CardType) => <Card card={card} key={card.id} />
+
     return (
         <section ref={targetRef} className="relative h-[300vh] bg-secondary">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
@@ -60,13 +63,7 @@ const IllnessSectionCarousel = () => {
                     }}
                     className="flex gap-4"
                 >
-                    {cards.map((card) => {
-                        return (
-                            <FadeInOnScroll threshold={0.5}>
-                                <Card card={card} key={card.id} />
-                            </FadeInOnScroll>
-                        )
-                    })}
+                    {cards.map(renderCard)}
                 </motion.div>
             </div>
         </section>

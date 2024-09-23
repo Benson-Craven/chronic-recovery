@@ -33,8 +33,8 @@ export default function Home() {
                     <MindBodySection />
                     <IllnessSection />
                     <WeDoSection />
-                    <Services />
                     <ScienceSection />
+                    <Services />
                 </section>
             </main>
         </>
