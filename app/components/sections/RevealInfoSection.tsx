@@ -53,7 +53,7 @@ const RevealInfoSection = () => {
                             className="relative h-full w-full"
                         >
                             <Image
-                                src="/images/forest.png"
+                                src="/images/therapy.jpg"
                                 alt="Forest Image"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -78,7 +78,7 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/forest.png"
+                                            src="/images/marsha.png"
                                             alt="Forest"
                                             width={400}
                                             height={600}
@@ -90,7 +90,7 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/forest.png"
+                                            src="/images/cork.jpg"
                                             alt="Forest"
                                             width={100}
                                             height={150}
@@ -104,7 +104,7 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/forest.png"
+                                            src="/images/marsha2.jpg"
                                             alt="Oguni Cedar"
                                             width={100}
                                             height={100}
@@ -116,7 +116,7 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/forest.png"
+                                            src="/images/marsha3.jpg"
                                             alt="Aso Region"
                                             width={300}
                                             height={300}

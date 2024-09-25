@@ -18,36 +18,6 @@ const WeDoSection = () => {
     return (
         <>
             {" "}
-            <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
-                <div className="flex h-2/3 w-2/3 flex-col items-center justify-center">
-                    <FadeInOnScroll threshold={0.7}>
-                        <h1 className="p-5 text-center font-Satoshi text-5xl font-bold text-textPrimary">
-                            Our approach has helped countless individuals of all
-                            ages{" "}
-                            <span className="font-butler italic">overcome</span>{" "}
-                            debilitating ailments and{" "}
-                            <span className="font-butler italic">reclaim </span>{" "}
-                            their lives
-                        </h1>{" "}
-                    </FadeInOnScroll>
-                    <FadeInOnScroll threshold={0.7}>
-                        {" "}
-                        <p className="mt-2 p-5 text-center font-Satoshi text-2xl font-bold text-textSecondary">
-                            Experience life-changing results with our proven
-                            methods
-                        </p>
-                    </FadeInOnScroll>
-                    <FadeInOnScroll threshold={0.7}>
-                        <motion.button
-                            className="text-l mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi font-bold text-secondary md:text-2xl"
-                            whileTap={{ scale: 0.85 }}
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            Book Your Consultation Now
-                        </motion.button>
-                    </FadeInOnScroll>
-                </div>{" "}
-            </section>
             {/* <section className="flex min-h-screen flex-col md:flex-row">
                 <div className="flex min-h-screen w-1/2 flex-col items-center justify-center bg-primary p-10">
                     <h1 className="font-Satoshi mb-8 bg-textPrimary p-4 text-lg font-bold md:text-6xl">
@@ -155,7 +125,7 @@ const WeDoSection = () => {
                             </p>
                             <ShineUnderlineEffect>
                                 <Link
-                                    href="/about"
+                                    href="/info"
                                     className="inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
                                 >
                                     <span className="mr-2">About us</span>
@@ -178,6 +148,36 @@ const WeDoSection = () => {
                         </div>
                     </div>
                 </div>
+            </section>{" "}
+            <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
+                <div className="flex h-2/3 w-2/3 flex-col items-center justify-center">
+                    <FadeInOnScroll threshold={0.7}>
+                        <h1 className="p-5 text-center font-Satoshi text-5xl font-bold text-textPrimary">
+                            Our approach has helped countless individuals of all
+                            ages{" "}
+                            <span className="font-butler italic">overcome</span>{" "}
+                            debilitating ailments and{" "}
+                            <span className="font-butler italic">reclaim </span>{" "}
+                            their lives
+                        </h1>{" "}
+                    </FadeInOnScroll>
+                    <FadeInOnScroll threshold={0.7}>
+                        {" "}
+                        <p className="mt-2 p-5 text-center font-Satoshi text-2xl font-bold text-textSecondary">
+                            Experience life-changing results with our proven
+                            methods
+                        </p>
+                    </FadeInOnScroll>
+                    <FadeInOnScroll threshold={0.7}>
+                        <motion.button
+                            className="text-l mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi font-bold text-secondary md:text-2xl"
+                            whileTap={{ scale: 0.85 }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            Book Your Consultation Now
+                        </motion.button>
+                    </FadeInOnScroll>
+                </div>{" "}
             </section>
         </>
     )

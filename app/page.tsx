@@ -7,6 +7,8 @@ import { motion } from "framer-motion"
 import ScienceSection from "./components/sections/ScienceSection"
 import Services from "./components/sections/Services"
 import MaskTextSection from "./components/sections/MaskTextSection"
+import ScienceInfo from "./components/sections/ScienceInfo"
+import SVGTest from "./components/sections/SVGTest"
 
 export default function Home() {
     return (
@@ -32,11 +34,14 @@ export default function Home() {
 
                 <section>
                     <MindBodySection />
-                    <IllnessSection />
                     <WeDoSection />
+                    <IllnessSection />
+
                     {/* <ScienceSection /> */}
                     <Services />
                     <MaskTextSection />
+                    {/* <ScienceInfo /> */}
+                    {/* <SVGTest /> */}
                 </section>
             </main>
         </>

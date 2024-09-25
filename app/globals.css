@@ -33,6 +33,11 @@ body {
     .text-balance {
         text-wrap: balance;
     }
+    .squiggle path {
+        stroke-dasharray: none;
+        stroke-dashoffset: none;
+        transition: stroke-dashoffset 0.5s ease;
+    }
 }
 
 @font-face {
