@@ -45,8 +45,21 @@ const Card: React.FC<CardProps> = ({
                     top: `calc(-5vh + ${i * 25}px)`,
                     backgroundColor: color,
                 }} // Apply dynamic color here
-                className="relative flex h-[500px] w-[1000px] overflow-hidden rounded-[32px] border-2 border-black shadow-md"
+                className="relative flex h-[600px] w-[500px] flex-col overflow-hidden rounded-[32px] border-2 border-black shadow-md md:h-[500px] md:w-[1000px] md:flex-row"
             >
+                <div className="relative h-1/3 overflow-hidden md:h-full md:w-1/2">
+                    <motion.div
+                        className="h-full w-full"
+                        style={{ scale: imageScale }}
+                    >
+                        <Image
+                            fill
+                            src={`/images/${src}`}
+                            alt={title}
+                            className="object-cover"
+                        />
+                    </motion.div>
+                </div>
                 <div className="flex flex-1 flex-col justify-center p-12">
                     <h2 className="mb-4 text-5xl font-bold text-black">
                         {title}
@@ -76,19 +89,6 @@ const Card: React.FC<CardProps> = ({
                             />
                         </svg>
                     </a>
-                </div>
-                <div className="relative w-1/2 overflow-hidden">
-                    <motion.div
-                        className="h-full w-full"
-                        style={{ scale: imageScale }}
-                    >
-                        <Image
-                            fill
-                            src={`/images/${src}`}
-                            alt={title}
-                            className="object-cover"
-                        />
-                    </motion.div>
                 </div>
             </motion.div>
         </div>

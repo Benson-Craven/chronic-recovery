@@ -108,10 +108,10 @@ const WeDoSection = () => {
                             </div>
                         </div>
                         <div className="font-Satoshi md:w-1/2 md:pl-12">
-                            <h2 className="mb-6 text-4xl font-bold text-[#212721]">
+                            <h2 className="mx-4 mb-6 text-4xl font-bold text-[#212721]">
                                 We Cultivate for Posterity
                             </h2>
-                            <p className="mb-8 text-lg text-[#212721]">
+                            <p className="mx-4 mb-8 text-lg text-[rgb(33,39,33)]">
                                 I am delighted to tell you that there is new
                                 help for chronic pain sufferers and for people
                                 with other medically unexplained diagnoses such
@@ -126,7 +126,7 @@ const WeDoSection = () => {
                             <ShineUnderlineEffect>
                                 <Link
                                     href="/info"
-                                    className="inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
+                                    className="mx-4 inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
                                 >
                                     <span className="mr-2">About us</span>
                                     <svg
@@ -150,9 +150,9 @@ const WeDoSection = () => {
                 </div>
             </section>{" "}
             <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
-                <div className="flex h-2/3 w-2/3 flex-col items-center justify-center">
+                <div className="flex h-2/3 w-5/6 flex-col items-center justify-center md:w-2/3">
                     <FadeInOnScroll threshold={0.7}>
-                        <h1 className="p-5 text-center font-Satoshi text-5xl font-bold text-textPrimary">
+                        <h1 className="p-5 text-center font-Satoshi text-3xl font-bold text-textPrimary md:text-5xl">
                             Our approach has helped countless individuals of all
                             ages{" "}
                             <span className="font-butler italic">overcome</span>{" "}
@@ -163,7 +163,7 @@ const WeDoSection = () => {
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         {" "}
-                        <p className="mt-2 p-5 text-center font-Satoshi text-2xl font-bold text-textSecondary">
+                        <p className="text-l mt-2 p-5 text-center font-Satoshi font-bold text-textSecondary md:text-2xl">
                             Experience life-changing results with our proven
                             methods
                         </p>

@@ -19,7 +19,7 @@ const RevealImageSection = () => {
                 {/* Left scaling div */}
                 <motion.div
                     style={{ scaleX: scaleTransform }}
-                    className="absolute left-0 top-0 z-10 h-full w-1/3 origin-left bg-[#fafafa]"
+                    className="absolute left-0 top-0 z-10 h-full w-1/12 origin-left bg-[#fafafa] md:w-1/3"
                 />
                 {/* Image */}{" "}
                 <div className="sticky top-0 h-[100vh] w-full">
@@ -45,7 +45,7 @@ const RevealImageSection = () => {
                 {/* Right scaling div */}
                 <motion.div
                     style={{ scaleX: scaleTransform }}
-                    className="absolute right-0 top-0 z-10 h-full w-1/3 origin-right bg-[#fafafa]"
+                    className="absolute right-0 top-0 z-10 h-full w-1/12 origin-right bg-[#fafafa] md:w-1/3"
                 />
             </div>
         </section>

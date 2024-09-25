@@ -13,7 +13,7 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "Structured approach to resolving the causes of chronic pain",
+        title: "Structured approach to resolving the causes ",
         description:
             "I specialise in helping people with persistent pain conditions and have worked with many people of all ages and ailments and seen fantastic results.",
         src: "phone.jpg",
@@ -37,7 +37,7 @@ const projects: Project[] = [
     },
 ]
 
-export default function Home() {
+export default function Services() {
     const container = useRef<HTMLElement>(null)
     const { scrollYProgress } = useScroll({
         target: container,
@@ -53,7 +53,7 @@ export default function Home() {
                 id="services"
                 className="absolute left-1/2 -translate-x-1/2 transform"
             >
-                <h2 className="mb-16 text-7xl tracking-tight text-black">
+                <h2 className="mb-16 text-3xl tracking-tight text-black md:text-7xl">
                     How can I help you?
                 </h2>
             </div>

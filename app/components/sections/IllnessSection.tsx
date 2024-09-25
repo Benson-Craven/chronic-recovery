@@ -7,15 +7,15 @@ import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 const IllnessSection = () => {
     return (
         <div className="bg-secondary">
-            <div className="flex h-48 items-center justify-center">
+            <div className="flex h-36 items-center justify-center md:h-48">
                 <FadeInOnScroll>
                     {" "}
-                    <span className="font-Satoshi font-semibold text-textThird md:text-3xl">
+                    <span className="font-Satoshi text-lg font-semibold text-textThird md:text-3xl">
                         What We Do
                     </span>
                 </FadeInOnScroll>
             </div>
-            <h1 className="mb-2 text-center font-Satoshi text-5xl text-neutral-200">
+            <h1 className="mb-2 text-center font-Satoshi text-4xl text-neutral-200 md:text-5xl">
                 <FadeInOnScroll threshold={0.5}>
                     {" "}
                     Are you{" "}
@@ -24,8 +24,8 @@ const IllnessSection = () => {
             </h1>
             <IllnessSectionCarousel />
             <FadeInOnScroll>
-                <div className="flex h-[80vh] items-center justify-center">
-                    <span className="p-5 text-center font-Satoshi leading-tight text-textThird md:text-5xl">
+                <div className="flex h-[40vh] items-center justify-center md:h-[80vh]">
+                    <span className="w-3/4 p-5 text-center font-Satoshi text-3xl leading-tight text-textThird md:w-full md:text-5xl">
                         Have you seen{" "}
                         <span className="font-butler italic">multiple</span>{" "}
                         medical professionals without finding{" "}
@@ -61,7 +61,7 @@ const IllnessSectionCarousel = () => {
             ref={targetRef}
             className="relative h-[300vh] bg-secondary"
         >
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+            <div className="sticky top-0 flex h-[500px] items-center overflow-hidden md:mt-0 md:h-screen">
                 <motion.div
                     style={{
                         x,
@@ -79,7 +79,7 @@ const Card = ({ card }: { card: CardType }) => {
     return (
         <div
             key={card.id}
-            className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200 duration-300"
+            className="group relative h-[300px] w-[300px] overflow-hidden bg-neutral-200 duration-300 md:h-[450px] md:w-[450px]"
         >
             <div
                 style={{
@@ -90,7 +90,7 @@ const Card = ({ card }: { card: CardType }) => {
                 className="absolute inset-0 z-0 transition-transform duration-300"
             ></div>
             <div className="absolute inset-0 z-10 grid place-content-center">
-                <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+                <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-2xl font-black uppercase text-white backdrop-blur-lg md:text-6xl">
                     {card.title}
                 </p>
             </div>

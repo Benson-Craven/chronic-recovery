@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import SvgBackground from "./ScienceInfo"
+import Image from "next/image"
 
 export default function MaskTextSection() {
     const container = useRef<HTMLDivElement>(null)
@@ -142,6 +141,53 @@ export default function MaskTextSection() {
                         of our body based on its perception of immediate danger.
                     </p>
                 </div>
+                <div className="relative z-10 grid grid-cols-4 gap-4 p-10 sm:grid-cols-2">
+                    {/* <figure className="col-span-1 row-span-1 h-[400px] w-[300px]">
+                        <Image
+                            src="/images/monstera.jpg"
+                            alt="Photo 2"
+                            layout="responsive"
+                            width={300}
+                            height={400}
+                            objectFit="cover"
+                        />
+                    </figure> */}
+
+                    <figure className="col-span-1 row-span-2">
+                        <Image
+                            src="/images/meeting2.jpg"
+                            alt="Photo 3"
+                            layout="responsive"
+                            width={400}
+                            height={600}
+                            objectFit="cover"
+                            className="rounded-3xl"
+                        />
+                    </figure>
+
+                    {/* <figure className="col-span-2 row-span-1">
+                        <Image
+                            src="/images/phone.jpg"
+                            alt="Photo 4"
+                            layout="responsive"
+                            width={500}
+                            height={300}
+                            objectFit="cover"
+                        />
+                    </figure> */}
+
+                    {/* <figure className="col-span-1 row-span-1">
+                        <Image
+                            src="/photo5.jpg"
+                            alt="Photo 5"
+                            layout="responsive"
+                            width={300}
+                            height={300}
+                            objectFit="cover"
+                        />
+                    </figure> */}
+                </div>
+
                 <svg
                     width="1000"
                     height="2000"
