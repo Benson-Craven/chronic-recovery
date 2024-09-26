@@ -14,7 +14,14 @@ export default function MaskTextSection() {
     const targetY = 2.2
 
     useEffect(() => {
-        requestAnimationFrame(animate)
+        const handleScroll = () => {
+            requestAnimationFrame(animate)
+        }
+        window.addEventListener("scroll", handleScroll)
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
     }, [])
 
     const svgRef = useRef<HTMLDivElement>(null)
@@ -114,6 +121,7 @@ export default function MaskTextSection() {
                         <p className="mb-2 font-semibold text-textPrimary/30">
                             Scroll Down
                         </p>
+                        {/* Downwards arrow */}
                         <svg
                             className="mx-auto h-6 w-6 animate-bounce text-textPrimary/20"
                             fill="none"
@@ -123,7 +131,7 @@ export default function MaskTextSection() {
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                         >
-                            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                         </svg>
                     </div>
                 </div>
@@ -142,17 +150,6 @@ export default function MaskTextSection() {
                     </p>
                 </div>
                 <div className="relative z-10 grid grid-cols-4 gap-4 p-10 sm:grid-cols-2">
-                    {/* <figure className="col-span-1 row-span-1 h-[400px] w-[300px]">
-                        <Image
-                            src="/images/monstera.jpg"
-                            alt="Photo 2"
-                            layout="responsive"
-                            width={300}
-                            height={400}
-                            objectFit="cover"
-                        />
-                    </figure> */}
-
                     <figure className="col-span-1 row-span-2">
                         <Image
                             src="/images/meeting2.jpg"
@@ -194,7 +191,7 @@ export default function MaskTextSection() {
                     viewBox="0 0 1000 2000"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="absolute left-0 top-0 z-0 h-[200vw] w-[100vw]"
+                    className="absolute left-0 top-0 z-0 h-[400vw] md:h-[200vw] md:w-[100vw]"
                 >
                     <path
                         ref={pathRef}

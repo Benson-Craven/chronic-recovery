@@ -53,9 +53,10 @@ export default function Services() {
                 id="services"
                 className="absolute left-1/2 -translate-x-1/2 transform"
             >
-                <h2 className="mb-16 text-3xl tracking-tight text-black md:text-7xl">
+                <h2 className="mb-6 text-4xl tracking-tight text-textPrimary md:text-7xl">
                     How can I help you?
                 </h2>
+                <div className="mb-16 h-[1px] bg-textPrimary opacity-10"></div>
             </div>
             <div className="mt-16">
                 {" "}

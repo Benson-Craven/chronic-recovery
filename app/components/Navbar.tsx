@@ -28,7 +28,7 @@ const Navbar = ({ className }: NavbarProps) => {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [prevScrollPos])
 
-    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi ${
+    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi h-16     ${
         visible ? "translate-y-0" : "-translate-y-full"
     } ${className}`
 
@@ -143,6 +143,12 @@ const Navbar = ({ className }: NavbarProps) => {
                                     {/* Right side */}
                                     <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
                                         <form className="space-y-6">
+                                            <h1 className="mb-6 text-3xl font-bold md:hidden">
+                                                Contact us today
+                                            </h1>
+
+                                            <div className="h-[1px] bg-black opacity-10"></div>
+
                                             <div>
                                                 <label
                                                     htmlFor="name"
@@ -171,7 +177,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                     className="w-full rounded border border-gray-300 p-2"
                                                 />
                                             </div>
-                                            <div>
+                                            {/* <div>
                                                 <label
                                                     htmlFor="role"
                                                     className="mb-2 block"
@@ -196,7 +202,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                         Other
                                                     </option>
                                                 </select>
-                                            </div>
+                                            </div> */}
                                             <div>
                                                 <label
                                                     htmlFor="message"

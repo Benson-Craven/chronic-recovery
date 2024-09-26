@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({
                     top: `calc(-5vh + ${i * 25}px)`,
                     backgroundColor: color,
                 }} // Apply dynamic color here
-                className="relative flex h-[600px] w-[500px] flex-col overflow-hidden rounded-[32px] border-2 border-black shadow-md md:h-[500px] md:w-[1000px] md:flex-row"
+                className="relative flex h-[500px] w-[400px] flex-col overflow-hidden rounded-[32px] border-2 border-black shadow-md md:h-[500px] md:w-[1000px] md:flex-row"
             >
                 <div className="relative h-1/3 overflow-hidden md:h-full md:w-1/2">
                     <motion.div
@@ -60,10 +60,12 @@ const Card: React.FC<CardProps> = ({
                         />
                     </motion.div>
                 </div>
-                <div className="flex flex-1 flex-col justify-center p-12">
-                    <h2 className="mb-4 text-5xl font-bold text-black">
+                <div className="flex flex-1 flex-col justify-center p-6 md:p-12">
+                    <h2 className="mb-2 w-full text-3xl font-bold text-black md:text-5xl">
                         {title}
                     </h2>
+                    <div className="mb-6 h-[1px] bg-textPrimary opacity-40" />
+
                     <p className="mb-6 text-lg text-black">{description}</p>
                     <a
                         href={url}

@@ -3,19 +3,20 @@ import { motion, useTransform, useScroll } from "framer-motion"
 import { useRef } from "react"
 import React from "react"
 import { FadeInOnScroll } from "../animations/FadeInOnScroll"
+import Image from "next/image"
 
 const IllnessSection = () => {
     return (
         <div className="bg-secondary">
-            <div className="flex h-36 items-center justify-center md:h-48">
+            {/* <div className="flex h-36 items-center justify-center md:h-48">
                 <FadeInOnScroll>
                     {" "}
                     <span className="font-Satoshi text-lg font-semibold text-textThird md:text-3xl">
                         What We Do
                     </span>
                 </FadeInOnScroll>
-            </div>
-            <h1 className="mb-2 text-center font-Satoshi text-4xl text-neutral-200 md:text-5xl">
+            </div> */}
+            <h1 className="mb-2 flex h-40 items-center justify-center text-center font-Satoshi text-4xl text-neutral-200 md:text-5xl">
                 <FadeInOnScroll threshold={0.5}>
                     {" "}
                     Are you{" "}
@@ -81,14 +82,21 @@ const Card = ({ card }: { card: CardType }) => {
             key={card.id}
             className="group relative h-[300px] w-[300px] overflow-hidden bg-neutral-200 duration-300 md:h-[450px] md:w-[450px]"
         >
-            <div
+            <Image
+                src={`${card.url}`}
+                alt={card.title}
+                fill
+                loading="lazy"
+                className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-300"
+            />
+            {/* <div
                 style={{
                     backgroundImage: `url(${card.url})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
                 className="absolute inset-0 z-0 transition-transform duration-300"
-            ></div>
+            ></div> */}
             <div className="absolute inset-0 z-10 grid place-content-center">
                 <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-2xl font-black uppercase text-white backdrop-blur-lg md:text-6xl">
                     {card.title}
