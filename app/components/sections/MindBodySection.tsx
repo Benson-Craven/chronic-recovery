@@ -14,12 +14,17 @@ const RevealImageSection = () => {
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 0])
 
     return (
-        <section ref={container} className="h-[200vh] w-full bg-gray-100">
+        <section ref={container} className="h-[200vh] w-full bg-[#fafafa]">
             <div className="relative h-full w-full">
                 {/* Left scaling div */}
                 <motion.div
                     style={{ scaleX: scaleTransform }}
                     className="absolute left-0 top-0 z-10 h-full w-1/12 origin-left bg-[#fafafa] md:w-1/3"
+                />
+                {/* Top scaling div */}
+                <motion.div
+                    style={{ scaleY: scaleTransform }}
+                    className="fixed top-0 z-10 w-full origin-top bg-[#fafafa] md:h-[10vh]"
                 />
                 {/* Image */}{" "}
                 <div className="sticky top-0 h-[100vh] w-full">
@@ -45,6 +50,11 @@ const RevealImageSection = () => {
                 <motion.div
                     style={{ scaleX: scaleTransform }}
                     className="absolute right-0 top-0 z-10 h-full w-1/12 origin-right bg-[#fafafa] md:w-1/3"
+                />
+                {/* Top scaling div */}
+                <motion.div
+                    style={{ scaleY: scaleTransform }}
+                    className="fixed bottom-0 z-10 w-full origin-bottom bg-[#fafafa] md:h-[10vh]"
                 />
             </div>
         </section>

@@ -56,7 +56,7 @@ export default function Services() {
                 <h2 className="mb-6 text-4xl tracking-tight text-textPrimary md:text-7xl">
                     How can I help you?
                 </h2>
-                <div className="mb-16 h-[1px] bg-textPrimary opacity-10"></div>
+                <div className="mb-16 h-[1px] bg-textPrimary opacity-10" />
             </div>
             <div className="mt-16">
                 {" "}

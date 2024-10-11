@@ -6,7 +6,7 @@ const ShineUnderlineEffect: React.FC<{ children: React.ReactNode }> = ({
     return (
         <span className="group relative inline-block overflow-hidden">
             <span className="shine-effect relative z-10">{children}</span>
-            <span className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-textPrimary to-textPrimary bg-[length:0%_2px] bg-right bg-no-repeat transition-all duration-300 ease-in-out group-hover:bg-[length:100%_2px]"></span>
+            <span className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-slate-100 to-slate-200 bg-[length:0%_2px] bg-right bg-no-repeat transition-all duration-300 ease-in-out group-hover:bg-[length:100%_2px]"></span>
             <style jsx>{`
                 .shine-effect {
                     display: inline-block;

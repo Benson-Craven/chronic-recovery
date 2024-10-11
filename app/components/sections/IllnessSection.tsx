@@ -16,7 +16,7 @@ const IllnessSection = () => {
                     </span>
                 </FadeInOnScroll>
             </div> */}
-            <h1 className="mb-2 flex h-40 items-center justify-center text-center font-Satoshi text-4xl text-neutral-200 md:text-5xl">
+            <h1 className="flex h-[50vh] items-center justify-center text-center font-Satoshi text-4xl text-neutral-200 md:text-5xl">
                 <FadeInOnScroll threshold={0.5}>
                     {" "}
                     Are you{" "}
@@ -25,8 +25,8 @@ const IllnessSection = () => {
             </h1>
             <IllnessSectionCarousel />
             <FadeInOnScroll>
-                <div className="flex h-[40vh] items-center justify-center md:h-[80vh]">
-                    <span className="w-3/4 p-5 text-center font-Satoshi text-3xl leading-tight text-textThird md:w-full md:text-5xl">
+                <div className="container mx-auto flex h-[40vh] items-center justify-center md:h-[80vh]">
+                    <span className="w-3/4 text-center font-Satoshi text-3xl leading-tight text-textThird md:w-full md:text-5xl">
                         Have you seen{" "}
                         <span className="font-butler italic">multiple</span>{" "}
                         medical professionals without finding{" "}
@@ -47,13 +47,12 @@ const IllnessSectionCarousel = () => {
         target: targetRef,
     })
 
+    // Adjust the range and transformation values to stop at the second card
     const x = useTransform(
         scrollYProgress,
-        [0, 1, 1 - 1 / cards.length],
-        ["1%", -(100 - cards.length) + "%", -(100 - cards.length) + "%"],
+        [0, 0.5, 1],
+        ["1%", "-33.33%", "-54%"], // Stops at the second card
     )
-
-    const renderCard = (card: CardType) => <Card card={card} key={card.id} />
 
     return (
         <section
@@ -63,13 +62,10 @@ const IllnessSectionCarousel = () => {
             className="relative h-[300vh] bg-secondary"
         >
             <div className="sticky top-0 flex h-[500px] items-center overflow-hidden md:mt-0 md:h-screen">
-                <motion.div
-                    style={{
-                        x,
-                    }}
-                    className="flex gap-4"
-                >
-                    {cards.map(renderCard)}
+                <motion.div style={{ x }} className="flex gap-4">
+                    {cards.map((card) => (
+                        <Card key={card.id} card={card} />
+                    ))}
                 </motion.div>
             </div>
         </section>
@@ -78,25 +74,15 @@ const IllnessSectionCarousel = () => {
 
 const Card = ({ card }: { card: CardType }) => {
     return (
-        <div
-            key={card.id}
-            className="group relative h-[300px] w-[300px] overflow-hidden bg-neutral-200 duration-300 md:h-[450px] md:w-[450px]"
-        >
+        <div className="group relative mx-6 h-[300px] w-[300px] overflow-hidden rounded-lg bg-neutral-200 duration-300 md:h-[450px] md:w-[450px]">
             <Image
-                src={`${card.url}`}
+                src={card.url}
                 alt={card.title}
                 fill
+                sizes="(max-width: 768px) 300px, 450px"
                 loading="lazy"
-                className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-300"
+                className="object-cover"
             />
-            {/* <div
-                style={{
-                    backgroundImage: `url(${card.url})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-                className="absolute inset-0 z-0 transition-transform duration-300"
-            ></div> */}
             <div className="absolute inset-0 z-10 grid place-content-center">
                 <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-2xl font-black uppercase text-white backdrop-blur-lg md:text-6xl">
                     {card.title}
@@ -117,32 +103,32 @@ type CardType = {
 const cards: CardType[] = [
     {
         url: "/images/stomach-pain.jpg",
-        title: "Title 1",
+        title: "Stomach Pain",
         id: 1,
     },
     {
         url: "/images/neck-pain.jpg",
-        title: "Title 2",
+        title: "Neck Pain",
         id: 2,
     },
     {
         url: "/images/headache.jpg",
-        title: "Title 3",
+        title: "Headache",
         id: 3,
     },
     {
         url: "/images/wrist-pain.jpg",
-        title: "Title 4",
+        title: "Wrist Pain",
         id: 4,
     },
     {
         url: "/images/monstera.jpg",
-        title: "Title 5",
+        title: "Monstera",
         id: 5,
     },
     {
         url: "/images/meeting1.jpg",
-        title: "Title 6",
+        title: "Meeting",
         id: 6,
     },
 ]

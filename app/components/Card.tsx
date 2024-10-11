@@ -61,7 +61,7 @@ const Card: React.FC<CardProps> = ({
                     </motion.div>
                 </div>
                 <div className="flex flex-1 flex-col justify-center p-6 md:p-12">
-                    <h2 className="mb-2 w-full text-3xl font-bold text-black md:text-5xl">
+                    <h2 className="mb-2 w-full text-3xl text-black md:text-5xl">
                         {title}
                     </h2>
                     <div className="mb-6 h-[1px] bg-textPrimary opacity-40" />
@@ -71,7 +71,7 @@ const Card: React.FC<CardProps> = ({
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black"
+                        className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
                     >
                         Count me in
                         <svg

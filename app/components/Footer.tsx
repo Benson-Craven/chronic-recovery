@@ -5,7 +5,7 @@ import ShineUnderlineEffect from "./UnderlineEffect"
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary pb-6 pt-12 font-Satoshi text-[#fafafa]">
+        <footer className="relative z-20 bg-secondary pb-6 pt-12 font-Satoshi text-[#fafafa]">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {/* Newsletter Section */}

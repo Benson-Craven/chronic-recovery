@@ -122,9 +122,10 @@ const Navbar = ({ className }: NavbarProps) => {
                                 <div className="flex h-full w-full rounded-[25px] bg-textSecondary">
                                     {/* Left side */}
                                     <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
-                                        <h1 className="mb-6 text-6xl font-bold">
+                                        <h1 className="mb-6 text-6xl">
                                             Contact us today
                                         </h1>
+                                        <div className="mb-10 h-[1px] bg-black opacity-10" />
                                         <p className="mb-4">
                                             Please fill out the form to learn
                                             more about Chronic Pain Recovery and
@@ -142,12 +143,12 @@ const Navbar = ({ className }: NavbarProps) => {
 
                                     {/* Right side */}
                                     <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
-                                        <form className="space-y-6">
+                                        <span className="space-y-6">
                                             <h1 className="mb-6 text-3xl font-bold md:hidden">
                                                 Contact us today
                                             </h1>
 
-                                            <div className="h-[1px] bg-black opacity-10"></div>
+                                            <div className="h-[1px] bg-black opacity-10 md:hidden"></div>
 
                                             <div>
                                                 <label
@@ -227,7 +228,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                 Terms & Conditions and our
                                                 Privacy Policy.
                                             </p>
-                                        </form>
+                                        </span>
                                     </div>
                                 </div>
 

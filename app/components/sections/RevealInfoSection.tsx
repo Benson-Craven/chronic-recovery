@@ -33,7 +33,7 @@ const RevealInfoSection = () => {
 
     return (
         <>
-            <section ref={container} className="h-[200vh] w-full bg-gray-100">
+            <section ref={container} className="h-[200vh] w-full bg-[#fafafa]">
                 <div className="relative h-full w-full">
                     {/* Left scaling div */}
                     <motion.div
@@ -67,7 +67,7 @@ const RevealInfoSection = () => {
                     />
                 </div>
             </section>
-            <section className="flex h-[120vh] items-center justify-center bg-[#F9F9F9] py-16 md:py-24">
+            <section className="flex h-[120vh] items-center justify-center bg-[#fafafa] py-16 md:py-24">
                 <div ref={secondContainer} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
@@ -143,7 +143,7 @@ const RevealInfoSection = () => {
                             </p>
                             <Link
                                 href="/about"
-                                className="inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
+                                className="inline-flex items-center text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
                             >
                                 <span className="mr-2">
                                     Book a consultation

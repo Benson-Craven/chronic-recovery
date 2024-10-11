@@ -4,9 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import ShineUnderlineEffect from "../UnderlineEffect"
+import Lottie, { LottieRefCurrentProps } from "lottie-react"
+import animationData from "../../../public/assets/women-health.json"
 
 const WeDoSection = () => {
     const container = useRef(null)
+    const animationRef = useRef<LottieRefCurrentProps>(null)
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start start", "end end"],
@@ -51,7 +54,7 @@ const WeDoSection = () => {
             <section className="h-[100vh] bg-[#F9F9F9] py-16 md:py-24">
                 <div ref={container} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
-                        <div className="mb-8 md:mb-0 md:w-1/2">
+                        {/* <div className="mb-8 md:mb-0 md:w-1/2">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4">
                                     <motion.div
@@ -106,9 +109,19 @@ const WeDoSection = () => {
                                     </motion.div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+                        <Lottie
+                            lottieRef={animationRef}
+                            animationData={animationData}
+                            // onComplete={() =>
+                            //     animationRef.current?.goToAndStop(50, true)
+                            //     animationRef.current?.goToAndPlay(50, true)
+                            // }
+                            loop={true}
+                            className="flex max-w-xl items-center justify-center"
+                        />
                         <div className="font-Satoshi md:w-1/2 md:pl-12">
-                            <h2 className="mx-4 mb-6 text-4xl font-bold text-[#212721]">
+                            <h2 className="mx-4 mb-6 text-4xl text-[#212721]">
                                 We Cultivate for Posterity
                             </h2>
                             <p className="mx-4 mb-8 text-lg text-[rgb(33,39,33)]">
@@ -126,7 +139,7 @@ const WeDoSection = () => {
                             <ShineUnderlineEffect>
                                 <Link
                                     href="/info"
-                                    className="mx-4 inline-flex items-center font-semibold text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
+                                    className="mx-4 inline-flex items-center text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
                                 >
                                     <span className="mr-2">About us</span>
                                     <svg
@@ -152,7 +165,7 @@ const WeDoSection = () => {
             <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
                 <div className="flex h-2/3 w-5/6 flex-col items-center justify-center md:w-2/3">
                     <FadeInOnScroll threshold={0.7}>
-                        <h1 className="p-5 text-center font-Satoshi text-3xl font-bold text-textPrimary md:text-5xl">
+                        <h1 className="p-5 text-center font-Satoshi text-3xl text-textPrimary md:text-5xl">
                             Our approach has helped countless individuals of all
                             ages{" "}
                             <span className="font-butler italic">overcome</span>{" "}
@@ -163,14 +176,14 @@ const WeDoSection = () => {
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         {" "}
-                        <p className="text-l mt-2 p-5 text-center font-Satoshi font-bold text-textSecondary md:text-2xl">
+                        <p className="mt-2 p-5 text-center font-Satoshi text-lg text-textSecondary md:text-2xl">
                             Experience life-changing results with our proven
                             methods
                         </p>
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         <motion.button
-                            className="text-l mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi font-bold text-secondary md:text-2xl"
+                            className="mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi text-lg text-secondary md:text-2xl"
                             whileTap={{ scale: 0.85 }}
                             whileHover={{ scale: 1.05 }}
                         >
