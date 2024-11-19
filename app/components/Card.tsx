@@ -4,6 +4,7 @@ import { useRef } from "react"
 
 interface CardProps {
     i: number
+    totalCards: number // Add total cards count to determine the last card
     title: string
     description: string
     src: string
@@ -16,6 +17,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
     i,
+    totalCards,
     title,
     description,
     src,
@@ -67,30 +69,38 @@ const Card: React.FC<CardProps> = ({
                     <div className="mb-6 h-[1px] bg-textPrimary opacity-40" />
 
                     <p className="mb-6 text-lg text-black">{description}</p>
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
-                    >
-                        Count me in
-                        <svg
-                            className="ml-2"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+
+                    {i === totalCards - 1 && (
+                        <motion.a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
+                            whileHover={{
+                                scale: 1.05,
+                                backgroundColor: "#f3f4f6",
+                            }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            <path
-                                d="M5 12H19M19 12L12 5M19 12L12 19"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </a>
+                            Inquire About a Consultation
+                            <svg
+                                className="ml-2"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </motion.a>
+                    )}
                 </div>
             </motion.div>
         </div>

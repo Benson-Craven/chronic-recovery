@@ -74,7 +74,7 @@ export default function MaskTextSection() {
     }
 
     return (
-        <main id="science" className="relative bg-[#fafafa]">
+        <main id="science" className="relative hidden bg-[#fafafa] md:block">
             <div className="h-[20vh]" />
             {/* Container with 400vh height to allow for long scroll */}
             <div ref={container} className="relative h-[400vh]">

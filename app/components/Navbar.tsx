@@ -78,11 +78,9 @@ const Navbar = ({ className }: NavbarProps) => {
             }}
         >
             <div className="flex w-full items-center justify-between">
-                <ShineUnderlineEffect>
-                    <Link href="/" className="flex-shrink-0">
-                        <p>CPR</p>
-                    </Link>
-                </ShineUnderlineEffect>
+                <Link href="/" className="flex-shrink-0">
+                    <p>CPR</p>
+                </Link>
 
                 <div className="hidden flex-grow items-center justify-center md:flex">
                     <ul className="flex space-x-10 uppercase">

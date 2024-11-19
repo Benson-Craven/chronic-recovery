@@ -1,11 +1,8 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import LenisProvider from "./components/SmoothScroller"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     title: "Chronic Pain Recovery",
@@ -19,9 +16,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className="font-satoshi">
                 <Navbar />
-                <LenisProvider>{children}</LenisProvider>
+                {children}
+                {/* <LenisProvider>{children}</LenisProvider> */}
                 <Footer />
             </body>
         </html>

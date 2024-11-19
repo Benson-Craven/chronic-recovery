@@ -16,7 +16,7 @@ const ScienceSection = () => {
         <section
             id="science"
             ref={container}
-            className="relative h-[200vh] font-Satoshi text-white"
+            className="relative h-[200vh] text-white"
         >
             <div className="sticky top-0 z-10 flex min-h-screen w-full items-center justify-center">
                 <motion.div

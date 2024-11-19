@@ -20,107 +20,16 @@ const WeDoSection = () => {
 
     return (
         <>
-            {" "}
-            {/* <section className="flex min-h-screen flex-col md:flex-row">
-                <div className="flex min-h-screen w-1/2 flex-col items-center justify-center bg-primary p-10">
-                    <h1 className="font-Satoshi mb-8 bg-textPrimary p-4 text-lg font-bold md:text-6xl">
-                        The <span className="font-butler italic">truth?</span>
-                    </h1>
-
-                    <p className="font-Satoshi mt-5 p-5 text-lg font-bold text-textPrimary md:text-5xl">
-                        <span className="font-butler italic">95%</span> of your
-                        brain is unconsciously on{" "}
-                        <span className="font-butler italic">high alert,</span>{" "}
-                        stuck in defense mode from past hurts.
-                    </p>
-                    <p className="font-Satoshi mt-5 p-5 text-lg font-bold text-textPrimary md:text-5xl">
-                        But you can{" "}
-                        <span className="font-butler italic">retrain </span>{" "}
-                        that bad habit. Our pioneering mind-body approach lets
-                        you take back the reins.
-                    </p>
-                </div>
-
-                <div className="flex min-h-screen w-1/2 items-center justify-center bg-pink-100">
-                    <video
-                        src="/videos/Waterfall.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        className="h-full w-full object-cover"
-                    />
-                </div>
-            </section> */}
             <section className="h-[100vh] bg-[#F9F9F9] py-16 md:py-24">
                 <div ref={container} className="container mx-auto px-4">
-                    <div className="flex flex-col items-center md:flex-row">
-                        {/* <div className="mb-8 md:mb-0 md:w-1/2">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-4">
-                                    <motion.div
-                                        style={{ x: leftTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                    >
-                                        <Image
-                                            src="/images/forest.png"
-                                            alt="Anai Wood Factory"
-                                            width={400}
-                                            height={600}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
-                                        />
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ x: leftTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                    >
-                                        <Image
-                                            src="/images/forest.png"
-                                            alt="Anai Wood Products"
-                                            width={100}
-                                            height={150}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
-                                        />
-                                    </motion.div>
-                                </div>
-                                <div className="mt-8 space-y-4">
-                                    <motion.div
-                                        style={{ x: rightTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                    >
-                                        <Image
-                                            src="/images/forest.png"
-                                            alt="Oguni Cedar"
-                                            width={100}
-                                            height={100}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
-                                        />
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ x: rightTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                    >
-                                        <Image
-                                            src="/images/forest.png"
-                                            alt="Aso Region"
-                                            width={300}
-                                            height={300}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
-                                        />
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </div> */}
+                    <div className="flex flex-col items-center md:flex-row md:space-x-12">
                         <Lottie
                             lottieRef={animationRef}
                             animationData={animationData}
-                            // onComplete={() =>
-                            //     animationRef.current?.goToAndStop(50, true)
-                            //     animationRef.current?.goToAndPlay(50, true)
-                            // }
                             loop={true}
-                            className="flex max-w-xl items-center justify-center"
+                            className="mb-8 flex max-w-xl items-center justify-center md:mb-0"
                         />
-                        <div className="font-Satoshi md:w-1/2 md:pl-12">
+                        <div className="md:w-1/2">
                             <h2 className="mx-4 mb-6 text-4xl text-[#212721]">
                                 We Cultivate for Posterity
                             </h2>
@@ -161,22 +70,22 @@ const WeDoSection = () => {
                         </div>
                     </div>
                 </div>
-            </section>{" "}
-            <section className="flex min-h-screen items-center justify-center bg-[#fafafa]">
-                <div className="flex h-2/3 w-5/6 flex-col items-center justify-center md:w-2/3">
+            </section>
+
+            <section className="flex min-h-screen items-center justify-center bg-[#fafafa] px-4 py-16 md:py-24">
+                <div className="flex flex-col items-center justify-center text-center md:w-2/3">
                     <FadeInOnScroll threshold={0.7}>
-                        <h1 className="p-5 text-center font-Satoshi text-3xl text-textPrimary md:text-5xl">
+                        <h1 className="p-5 font-Satoshi text-3xl text-textPrimary md:text-5xl">
                             Our approach has helped countless individuals of all
                             ages{" "}
                             <span className="font-butler italic">overcome</span>{" "}
                             debilitating ailments and{" "}
-                            <span className="font-butler italic">reclaim </span>{" "}
+                            <span className="font-butler italic">reclaim</span>
                             their lives
-                        </h1>{" "}
+                        </h1>
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
-                        {" "}
-                        <p className="mt-2 p-5 text-center font-Satoshi text-lg text-textSecondary md:text-2xl">
+                        <p className="mt-2 p-5 font-Satoshi text-lg text-textSecondary md:text-2xl">
                             Experience life-changing results with our proven
                             methods
                         </p>
@@ -190,7 +99,7 @@ const WeDoSection = () => {
                             Book Your Consultation Now
                         </motion.button>
                     </FadeInOnScroll>
-                </div>{" "}
+                </div>
             </section>
         </>
     )

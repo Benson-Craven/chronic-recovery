@@ -28,7 +28,7 @@ const config: Config = {
                 PlayfairDisplay: ["Playfair Display", "serif"],
                 Jost: ["Jost", "sans-serif"],
                 butler: ["Butler", "serif"],
-                Satoshi: ["Satoshi", "sans-serif"],
+                satoshi: ["Satoshi", "sans-serif"],
             },
             transitionTimingFunction: {
                 "custom-ease": "cubic-bezier(0.76, 0, 0.24, 1)", // Added for the Button component

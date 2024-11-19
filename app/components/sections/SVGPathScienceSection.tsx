@@ -100,18 +100,6 @@ const SVGPathScienceSection = () => {
                                 safety or danger based on past experiences - all
                                 without our awareness.
                             </p>
-                            <div className="mt-4 grid grid-cols-2 gap-2">
-                                <div className="rounded-lg bg-white/30 p-2">
-                                    <h3 className="font-semibold">
-                                        Interprets
-                                    </h3>
-                                    <p className="text-sm">World information</p>
-                                </div>
-                                <div className="rounded-lg bg-white/30 p-2">
-                                    <h3 className="font-semibold">Stores</h3>
-                                    <p className="text-sm">Safety memories</p>
-                                </div>
-                            </div>
                         </div>
                     </motion.figure>
 

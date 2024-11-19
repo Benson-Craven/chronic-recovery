@@ -45,15 +45,12 @@ export default function Services() {
     })
 
     return (
-        <main
-            ref={container}
-            className="relative bg-[#fafafa] pt-24 font-Satoshi"
-        >
+        <main ref={container} className="relative bg-[#fafafa] pt-24">
             <div
                 id="services"
-                className="absolute left-1/2 -translate-x-1/2 transform"
+                className="container mx-auto flex items-center justify-center"
             >
-                <h2 className="mb-6 text-4xl tracking-tight text-textPrimary md:text-7xl">
+                <h2 className="mb-6 text-3xl tracking-tight text-textPrimary sm:text-4xl md:text-7xl">
                     How can I help you?
                 </h2>
                 <div className="mb-16 h-[1px] bg-textPrimary opacity-10" />
@@ -64,6 +61,7 @@ export default function Services() {
                     const targetScale = 1 - (projects.length - i) * 0.05
                     return (
                         <Card
+                            totalCards={projects.length} // Pass total cards
                             key={`p_${i}`}
                             i={i}
                             {...project}

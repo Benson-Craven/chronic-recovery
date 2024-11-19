@@ -27,7 +27,7 @@ export default function Button({ isActive, toggleMenu }: ButtonProps) {
                     className="h-full w-full bg-textPrimary"
                     onClick={toggleMenu}
                 >
-                    <PerspectiveText label="Close" textColor="text-[#fafafa]" />
+                    <PerspectiveText label="X" textColor="text-[#fafafa]" />
                 </div>
             </motion.div>
         </div>
