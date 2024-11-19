@@ -37,7 +37,7 @@ const Footer = () => {
                     <div>
                         <h3 className="mb-4 text-lg font-bold">About Us</h3>
                         <ul className="space-y-2">
-                            {["Our Mission", "Team", "Testimonials"].map(
+                            {["Our Mission", "About Me", "Testimonials"].map(
                                 (item) => (
                                     <li key={item}>
                                         <Link href="#">

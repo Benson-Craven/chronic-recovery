@@ -42,7 +42,7 @@ const ScienceSection = () => {
                         on our own.
                     </p>
                     <Link
-                        href="/en/oguni-sugi"
+                        href=""
                         style={{ position: "absolute", bottom: "10%" }}
                         className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white transition duration-300 hover:bg-white hover:text-gray-900"
                     >
@@ -80,8 +80,8 @@ const ScienceSection = () => {
                             {[1, 2, 3].map((imgIndex) => (
                                 <div key={imgIndex} className="flex-1 p-1">
                                     <Image
-                                        src={`/img/oguni-sugi-${colIndex}-${imgIndex}.jpg`}
-                                        alt={`Oguni Sugi ${colIndex}-${imgIndex}`}
+                                        src={`/img-${colIndex}-${imgIndex}.jpg`}
+ ${colIndex}-${imgIndex}`}
                                         fill
                                         style={{ objectFit: 'cover' }}
                                     />

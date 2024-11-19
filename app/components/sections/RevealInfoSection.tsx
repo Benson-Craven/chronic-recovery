@@ -91,7 +91,7 @@ const RevealInfoSection = () => {
                                     >
                                         <Image
                                             src="/images/cork.jpg"
-                                            alt="Forest"
+                                            alt="cork"
                                             width={100}
                                             height={150}
                                             className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
@@ -104,8 +104,8 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/marsha2.jpg"
-                                            alt="Oguni Cedar"
+                                            src="/images/office.JPG"
+                                            alt="office"
                                             width={100}
                                             height={100}
                                             className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
@@ -116,8 +116,8 @@ const RevealInfoSection = () => {
                                         className="overflow-hidden rounded-lg"
                                     >
                                         <Image
-                                            src="/images/marsha3.jpg"
-                                            alt="Aso Region"
+                                            src="/images/books.jpg"
+                                            alt="books"
                                             width={300}
                                             height={300}
                                             className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
