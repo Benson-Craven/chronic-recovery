@@ -23,7 +23,7 @@ const Footer = () => {
                                 ,
                             ].map((item) => (
                                 <li key={item}>
-                                    <Link href={`/${item.toLowerCase()}`}>
+                                    <Link href={item ? `/${item}` : "/"}>
                                         <ShineUnderlineEffect>
                                             {item}
                                         </ShineUnderlineEffect>
