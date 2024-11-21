@@ -2,7 +2,18 @@
 
 import React from "react"
 
-const links = [
+type Item = {
+    title: string
+    url: string
+    note?: string
+}
+
+type LinkSection = {
+    category: string
+    items: Item[]
+}
+
+const links: LinkSection[] = [
     {
         category: "Podcasts",
         items: [
@@ -60,7 +71,7 @@ const links = [
     },
 ]
 
-export default function UsefulLinks() {
+const UsefulLinks: React.FC = () => {
     return (
         <main className="min-h-screen bg-[#fafafa] py-16 text-textPrimary">
             <section className="container mx-auto max-w-5xl px-6 md:px-12 lg:px-24">
@@ -122,3 +133,5 @@ export default function UsefulLinks() {
         </main>
     )
 }
+
+export default UsefulLinks
