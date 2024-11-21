@@ -6,7 +6,7 @@ import ShineUnderlineEffect from "./UnderlineEffect"
 
 const Footer = () => {
     return (
-        <footer className="relative z-20 bg-secondary pb-6 pt-12 font-Satoshi text-[#fafafa]">
+        <footer className="font-Satoshi relative z-20 bg-secondary pb-6 pt-12 text-[#fafafa]">
             <div className="container mx-auto px-4">
                 {/* Footer Content */}
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -20,10 +20,10 @@ const Footer = () => {
                                 "Treatment Options",
                                 "Pain Types",
                                 "Resources",
-                                "Support Groups",
+                                ,
                             ].map((item) => (
                                 <li key={item}>
-                                    <Link href="#">
+                                    <Link href={`/${item.toLowerCase()}`}>
                                         <ShineUnderlineEffect>
                                             {item}
                                         </ShineUnderlineEffect>
@@ -37,17 +37,15 @@ const Footer = () => {
                     <div>
                         <h3 className="mb-4 text-lg font-bold">About Us</h3>
                         <ul className="space-y-2">
-                            {["Our Mission", "About Me", "Testimonials"].map(
-                                (item) => (
-                                    <li key={item}>
-                                        <Link href="#">
-                                            <ShineUnderlineEffect>
-                                                {item}
-                                            </ShineUnderlineEffect>
-                                        </Link>
-                                    </li>
-                                ),
-                            )}
+                            {["Our Mission", "About Me"].map((item) => (
+                                <li key={item}>
+                                    <Link href="#">
+                                        <ShineUnderlineEffect>
+                                            {item}
+                                        </ShineUnderlineEffect>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -83,7 +81,7 @@ const Footer = () => {
                     <p className="text-sm">
                         © 2024{" "}
                         <Link href="/" className="underline">
-                            Chronic Pain Relief
+                            Chronic Pain Recovery
                         </Link>
                     </p>
 

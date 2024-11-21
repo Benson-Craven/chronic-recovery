@@ -7,19 +7,68 @@ import Image from "next/image"
 
 const IllnessSection = () => {
     return (
-        <div className="bg-secondary">
+        <div className="relative bg-secondary">
             <div className="h-[25vh]" />
+
+            {/* Scroll Down Indicator */}
+            <motion.div
+                className="absolute left-1/2 top-0.5 flex -translate-x-1/2 flex-col items-center gap-2 pt-6"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+            >
+                <span className="text-sm text-gray-300 md:text-base">
+                    Scroll Down
+                </span>
+                <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="h-6 w-6 text-gray-300"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 3v12m0 0l-3.75-3.75M12 15l3.75-3.75"
+                        />
+                    </svg>
+                </motion.div>
+            </motion.div>
+
             <IllnessSectionCarousel />
+
             <FadeInOnScroll>
-                <div className="container mx-auto flex h-[40vh] items-center justify-center md:h-[60vh]">
-                    <span className="w-3/4 text-center text-2xl leading-tight text-textThird md:w-full md:text-5xl">
+                <div className="container mx-auto flex h-[40vh] flex-col items-center justify-center md:h-[60vh]">
+                    <span className="w-3/4 text-center text-2xl leading-tight text-gray-100 md:w-full md:text-5xl">
                         Have you seen{" "}
-                        <span className="font-butler italic">multiple</span>{" "}
+                        <span className="text-accent font-butler italic">
+                            multiple
+                        </span>{" "}
                         medical professionals without finding{" "}
-                        <span className="font-butler italic">
+                        <span className="text-accent font-butler italic">
                             lasting relief?
                         </span>
                     </span>
+                    <div className="mt-6 w-4/5 max-w-lg rounded-lg border-none bg-white p-6 shadow-lg">
+                        <h3 className="text-center text-xl text-textPrimary md:text-2xl">
+                            Is what you&apos;re{" "}
+                            <span className="font-butler italic">
+                                experiencing
+                            </span>{" "}
+                            not listed?
+                        </h3>
+                        <p className="mt-3 text-center text-base leading-relaxed text-textPrimary">
+                            Were here to help with any illness or concern, even
+                            if it&apos;s not listed above. Reach out to learn
+                            more and find the relief you deserve.
+                        </p>
+                    </div>
                 </div>
             </FadeInOnScroll>
         </div>
@@ -160,50 +209,66 @@ type CardType = {
 // Updated cards array with more supportive information
 const cards: CardType[] = [
     {
-        url: "/images/stomach-pain.jpg",
+        url: "/images/stomach-pain.avif",
         title: "Irritable Bowel Syndrome (IBS)",
-        description: "Chronic digestive discomfort affecting daily life",
+        description:
+            "Chronic digestive discomfort that significantly affects daily life.",
         symptoms: [
-            "Persistent discomfort",
-            "Changes in appetite",
-            "Digestive issues",
+            "Abdominal pain or cramping",
+            "Bloating",
+            "Diarrhea or constipation",
         ],
         id: 1,
     },
     {
-        url: "/images/neck-pain.jpg",
+        url: "/images/neck-pain.avif",
         title: "Long Covid",
-        description: "Ongoing neck discomfort and limited mobility",
-        symptoms: ["Limited range of motion", "Muscle tension", "Headaches"],
+        description:
+            "Persistent symptoms after recovering from COVID-19, including neck pain.",
+        symptoms: ["Fatigue", "Neck or muscle discomfort", "Brain fog"],
         id: 2,
     },
     {
-        url: "/images/headache.jpg",
+        url: "/images/headache.avif",
         title: "Migraines",
-        description: "Recurring headaches impacting daily activities",
-        symptoms: ["Vision changes", "Sensitivity to light", "Nausea"],
-
+        description:
+            "Recurring headaches that interfere with daily activities and productivity.",
+        symptoms: [
+            "Throbbing or pulsing pain",
+            "Sensitivity to light and sound",
+            "Nausea or vomiting",
+        ],
         id: 3,
     },
     {
-        url: "/images/wrist-pain.jpg",
-        title: "Chronic Fatigue",
-        description: "Persistent wrist discomfort affecting activities",
-        symptoms: ["Limited grip strength", "Stiffness", "Reduced flexibility"],
+        url: "/images/wrist-pain.avif",
+        title: "Wrist Pain",
+        description: "Wrist discomfort caused by pressure on the median nerve.",
+        symptoms: [
+            "Tingling or numbness in the fingers",
+            "Weak grip strength",
+            "Wrist pain that worsens at night",
+        ],
         id: 4,
     },
     {
-        url: "/images/wrist-pain.jpg",
+        url: "/images/anxiety.avif",
         title: "Anxiety",
-        description: "Ongoing back discomfort affecting mobility",
-        symptoms: ["Reduced flexibility", "Muscle tension", "Sleep disruption"],
+        description:
+            "Mental health condition that may cause physical symptoms like muscle tension.",
+        symptoms: [
+            "Restlessness or nervousness",
+            "Muscle tension",
+            "Difficulty sleeping",
+        ],
         id: 5,
     },
     {
-        url: "/images/wrist-pain.jpg",
+        url: "/images/depression.avif",
         title: "Depression",
-        description: "Ongoing back discomfort affecting mobility",
-        symptoms: ["Reduced flexibility", "Muscle tension", "Sleep disruption"],
+        description:
+            "Mental health condition that can lead to fatigue and physical discomfort.",
+        symptoms: ["Low energy", "Sleep disturbances", "Chronic body aches"],
         id: 6,
     },
 ]

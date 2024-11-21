@@ -46,7 +46,7 @@ const SVGPathScienceSection = () => {
             </motion.svg>
             <div
                 ref={sectionRef}
-                className="container mx-auto overflow-hidden font-Satoshi text-textPrimary"
+                className="font-Satoshi container mx-auto overflow-hidden text-textPrimary"
             >
                 {/* Text Content */}
                 <div className="relative z-20 mb-16 max-w-xl p-6 px-4 md:w-1/2 md:p-0">
@@ -82,7 +82,7 @@ const SVGPathScienceSection = () => {
                         className="relative h-64 overflow-hidden rounded-3xl lg:col-span-2 lg:row-span-2 lg:h-auto"
                     >
                         <img
-                            src="/images/meeting1.jpg"
+                            src="/images/meeting1.avif"
                             alt="Team collaboration"
                             className="h-full w-full object-cover"
                             loading="lazy"
@@ -120,7 +120,7 @@ const SVGPathScienceSection = () => {
                             creating a cycle of chronic pain.
                         </p>
                         {/* <img
-                            src="/images/cork.jpg"
+                            src="/images/cork.avif"
                             alt="Brain visualization"
                             className="h-full w-full object-cover"
                         /> */}

@@ -4,19 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import ShineUnderlineEffect from "../UnderlineEffect"
-import Lottie, { LottieRefCurrentProps } from "lottie-react"
+// import Lottie, { LottieRefCurrentProps } from "lottie-react"
 import animationData from "../../../public/assets/women-health.json"
+import dynamic from "next/dynamic"
 
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 const WeDoSection = () => {
     const container = useRef(null)
-    const animationRef = useRef<LottieRefCurrentProps>(null)
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start start", "end end"],
-    })
-
-    const leftTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"])
-    const rightTransform = useTransform(scrollYProgress, [0, 1], ["0%", "5%"])
+    // const animationRef = useRef<LottieRefCurrentProps>(null)
 
     return (
         <>
@@ -24,7 +19,7 @@ const WeDoSection = () => {
                 <div ref={container} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row md:space-x-12">
                         <Lottie
-                            lottieRef={animationRef}
+                            // lottieRef={animationRef}
                             animationData={animationData}
                             loop={true}
                             className="mb-8 flex max-w-xl items-center justify-center md:mb-0"
@@ -75,24 +70,24 @@ const WeDoSection = () => {
             <section className="flex min-h-screen items-center justify-center bg-[#fafafa] px-4 py-16 md:py-24">
                 <div className="flex flex-col items-center justify-center text-center md:w-2/3">
                     <FadeInOnScroll threshold={0.7}>
-                        <h1 className="p-5 font-Satoshi text-3xl text-textPrimary md:text-5xl">
+                        <h1 className="font-Satoshi p-5 text-3xl text-textPrimary md:text-5xl">
                             Our approach has helped countless individuals of all
                             ages{" "}
                             <span className="font-butler italic">overcome</span>{" "}
                             debilitating ailments and{" "}
-                            <span className="font-butler italic">reclaim</span>
+                            <span className="font-butler italic">reclaim</span>{" "}
                             their lives
                         </h1>
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
-                        <p className="mt-2 p-5 font-Satoshi text-lg text-textSecondary md:text-2xl">
+                        <p className="font-Satoshi mt-2 p-5 text-lg text-textSecondary md:text-2xl">
                             Experience life-changing results with our proven
                             methods
                         </p>
                     </FadeInOnScroll>
                     <FadeInOnScroll threshold={0.7}>
                         <motion.button
-                            className="mt-10 w-auto rounded-full bg-textThird px-5 py-3 font-Satoshi text-lg text-secondary md:text-2xl"
+                            className="font-Satoshi mt-10 w-auto rounded-full bg-textThird px-5 py-3 text-lg text-secondary md:text-2xl"
                             whileTap={{ scale: 0.85 }}
                             whileHover={{ scale: 1.05 }}
                         >

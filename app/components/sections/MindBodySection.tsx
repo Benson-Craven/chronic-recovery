@@ -39,7 +39,7 @@ const RevealImageSection = () => {
                         className="relative h-full w-full"
                     >
                         <Image
-                            src="/images/forest.png"
+                            src="/images/forest.avif"
                             alt="Forest Image"
                             fill
                             style={{ objectFit: "cover" }}

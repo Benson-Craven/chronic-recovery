@@ -31,19 +31,19 @@ const ImageGallery: React.FC<ImageGalleryProps> = () => {
 
     const pictures = [
         {
-            src: "forest.png",
+            src: "forest.avif",
 
             scale: scale4,
         },
 
         {
-            src: "forest.png",
+            src: "forest.avif",
 
             scale: scale5,
         },
 
         {
-            src: "forest.png",
+            src: "forest.avif",
 
             scale: scale6,
         },
