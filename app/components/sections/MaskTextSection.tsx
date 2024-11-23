@@ -101,7 +101,7 @@ export default function MaskTextSection() {
                 </div>
 
                 {/* Scroll indicator */}
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 transform text-center font-Satoshi">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 transform text-center">
                     <p className="mb-2 text-textPrimary/30">Scroll Down</p>
                     <svg
                         className="mx-auto h-6 w-6 animate-bounce text-textPrimary/20"

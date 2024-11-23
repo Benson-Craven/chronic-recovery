@@ -52,7 +52,7 @@ export default function Services() {
                 id="services"
                 className="container mx-auto flex items-center justify-center"
             >
-                <h2 className="mb-6 text-3xl tracking-tight text-textPrimary sm:text-4xl md:text-7xl">
+                <h2 className="p-5 text-3xl tracking-tight text-textPrimary sm:text-5xl md:text-7xl">
                     How can I help you?
                 </h2>
                 <div className="mb-16 h-[1px] bg-textPrimary opacity-10" />
@@ -86,6 +86,7 @@ export default function Services() {
                     you.
                 </p>
             </div>
+            <div className="h-[20vh]" />
         </main>
     )
 }

@@ -9,6 +9,7 @@ import Services from "./components/sections/Services"
 import MaskTextSection from "./components/sections/MaskTextSection"
 import SVGTest from "./components/sections/SVGTest"
 import SVGPathScienceSection from "./components/sections/SVGPathScienceSection"
+import Approach from "./components/sections/Approach"
 
 export default function Home() {
     return (
@@ -38,6 +39,7 @@ export default function Home() {
                     <IllnessSection />
 
                     {/* <ScienceSection /> */}
+                    <Approach />
                     <Services />
                     <MaskTextSection />
                     <SVGPathScienceSection />

@@ -142,7 +142,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                     {/* Right side */}
                                     <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
                                         <span className="space-y-6">
-                                            <h1 className="mb-6 text-3xl font-bold md:hidden">
+                                            <h1 className="mb-6 text-3xl font-medium md:hidden">
                                                 Contact us today
                                             </h1>
 

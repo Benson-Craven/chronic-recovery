@@ -17,15 +17,17 @@ const Footer = () => {
                         </h3>
                         <ul className="space-y-2">
                             {[
-                                "Treatment Options",
-                                "Pain Types",
-                                "Resources",
-                                ,
-                            ].map((item) => (
-                                <li key={item}>
-                                    <Link href={item ? `/${item}` : "/"}>
+                                {
+                                    name: "Treatment Options",
+                                    url: "/#treatment",
+                                },
+                                { name: "Pain Types", url: "/#illness" },
+                                { name: "Resources", url: "/resources" },
+                            ].map(({ name, url }) => (
+                                <li key={name}>
+                                    <Link href={url}>
                                         <ShineUnderlineEffect>
-                                            {item}
+                                            {name}
                                         </ShineUnderlineEffect>
                                     </Link>
                                 </li>
@@ -37,11 +39,14 @@ const Footer = () => {
                     <div>
                         <h3 className="mb-4 text-lg font-bold">About Us</h3>
                         <ul className="space-y-2">
-                            {["Our Mission", "About Me"].map((item) => (
-                                <li key={item}>
-                                    <Link href="#">
+                            {[
+                                { name: "Our Mission", url: "/#mission" },
+                                { name: "About Me", url: "/info" },
+                            ].map(({ name, url }) => (
+                                <li key={name}>
+                                    <Link href={url}>
                                         <ShineUnderlineEffect>
-                                            {item}
+                                            {name}
                                         </ShineUnderlineEffect>
                                     </Link>
                                 </li>
@@ -54,13 +59,25 @@ const Footer = () => {
                         <h3 className="mb-4 text-lg font-bold">Connect</h3>
                         <ul className="space-y-4">
                             {[
-                                { name: "Facebook", icon: FaFacebook },
-                                { name: "Instagram", icon: FaInstagram },
-                                { name: "LinkedIn", icon: FaLinkedin },
-                            ].map(({ name, icon: Icon }) => (
+                                {
+                                    name: "Facebook",
+                                    url: "https://facebook.com",
+                                    icon: FaFacebook,
+                                },
+                                {
+                                    name: "Instagram",
+                                    url: "https://instagram.com",
+                                    icon: FaInstagram,
+                                },
+                                {
+                                    name: "LinkedIn",
+                                    url: "https://linkedin.com",
+                                    icon: FaLinkedin,
+                                },
+                            ].map(({ name, url, icon: Icon }) => (
                                 <li key={name}>
                                     <a
-                                        href="#"
+                                        href={url}
                                         target="_blank"
                                         rel="noreferrer noopener"
                                         className="group flex items-center gap-3"
@@ -87,17 +104,22 @@ const Footer = () => {
 
                     <nav className="mt-4 md:mt-0">
                         <ul className="flex space-x-4">
-                            {["Privacy Policy", "Terms of Service"].map(
-                                (item) => (
-                                    <li key={item}>
-                                        <Link href="#" className="text-sm">
-                                            <ShineUnderlineEffect>
-                                                {item}
-                                            </ShineUnderlineEffect>
-                                        </Link>
-                                    </li>
-                                ),
-                            )}
+                            {[
+                                {
+                                    name: "Privacy Policy",
+                                },
+                                {
+                                    name: "Terms of Service",
+                                },
+                            ].map(({ name }) => (
+                                <li key={name}>
+                                    <Link href={"/"} className="text-sm">
+                                        <ShineUnderlineEffect>
+                                            {name}
+                                        </ShineUnderlineEffect>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>

@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import React, { useRef } from "react"
 import Image from "next/image"
-import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 import Link from "next/link"
 
 const RevealInfoSection = () => {
@@ -20,28 +19,42 @@ const RevealInfoSection = () => {
 
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 0])
 
+    // Smoother transforms for the image grid
     const leftTransform = useTransform(
         secondScrollYProgress,
         [0, 1],
-        ["0%", "-5%"],
+        ["-4%", "0%"],
     )
     const rightTransform = useTransform(
         secondScrollYProgress,
         [0, 1],
-        ["0%", "5%"],
+        ["4%", "0%"],
+    )
+
+    // Add fade in for text
+    const contentOpacity = useTransform(secondScrollYProgress, [0.2, 0], [0, 1])
+    const contentY = useTransform(
+        secondScrollYProgress,
+        [0, 0.2],
+        ["20px", "0px"],
     )
 
     return (
         <>
-            <section ref={container} className="h-[200vh] w-full bg-[#fafafa]">
+            {/* Keep the first section exactly the same */}
+            <section
+                ref={container}
+                className="relative h-[150vh] w-full bg-[#fafafa] md:h-[200vh]"
+            >
                 <div className="relative h-full w-full">
-                    {/* Left scaling div */}
+                    {/* Left curtain */}
                     <motion.div
                         style={{ scaleX: scaleTransform }}
-                        className="absolute left-0 top-0 z-10 h-full w-1/3 origin-left bg-[#fafafa]"
+                        className="absolute left-0 top--1 z-10 h-full w-1/2 origin-left border-2 border-[#fafafa] bg-[#fafafa] md:w-1/3"
                     />
-                    {/* Image */}{" "}
-                    <div className="sticky top-0 h-[100vh] w-full">
+
+                    {/* Sticky container for image */}
+                    <div className="sticky top-0 h-screen w-full overflow-hidden">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -56,81 +69,99 @@ const RevealInfoSection = () => {
                                 src="/images/therapy.avif"
                                 alt="Therapy Hero Image"
                                 fill
-                                style={{ objectFit: "cover" }}
+                                priority
+                                sizes="100vw"
+                                className="object-cover"
                             />
                         </motion.div>
-                    </div>{" "}
-                    {/* Right scaling div */}
+                    </div>
+
+                    {/* Right curtain */}
                     <motion.div
                         style={{ scaleX: scaleTransform }}
-                        className="absolute right-0 top-0 z-10 h-full w-1/3 origin-right bg-[#fafafa]"
+                        className="absolute right-0 top-0 z-10 h-full w-1/2 origin-right border-2 border-[#fafafa] bg-[#fafafa] md:w-1/3"
                     />
                 </div>
             </section>
-            <section className="flex h-[120vh] items-center justify-center bg-[#fafafa] py-16 md:py-24">
+
+            {/* Update only the image grid and text section */}
+            <section className="flex items-center justify-center bg-[#fafafa] py-16 md:py-24">
                 <div ref={secondContainer} className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-6">
                                 <div className="space-y-4">
                                     <motion.div
-                                        style={{ x: leftTransform }}
+                                        style={{ x: rightTransform }}
                                         className="overflow-hidden rounded-lg"
+                                        whileHover={{ scale: 1.02 }}
+                                        transition={{ duration: 0.3 }}
                                     >
                                         <Image
                                             src="/images/marsha.avif"
                                             alt="Forest"
                                             width={400}
                                             height={600}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
+                                            className="h-full w-full object-cover"
                                         />
                                     </motion.div>
                                     <motion.div
-                                        style={{ x: leftTransform }}
+                                        style={{ x: rightTransform }}
                                         className="overflow-hidden rounded-lg"
+                                        whileHover={{ scale: 1.02 }}
+                                        transition={{ duration: 0.3 }}
                                     >
                                         <Image
                                             src="/images/cork.avif"
                                             alt="cork"
                                             width={100}
                                             height={150}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
+                                            className="h-full w-full object-cover"
                                         />
                                     </motion.div>
                                 </div>
                                 <div className="mt-8 space-y-4">
                                     <motion.div
-                                        style={{ x: rightTransform }}
+                                        style={{ x: leftTransform }}
                                         className="overflow-hidden rounded-lg"
+                                        whileHover={{ scale: 1.02 }}
+                                        transition={{ duration: 0.3 }}
                                     >
                                         <Image
                                             src="/images/office.avif"
                                             alt="office"
                                             width={100}
                                             height={100}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
+                                            className="h-full w-full object-cover"
                                         />
                                     </motion.div>
                                     <motion.div
-                                        style={{ x: rightTransform }}
+                                        style={{ x: leftTransform }}
                                         className="overflow-hidden rounded-lg"
+                                        whileHover={{ scale: 1.02 }}
+                                        transition={{ duration: 0.3 }}
                                     >
                                         <Image
                                             src="/images/books.avif"
                                             alt="books"
                                             width={300}
                                             height={300}
-                                            className="h-full w-full transform object-cover transition duration-500 hover:scale-105"
+                                            className="h-full w-full object-cover"
                                         />
                                     </motion.div>
                                 </div>
                             </div>
                         </div>
-                        <div className="font-Satoshi md:w-1/2 md:pl-12">
-                            <h2 className="mb-6 text-4xl font-bold text-[#212721]">
+                        <motion.div
+                            style={{
+                                y: contentY,
+                            }}
+                            className="md:w-1/2 md:pl-12"
+                        >
+                            <h2 className="mb-6 text-4xl font-medium text-textPrimary">
                                 About Me
                             </h2>
-                            <p className="mb-8 text-lg text-[#212721]">
+                            <p className="mb-8 text-lg text-textPrimary">
                                 My name is Marsha Canny and I am a chronic pain
                                 therapist based in Rochestown, Cork, Ireland and
                                 I use a multi-disciplinary approach to help you
@@ -143,7 +174,7 @@ const RevealInfoSection = () => {
                             </p>
                             <Link
                                 href="/about"
-                                className="inline-flex items-center text-[#212721] transition duration-300 hover:text-[#D9D9D6]"
+                                className="inline-flex items-center text-textPrimary transition duration-300 hover:text-[#D9D9D6]"
                             >
                                 <span className="mr-2">
                                     Book a consultation
@@ -163,7 +194,7 @@ const RevealInfoSection = () => {
                                     />
                                 </svg>
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

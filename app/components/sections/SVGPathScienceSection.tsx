@@ -55,7 +55,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-4xl leading-tight md:text-5xl lg:text-6xl xl:text-7xl"
+                        className="text-center text-4xl leading-tight md:text-start md:text-5xl lg:text-6xl xl:text-7xl"
                     >
                         What causes chronic pain?
                     </motion.h2>
@@ -64,7 +64,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mt-2 text-lg md:mt-8 md:text-xl lg:text-2xl xl:text-3xl"
+                        className="mt-2 text-center text-lg md:mt-8 md:text-start md:text-xl lg:text-2xl xl:text-3xl"
                     >
                         95% of our brain is unconscious and directs the function
                         of our body based on its perception of immediate danger
@@ -72,7 +72,10 @@ const SVGPathScienceSection = () => {
                 </div>
 
                 {/* Bento Grid */}
-                <div className="relative z-10 mb-6 grid grid-cols-1 gap-4 px-4 md:grid-cols-2 lg:mb-0 lg:grid-cols-4 lg:grid-rows-4">
+                <div
+                    id="treatment"
+                    className="relative z-10 mb-6 grid grid-cols-1 gap-4 px-4 md:grid-cols-2 lg:mb-0 lg:grid-cols-4 lg:grid-rows-4"
+                >
                     {/* First box (spans 2x2) */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}

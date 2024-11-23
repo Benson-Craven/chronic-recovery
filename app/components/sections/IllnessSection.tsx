@@ -7,44 +7,29 @@ import Image from "next/image"
 
 const IllnessSection = () => {
     return (
-        <div className="relative bg-secondary">
+        <div id="illness" className="relative bg-secondary">
             <div className="h-[25vh]" />
 
-            {/* Scroll Down Indicator */}
-            <motion.div
-                className="absolute left-1/2 top-0.5 flex -translate-x-1/2 flex-col items-center gap-2 pt-6"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-            >
-                <span className="text-sm text-gray-300 md:text-base">
-                    Scroll Down
-                </span>
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
+            <div className="absolute left-1/2 top-0.5 -translate-x-1/2 transform pt-6 text-center">
+                <p className="mb-2 text-gray-300/50">Scroll Down</p>
+                <svg
+                    className="mx-auto h-6 w-6 animate-bounce text-gray-300/30"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="h-6 w-6 text-gray-300"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 3v12m0 0l-3.75-3.75M12 15l3.75-3.75"
-                        />
-                    </svg>
-                </motion.div>
-            </motion.div>
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
 
             <IllnessSectionCarousel />
 
             <FadeInOnScroll>
-                <div className="container mx-auto flex h-[40vh] flex-col items-center justify-center md:h-[60vh]">
+                <div className="container mx-auto flex flex-col items-center justify-center px-4 md:h-[60vh]">
+                    {/* Main Question */}
                     <span className="w-3/4 text-center text-2xl leading-tight text-gray-100 md:w-full md:text-5xl">
                         Have you seen{" "}
                         <span className="text-accent font-butler italic">
@@ -55,7 +40,10 @@ const IllnessSection = () => {
                             lasting relief?
                         </span>
                     </span>
-                    <div className="mt-6 w-4/5 max-w-lg rounded-lg border-none bg-white p-6 shadow-lg">
+
+                    {/* Supportive Information Card */}
+                    <div className="mt-6 w-4/5 max-w-lg rounded-lg border-none bg-white p-6 shadow-lg md:w-full">
+                        {/* Sub-heading */}
                         <h3 className="text-center text-xl text-textPrimary md:text-2xl">
                             Is what you&apos;re{" "}
                             <span className="font-butler italic">
@@ -63,14 +51,17 @@ const IllnessSection = () => {
                             </span>{" "}
                             not listed?
                         </h3>
-                        <p className="mt-3 text-center text-base leading-relaxed text-textPrimary">
-                            Were here to help with any illness or concern, even
-                            if it&apos;s not listed above. Reach out to learn
-                            more and find the relief you deserve.
+
+                        {/* Descriptive Text */}
+                        <p className="mt-3 text-center text-base leading-relaxed text-textPrimary md:text-lg">
+                            We&apos;re here to help with any illness or concern,
+                            even if it&apos;s not listed above. Reach out to
+                            learn more and find the relief you deserve.
                         </p>
                     </div>
                 </div>
             </FadeInOnScroll>
+            <div className="h-[20vh]" />
         </div>
     )
 }
@@ -82,11 +73,7 @@ const IllnessSectionCarousel = () => {
     })
 
     const cardWidth = 100 / cards.length
-    const x = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["0%", `-${100 - (cards.length / 3) * cardWidth}%`],
-    )
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%"])
 
     const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0])
 
@@ -108,7 +95,7 @@ const IllnessSectionCarousel = () => {
             aria-label="Illness types carousel"
             role="region"
             ref={targetRef}
-            className="relative h-[300vh] bg-secondary"
+            className="relative h-[250vh] bg-secondary"
         >
             {/* Section Header */}
             <motion.div
@@ -130,7 +117,7 @@ const IllnessSectionCarousel = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="mb-10 flex flex-row flex-nowrap gap-6 pl-5 md:gap-12 md:pl-10"
+                    className="flex flex-row flex-nowrap gap-6 pl-5 md:gap-12 md:pl-10"
                 >
                     {cards.map((card, index) => (
                         <Card key={card.id} card={card} index={index} />
@@ -243,7 +230,8 @@ const cards: CardType[] = [
     {
         url: "/images/wrist-pain.avif",
         title: "Wrist Pain",
-        description: "Wrist discomfort caused by pressure on the median nerve.",
+        description:
+            "General discomfort caused by pressure on the median nerve.",
         symptoms: [
             "Tingling or numbness in the fingers",
             "Weak grip strength",
@@ -255,7 +243,7 @@ const cards: CardType[] = [
         url: "/images/anxiety.avif",
         title: "Anxiety",
         description:
-            "Mental health condition that may cause physical symptoms like muscle tension.",
+            "Persistent feelings of worry, tension, or fear that interfere with daily life.",
         symptoms: [
             "Restlessness or nervousness",
             "Muscle tension",
@@ -267,7 +255,7 @@ const cards: CardType[] = [
         url: "/images/depression.avif",
         title: "Depression",
         description:
-            "Mental health condition that can lead to fatigue and physical discomfort.",
+            "Can be recognised by persistent sadness, low energy, and physical discomfort.",
         symptoms: ["Low energy", "Sleep disturbances", "Chronic body aches"],
         id: 6,
     },

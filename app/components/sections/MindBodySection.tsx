@@ -14,7 +14,10 @@ const RevealImageSection = () => {
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 0])
 
     return (
-        <section ref={container} className="h-[200vh] w-full bg-[#fafafa]">
+        <section
+            ref={container}
+            className="hidden h-[200vh] w-full bg-[#fafafa] md:block"
+        >
             <div className="relative h-full w-full">
                 {/* Left scaling div */}
                 <motion.div
