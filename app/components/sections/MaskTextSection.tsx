@@ -76,12 +76,12 @@ export default function MaskTextSection() {
     return (
         <main id="science" className="relative hidden bg-[#fafafa] md:block">
             <div className="h-[20vh]" />
-            {/* Container with 400vh height to allow for long scroll */}
+            {/** Container with 400vh height to allow for long scroll **/}
             <div ref={container} className="relative h-[400vh]">
-                {/* Sticky container for the masked video */}
+                {/** Sticky container for the masked video **/}
                 <div
                     ref={stickyMask}
-                    className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden"
+                    className="pointer-events-none sticky top-0 flex h-[100vh] select-none items-center justify-center overflow-hidden"
                     style={{
                         maskImage: "url(/images/science.svg)",
                         WebkitMaskImage: "url(/images/science.svg)",
@@ -94,13 +94,14 @@ export default function MaskTextSection() {
                         autoPlay
                         muted
                         loop
-                        className="h-full w-full object-cover"
+                        playsInline
+                        disablePictureInPicture
+                        className="pointer-events-none h-full w-full select-none object-cover"
                     >
                         <source src="/videos/remedies.mp4" type="video/mp4" />
                     </video>
                 </div>
-
-                {/* Scroll indicator */}
+                {/** Scroll indicator **/}
                 <div className="absolute left-1/2 top-0 -translate-x-1/2 transform text-center">
                     <p className="mb-2 text-textPrimary/30">Scroll Down</p>
                     <svg

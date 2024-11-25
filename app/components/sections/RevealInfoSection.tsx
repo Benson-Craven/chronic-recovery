@@ -5,43 +5,15 @@ import Link from "next/link"
 
 const RevealInfoSection = () => {
     const container = useRef(null)
-    const secondContainer = useRef(null)
-
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start start", "end end"],
     })
 
-    const { scrollYProgress: secondScrollYProgress } = useScroll({
-        target: secondContainer,
-        offset: ["start start", "end end"],
-    })
-
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [1, 0])
-
-    // Smoother transforms for the image grid
-    const leftTransform = useTransform(
-        secondScrollYProgress,
-        [0, 1],
-        ["-4%", "0%"],
-    )
-    const rightTransform = useTransform(
-        secondScrollYProgress,
-        [0, 1],
-        ["4%", "0%"],
-    )
-
-    // Add fade in for text
-    const contentOpacity = useTransform(secondScrollYProgress, [0.2, 0], [0, 1])
-    const contentY = useTransform(
-        secondScrollYProgress,
-        [0, 0.2],
-        ["20px", "0px"],
-    )
 
     return (
         <>
-            {/* Keep the first section exactly the same */}
             <section
                 ref={container}
                 className="relative h-[150vh] w-full bg-[#fafafa] md:h-[200vh]"
@@ -84,19 +56,14 @@ const RevealInfoSection = () => {
                 </div>
             </section>
 
-            {/* Update only the image grid and text section */}
+            {/* Simplified image grid and text section */}
             <section className="flex items-center justify-center bg-[#fafafa] py-16 md:py-24">
-                <div ref={secondContainer} className="container mx-auto px-4">
+                <div className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
                             <div className="grid grid-cols-2 gap-6">
-                                <div className="space-y-4">
-                                    <motion.div
-                                        style={{ x: rightTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                        whileHover={{ scale: 1.02 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
+                                <div className="space-y-6">
+                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/marsha.avif"
                                             alt="Forest"
@@ -104,13 +71,8 @@ const RevealInfoSection = () => {
                                             height={600}
                                             className="h-full w-full object-cover"
                                         />
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ x: rightTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                        whileHover={{ scale: 1.02 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
+                                    </div>
+                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/cork.avif"
                                             alt="cork"
@@ -118,15 +80,10 @@ const RevealInfoSection = () => {
                                             height={150}
                                             className="h-full w-full object-cover"
                                         />
-                                    </motion.div>
+                                    </div>
                                 </div>
-                                <div className="mt-8 space-y-4">
-                                    <motion.div
-                                        style={{ x: leftTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                        whileHover={{ scale: 1.02 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
+                                <div className="mt-8 space-y-6">
+                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/office.avif"
                                             alt="office"
@@ -134,13 +91,8 @@ const RevealInfoSection = () => {
                                             height={100}
                                             className="h-full w-full object-cover"
                                         />
-                                    </motion.div>
-                                    <motion.div
-                                        style={{ x: leftTransform }}
-                                        className="overflow-hidden rounded-lg"
-                                        whileHover={{ scale: 1.02 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
+                                    </div>
+                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/books.avif"
                                             alt="books"
@@ -148,16 +100,11 @@ const RevealInfoSection = () => {
                                             height={300}
                                             className="h-full w-full object-cover"
                                         />
-                                    </motion.div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <motion.div
-                            style={{
-                                y: contentY,
-                            }}
-                            className="md:w-1/2 md:pl-12"
-                        >
+                        <div className="md:w-1/2 md:pl-12">
                             <h2 className="mb-6 text-4xl font-medium text-textPrimary">
                                 About Me
                             </h2>
@@ -194,7 +141,7 @@ const RevealInfoSection = () => {
                                     />
                                 </svg>
                             </Link>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
