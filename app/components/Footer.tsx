@@ -127,7 +127,7 @@ const Footer = () => {
                 {/* Code by Benson */}
                 <div className="mt-6 text-center text-sm text-gray-400">
                     Made by{" "}
-                    <Link href="https://codebybenson.netlify.app">
+                    <Link href="https://benson.codes">
                         <span className="font-bold text-white underline">
                             Code by Benson
                         </span>{" "}
