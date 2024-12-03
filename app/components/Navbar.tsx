@@ -79,7 +79,7 @@ const Navbar = ({ className }: NavbarProps) => {
             }}
         >
             <div className="flex w-full items-center justify-between">
-                <Link href="/" className="mt-5 flex-shrink-0">
+                <Link href="/" className="mt-3 flex-shrink-0">
                     <Image
                         src="/logos/Mending_Mindets.png"
                         alt="Mending Mindsets Logo"
