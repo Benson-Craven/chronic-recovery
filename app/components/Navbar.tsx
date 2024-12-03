@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react"
 import Button from "./Button"
 import { motion, AnimatePresence } from "framer-motion"
 import ShineUnderlineEffect from "./UnderlineEffect"
+import Image from "next/image"
 
 type NavbarProps = {
     className?: string
@@ -78,8 +79,13 @@ const Navbar = ({ className }: NavbarProps) => {
             }}
         >
             <div className="flex w-full items-center justify-between">
-                <Link href="/" className="flex-shrink-0">
-                    <p>CPR</p>
+                <Link href="/" className="mt-5 flex-shrink-0">
+                    <Image
+                        src="/logos/Mending_Mindets.png"
+                        alt="Mending Mindsets Logo"
+                        width={100} // Adjust width as needed
+                        height={50} // Adjust height as needed
+                    />
                 </Link>
 
                 <div className="hidden flex-grow items-center justify-center md:flex">
