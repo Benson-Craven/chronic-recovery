@@ -83,8 +83,8 @@ const Navbar = ({ className }: NavbarProps) => {
                     <Image
                         src="/logos/Mending_Mindets.png"
                         alt="Mending Mindsets Logo"
-                        width={100} // Adjust width as needed
-                        height={50} // Adjust height as needed
+                        width={70} // Adjust width as needed
+                        height={20} // Adjust height as needed
                     />
                 </Link>
 
