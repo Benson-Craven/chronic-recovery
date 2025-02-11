@@ -73,10 +73,7 @@ const Card: React.FC<CardProps> = ({
 
                     {i === totalCards - 1 && (
                         <Link href={"/contact"}>
-                            <motion.a
-                                href={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <motion.p
                                 className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
                                 whileHover={{
                                     scale: 1.05,
@@ -101,7 +98,7 @@ const Card: React.FC<CardProps> = ({
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                            </motion.a>
+                            </motion.p>
                         </Link>
                     )}
                 </div>

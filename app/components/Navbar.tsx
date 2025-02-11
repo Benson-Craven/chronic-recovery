@@ -117,11 +117,6 @@ const Navbar = ({ className }: NavbarProps) => {
                                 <Link href="/info">About</Link>
                             </ShineUnderlineEffect>
                         </li>
-                        <li>
-                            <ShineUnderlineEffect>
-                                <Link href="/contact">Contact</Link>
-                            </ShineUnderlineEffect>
-                        </li>
                     </ul>
                 </div>
 
@@ -202,7 +197,7 @@ const Navbar = ({ className }: NavbarProps) => {
 
                 {/* Contact Form Modal */}
                 <motion.div
-                    className="z-50 hidden flex-col items-center justify-center rounded-[25px] border-2 border-black bg-white shadow-lg md:flex md:bg-textSecondary"
+                    className="fixed z-50 hidden flex-col items-center justify-center rounded-[25px] border-2 border-black bg-white shadow-lg md:flex md:bg-textSecondary"
                     variants={menu}
                     animate={isActive ? "open" : "closed"}
                     initial="closed"
