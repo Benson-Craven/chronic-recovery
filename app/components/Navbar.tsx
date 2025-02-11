@@ -286,7 +286,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                             </div>
                                             <button
                                                 type="submit"
-                                                className="rounded-full bg-teal-600 px-6 py-2 text-white transition-colors hover:bg-teal-700"
+                                                className="transition-color rounded-full bg-textSecondary px-6 py-2 text-white"
                                             >
                                                 Submit
                                             </button>

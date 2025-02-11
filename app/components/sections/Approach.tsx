@@ -7,9 +7,9 @@ const Approach = () => {
         <section className="flex min-h-screen items-center justify-center bg-[#fafafa] px-4 py-16 md:py-24">
             <div className="flex w-full flex-col items-center justify-center text-center md:w-2/3">
                 <FadeInOnScroll threshold={0.7}>
-                    <h1 className="font-Satoshi p-5 text-2xl text-textPrimary sm:text-3xl md:text-5xl">
+                    <h2 className="font-Satoshi p-5 text-2xl text-textPrimary sm:text-3xl md:text-5xl">
                         A Compassionate Approach to Lasting Relief
-                    </h1>
+                    </h2>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
                     <p className="font-Satoshi mt-2 px-4 text-base text-textSecondary sm:text-lg md:text-2xl">
