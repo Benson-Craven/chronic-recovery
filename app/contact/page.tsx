@@ -1,0 +1,148 @@
+"use client"
+
+import React, { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import ShineUnderlineEffect from "../components/UnderlineEffect"
+import Image from "next/image"
+import Link from "next/link"
+
+const ContactPage = () => {
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+
+    const formVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.5,
+                duration: 0.5,
+            },
+        },
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        setIsFormSubmitted(true)
+    }
+
+    return (
+        <div className="font-Satoshi min-h-screen bg-[#fafafa] p-4 text-textPrimary">
+            <div className="container mx-auto">
+                {/* Contact Form Section */}
+                <motion.section
+                    className="rounded-[25px] border-2 border-black bg-white shadow-lg"
+                    variants={formVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <div className="flex flex-col md:flex-row">
+                        {/* Left Side */}
+                        <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
+                            <h1 className="mb-6 text-6xl">Contact us today</h1>
+                            <div className="mb-10 h-[1px] bg-black opacity-10" />
+                            <p className="mb-4">
+                                Please fill out the form to learn more about our
+                                services and how we can help you.
+                            </p>
+                            <p className="mb-4">
+                                We will get back to you as quickly as we can.
+                            </p>
+                        </div>
+
+                        {/* Right Side */}
+                        <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
+                            <AnimatePresence>
+                                {!isFormSubmitted ? (
+                                    <motion.form
+                                        className="space-y-6"
+                                        onSubmit={handleSubmit}
+                                        variants={formVariants}
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="hidden"
+                                    >
+                                        <h1 className="mb-6 text-3xl font-medium md:hidden">
+                                            Contact us today
+                                        </h1>
+                                        <div className="h-[1px] bg-black opacity-10 md:hidden"></div>
+
+                                        <div>
+                                            <label
+                                                htmlFor="name"
+                                                className="mb-2 block"
+                                            >
+                                                Name *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                required
+                                                className="w-full rounded border border-gray-300 p-2"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label
+                                                htmlFor="email"
+                                                className="mb-2 block"
+                                            >
+                                                Email *
+                                            </label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                required
+                                                className="w-full rounded border border-gray-300 p-2"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label
+                                                htmlFor="message"
+                                                className="mb-2 block"
+                                            >
+                                                Message
+                                            </label>
+                                            <textarea
+                                                id="message"
+                                                rows={4}
+                                                className="w-full rounded border border-gray-300 p-2"
+                                            ></textarea>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className="rounded-full bg-textSecondary px-6 py-2 text-white transition-colors"
+                                        >
+                                            Submit
+                                        </button>
+                                        <p className="text-sm text-gray-500">
+                                            By continuing, you agree to our
+                                            Terms & Conditions and our Privacy
+                                            Policy.
+                                        </p>
+                                    </motion.form>
+                                ) : (
+                                    <motion.div
+                                        className="text-center"
+                                        variants={formVariants}
+                                        initial="hidden"
+                                        animate="visible"
+                                    >
+                                        <h2 className="mb-4 text-2xl font-semibold">
+                                            Thank you for contacting us!
+                                        </h2>
+                                        <p>
+                                            We will get back to you as soon as
+                                            possible.
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                </motion.section>
+            </div>
+        </div>
+    )
+}
+
+export default ContactPage

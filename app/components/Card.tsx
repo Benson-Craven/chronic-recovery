@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion"
 import { useRef } from "react"
+import Link from "next/link"
 
 interface CardProps {
     i: number
@@ -39,7 +40,7 @@ const Card: React.FC<CardProps> = ({
     return (
         <div
             ref={container}
-            className="sticky top-0 flex h-screen items-center justify-center font-Satoshi"
+            className="font-Satoshi sticky top-0 flex h-screen items-center justify-center"
         >
             <motion.div
                 style={{
@@ -71,35 +72,37 @@ const Card: React.FC<CardProps> = ({
                     <p className="mb-6 text-lg text-black">{description}</p>
 
                     {i === totalCards - 1 && (
-                        <motion.a
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
-                            whileHover={{
-                                scale: 1.05,
-                                backgroundColor: "#f3f4f6",
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Inquire About a Consultation
-                            <svg
-                                className="ml-2"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                        <Link href={"/contact"}>
+                            <motion.a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
+                                whileHover={{
+                                    scale: 1.05,
+                                    backgroundColor: "#f3f4f6",
+                                }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                <path
-                                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </motion.a>
+                                Enquire About a Consultation
+                                <svg
+                                    className="ml-2"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </motion.a>
+                        </Link>
                     )}
                 </div>
             </motion.div>

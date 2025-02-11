@@ -15,6 +15,7 @@ const Navbar = ({ className }: NavbarProps) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [isActive, setIsActive] = useState(false)
+    const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY
@@ -29,7 +30,7 @@ const Navbar = ({ className }: NavbarProps) => {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [prevScrollPos])
 
-    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi h-16     ${
+    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi h-16 ${
         visible ? "translate-y-0" : "-translate-y-full"
     } ${className}`
 
@@ -71,6 +72,16 @@ const Navbar = ({ className }: NavbarProps) => {
         },
     }
 
+    const submenuVariants = {
+        hidden: { opacity: 0, y: -20 },
+        visible: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 },
+    }
+
+    const toggleSubmenu = () => {
+        setIsSubmenuOpen(!isSubmenuOpen)
+    }
+
     return (
         <nav
             className={navbarClassName}
@@ -83,11 +94,12 @@ const Navbar = ({ className }: NavbarProps) => {
                     <Image
                         src="/logos/Mending_Mindets.png"
                         alt="Mending Mindsets Logo"
-                        width={70} // Adjust width as needed
-                        height={20} // Adjust height as needed
+                        width={70}
+                        height={20}
                     />
                 </Link>
 
+                {/* Desktop Menu */}
                 <div className="hidden flex-grow items-center justify-center md:flex">
                     <ul className="flex space-x-10 uppercase">
                         <li>
@@ -105,10 +117,92 @@ const Navbar = ({ className }: NavbarProps) => {
                                 <Link href="/info">About</Link>
                             </ShineUnderlineEffect>
                         </li>
+                        <li>
+                            <ShineUnderlineEffect>
+                                <Link href="/contact">Contact</Link>
+                            </ShineUnderlineEffect>
+                        </li>
                     </ul>
                 </div>
+
+                {/* Mobile Submenu */}
+                <div className="md:hidden">
+                    <button
+                        onClick={toggleSubmenu}
+                        className="flex items-center justify-center rounded-full bg-textSecondary p-2 text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        </svg>
+                    </button>
+
+                    <AnimatePresence>
+                        {isSubmenuOpen && (
+                            <motion.div
+                                className="absolute right-4 top-16 z-50 rounded-lg bg-white shadow-lg"
+                                variants={submenuVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                transition={{ duration: 0.3 }}
+                            >
+                                <ul className="space-y-2 p-4">
+                                    <li>
+                                        <Link
+                                            href="/#science"
+                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
+                                            onClick={toggleSubmenu}
+                                        >
+                                            The Science
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/#services"
+                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
+                                            onClick={toggleSubmenu}
+                                        >
+                                            Services
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/info"
+                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
+                                            onClick={toggleSubmenu}
+                                        >
+                                            About
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/contact"
+                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
+                                            onClick={toggleSubmenu}
+                                        >
+                                            Contact
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+
+                {/* Contact Form Modal */}
                 <motion.div
-                    className="fixed z-50 flex flex-col items-center justify-center rounded-[25px] border-2 border-black bg-white shadow-lg md:bg-textSecondary"
+                    className="z-50 hidden flex-col items-center justify-center rounded-[25px] border-2 border-black bg-white shadow-lg md:flex md:bg-textSecondary"
                     variants={menu}
                     animate={isActive ? "open" : "closed"}
                     initial="closed"
@@ -182,32 +276,6 @@ const Navbar = ({ className }: NavbarProps) => {
                                                     className="w-full rounded border border-gray-300 p-2"
                                                 />
                                             </div>
-                                            {/* <div>
-                                                <label
-                                                    htmlFor="role"
-                                                    className="mb-2 block"
-                                                >
-                                                    I am a *
-                                                </label>
-                                                <select
-                                                    id="role"
-                                                    required
-                                                    className="w-full appearance-none rounded border border-gray-300 bg-white p-2"
-                                                >
-                                                    <option value="">
-                                                        Select an option
-                                                    </option>
-                                                    <option value="patient">
-                                                        Patient
-                                                    </option>
-                                                    <option value="doctor">
-                                                        Doctor
-                                                    </option>
-                                                    <option value="other">
-                                                        Other
-                                                    </option>
-                                                </select>
-                                            </div> */}
                                             <div>
                                                 <label
                                                     htmlFor="message"
@@ -235,33 +303,13 @@ const Navbar = ({ className }: NavbarProps) => {
                                         </span>
                                     </div>
                                 </div>
-
-                                {/* <motion.input
-                                    type="text"
-                                    placeholder="Name"
-                                    className="w-full rounded-md border border-gray-300 p-2"
-                                />
-                                <motion.input
-                                    type="email"
-                                    placeholder="Email"
-                                    className="w-full rounded-md border border-gray-300 p-2"
-                                />
-                                <motion.textarea
-                                    placeholder="Your enquiry"
-                                    className="w-full rounded-md border border-gray-300 p-2"
-                                    rows={4}
-                                ></motion.textarea>
-                                <motion.button
-                                    type="submit"
-                                    className="w-full rounded-md bg-blue-500 p-2 text-white transition-colors hover:bg-blue-600"
-                                >
-                                    Submit
-                                </motion.button> */}
                             </motion.form>
                         )}
                     </AnimatePresence>
                 </motion.div>
-                <span className="z-50">
+
+                {/* Contact Form Toggle Button */}
+                <span className="z-50 hidden md:flex">
                     <Button
                         isActive={isActive}
                         toggleMenu={() => {
