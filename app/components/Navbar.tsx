@@ -12,30 +12,58 @@ type NavbarProps = {
 }
 
 const Navbar = ({ className }: NavbarProps) => {
-    const [prevScrollPos, setPrevScrollPos] = useState(0)
-    const [visible, setVisible] = useState(true)
     const [isActive, setIsActive] = useState(false)
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY
-        const isScrollingDown = currentScrollPos > prevScrollPos
+    useEffect(() => {
+        if (isActive) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
 
-        setVisible(!isScrollingDown || currentScrollPos < 10)
-        setPrevScrollPos(currentScrollPos)
+        return () => {
+            document.body.style.overflow = "auto"
+        }
+    }, [isActive])
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const form = e.target as HTMLFormElement
+        const formData = new FormData(form)
+
+        try {
+            const res = await fetch("/api/sendEmail", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    message: formData.get("message"),
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+
+            const json = await res.json()
+
+            console.log(json)
+
+            form.reset()
+        } catch (error) {
+            console.log(error)
+        }
+
+        alert("Thank you for submiting your enquiry!")
     }
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [prevScrollPos])
-
-    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi h-16 ${
-        visible ? "translate-y-0" : "-translate-y-full"
+    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-4 text-textPrimary transition-transform font-Satoshi h-16 translate-y-0"
     } ${className}`
 
     const menu = {
         open: {
+            opacity: 1,
             width: "calc(100vw - 40px)",
             height: "calc(100vh - 40px)",
             top: "10px",
@@ -47,6 +75,7 @@ const Navbar = ({ className }: NavbarProps) => {
             },
         },
         closed: {
+            opacity: 0,
             width: "100px",
             height: "40px",
             top: "15px",
@@ -206,6 +235,7 @@ const Navbar = ({ className }: NavbarProps) => {
                         {isActive && (
                             <motion.form
                                 className="h-full w-full space-y-4"
+                                onSubmit={handleSubmit}
                                 variants={formVariants}
                                 initial="hidden"
                                 animate="visible"
@@ -229,9 +259,6 @@ const Navbar = ({ className }: NavbarProps) => {
                                             We will get back to you as quickly
                                             as we can.
                                         </p>
-                                        <p className="mb-2">
-                                            hello@cprhealth.com
-                                        </p>
                                     </div>
 
                                     {/* Right side */}
@@ -253,6 +280,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                 <input
                                                     type="text"
                                                     id="name"
+                                                    name="name"
                                                     required
                                                     className="w-full rounded border border-gray-300 p-2"
                                                 />
@@ -266,6 +294,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                 </label>
                                                 <input
                                                     type="email"
+                                                    name="email"
                                                     id="email"
                                                     required
                                                     className="w-full rounded border border-gray-300 p-2"
@@ -280,6 +309,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                 </label>
                                                 <textarea
                                                     id="message"
+                                                    name="message"
                                                     rows={4}
                                                     className="w-full rounded border border-gray-300 p-2"
                                                 ></textarea>

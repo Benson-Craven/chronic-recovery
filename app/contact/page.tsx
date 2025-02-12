@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import ShineUnderlineEffect from "../components/UnderlineEffect"
 import Image from "next/image"
 import Link from "next/link"
+import axios from "axios"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -21,8 +22,34 @@ const ContactPage = () => {
         },
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+
+        const form = e.target as HTMLFormElement
+        const formData = new FormData(form)
+
+        try {
+            const res = await fetch("/api/sendEmail", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    message: formData.get("message"),
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+
+            const json = await res.json()
+
+            console.log(json)
+
+            form.reset()
+        } catch (error) {
+            console.log(error)
+        }
+
         setIsFormSubmitted(true)
     }
 
@@ -77,6 +104,7 @@ const ContactPage = () => {
                                             <input
                                                 type="text"
                                                 id="name"
+                                                name="name"
                                                 required
                                                 className="w-full rounded border border-gray-300 p-2"
                                             />
@@ -91,6 +119,7 @@ const ContactPage = () => {
                                             <input
                                                 type="email"
                                                 id="email"
+                                                name="email"
                                                 required
                                                 className="w-full rounded border border-gray-300 p-2"
                                             />
@@ -104,6 +133,7 @@ const ContactPage = () => {
                                             </label>
                                             <textarea
                                                 id="message"
+                                                name="message"
                                                 rows={4}
                                                 className="w-full rounded border border-gray-300 p-2"
                                             ></textarea>
