@@ -41,7 +41,7 @@ export default function Home() {
                     {/* <ScienceSection /> */}
                     <Approach />
                     <Services />
-                    <MaskTextSection />
+                    {/* <MaskTextSection /> */}
                     <SVGPathScienceSection />
 
                     {/* <SVGTest /> */}
