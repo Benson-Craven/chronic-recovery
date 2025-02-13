@@ -10,6 +10,7 @@ import {
     Lightbulb,
     ThumbsUp,
 } from "lucide-react"
+import Link from "next/link"
 
 const SVGPathScienceSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -103,10 +104,16 @@ const SVGPathScienceSection = () => {
                                 safety or danger based on past experiences - all
                                 without our awareness.
                             </p>
+                            <Link
+                                href="/contact"
+                                className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            >
+                                Book a Free Consultation
+                            </Link>
                         </div>
                     </motion.figure>
 
-                    {/* second box */}
+                    {/* Second box */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -122,14 +129,15 @@ const SVGPathScienceSection = () => {
                             Warning signals can persist long after healing,
                             creating a cycle of chronic pain.
                         </p>
-                        {/* <img
-                            src="/images/cork.avif"
-                            alt="Brain visualization"
-                            className="h-full w-full object-cover"
-                        /> */}
+                        <Link
+                            href="/self-assessment"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Take the Self-Assessment
+                        </Link>
                     </motion.figure>
 
-                    {/* Third box  */}
+                    {/* Third box */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -145,6 +153,17 @@ const SVGPathScienceSection = () => {
                             playsInline
                             className="h-full w-full object-cover"
                         />
+                        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
+                            <h3 className="text-xl">
+                                Start Your Healing Journey
+                            </h3>
+                            <Link
+                                href="/contact"
+                                className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            >
+                                Get Started Now
+                            </Link>
+                        </div>
                     </motion.figure>
 
                     {/* Fourth box */}
@@ -162,19 +181,19 @@ const SVGPathScienceSection = () => {
                         <ul className="mt-2 grid list-disc pl-2 text-sm md:grid-cols-2">
                             <li>Pain reprocessing therapy</li>
                             <li>Somatic tracking</li>
-
                             <li>Graded exposure therapy</li>
                             <li>Emotional awareness & expression therapy</li>
-                            {/* <li>
-                                Intensive short-term dynamic psychotherapy
-                                (ISTDP)
-                            </li> */}
                             <li>Pain counselling</li>
                             <li>Nervous system regulation</li>
-
                             <li>Clinical hypnotherapy</li>
                             <li>Mindfulness exercises</li>
                         </ul>
+                        <Link
+                            href="/science"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Learn More About Treatments
+                        </Link>
                     </motion.figure>
 
                     {/* Fifth box */}
@@ -187,15 +206,21 @@ const SVGPathScienceSection = () => {
                     >
                         <div className="flex items-center space-x-2">
                             <Lightbulb className="h-6 w-6" />
-                            <h3 className="text-xl">Understanding pain</h3>
+                            <h3 className="text-xl">Understanding Pain</h3>
                         </div>
                         <p className="mt-2">
                             Physical symptoms are the language between your
                             unconscious and conscious brain.
                         </p>
+                        <Link
+                            href="/science"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Read More
+                        </Link>
                     </motion.figure>
 
-                    {/* last box */}
+                    {/* Last box */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -212,6 +237,12 @@ const SVGPathScienceSection = () => {
                             can do yourself through various therapeutic
                             approaches.
                         </p>
+                        <Link
+                            href="/contact"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Start Your Healing Today
+                        </Link>
                     </motion.figure>
                 </div>
             </div>

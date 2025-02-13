@@ -3,11 +3,22 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 import ShineUnderlineEffect from "../UnderlineEffect"
 import animationData from "../../../public/assets/women-health.json"
-
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
+import Lottie, { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
 
 const WeDoSection = () => {
     const container = useRef(null)
+    const aniRef = useRef<LottieRefCurrentProps>(null)
+
+    const interactivity: Omit<InteractivityProps, "lottieObj"> = {
+        mode: "scroll",
+        actions: [
+            {
+                visibility: [0.2, 1],
+                type: "seek",
+                frames: [0, 150],
+            },
+        ],
+    }
 
     return (
         <section id="mission" className="bg-[#F9F9F9] py-16 md:py-24">
@@ -16,8 +27,13 @@ const WeDoSection = () => {
                     {/* Lottie Animation Container */}
                     <div className="w-full md:w-1/2">
                         <Lottie
+                            lottieRef={aniRef}
+                            // onComplete={() => {
+                            //     aniRef.current?.playSegments([100, 150], true)
+                            // }}
+                            interactivity={interactivity}
                             animationData={animationData}
-                            loop={true}
+                            // loop={false}
                             className="mx-auto w-full max-w-sm md:max-w-md lg:max-w-lg"
                         />
                     </div>

@@ -1,6 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { FadeInOnScroll } from "../animations/FadeInOnScroll"
+import Link from "next/link"
 
 const Approach = () => {
     return (
@@ -19,13 +20,15 @@ const Approach = () => {
                     </p>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
-                    <motion.button
-                        className="font-Satoshi mt-10 w-auto rounded-full bg-textThird px-5 py-3 text-lg text-secondary sm:text-xl md:text-2xl"
-                        whileTap={{ scale: 0.85 }}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        Book Your Consultation Now
-                    </motion.button>
+                    <Link href="/contact">
+                        <motion.button
+                            className="font-Satoshi mt-10 w-auto rounded-full bg-textThird px-5 py-3 text-lg text-secondary sm:text-xl md:text-2xl"
+                            whileTap={{ scale: 0.85 }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            Book Your Consultation Now
+                        </motion.button>
+                    </Link>
                 </FadeInOnScroll>
             </div>
         </section>

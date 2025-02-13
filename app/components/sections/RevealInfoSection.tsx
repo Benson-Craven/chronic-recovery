@@ -120,7 +120,7 @@ const RevealInfoSection = () => {
                                 system and brain to get you back to good health.
                             </p>
                             <Link
-                                href="/about"
+                                href="/contact"
                                 className="inline-flex items-center text-textPrimary transition duration-300 hover:text-[#D9D9D6]"
                             >
                                 <span className="mr-2">
