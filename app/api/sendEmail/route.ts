@@ -12,23 +12,24 @@ export async function POST(req: NextRequest) {
         to: [{ email: "bensoncraven@hotmail.co.uk", name: "Benson" }],
         subject: `New Enquiry Submission from ${json.name}`,
         htmlContent: `
-            <html>
-                <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px;">
-                    <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-                        <h1 style="font-size: 24px; color: #333; margin-bottom: 20px;">New Enquiry Received</h1>
-                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${json.name}</p>
-                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${json.email}</p>
-                        <p style="font-size: 16px; margin-bottom: 20px;"><strong>Enquiry:</strong></p>
-                        <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee;">
-                            <p style="font-size: 16px; margin: 0;">${json.message}</p>
-                        </div>
-                        <p style="font-size: 14px; color: #777; margin-top: 20px;">
-                            This is an automated message. Please do not reply to this email.
-                        </p>
+        <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                    <h1 style="font-size: 24px; color: #333; margin-bottom: 20px;">New Enquiry Received</h1>
+                    <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${json.name}</p>
+                    <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${json.email}</p>
+                    <p style="font-size: 16px; margin-bottom: 10px;"><strong>Phone:</strong> ${json.phone}</p>
+                    <p style="font-size: 16px; margin-bottom: 20px;"><strong>Message:</strong></p>
+                    <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee;">
+                        <p style="font-size: 16px; margin: 0;">${json.message}</p>
                     </div>
-                </body>
-            </html>
-        `,
+                    <p style="font-size: 14px; color: #777; margin-top: 20px;">
+                        This is an automated message. Please do not reply to this email.
+                    </p>
+                </div>
+            </body>
+        </html>
+    `,
     }
 
     try {

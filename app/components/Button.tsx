@@ -41,7 +41,7 @@ interface PerspectiveTextProps {
 
 function PerspectiveText({
     label,
-    textColor = "text-black",
+    textColor = "text-white",
 }: PerspectiveTextProps) {
     return (
         <div className="transform-style-preserve-3d group-hover:rotate-x-90 flex h-full w-full flex-col items-center justify-center transition-transform duration-[0.75s] ease-[cubic-bezier(0.76,0,0.24,1)]">
