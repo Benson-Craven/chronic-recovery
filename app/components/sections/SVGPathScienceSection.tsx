@@ -179,15 +179,14 @@ const SVGPathScienceSection = () => {
                             <h3 className="text-xl">Treatment Paths</h3>
                         </div>
                         <ul className="mt-2 grid list-disc pl-2 text-sm md:grid-cols-2">
-                            <li>Pain reprocessing therapy</li>
-                            <li>Somatic tracking</li>
-                            <li>Graded exposure therapy</li>
-                            <li>Emotional awareness & expression therapy</li>
-                            <li>Pain counselling</li>
-                            <li>Nervous system regulation</li>
-                            <li>Clinical hypnotherapy</li>
-                            <li>Mindfulness exercises</li>
+                            <li>Pain Reprocessing Therapy</li>
+                            <li>Somatic Tracking Techniques</li>
+                            <li>Graded Exposure Therapy</li>
+                            <li>Emotional Awareness & Expression Therapy</li>
                         </ul>
+                        <p className="mt-2 text-sm">
+                            ... and many more transformative approaches.
+                        </p>
                         <Link
                             href="/science"
                             className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"

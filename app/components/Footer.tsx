@@ -96,7 +96,7 @@ const Footer = () => {
                 {/* Bottom Footer */}
                 <div className="mt-12 flex flex-col items-center justify-between border-t border-white/10 pt-6 md:flex-row">
                     <p className="text-sm">
-                        © 2024{" "}
+                        © {new Date().getFullYear()}{" "}
                         <Link href="/" className="underline">
                             Chronic Pain Recovery
                         </Link>

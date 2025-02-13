@@ -6,6 +6,7 @@ import Button from "./Button"
 import { motion, AnimatePresence } from "framer-motion"
 import ShineUnderlineEffect from "./UnderlineEffect"
 import Image from "next/image"
+import { Menu, X } from "lucide-react"
 
 type NavbarProps = {
     className?: string
@@ -16,7 +17,7 @@ const Navbar = ({ className }: NavbarProps) => {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
     const [showThankYou, setShowThankYou] = useState(false)
     const [messageLength, setMessageLength] = useState(0)
-    const [isScienceDropdownOpen, setIsScienceDropdownOpen] = useState(false) // State for Science dropdown
+    const [isScienceDropdownOpen, setIsScienceDropdownOpen] = useState(false)
     const MAX_CHARS = 500
 
     useEffect(() => {
@@ -31,11 +32,25 @@ const Navbar = ({ className }: NavbarProps) => {
         }
     }, [isActive])
 
+    useEffect(() => {
+        if (isSubmenuOpen) {
+            document.documentElement.style.overflow = "hidden"
+            document.body.style.overflow = "hidden"
+        } else {
+            document.documentElement.style.overflow = "auto"
+            document.body.style.overflow = "auto"
+        }
+
+        return () => {
+            document.documentElement.style.overflow = "auto"
+            document.body.style.overflow = "auto"
+        }
+    }, [isSubmenuOpen])
+
     const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const text = e.target.value
         setMessageLength(text.length)
 
-        // Optional: Prevent typing if max length reached
         if (text.length > MAX_CHARS) {
             e.target.value = text.slice(0, MAX_CHARS)
             setMessageLength(MAX_CHARS)
@@ -65,19 +80,17 @@ const Navbar = ({ className }: NavbarProps) => {
             const json = await res.json()
             console.log(json)
             form.reset()
-            setMessageLength(0) // Reset message length counter
+            setMessageLength(0)
 
-            // Show thank you message and close menu after delay
             setShowThankYou(true)
             setTimeout(() => {
                 setIsActive(false)
                 setTimeout(() => {
                     setShowThankYou(false)
-                }, 500) // Reset after menu closes
+                }, 500)
             }, 2000)
         } catch (error) {
             console.log(error)
-            // Handle error case
             alert(
                 "There was an error submitting your enquiry. Please try again.",
             )
@@ -126,10 +139,35 @@ const Navbar = ({ className }: NavbarProps) => {
         },
     }
 
-    const submenuVariants = {
-        hidden: { opacity: 0, y: -20 },
-        visible: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -20 },
+    // Updated mobile menu variants for side slide
+    const menuVariants = {
+        hidden: {
+            x: "100%",
+            opacity: 0,
+        },
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+            },
+        },
+        exit: {
+            x: "100%",
+            opacity: 0,
+            transition: {
+                duration: 0.2,
+            },
+        },
+    }
+
+    // Overlay variants for background dim
+    const overlayVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 0.5 },
+        exit: { opacity: 0 },
     }
 
     const toggleSubmenu = () => {
@@ -152,8 +190,8 @@ const Navbar = ({ className }: NavbarProps) => {
                     <Image
                         src="/logos/Mending_Mindets.png"
                         alt="Mending Mindsets Logo"
-                        width={70}
-                        height={20}
+                        width={80}
+                        height={80}
                     />
                 </Link>
 
@@ -181,7 +219,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                 {isScienceDropdownOpen && (
                                     <motion.ul
                                         className="absolute left-0 top-full z-50 mt-2 w-48 rounded-lg bg-white shadow-lg"
-                                        variants={submenuVariants}
+                                        variants={menuVariants}
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
@@ -236,77 +274,92 @@ const Navbar = ({ className }: NavbarProps) => {
                     </ul>
                 </div>
 
-                {/* Mobile Submenu */}
+                {/* Mobile Menu */}
                 <div className="md:hidden">
                     <button
                         onClick={toggleSubmenu}
-                        className="flex items-center justify-center rounded-full bg-textSecondary p-2 text-white transition-colors"
+                        className="fixed right-4 top-4 z-50 flex items-center justify-center rounded-full bg-textSecondary p-2 text-white transition-colors hover:bg-opacity-90"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M4 6h16M4 12h16m-7 6h7"
-                            />
-                        </svg>
+                        {isSubmenuOpen ? (
+                            <X className="h-8 w-8" />
+                        ) : (
+                            <Menu className="h-8 w-8" />
+                        )}
                     </button>
 
                     <AnimatePresence>
                         {isSubmenuOpen && (
-                            <motion.div
-                                className="absolute left-1/2 top-20 z-50 w-64 -translate-x-1/2 rounded-lg bg-white shadow-lg md:hidden"
-                                variants={submenuVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                transition={{ duration: 0.3 }}
-                            >
-                                <ul className="space-y-2 p-4">
-                                    <li>
-                                        <Link
-                                            href="/science"
-                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
-                                            onClick={toggleSubmenu}
-                                        >
-                                            The Science
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="/#services"
-                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
-                                            onClick={toggleSubmenu}
-                                        >
-                                            Services
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="/info"
-                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
-                                            onClick={toggleSubmenu}
-                                        >
-                                            About
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="/contact"
-                                            className="block rounded-md px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
-                                            onClick={toggleSubmenu}
-                                        >
-                                            Contact
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </motion.div>
+                            <>
+                                {/* Overlay */}
+                                <motion.div
+                                    className="fixed inset-0 min-h-screen bg-black"
+                                    variants={overlayVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                    onClick={toggleSubmenu}
+                                />
+
+                                {/* Menu */}
+                                <motion.div
+                                    className="fixed inset-y-0 right-0 min-h-screen w-full max-w-sm bg-white shadow-lg md:hidden"
+                                    variants={menuVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                >
+                                    <div className="flex flex-col">
+                                        <div className="flex-1">
+                                            <ul className="space-y-4 p-8 pt-[20vh]">
+                                                <li>
+                                                    <li className="mb-2">
+                                                        <Image
+                                                            src="/logos/Mending_Mindets.png"
+                                                            alt="Mending Mindsets Logo"
+                                                            width={250}
+                                                            height={250}
+                                                        />
+                                                    </li>
+                                                    <Link
+                                                        href="/science"
+                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                                                        onClick={toggleSubmenu}
+                                                    >
+                                                        The Science
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href="/#services"
+                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                                                        onClick={toggleSubmenu}
+                                                    >
+                                                        Services
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href="/info"
+                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                                                        onClick={toggleSubmenu}
+                                                    >
+                                                        About
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href="/contact"
+                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                                                        onClick={toggleSubmenu}
+                                                    >
+                                                        Contact
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </>
                         )}
                     </AnimatePresence>
                 </div>
