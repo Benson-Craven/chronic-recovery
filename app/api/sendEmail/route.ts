@@ -13,7 +13,7 @@ interface SendEmailBody {
 export async function POST(req: NextRequest) {
     const json = await req.json()
 
-    console.log(">>>>>>>>>>req", json)
+    console.log(">>>>>>>>>>here is the request!", json)
 
     const data = {
         sender: {
