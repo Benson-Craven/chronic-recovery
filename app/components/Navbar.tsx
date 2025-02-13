@@ -34,16 +34,22 @@ const Navbar = ({ className }: NavbarProps) => {
 
     useEffect(() => {
         if (isSubmenuOpen) {
-            document.documentElement.style.overflow = "hidden"
             document.body.style.overflow = "hidden"
+            document.body.style.position = "fixed" // Prevents scroll jumps
+            document.body.style.width = "100%" // Ensures layout remains the same
+            document.body.style.touchAction = "none" // Prevents touch scrolling
         } else {
-            document.documentElement.style.overflow = "auto"
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = ""
+            document.body.style.position = ""
+            document.body.style.width = ""
+            document.body.style.touchAction = ""
         }
 
         return () => {
-            document.documentElement.style.overflow = "auto"
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = ""
+            document.body.style.position = ""
+            document.body.style.width = ""
+            document.body.style.touchAction = ""
         }
     }, [isSubmenuOpen])
 
@@ -182,6 +188,7 @@ const Navbar = ({ className }: NavbarProps) => {
         <nav
             className={navbarClassName}
             style={{
+                position: "sticky",
                 transitionTimingFunction: "cubic-bezier(0.64, 0, 0.35, 1)",
             }}
         >
@@ -275,7 +282,7 @@ const Navbar = ({ className }: NavbarProps) => {
                 </div>
 
                 {/* Mobile Menu */}
-                <div className="md:hidden">
+                <div className="sticky top-0 md:hidden">
                     <button
                         onClick={toggleSubmenu}
                         className="fixed right-4 top-4 z-50 flex items-center justify-center rounded-full bg-textSecondary p-2 text-white transition-colors hover:bg-opacity-90"
@@ -310,7 +317,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                 >
                                     <div className="flex flex-col">
                                         <div className="flex-1">
-                                            <ul className="space-y-4 p-8 pt-[20vh]">
+                                            <ul className="space-y-4 p-8 pt-12">
                                                 <li>
                                                     <li className="mb-2">
                                                         <Image
