@@ -9,6 +9,8 @@ import axios from "axios"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+    const [messageLength, setMessageLength] = useState(0) // Track message length
+    const maxMessageLength = 500 // Set maximum character limit for the message
 
     const formVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -28,12 +30,20 @@ const ContactPage = () => {
         const form = e.target as HTMLFormElement
         const formData = new FormData(form)
 
+        // Validate message length
+        const message = formData.get("message") as string
+        if (message.length > maxMessageLength) {
+            alert(`Message must be less than ${maxMessageLength} characters.`)
+            return
+        }
+
         try {
             const res = await fetch("/api/sendEmail", {
                 method: "POST",
                 body: JSON.stringify({
                     name: formData.get("name"),
                     email: formData.get("email"),
+                    phone: formData.get("phone"), // Include phone number
                     message: formData.get("message"),
                 }),
                 headers: {
@@ -42,15 +52,13 @@ const ContactPage = () => {
             })
 
             const json = await res.json()
-
             console.log(json)
 
             form.reset()
+            setIsFormSubmitted(true)
         } catch (error) {
             console.log(error)
         }
-
-        setIsFormSubmitted(true)
     }
 
     return (
@@ -94,6 +102,7 @@ const ContactPage = () => {
                                         </h1>
                                         <div className="h-[1px] bg-black opacity-10 md:hidden"></div>
 
+                                        {/* Name Field */}
                                         <div>
                                             <label
                                                 htmlFor="name"
@@ -109,6 +118,8 @@ const ContactPage = () => {
                                                 className="w-full rounded border border-gray-300 p-2"
                                             />
                                         </div>
+
+                                        {/* Email Field */}
                                         <div>
                                             <label
                                                 htmlFor="email"
@@ -124,26 +135,60 @@ const ContactPage = () => {
                                                 className="w-full rounded border border-gray-300 p-2"
                                             />
                                         </div>
+
+                                        {/* Phone Field */}
+                                        <div>
+                                            <label
+                                                htmlFor="phone"
+                                                className="mb-2 block"
+                                            >
+                                                Phone Number *
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                id="phone"
+                                                name="phone"
+                                                required
+                                                className="w-full rounded border border-gray-300 p-2"
+                                            />
+                                        </div>
+
+                                        {/* Message Field */}
                                         <div>
                                             <label
                                                 htmlFor="message"
                                                 className="mb-2 block"
                                             >
-                                                Message
+                                                Message *
                                             </label>
                                             <textarea
                                                 id="message"
                                                 name="message"
                                                 rows={4}
+                                                required
+                                                maxLength={maxMessageLength}
+                                                onChange={(e) =>
+                                                    setMessageLength(
+                                                        e.target.value.length,
+                                                    )
+                                                }
                                                 className="w-full rounded border border-gray-300 p-2"
                                             ></textarea>
+                                            <p className="mt-1 text-sm text-gray-500">
+                                                {messageLength}/
+                                                {maxMessageLength} characters
+                                            </p>
                                         </div>
+
+                                        {/* Submit Button */}
                                         <button
                                             type="submit"
                                             className="rounded-full bg-textSecondary px-6 py-2 text-white transition-colors"
                                         >
                                             Submit
                                         </button>
+
+                                        {/* Terms and Conditions */}
                                         <p className="text-sm text-gray-500">
                                             By continuing, you agree to our
                                             Terms & Conditions and our Privacy
