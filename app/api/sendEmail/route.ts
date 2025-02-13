@@ -1,19 +1,8 @@
-import { cn } from "@/utils/cn"
 import axios from "axios"
 import { NextRequest } from "next/server"
 
-interface SendEmailBody {
-    body: {
-        email: string
-        name: string
-        message: string
-    }
-}
-
 export async function POST(req: NextRequest) {
     const json = await req.json()
-
-    console.log(">>>>>>>>>>here is the request!", json)
 
     const data = {
         sender: {
@@ -21,17 +10,27 @@ export async function POST(req: NextRequest) {
             email: "hello@benson.codes",
         },
         to: [{ email: "bensoncraven@hotmail.co.uk", name: "Benson" }],
-        subject: `Enquiry Submission from ${json.name}`,
+        subject: `New Enquiry Submission from ${json.name}`,
         htmlContent: `
-            <html><body>
-                <h1>Website Form Submission</h1>
-                <p>Email: ${json.email}</p>
-                <p>Name: ${json.name}</p>
-                <p>Enquiry: ${json.message}</p>
-                <p>Please do not reply to this email.</p>
-            </body></html>
+            <html>
+                <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px;">
+                    <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                        <h1 style="font-size: 24px; color: #333; margin-bottom: 20px;">New Enquiry Received</h1>
+                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${json.name}</p>
+                        <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${json.email}</p>
+                        <p style="font-size: 16px; margin-bottom: 20px;"><strong>Enquiry:</strong></p>
+                        <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee;">
+                            <p style="font-size: 16px; margin: 0;">${json.message}</p>
+                        </div>
+                        <p style="font-size: 14px; color: #777; margin-top: 20px;">
+                            This is an automated message. Please do not reply to this email.
+                        </p>
+                    </div>
+                </body>
+            </html>
         `,
     }
+
     try {
         const res = await axios.post(
             "https://api.sendinblue.com/v3/smtp/email",
