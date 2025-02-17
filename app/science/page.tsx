@@ -107,7 +107,7 @@ const SciencePage = () => {
                         <strong>NOTE:</strong> Please consult your doctor to
                         rule out structural abnormality, disease, or infection.
                         Take the{" "}
-                        <Link href="/self-assesment">
+                        <Link href="/self-assessment">
                             <b className="hover:darken">
                                 self-assessment questionnaire
                             </b>

@@ -9,7 +9,7 @@ const Approach = () => {
             <div className="flex w-full flex-col items-center justify-center text-center md:w-2/3">
                 <FadeInOnScroll threshold={0.7}>
                     <h2 className="font-Satoshi p-5 text-2xl text-textPrimary sm:text-3xl md:text-5xl">
-                        A Compassionate Approach to Lasting Relief
+                        A Caring Journey Toward Lasting Recovery
                     </h2>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
