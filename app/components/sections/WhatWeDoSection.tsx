@@ -13,7 +13,7 @@ const WeDoSection = () => {
         mode: "scroll",
         actions: [
             {
-                visibility: [0.2, 1],
+                visibility: [0.2, 1.25],
                 type: "seek",
                 frames: [0, 150],
             },
