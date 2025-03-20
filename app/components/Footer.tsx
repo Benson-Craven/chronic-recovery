@@ -13,7 +13,7 @@ const Footer = () => {
                     {/* Pain Management Section */}
                     <div>
                         <h3 className="mb-4 text-lg font-bold">
-                            Pain Management
+                            Chronic Pain Recovery
                         </h3>
                         <ul className="space-y-2">
                             {[

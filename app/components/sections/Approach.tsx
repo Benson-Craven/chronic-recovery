@@ -14,9 +14,11 @@ const Approach = () => {
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
                     <p className="font-Satoshi mt-2 px-4 text-base text-textSecondary sm:text-lg md:text-2xl">
-                        Discover the support and care that have helped many find
-                        relief from chronic conditions and regain control over
-                        their lives.
+                        I am delighted to tell you that there is new help for
+                        chronic pain sufferers and for people with other
+                        medically unexplained diagnoses such as IBS, long covid,
+                        chronic fatigue, migraines, anxiety, back pain,
+                        fibromyalgia and many more.
                     </p>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>

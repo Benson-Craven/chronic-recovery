@@ -9,6 +9,10 @@ import {
     Activity,
     Lightbulb,
     ThumbsUp,
+    BookOpen,
+    Shield,
+    Smile,
+    HandHeart,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -75,7 +79,7 @@ const SVGPathScienceSection = () => {
                 {/* Bento Grid */}
                 <div
                     id="treatment"
-                    className="relative z-10 mb-6 grid grid-cols-1 gap-4 px-4 md:grid-cols-2 lg:mb-0 lg:grid-cols-4 lg:grid-rows-4"
+                    className="relative z-10 mb-10 grid grid-cols-1 gap-4 px-4 pb-6 md:grid-cols-2 lg:mb-0 lg:grid-cols-4 lg:grid-rows-4"
                 >
                     {/* First box (spans 2x2) */}
                     <motion.figure
@@ -219,7 +223,7 @@ const SVGPathScienceSection = () => {
                         </Link>
                     </motion.figure>
 
-                    {/* Last box */}
+                    {/* Sixth box */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -241,6 +245,103 @@ const SVGPathScienceSection = () => {
                             className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
                         >
                             Start Your Healing Today
+                        </Link>
+                    </motion.figure>
+
+                    {/* Seventh box */}
+                    <motion.figure
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative h-64 overflow-hidden rounded-3xl bg-amber-200/30 p-6 lg:col-span-4"
+                    >
+                        <div className="flex items-center space-x-2">
+                            <Smile className="h-6 w-6 text-textPrimary" />
+                            <h3 className="text-xl text-textPrimary">
+                                Pain Reprocessing Therapy (PRT)
+                            </h3>
+                        </div>
+                        <p className="mt-2 text-textPrimary">
+                            Sufferers of chronic pain are unaware that chronic
+                            pain can get 'stuck' in the body due to neural
+                            circuits in the brain that continue to send pain
+                            signals. This can be due to a number of factors such
+                            as stress, trauma and unprocessed emotions. Another
+                            way pain can get ‘stuck’ is due to a learned
+                            response in the brain, for example after an injury
+                            should have healed but pain is still continuing;
+                            this is where Pain Reprocessing Therapy (PRT) can
+                            help the brain to turn off the danger / pain signals
+                            to that area.
+                        </p>
+                        <Link
+                            href="/science"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Learn More
+                        </Link>
+                    </motion.figure>
+
+                    {/* Eighth box */}
+                    <motion.figure
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative h-64 overflow-hidden rounded-3xl bg-textPrimary/30 p-6 lg:col-span-2"
+                    >
+                        <div className="flex items-center space-x-2">
+                            <Shield className="h-6 w-6 text-textPrimary" />
+                            <h3 className="text-xl text-textPrimary">
+                                Biopsychosocial Method
+                            </h3>
+                        </div>
+                        <p className="mt-2 text-textPrimary">
+                            The biopsychosocial method is the most current
+                            approach to treating chronic pain and is now being
+                            taught to medical practitioners worldwide, including
+                            Australia, US, and the NHS in the UK. I have trained
+                            under Dr. Howard Schubiner, a pioneer in the world
+                            of mind-body medicine, and worked with many people
+                            of all ages and ailments with amazing,
+                            life-changing, results. Let me help you too.
+                        </p>
+                        <Link
+                            href="/science"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Explore Techniques
+                        </Link>
+                    </motion.figure>
+
+                    {/* Ninth box */}
+                    <motion.figure
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="relative h-64 overflow-hidden rounded-3xl bg-textSecondary/30 p-6 lg:col-span-2"
+                    >
+                        <div className="flex items-center space-x-2">
+                            <HandHeart className="h-6 w-6 text-textPrimary" />
+                            <h3 className="text-xl text-textPrimary">
+                                All Pain Is Real
+                            </h3>
+                        </div>
+                        <p className="mt-2 text-textPrimary">
+                            It is not imaginary, it is not ‘all in your head’.
+                            Believe it or not, all pain originates in the brain,
+                            and in order to treat chronic pain, you must start
+                            with the brain. These are the conclusions of the
+                            most recent scientific studies into the causes of
+                            chronic pain.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                        >
+                            Get The Help Your Deserve
                         </Link>
                     </motion.figure>
                 </div>

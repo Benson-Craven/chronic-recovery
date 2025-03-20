@@ -32,7 +32,8 @@ const projects: Project[] = [
     },
     {
         title: "In person sessions in Cork, Ireland or online*",
-        description: "€65 per session",
+        description:
+            "€65 per session at home office / online, €85 at Therapy Rooms, Victoria Cross, Cork",
         src: "cork.avif",
         url: "https://example.com/project3",
         color: "#cfdda5",

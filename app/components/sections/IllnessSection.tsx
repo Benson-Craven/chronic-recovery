@@ -193,70 +193,87 @@ type CardType = {
     acute?: boolean
 }
 
-// Updated cards array with more supportive information
 const cards: CardType[] = [
     {
-        url: "/images/stomach-pain.avif",
-        title: "Irritable Bowel Syndrome (IBS)",
+        url: "/images/fib.jpg", // Reusing the IBS image
+        title: "Chronic Pain Syndromes",
         description:
-            "Chronic digestive discomfort that significantly affects daily life.",
+            "Persistent pain conditions that affect daily life and well-being.",
         symptoms: [
-            "Abdominal pain or cramping",
-            "Bloating",
-            "Diarrhea or constipation",
+            "Fibromyalgia",
+            "Chronic fatigue syndrome",
+            "Amplified Musculoskeletal Pain Syndrome (AMPS)",
+            "Myofascial pain syndrome",
+            "Complex Regional Pain Syndrome (CRPS)",
         ],
         id: 1,
     },
     {
-        url: "/images/neck-pain.avif",
-        title: "Long Covid",
+        url: "/images/neck-pain.avif", // Reusing the Long Covid image
+        title: "Musculoskeletal Pain",
         description:
-            "Persistent symptoms after recovering from COVID-19, including neck pain.",
-        symptoms: ["Fatigue", "Neck or muscle discomfort", "Brain fog"],
+            "Pain affecting muscles, bones, joints, and connective tissues.",
+        symptoms: [
+            "Back pain",
+            "Neck pain",
+            "Whiplash",
+            "Knee pain",
+            "Patellofemoral syndrome",
+            "Piriformis syndrome",
+            "Repetitive strain injury (RSI)",
+            "Foot pain syndromes",
+        ],
         id: 2,
     },
     {
-        url: "/images/headache.avif",
-        title: "Migraines",
+        url: "/images/headache.avif", // Reusing the Migraines image
+        title: "Head & Facial Pain",
         description:
-            "Recurring headaches that interfere with daily activities and productivity.",
+            "Conditions causing pain in the head, face, or jaw regions.",
         symptoms: [
-            "Throbbing or pulsing pain",
-            "Sensitivity to light and sound",
-            "Nausea or vomiting",
+            "Tension headaches & migraines",
+            "Temporomandibular joint (TMJ) syndrome",
+            "Facial pain",
+            "Chronic dizziness",
+            "Tinnitus",
         ],
         id: 3,
     },
     {
-        url: "/images/wrist-pain.avif",
-        title: "Wrist Pain",
+        url: "/images/stomach-pain.avif", // Reusing the IBS image
+        title: "Gastrointestinal Issues",
         description:
-            "General discomfort caused by pressure on the median nerve.",
+            "Chronic digestive and abdominal conditions that disrupt daily life.",
         symptoms: [
-            "Tingling or numbness in the fingers",
-            "Weak grip strength",
-            "Wrist pain that worsens at night",
+            "Irritable Bowel Syndrome (IBS)",
+            "Chronic abdominal and pelvic pain syndromes",
+            "Gastric issues",
         ],
         id: 4,
     },
     {
-        url: "/images/anxiety.avif",
-        title: "Anxiety",
-        description:
-            "Persistent feelings of worry, tension, or fear that interfere with daily life.",
+        url: "/images/anxiety.avif", // Reusing the Anxiety image
+        title: "Skin & Sensory Issues",
+        description: "Chronic skin conditions and sensory-related discomfort.",
         symptoms: [
-            "Restlessness or nervousness",
-            "Muscle tension",
-            "Difficulty sleeping",
+            "Skin problems",
+            "Vulvodynia",
+            "Chronic sleep issues",
+            "Palpitations",
         ],
         id: 5,
     },
     {
-        url: "/images/depression.avif",
-        title: "Depression",
+        url: "/images/viral.jpg", // Reusing the Long Covid image
+        title: "Long Covid & Post-Viral Syndromes",
         description:
-            "Can be recognised by persistent sadness, low energy, and physical discomfort.",
-        symptoms: ["Low energy", "Sleep disturbances", "Chronic body aches"],
+            "Persistent symptoms following viral infections, including Long Covid.",
+        symptoms: [
+            "Long Covid",
+            "Chronic fatigue syndrome",
+            "Chronic dizziness",
+            "Brain fog",
+        ],
         id: 6,
     },
 ]

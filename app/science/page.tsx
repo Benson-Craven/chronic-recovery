@@ -76,7 +76,6 @@ const SciencePage = () => {
                             "Somatic tracking",
                             "Graded exposure therapy",
                             "EAET - Emotional awareness & expression therapy",
-                            "ISTDP - Intensive short-term dynamic psychotherapy",
                             "Brain / body training",
                             "Pain counselling",
                             "Nervous system regulation",

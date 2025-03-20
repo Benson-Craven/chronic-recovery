@@ -72,6 +72,8 @@ const RevealInfoSection = () => {
                                             className="h-full w-full object-cover"
                                         />
                                     </div>
+                                </div>
+                                <div className="mt-8 space-y-6">
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/cork.avif"
@@ -81,9 +83,7 @@ const RevealInfoSection = () => {
                                             className="h-full w-full object-cover"
                                         />
                                     </div>
-                                </div>
-                                <div className="mt-8 space-y-6">
-                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
+                                    {/* <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/office.avif"
                                             alt="office"
@@ -91,7 +91,7 @@ const RevealInfoSection = () => {
                                             height={100}
                                             className="h-full w-full object-cover"
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/books.avif"
@@ -113,11 +113,24 @@ const RevealInfoSection = () => {
                                 therapist based in Rochestown, Cork, Ireland and
                                 I use a multi-disciplinary approach to help you
                                 cure your chronic pain, not manage it. I
-                                specialise in helping people with persistent
-                                pain conditions and have worked with many people
-                                of all ages and ailments and seen fantastic
-                                results. I will work with your body, nervous
-                                system and brain to get you back to good health.
+                                specialise in helping people with{" "}
+                                <Link
+                                    href="/conditions"
+                                    className="text-textSecondary hover:text-[#D9D9D6]"
+                                >
+                                    persistent pain conditions
+                                </Link>{" "}
+                                and have worked with many people of all ages and
+                                ailments and seen fantastic results. <br />
+                                <br />I will work with your body, nervous system
+                                and brain to get you back to good health. I also
+                                completely cured myself of chronic migraines and
+                                neck pain that I suffered from for over 10
+                                years. My diagnoses over the years included
+                                upper cross syndrome, fibromyalgia, new daily
+                                persistent headache (NDPH), chronic migraine,
+                                occipital neuralgia and cervicogenic headaches
+                                and I thought I was truly unfix-able and broken.
                             </p>
                             <Link
                                 href="/contact"
