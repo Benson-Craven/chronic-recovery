@@ -187,7 +187,16 @@ const ContactPage = () => {
                                         >
                                             Submit
                                         </button>
-
+                                        <p className="mb-4 text-sm text-gray-500">
+                                            Alternatively, contact via Tel /
+                                            WhatsApp:
+                                            <a
+                                                href="tel:+353892335106"
+                                                className="font-bold hover:underline"
+                                            >
+                                                +353 (0) 89-233-5106
+                                            </a>
+                                        </p>
                                         {/* Terms and Conditions */}
                                         <p className="text-sm text-gray-500">
                                             By continuing, you agree to our

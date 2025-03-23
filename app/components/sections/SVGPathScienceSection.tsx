@@ -263,18 +263,13 @@ const SVGPathScienceSection = () => {
                             </h3>
                         </div>
                         <p className="mt-2 text-textPrimary">
-                            Sufferers of chronic pain are unaware that chronic
-                            pain can get 'stuck' in the body due to neural
-                            circuits in the brain that continue to send pain
-                            signals. This can be due to a number of factors such
-                            as stress, trauma and unprocessed emotions. Another
-                            way pain can get ‘stuck’ is due to a learned
-                            response in the brain, for example after an injury
-                            should have healed but pain is still continuing;
-                            this is where Pain Reprocessing Therapy (PRT) can
-                            help the brain to turn off the danger / pain signals
-                            to that area.
+                            Chronic pain can persist due to neural circuits
+                            sending pain signals, often triggered by stress,
+                            trauma, or unprocessed emotions. PRT helps retrain
+                            the brain to turn off these signals, especially when
+                            pain lingers after an injury has healed.
                         </p>
+
                         <Link
                             href="/science"
                             className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
@@ -298,15 +293,12 @@ const SVGPathScienceSection = () => {
                             </h3>
                         </div>
                         <p className="mt-2 text-textPrimary">
-                            The biopsychosocial method is the most current
-                            approach to treating chronic pain and is now being
-                            taught to medical practitioners worldwide, including
-                            Australia, US, and the NHS in the UK. I have trained
-                            under Dr. Howard Schubiner, a pioneer in the world
-                            of mind-body medicine, and worked with many people
-                            of all ages and ailments with amazing,
-                            life-changing, results. Let me help you too.
+                            The biopsychosocial method is a leading approach to
+                            chronic pain treatment, taught worldwide. Trained
+                            under Dr. Howard Schubiner, I’ve helped many achieve
+                            life-changing results—let me help you too.
                         </p>
+
                         <Link
                             href="/science"
                             className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
@@ -330,12 +322,9 @@ const SVGPathScienceSection = () => {
                             </h3>
                         </div>
                         <p className="mt-2 text-textPrimary">
-                            It is not imaginary, it is not ‘all in your head’.
-                            Believe it or not, all pain originates in the brain,
-                            and in order to treat chronic pain, you must start
-                            with the brain. These are the conclusions of the
-                            most recent scientific studies into the causes of
-                            chronic pain.
+                            Pain isn’t imaginary—it originates in the brain.
+                            Treating chronic pain starts there, as confirmed by
+                            recent scientific research.
                         </p>
                         <Link
                             href="/contact"

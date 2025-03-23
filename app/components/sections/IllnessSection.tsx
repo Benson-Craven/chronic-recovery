@@ -30,7 +30,7 @@ const IllnessSection = () => {
             <FadeInOnScroll>
                 <div className="container mx-auto flex flex-col items-center justify-center px-4 md:h-[60vh]">
                     {/* Main Question */}
-                    <span className="w-3/4 text-center text-2xl leading-tight text-gray-100 md:w-full md:text-5xl">
+                    <span className="mb-10 w-3/4 text-center text-2xl leading-tight text-gray-100 md:w-full md:text-5xl">
                         Have you seen{" "}
                         <span className="text-accent font-butler italic">
                             multiple
@@ -154,9 +154,9 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-1 text-xs font-light leading-relaxed text-gray-300 sm:text-sm md:text-base">
+                    {/* <p className="mt-1 text-xs font-light leading-relaxed text-gray-300 sm:text-sm md:text-base">
                         {card.description}
-                    </p>
+                    </p> */}
 
                     {/* Symptoms List */}
                     <div className="mt-3 space-y-1">
@@ -214,10 +214,8 @@ const cards: CardType[] = [
         description:
             "Pain affecting muscles, bones, joints, and connective tissues.",
         symptoms: [
-            "Back pain",
-            "Neck pain",
+            "Back / Neck / Knee Pain",
             "Whiplash",
-            "Knee pain",
             "Patellofemoral syndrome",
             "Piriformis syndrome",
             "Repetitive strain injury (RSI)",

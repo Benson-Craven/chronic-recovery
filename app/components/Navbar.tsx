@@ -428,6 +428,16 @@ const Navbar = ({ className }: NavbarProps) => {
                                                     We will get back to you as
                                                     quickly as we can.
                                                 </p>
+                                                <p className="mb-4">
+                                                    Alternatively, contact via
+                                                    Tel / WhatsApp:
+                                                    <a
+                                                        href="tel:+353892335106"
+                                                        className="font-bold hover:underline"
+                                                    >
+                                                        +353 (0) 89-233-5106
+                                                    </a>
+                                                </p>
                                             </div>
 
                                             {/* Right side */}
