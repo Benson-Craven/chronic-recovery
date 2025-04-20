@@ -1,14 +1,21 @@
 import React, { useRef } from "react"
-import dynamic from "next/dynamic"
 import Link from "next/link"
 import ShineUnderlineEffect from "../UnderlineEffect"
 import animationData from "../../../public/assets/women-health.json"
-import Lottie, { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
+import dynamic from "next/dynamic"
+import type { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
+
+// Dynamically import the client-side Lottie wrapper with SSR disabled
+const LottieClientWrapper = dynamic(() => import("../LottieWrapper"), {
+    ssr: false,
+    loading: () => (
+        <div className="h-64 w-full animate-pulse bg-gray-200"></div>
+    ),
+})
 
 const WeDoSection = () => {
     const container = useRef(null)
     const aniRef = useRef<LottieRefCurrentProps>(null)
-
     const interactivity: Omit<InteractivityProps, "lottieObj"> = {
         mode: "scroll",
         actions: [
@@ -19,25 +26,19 @@ const WeDoSection = () => {
             },
         ],
     }
-
     return (
         <section id="mission" className="bg-[#F9F9F9] py-16 md:py-24">
             <div ref={container} className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-12">
                     {/* Lottie Animation Container */}
                     <div className="w-full md:w-1/2">
-                        <Lottie
+                        <LottieClientWrapper
                             lottieRef={aniRef}
-                            // onComplete={() => {
-                            //     aniRef.current?.playSegments([100, 150], true)
-                            // }}
                             interactivity={interactivity}
                             animationData={animationData}
-                            // loop={false}
                             className="mx-auto w-full max-w-sm md:max-w-md lg:max-w-lg"
                         />
                     </div>
-
                     {/* Content Container */}
                     <div className="flex w-full flex-col justify-center text-center md:w-1/2 md:text-left">
                         <h2 className="mb-6 text-3xl tracking-tight text-textPrimary md:text-4xl lg:text-5xl">
