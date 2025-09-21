@@ -2,10 +2,7 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import ShineUnderlineEffect from "../components/UnderlineEffect"
-import Image from "next/image"
 import Link from "next/link"
-import axios from "axios"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -62,7 +59,7 @@ const ContactPage = () => {
     }
 
     return (
-        <div className="font-Satoshi min-h-screen bg-[#fafafa] p-4 text-textPrimary">
+        <div className="font-Satoshi min-h-fit bg-[#fafafa] p-4 text-textPrimary">
             <div className="container mx-auto">
                 {/* Contact Form Section */}
                 <motion.section
@@ -73,17 +70,24 @@ const ContactPage = () => {
                 >
                     <div className="flex flex-col md:flex-row">
                         {/* Left Side */}
-                        <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
-                            <h1 className="mb-6 text-6xl">Contact us today</h1>
-                            <div className="mb-10 h-[1px] bg-black opacity-10" />
-                            <p className="mb-4">
-                                Please fill out the form to learn more about our
-                                services and how we can help you.
-                            </p>
-                            <p className="mb-4">
-                                We will get back to you as quickly as we can.
-                            </p>
-                        </div>
+                        {!isFormSubmitted ? (
+                            <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
+                                <h1 className="mb-6 text-6xl">
+                                    Contact us today
+                                </h1>
+                                <div className="mb-10 h-[1px] bg-black opacity-10" />
+                                <p className="mb-4">
+                                    Please fill out the form to learn more about
+                                    our services and how we can help you.
+                                </p>
+                                <p className="mb-4">
+                                    We will get back to you as quickly as we
+                                    can.
+                                </p>
+                            </div>
+                        ) : (
+                            ""
+                        )}
 
                         {/* Right Side */}
                         <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
@@ -206,18 +210,26 @@ const ContactPage = () => {
                                     </motion.form>
                                 ) : (
                                     <motion.div
-                                        className="text-center"
+                                        className="text-left"
                                         variants={formVariants}
                                         initial="hidden"
                                         animate="visible"
                                     >
-                                        <h2 className="mb-4 text-2xl font-semibold">
+                                        <h2 className="mb-4 text-4xl font-semibold">
                                             Thank you for contacting us!
                                         </h2>
-                                        <p>
+                                        <p className="mb-4 text-2xl">
                                             We will get back to you as soon as
                                             possible.
                                         </p>
+                                        <Link href={"/"}>
+                                            <button
+                                                type="button"
+                                                className="rounded-lg bg-textThird px-4 py-2"
+                                            >
+                                                Back To Home
+                                            </button>{" "}
+                                        </Link>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

@@ -280,6 +280,16 @@ const Navbar = ({ className }: NavbarProps) => {
                         </li>
                     </ul>
                 </div>
+                <div className="hidden flex-grow items-center justify-center mt-2 md:flex align-middle">
+                    <p className="mb-4 text-sm text-gray-500">
+                        <a
+                            href="tel:+353892335106"
+                            className="font-bold hover:underline"
+                        >
+                            +353 (0) 89-233-5106
+                        </a>
+                    </p>
+                </div>
 
                 {/* Mobile Menu */}
                 <div className="sticky top-0 md:hidden">
@@ -353,6 +363,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                                         About
                                                     </Link>
                                                 </li>
+
                                                 <li>
                                                     <Link
                                                         href="/contact"
