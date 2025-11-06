@@ -42,15 +42,20 @@ const WeDoSection = () => {
                     {/* Content Container */}
                     <div className="flex w-full flex-col justify-center text-center md:w-1/2 md:text-left">
                         <h2 className="mb-6 text-3xl tracking-tight text-textPrimary md:text-4xl lg:text-5xl">
-                            The Compassionate Approach to Lasting Relief
+                            The biopsychosocial approach to healing chronic pain
                         </h2>
                         <p className="mb-8 text-base text-textPrimary md:text-lg lg:text-xl">
-                            Chronic pain and unexplained conditions like IBS,
-                            long COVID, and chronic fatigue can feel
-                            overwhelming. If you're searching for answers, this
-                            approach offers a compassionate path forward. Many
-                            have found relief and regained hope—I'd love to help
-                            you, too.
+                            I am delighted to tell you that there is new help for
+                            chronic pain sufferers and for people with other medically 
+                            unexplained diagnoses such as IBS, long covid, chronic fatigue,
+                            migraines, anxiety, depression and many more. 
+                            
+                            If you have been to several medical professionals and are still 
+                            not getting better, you may benefit from this approach. I have 
+                            worked with many people of all ages and ailments with amazing, 
+                            life-changing, results. 
+                             
+                            Let me help you too. 
                         </p>
                         <ShineUnderlineEffect>
                             <Link
