@@ -26,7 +26,7 @@ export default function Home() {
                             ease: "easeInOut",
                         }}
                     >
-                        The <i>Biophysical Approach </i> to{" "}
+                        The <i>Biopsychosocial Approach </i> to{" "}
                         <span className="text-textSecondary">
                             chronic pain recovery
                         </span>
