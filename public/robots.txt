@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://chronicpainrecovery.ie
+
+# Sitemaps
+Sitemap: https://chronicpainrecovery.ie/sitemap.xml
