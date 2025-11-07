@@ -9,16 +9,12 @@ const Approach = () => {
             <div className="flex w-full flex-col items-center justify-center text-center md:w-2/3">
                 <FadeInOnScroll threshold={0.7}>
                     <h2 className="font-Satoshi p-5 text-2xl text-textPrimary sm:text-3xl md:text-5xl">
-                        A Caring Journey Toward Lasting Recovery
+                        This is not pain management
                     </h2>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
                     <p className="font-Satoshi mt-2 px-4 text-base text-textSecondary sm:text-lg md:text-2xl">
-                        I am delighted to tell you that there is new help for
-                        chronic pain sufferers and for people with other
-                        medically unexplained diagnoses such as IBS, long covid,
-                        chronic fatigue, migraines, anxiety, back pain,
-                        fibromyalgia and many more.
+                        The treatment I provide will help you cure your chronic pain.
                     </p>
                 </FadeInOnScroll>
                 <FadeInOnScroll threshold={0.7}>
