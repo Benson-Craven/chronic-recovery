@@ -6,9 +6,9 @@ import Footer from "./components/Footer"
 import Head from "next/head"
 
 export const metadata: Metadata = {
-    title: "Chronic Pain Recovery | Trusted Pain Management in Cork, Ireland",
+    title: "Chronic Pain Recovery | Trusted Chronic Pain Management in Cork, Ireland",
     description:
-        "Find expert chronic pain recovery solutions in Cork, Ireland. Our personalized treatments and holistic pain management strategies help you regain control, reduce discomfort, and improve mobility. Start your recovery journey today!",
+        "Find expert chronic pain recovery solutions in Cork, Ireland. Our personalised treatments will help you cure your chronic pain. Start your recovery journey today!",
 }
 
 export default function RootLayout({
@@ -21,18 +21,18 @@ export default function RootLayout({
             <Head>
                 <meta
                     name="keywords"
-                    content="chronic pain recovery, pain management Cork, chronic pain relief Ireland, holistic healing, pain treatment Cork, physiotherapy Ireland, natural pain relief, chronic pain solutions"
+                    content="chronic pain recovery, chronic pain management Cork, chronic pain relief Ireland, holistic healing, pain treatment Cork, physiotherapy Ireland, natural pain relief, chronic pain solutions"
                 />
                 <meta name="author" content="Chronic Pain Recovery Cork" />
 
                 {/* Open Graph Metadata for Social Sharing */}
                 <meta
                     property="og:title"
-                    content="Chronic Pain Recovery | Trusted Pain Management in Cork, Ireland"
+                    content="Chronic Pain Recovery | Trusted Chronic Pain Management in Cork, Ireland"
                 />
                 <meta
                     property="og:description"
-                    content="Find expert chronic pain recovery solutions in Cork, Ireland. Personalized treatments and holistic pain management strategies to help you regain control and reduce discomfort."
+                    content="Find expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies to cure your chronic pain"
                 />
                 <meta
                     property="og:image"
@@ -51,7 +51,7 @@ export default function RootLayout({
                         url: "https://chronicpainrecovery.netlify.app",
                         logo: "public/logos/Mending_Mindets.png",
                         description:
-                            "Expert chronic pain recovery solutions in Cork, Ireland. Personalized treatments and holistic pain management strategies to help you regain control and reduce discomfort.",
+                            "Expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies to help you cure your chronic pain",
                         address: {
                             "@type": "PostalAddress",
                             streetAddress: "",
@@ -61,7 +61,7 @@ export default function RootLayout({
                             addressCountry: "Ireland",
                         },
                         sameAs: [
-                            "https://www.facebook.com/yourpage",
+                            "https://www.facebook.com/chronicpainrecoveryireland",
                             "https://www.instagram.com/yourpage/",
                         ],
                     })}
