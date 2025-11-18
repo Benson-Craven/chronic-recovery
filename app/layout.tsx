@@ -5,9 +5,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Chronic Pain Recovery | Trusted Chronic Pain Management in Cork, Ireland",
+  title: "Chronic Pain Recovery | Trusted Chronic Pain Treatment in Cork, Ireland",
   description:
-    "Find expert chronic pain recovery solutions in Cork, Ireland. Our personalised treatments will help you cure your chronic pain. Start your recovery journey today!",
+    "I provide expert chronic pain recovery treatments in Cork, Ireland. These treatments will help you cure your chronic pain. Start your recovery journey today!",
 };
 
 export default function RootLayout({
