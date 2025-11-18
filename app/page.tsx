@@ -17,7 +17,7 @@ export default function Home() {
             <main>
                 <section className="flex h-[80vh] items-center justify-center bg-[#fafafa]">
                     <motion.h1
-                        className="mx-11 flex-wrap text-center font-butler text-6xl font-extralight uppercase text-textPrimary md:text-7xl lg:text-9xl"
+                        className="mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase text-textPrimary md:text-5xl lg:text-7xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
