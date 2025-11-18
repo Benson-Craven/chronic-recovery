@@ -71,8 +71,7 @@ const SVGPathScienceSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mt-2 text-center text-lg md:mt-8 md:text-start md:text-xl lg:text-2xl xl:text-3xl"
                     >
-                        95% of our brain is unconscious and directs the function
-                        of our body based on its perception of immediate danger
+                        Chronic pain isn’t always caused by ongoing injury. Many long-lasting pain conditions come from learned neural pathways in the brain—patterns that continue to fire even after the body has healed. In this view, chronic pain is a real, physical experience created by a protective nervous system stuck in danger mode.
                     </motion.p>
                 </div>
 
