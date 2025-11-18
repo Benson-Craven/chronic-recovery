@@ -23,7 +23,7 @@ const projects: Project[] = [
         color: "#cfdda5",
     },
     {
-        title: "1-1 50 minute sessions",
+        title: "1-1 60 minute sessions",
         description:
             "I will work with your body, nervous system and brain to get you back to good health.",
         src: "meeting1.avif",
@@ -31,9 +31,9 @@ const projects: Project[] = [
         color: "#a4ac96",
     },
     {
-        title: "In person sessions in Cork, Ireland or online*",
+        title: "In person sessions in Cork, Ireland or online",
         description:
-            "€65 per session at home office / online, €85 at Therapy Rooms, Victoria Cross, Cork",
+            "€70 per session in person at my home clinic or online. Package of 6 sessions available for €360",
         src: "cork.avif",
         url: "https://example.com/project3",
         color: "#cfdda5",
@@ -77,13 +77,13 @@ export default function Services() {
             <div className="container mx-auto max-w-5xl rounded-md border-t px-6 py-4">
                 <p className="text-center text-base text-textPrimary sm:text-lg">
                     Please consult your doctor to rule out structural
-                    abnormality, disease, or infection. Please take the{" "}
+                    abnormality, disease, or infection. Take the{" "}
                     <Link href="/self-assessment">
                         <span className="text-textSecondary underline duration-150 hover:text-textThird">
                             self-assessment questionnaire
                         </span>
                     </Link>{" "}
-                    to help determine whether this approach is a good fit for
+                    to help determine whether this approach is right for
                     you.
                 </p>
             </div>

@@ -44,17 +44,10 @@ const SciencePage = () => {
                             What Causes Chronic Pain?
                         </h2>
                         <p className="leading-relaxed text-gray-700">
-                            95% of our brain is unconscious and directs the
-                            function of our body based on its perception of
-                            immediate danger. It constantly interprets all of
-                            the information from the world as well as from
-                            nerves up from our body to decide if we are in
-                            danger or are safe. Our brain bases this
-                            interpretation on our experiences and what it has
-                            ‘learned’. Our brain stores and remembers everything
-                            that happened that was unsafe and applies it to the
-                            current moment. This all happens away from our
-                            conscious awareness.
+                            I am delighted to tell you that there is new help for chronic pain sufferers and for people with other medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraines, anxiety, back pain, fibromyalgia and many more. If you have been to several medical professionals and are still not getting better, you may benefit from this approach. You may even have been given a diagnosis for your chronic pain, but if your pain has not gotten better, then there has to be a neuroplastic component to it.
+It is important to stress that ALL PAIN IS REAL, it is not imaginary, it is not ‘all in your head’. Believe it or not, all pain originates in the brain, and in order to treat chronic pain, you must start with the brain… These are the conclusions of the most recent scientific studies into the causes of chronic pain. 
+Sufferers of chronic pain are unaware that chronic pain can get 'stuck' in the body due to neural circuits in the brain that continue to send pain signals. This can be due to a number of factors such as stress, trauma and unprocessed emotions. Another way pain can get ‘stuck’ is due to a learned response in the brain, for example after an injury should have healed but pain is still continuing; this is where Pain Reprocessing Therapy (PRT) can help the brain to turn off the danger / pain signals to that area.
+The biopsychosocial method is the most current approach to treating chronic pain and is now being taught to medical practitioners worldwide, including Australia, US, and the NHS in the UK. I have trained under Dr. Howard Schubiner, a pioneer in the world of mind-body medicine, and worked with many people of all ages and ailments with amazing, life-changing, results. Let me help you too.
                         </p>
                     </div>
                 </motion.div>
@@ -76,7 +69,7 @@ const SciencePage = () => {
                             "Somatic tracking",
                             "Graded exposure therapy",
                             "EAET - Emotional awareness & expression therapy",
-                            "Brain / body training",
+                            "Brain / body re-training",
                             "Pain counselling",
                             "Nervous system regulation",
                             "Pain psychology exercises & education",

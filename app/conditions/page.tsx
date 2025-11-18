@@ -34,7 +34,7 @@ const ConditionsPage = () => {
     ]
 
     const nonTreatable = [
-        "Structural",
+        "Structural (Note: Sometimes people have both structural or disease-related issues and chronic pain, and this type of treatment can still be beneficial.)",
         "Acute injuries",
         "Oncology: cancer",
         "Infections: HIV, lyme disease, other infections",
