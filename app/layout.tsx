@@ -3,7 +3,6 @@ import "./globals.css"
 import LenisProvider from "./components/SmoothScroller"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
-import Head from "next/head"
 
 export const metadata: Metadata = {
     title: "Chronic Pain Recovery | Trusted Chronic Pain Management in Cork, Ireland",
@@ -18,7 +17,20 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <Head>
+            <head>
+                {/* Google Analytics (GA4) */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EWZ9GXF1T"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-8EWZ9GXF1T');
+                    `,
+                    }}
+                />
+
                 <meta
                     name="keywords"
                     content="chronic pain recovery, chronic pain management Cork, chronic pain relief Ireland, holistic healing, pain treatment Cork, physiotherapy Ireland, natural pain relief, chronic pain solutions"
@@ -43,33 +55,36 @@ export default function RootLayout({
                 <meta property="og:locale" content="en_IE" />
 
                 {/* Structured Data (Schema Markup) */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "MedicalOrganization",
-                        name: "Chronic Pain Recovery Cork",
-                        url: "https://chronicpainrecovery.netlify.app",
-                        logo: "public/logos/Mending_Mindets.png",
-                        description:
-                            "Expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies to help you cure your chronic pain",
-                        address: {
-                            "@type": "PostalAddress",
-                            streetAddress: "",
-                            addressLocality: "Cork",
-                            addressRegion: "Munster",
-                            postalCode: "",
-                            addressCountry: "Ireland",
-                        },
-                        sameAs: [
-                            "https://www.facebook.com/chronicpainrecoveryireland",
-                            "https://www.instagram.com/yourpage/",
-                        ],
-                    })}
-                </script>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "MedicalOrganization",
+                            name: "Chronic Pain Recovery Cork",
+                            url: "https://chronicpainrecovery.ie",
+                            logo: "public/logos/Mending_Mindets.png",
+                            description:
+                                "Expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies to help you cure your chronic pain",
+                            address: {
+                                "@type": "PostalAddress",
+                                streetAddress: "",
+                                addressLocality: "Cork",
+                                addressRegion: "Munster",
+                                postalCode: "",
+                                addressCountry: "Ireland",
+                            },
+                            sameAs: [
+                                "https://www.facebook.com/chronicpainrecoveryireland",
+                                "https://www.instagram.com/yourpage/",
+                            ],
+                        }),
+                    }}
+                />
 
                 {/* Favicon */}
                 <link rel="icon" href="/favicon.ico" />
-            </Head>
+            </head>
 
             <body className="font-satoshi">
                 <Navbar />
