@@ -44,14 +44,21 @@ const SciencePage = () => {
                             What Causes Chronic Pain?
                         </h2>
                         <p className="leading-relaxed text-gray-700">
-                            I am delighted to tell you that there is new help for chronic pain sufferers and for people with other medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraines, anxiety, back pain, fibromyalgia and many more. If you have been to several medical professionals and are still not getting better, you may benefit from this approach. You may even have been given a diagnosis for your chronic pain, but if your pain has not gotten better, then there has to be a neuroplastic component to it.
+  I am delighted to tell you that there is new help for chronic pain sufferers and for people with other medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraines, anxiety, back pain, fibromyalgia and many more. If you have been to several medical professionals and are still not getting better, you may benefit from this approach. You may even have been given a diagnosis for your chronic pain, but if your pain has not gotten better, then there has to be a neuroplastic component to it.
+</p>
 
-It is important to stress that ALL PAIN IS REAL, it is not imaginary, it is not ‘all in your head’. Believe it or not, all pain originates in the brain, and in order to treat chronic pain, you must start with the brain… These are the conclusions of the most recent scientific studies into the causes of chronic pain. 
+<p className="leading-relaxed text-gray-700">
+  It is important to stress that ALL PAIN IS REAL — it is not imaginary or ‘all in your head’. All pain originates in the brain, and to treat chronic pain, you must start with the brain. These insights come from the most recent scientific studies into the causes of chronic pain.
+</p>
 
-Sufferers of chronic pain are unaware that chronic pain can get 'stuck' in the body due to neural circuits in the brain that continue to send pain signals. This can be due to a number of factors such as stress, trauma and unprocessed emotions. Another way pain can get ‘stuck’ is due to a learned response in the brain, for example after an injury should have healed but pain is still continuing; this is where Pain Reprocessing Therapy (PRT) can help the brain to turn off the danger / pain signals to that area.
+<p className="leading-relaxed text-gray-700">
+  Sufferers of chronic pain are often unaware that pain can get “stuck” in the body when neural circuits keep sending pain signals, even after the body is safe. This can happen for many reasons, including stress, trauma, or unprocessed emotions. Pain can also persist as a learned response — for example, when an injury has healed but the pain continues. This is where Pain Reprocessing Therapy (PRT) can help the brain turn off the danger and pain signals.
+</p>
 
-The biopsychosocial method is the most current approach to treating chronic pain and is now being taught to medical practitioners worldwide, including Australia, US, and the NHS in the UK. I have trained under Dr. Howard Schubiner, a pioneer in the world of mind-body medicine, and worked with many people of all ages and ailments with amazing, life-changing, results. Let me help you too.
-                        </p>
+<p className="leading-relaxed text-gray-700">
+  The biopsychosocial method is the most up-to-date approach to treating chronic pain and is now being taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. I have trained under Dr. Howard Schubiner, a pioneer in mind-body medicine, and have worked with many people of all ages and conditions with life-changing results. Let me help you too.
+</p>
+
                     </div>
                 </motion.div>
 
