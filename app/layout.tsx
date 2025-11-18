@@ -36,8 +36,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <meta name="author" content="Chronic Pain Recovery Cork" />
 
                 {/* Open Graph Metadata */}
-                <meta property="og:title" content={metadata.title} />
-                <meta property="og:description" content={metadata.description} />
+                <meta property="og:title" content={metadata.title || ""} />
+                <meta property="og:description" content={metadata.description || ""} />
                 <meta property="og:image" content="https://chronicpainrecovery.ie/path-to-image.jpg" />
                 <meta property="og:url" content="https://chronicpainrecovery.ie" />
                 <meta property="og:type" content="website" />
