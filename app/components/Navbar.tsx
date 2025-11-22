@@ -85,12 +85,14 @@ const Navbar = ({ className }: NavbarProps) => {
     return (
         <nav className={navbarClassName}>
             <div className="flex w-full items-center justify-between">
+                {/* Logo always visible in desktop */}
                 <Link href="/" className="mt-3 flex-shrink-0">
                     <Image
                         src="/logos/Mending_Mindets.png"
                         alt="Mending Mindsets Logo"
                         width={80}
                         height={80}
+                        className="hidden md:block"
                     />
                 </Link>
 
@@ -175,15 +177,6 @@ const Navbar = ({ className }: NavbarProps) => {
                                     <div className="flex flex-col">
                                         <div className="flex-1">
                                             <ul className="space-y-4 p-8 pt-12">
-                                                <li className="mb-2">
-                                                    <Image
-                                                        src="/logos/Mending_Mindets.png"
-                                                        alt="Mending Mindsets Logo"
-                                                        width={250}
-                                                        height={250}
-                                                    />
-                                                </li>
-
                                                 {/* Expanded Science submenu */}
                                                 <li>
                                                     <Link
