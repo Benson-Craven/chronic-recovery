@@ -26,7 +26,6 @@ const Navbar = ({ className }: NavbarProps) => {
     } else {
       document.body.style.overflow = "auto"
     }
-
     return () => {
       document.body.style.overflow = "auto"
     }
@@ -35,7 +34,6 @@ const Navbar = ({ className }: NavbarProps) => {
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value
     setMessageLength(text.length)
-
     if (text.length > MAX_CHARS) {
       e.target.value = text.slice(0, MAX_CHARS)
       setMessageLength(MAX_CHARS)
@@ -56,9 +54,7 @@ const Navbar = ({ className }: NavbarProps) => {
           phone: formData.get("phone"),
           message: formData.get("message"),
         }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       })
 
       const json = await res.json()
@@ -101,6 +97,7 @@ const Navbar = ({ className }: NavbarProps) => {
   return (
     <nav className={navbarClassName}>
       <div className="flex w-full items-center justify-between">
+        {/* Logo */}
         <Link href="/" className="mt-3 flex-shrink-0">
           <Image src="/logos/Mending_Mindets.png" alt="Mending Mindsets Logo" width={80} height={80} />
         </Link>
@@ -155,6 +152,7 @@ const Navbar = ({ className }: NavbarProps) => {
                 )}
               </AnimatePresence>
             </li>
+
             <li>
               <ShineUnderlineEffect>
                 <Link href="/#services">Services</Link>
@@ -168,7 +166,7 @@ const Navbar = ({ className }: NavbarProps) => {
           </ul>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu (unchanged) */}
         <div className="sticky top-0 md:hidden">
           <button
             onClick={toggleSubmenu}
@@ -198,72 +196,45 @@ const Navbar = ({ className }: NavbarProps) => {
                 >
                   <div className="flex flex-col">
                     <ul className="space-y-2 p-8 pt-12">
-                      {/* Home */}
                       <li>
                         <Link href="/" onClick={toggleSubmenu} className="block rounded-lg px-6 py-2 text-xl font-medium text-gray-900 hover:bg-gray-100">
                           Home
                         </Link>
                       </li>
 
-                      {/* The Science parent menu */}
                       <li>
-                        <Link
-                          href="/science"
-                          onClick={toggleSubmenu}
-                          className="block rounded-lg px-6 py-2 text-xl font-medium text-gray-900 hover:bg-gray-100"
-                        >
+                        <Link href="/science" onClick={toggleSubmenu} className="block rounded-lg px-6 py-2 text-xl font-medium text-gray-900 hover:bg-gray-100">
                           The Science
                         </Link>
                         <ul className="ml-4 mt-2 space-y-1">
                           <li>
-                            <Link
-                              href="/science"
-                              onClick={toggleSubmenu}
-                              className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100"
-                            >
+                            <Link href="/science" onClick={toggleSubmenu} className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100">
                               The Science
                             </Link>
                           </li>
                           <li>
-                            <Link
-                              href="/research"
-                              onClick={toggleSubmenu}
-                              className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100"
-                            >
+                            <Link href="/research" onClick={toggleSubmenu} className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100">
                               Research Studies
                             </Link>
                           </li>
                           <li>
-                            <Link
-                              href="/resources"
-                              onClick={toggleSubmenu}
-                              className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100"
-                            >
+                            <Link href="/resources" onClick={toggleSubmenu} className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100">
                               Useful Links
                             </Link>
                           </li>
                           <li>
-                            <Link
-                              href="/conditions"
-                              onClick={toggleSubmenu}
-                              className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100"
-                            >
+                            <Link href="/conditions" onClick={toggleSubmenu} className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100">
                               Conditions
                             </Link>
                           </li>
                           <li>
-                            <Link
-                              href="/self-assessment"
-                              onClick={toggleSubmenu}
-                              className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100"
-                            >
+                            <Link href="/self-assessment" onClick={toggleSubmenu} className="block rounded-lg px-4 py-1 text-lg text-gray-900 hover:bg-gray-100">
                               Self-Assessment
                             </Link>
                           </li>
                         </ul>
                       </li>
 
-                      {/* Other main items */}
                       <li>
                         <Link href="/#services" onClick={toggleSubmenu} className="block rounded-lg px-6 py-2 text-xl font-medium text-gray-900 hover:bg-gray-100">
                           Services
@@ -288,14 +259,14 @@ const Navbar = ({ className }: NavbarProps) => {
         </div>
 
         {/* Desktop Contact Form Modal */}
-        <motion.div
-          className="fixed z-50 hidden md:flex items-center justify-center inset-0 bg-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isActive ? 1 : 0 }}
-          exit={{ opacity: 0 }}
-        >
-          <AnimatePresence>
-            {isActive && (
+        <AnimatePresence>
+          {isActive && (
+            <motion.div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-transparent"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
               <motion.div
                 className="absolute top-1/2 left-1/2 z-50 flex w-[80%] max-w-5xl flex-col -translate-x-1/2 -translate-y-1/2 rounded-[25px] border-2 border-black bg-textSecondary shadow-lg"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -317,11 +288,7 @@ const Navbar = ({ className }: NavbarProps) => {
                       </div>
                     </motion.div>
                   ) : (
-                    <motion.form
-                      className="h-full w-full space-y-4"
-                      onSubmit={handleSubmit}
-                      onWheel={(e) => e.preventDefault()}
-                    >
+                    <motion.form className="h-full w-full space-y-4" onSubmit={handleSubmit}>
                       <div className="flex h-full w-full rounded-[25px] bg-textSecondary">
                         {/* Left side */}
                         <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
@@ -345,6 +312,7 @@ const Navbar = ({ className }: NavbarProps) => {
                           <span className="space-y-6">
                             <h1 className="mb-6 text-3xl font-medium md:hidden">Contact us today</h1>
                             <div className="h-[1px] bg-black opacity-10 md:hidden"></div>
+
                             <div>
                               <label htmlFor="name" className="mb-2 block">
                                 Name *
@@ -390,9 +358,9 @@ const Navbar = ({ className }: NavbarProps) => {
                   )}
                 </AnimatePresence>
               </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Contact Form Toggle Button */}
         <span className="z-50 hidden md:flex">
