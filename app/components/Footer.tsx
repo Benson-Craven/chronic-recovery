@@ -15,6 +15,7 @@ type NavbarProps = {
 const Navbar = ({ className }: NavbarProps) => {
     const [isActive, setIsActive] = useState(false)
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
+    const [isScienceDropdownOpen, setIsScienceDropdownOpen] = useState(false)
     const [showThankYou, setShowThankYou] = useState(false)
     const [messageLength, setMessageLength] = useState(0)
     const MAX_CHARS = 500
@@ -96,47 +97,53 @@ const Navbar = ({ className }: NavbarProps) => {
                     />
                 </Link>
 
-                {/* Desktop Menu */}
+                {/* Desktop Menu (unchanged) */}
                 <div className="hidden flex-grow items-center justify-center md:flex">
                     <ul className="flex space-x-10 uppercase">
-                        <li>
-                            <ShineUnderlineEffect>
-                                <Link href="/">Home</Link>
-                            </ShineUnderlineEffect>
-                        </li>
-                        <li className="relative">
+                        <li
+                            onMouseEnter={() => setIsScienceDropdownOpen(true)}
+                            onMouseLeave={() => setIsScienceDropdownOpen(false)}
+                            className="relative"
+                        >
                             <Link href="/science">
                                 <ShineUnderlineEffect>
                                     <span className="cursor-pointer">The Science</span>
                                 </ShineUnderlineEffect>
                             </Link>
-                            <ul className="absolute left-0 top-full mt-2 w-48 rounded-lg bg-white shadow-lg">
-                                <li>
-                                    <Link href="/science" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        The Science
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/research" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Research Studies
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/resources" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Useful Links
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/conditions" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Conditions
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/self-assessment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                        Self-Assessment
-                                    </Link>
-                                </li>
-                            </ul>
+
+                            {/* Desktop Dropdown */}
+                            <AnimatePresence>
+                                {isScienceDropdownOpen && (
+                                    <motion.ul
+                                        className="absolute left-0 top-full z-50 mt-2 w-48 rounded-lg bg-white shadow-lg"
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <li>
+                                            <Link href="/research" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                Research Studies
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/resources" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                Useful Links
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/conditions" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                Conditions
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/self-assessment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                Self-Assessment
+                                            </Link>
+                                        </li>
+                                    </motion.ul>
+                                )}
+                            </AnimatePresence>
                         </li>
                         <li>
                             <ShineUnderlineEffect>
@@ -163,6 +170,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     <AnimatePresence>
                         {isSubmenuOpen && (
                             <>
+                                {/* Overlay */}
                                 <motion.div
                                     className="fixed inset-0 min-h-screen bg-black"
                                     variants={overlayVariants}
@@ -172,6 +180,7 @@ const Navbar = ({ className }: NavbarProps) => {
                                     onClick={toggleSubmenu}
                                 />
 
+                                {/* Mobile Menu Panel */}
                                 <motion.div
                                     className="fixed inset-y-0 right-0 min-h-screen w-full max-w-sm bg-white shadow-lg"
                                     variants={menuVariants}
@@ -180,101 +189,66 @@ const Navbar = ({ className }: NavbarProps) => {
                                     exit="exit"
                                 >
                                     <div className="flex flex-col">
-                                        <div className="flex-1">
-                                            <ul className="space-y-2 p-8 pt-12"> {/* Reduced spacing */}
+                                        <div className="flex-1 overflow-y-auto">
+                                            <ul className="space-y-2 p-8 pt-12">
+                                                {/* Only Home parent option */}
                                                 <li>
                                                     <Link
                                                         href="/"
-                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
+                                                        className="block rounded-lg px-6 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
                                                         onClick={toggleSubmenu}
                                                     >
                                                         Home
                                                     </Link>
                                                 </li>
-                                                {/* Expanded Science submenu */}
-                                                <li>
-                                                    <Link
-                                                        href="/science"
-                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
-                                                        onClick={toggleSubmenu}
-                                                    >
-                                                        The Science
-                                                    </Link>
-                                                    <ul className="ml-4 mt-1 space-y-1">
-                                                        <li>
-                                                            <Link
-                                                                href="/science"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                                                                onClick={toggleSubmenu}
-                                                            >
-                                                                The Science
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link
-                                                                href="/research"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                                                                onClick={toggleSubmenu}
-                                                            >
-                                                                Research Studies
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link
-                                                                href="/resources"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                                                                onClick={toggleSubmenu}
-                                                            >
-                                                                Useful Links
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link
-                                                                href="/conditions"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                                                                onClick={toggleSubmenu}
-                                                            >
-                                                                Conditions
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link
-                                                                href="/self-assessment"
-                                                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                                                                onClick={toggleSubmenu}
-                                                            >
-                                                                Self-Assessment
-                                                            </Link>
-                                                        </li>
-                                                    </ul>
-                                                </li>
 
-                                                <li>
-                                                    <Link
-                                                        href="/#services"
-                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
-                                                        onClick={toggleSubmenu}
-                                                    >
-                                                        Services
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        href="/info"
-                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
-                                                        onClick={toggleSubmenu}
-                                                    >
-                                                        About
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        href="/contact"
-                                                        className="block rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
-                                                        onClick={toggleSubmenu}
-                                                    >
-                                                        Contact
-                                                    </Link>
+                                                {/* Permanently expanded Science submenu */}
+                                                <li className="ml-4 space-y-1">
+                                                    <li>
+                                                        <Link
+                                                            href="/science"
+                                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                                                            onClick={toggleSubmenu}
+                                                        >
+                                                            The Science
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="/research"
+                                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                                                            onClick={toggleSubmenu}
+                                                        >
+                                                            Research Studies
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="/resources"
+                                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                                                            onClick={toggleSubmenu}
+                                                        >
+                                                            Useful Links
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="/conditions"
+                                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                                                            onClick={toggleSubmenu}
+                                                        >
+                                                            Conditions
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="/self-assessment"
+                                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                                                            onClick={toggleSubmenu}
+                                                        >
+                                                            Self-Assessment
+                                                        </Link>
+                                                    </li>
                                                 </li>
                                             </ul>
                                         </div>
