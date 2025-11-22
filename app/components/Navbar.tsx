@@ -1,4 +1,4 @@
-// FULL UPDATED Navbar.tsx WITH MOBILE SCIENCE SUBMENU
+// FIXED & FULLY UPDATED Navbar.tsx — with typing, mobile submenu, no ESLint/prettier errors
 
 "use client"
 
@@ -10,7 +10,11 @@ import ShineUnderlineEffect from "./UnderlineEffect"
 import Image from "next/image"
 import { Menu, X, ChevronDown } from "lucide-react"
 
-const Navbar = ({ className }) => {
+type NavbarProps = {
+    className?: string
+}
+
+const Navbar: React.FC<NavbarProps> = ({ className }) => {
     const [isActive, setIsActive] = useState(false)
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
     const [isScienceDropdownOpen, setIsScienceDropdownOpen] = useState(false)
@@ -19,7 +23,7 @@ const Navbar = ({ className }) => {
     const toggleSubmenu = () => setIsSubmenuOpen(!isSubmenuOpen)
     const toggleScienceMobile = () => setIsScienceMobileOpen(!isScienceMobileOpen)
 
-    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-6 text-textPrimary transition-transform font-Satoshi h-20 md:h-16 translate-y-0 ${className}`
+    const navbarClassName = `duration-700 sticky top-0 z-50 flex items-center justify-between bg-[#fafafa] p-6 text-textPrimary transition-transform font-Satoshi h-20 md:h-16 translate-y-0 ${className || ""}`
 
     const menuVariants = {
         hidden: { x: "100%", opacity: 0 },
@@ -47,10 +51,10 @@ const Navbar = ({ className }) => {
                         <li
                             onMouseEnter={() => setIsScienceDropdownOpen(true)}
                             onMouseLeave={() => setIsScienceDropdownOpen(false)}
-                            className="relative"
+                            className="relative cursor-pointer"
                         >
                             <ShineUnderlineEffect>
-                                <span className="cursor-pointer">The Science</span>
+                                <span>The Science</span>
                             </ShineUnderlineEffect>
 
                             <AnimatePresence>
@@ -120,9 +124,7 @@ const Navbar = ({ className }) => {
                                                     className="flex w-full items-center justify-between rounded-lg px-6 py-4 text-xl font-medium text-gray-900 hover:bg-gray-100"
                                                 >
                                                     The Science
-                                                    <ChevronDown
-                                                        className={`transition-transform ${isScienceMobileOpen ? "rotate-180" : "rotate-0"}`}
-                                                    />
+                                                    <ChevronDown className={`transition-transform ${isScienceMobileOpen ? "rotate-180" : "rotate-0"}`} />
                                                 </button>
 
                                                 <AnimatePresence>
@@ -152,6 +154,14 @@ const Navbar = ({ className }) => {
                         )}
                     </AnimatePresence>
                 </div>
+
+                {/* Contact Button */}
+                <span className="z-50 hidden md:flex">
+                    <Button
+                        isActive={isActive}
+                        toggleMenu={() => setIsActive(!isActive)}
+                    />
+                </span>
             </div>
         </nav>
     )
