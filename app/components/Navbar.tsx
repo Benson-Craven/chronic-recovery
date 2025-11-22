@@ -75,6 +75,11 @@ const Navbar = ({ className }: NavbarProps) => {
 
   const overlayVariants = { hidden: { opacity: 0 }, visible: { opacity: 0.5 }, exit: { opacity: 0 } }
 
+  // Close mobile menu on link click
+  const handleMobileLinkClick = () => {
+    setIsSubmenuOpen(false)
+  }
+
   return (
     <nav className={navbarClassName}>
       <div className="flex w-full items-center justify-between">
@@ -154,7 +159,6 @@ const Navbar = ({ className }: NavbarProps) => {
           <AnimatePresence>
             {isSubmenuOpen && (
               <>
-                {/* Overlay */}
                 <motion.div
                   className="fixed inset-0 min-h-screen bg-black"
                   variants={overlayVariants}
@@ -164,7 +168,6 @@ const Navbar = ({ className }: NavbarProps) => {
                   onClick={() => setIsSubmenuOpen(false)}
                 />
 
-                {/* Menu */}
                 <motion.div
                   className="fixed inset-y-0 right-0 min-h-screen w-full max-w-sm bg-white shadow-lg md:hidden"
                   variants={menuVariants}
@@ -172,11 +175,12 @@ const Navbar = ({ className }: NavbarProps) => {
                   animate="visible"
                   exit="exit"
                 >
-                  <ul className="flex flex-col space-y-2 p-6 pt-12"> {/* spacing reduced by 50% (space-y-2) */}
+                  <ul className="flex flex-col space-y-2 p-6 pt-12">
                     {/* Home */}
                     <li>
                       <Link
                         href="/"
+                        onClick={handleMobileLinkClick}
                         className="block rounded-lg px-4 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
                       >
                         Home
@@ -185,19 +189,27 @@ const Navbar = ({ className }: NavbarProps) => {
 
                     {/* The Science Parent */}
                     <li>
-                      <span className="block px-4 py-3 text-xl font-medium text-gray-900">The Science</span>
-                      <ul className="ml-4 mt-1 flex flex-col space-y-1"> {/* reduced spacing */}
+                      <Link
+                        href="/science"
+                        onClick={handleMobileLinkClick}
+                        className="block rounded-lg px-4 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
+                      >
+                        The Science
+                      </Link>
+                      <ul className="ml-4 mt-1 flex flex-col space-y-1">
                         <li>
                           <Link
                             href="/science"
+                            onClick={handleMobileLinkClick}
                             className="block rounded-lg px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
                           >
-                            The Science
+                            The Science (Main)
                           </Link>
                         </li>
                         <li>
                           <Link
                             href="/research"
+                            onClick={handleMobileLinkClick}
                             className="block rounded-lg px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
                           >
                             Research Studies
@@ -206,6 +218,7 @@ const Navbar = ({ className }: NavbarProps) => {
                         <li>
                           <Link
                             href="/resources"
+                            onClick={handleMobileLinkClick}
                             className="block rounded-lg px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
                           >
                             Useful Links
@@ -214,6 +227,7 @@ const Navbar = ({ className }: NavbarProps) => {
                         <li>
                           <Link
                             href="/conditions"
+                            onClick={handleMobileLinkClick}
                             className="block rounded-lg px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
                           >
                             Conditions
@@ -222,6 +236,7 @@ const Navbar = ({ className }: NavbarProps) => {
                         <li>
                           <Link
                             href="/self-assessment"
+                            onClick={handleMobileLinkClick}
                             className="block rounded-lg px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
                           >
                             Self-Assessment
@@ -234,6 +249,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     <li>
                       <Link
                         href="/#services"
+                        onClick={handleMobileLinkClick}
                         className="block rounded-lg px-4 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
                       >
                         Services
@@ -242,6 +258,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     <li>
                       <Link
                         href="/info"
+                        onClick={handleMobileLinkClick}
                         className="block rounded-lg px-4 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
                       >
                         About
@@ -250,6 +267,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     <li>
                       <Link
                         href="/contact"
+                        onClick={handleMobileLinkClick}
                         className="block rounded-lg px-4 py-3 text-xl font-medium text-gray-900 hover:bg-gray-100"
                       >
                         Contact
