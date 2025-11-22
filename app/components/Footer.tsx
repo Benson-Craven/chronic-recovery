@@ -61,18 +61,13 @@ const Footer = () => {
                             {[
                                 {
                                     name: "Facebook",
-                                    url: "https://facebook.com",
+                                    url: "https://www.facebook.com/chronicpainrecoveryireland",
                                     icon: FaFacebook,
                                 },
                                 {
                                     name: "Instagram",
                                     url: "https://instagram.com",
                                     icon: FaInstagram,
-                                },
-                                {
-                                    name: "LinkedIn",
-                                    url: "https://linkedin.com",
-                                    icon: FaLinkedin,
                                 },
                             ].map(({ name, url, icon: Icon }) => (
                                 <li key={name}>
