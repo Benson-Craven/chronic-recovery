@@ -27,6 +27,8 @@ const RevealInfoSection = () => {
 
                     {/* Sticky container for image */}
                     <div className="sticky top-0 h-screen w-full overflow-hidden">
+
+                        {/* DESKTOP IMAGE ONLY */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -35,9 +37,8 @@ const RevealInfoSection = () => {
                                 duration: 1,
                                 ease: "easeInOut",
                             }}
-                            className="relative h-full w-full"
+                            className="relative hidden h-full w-full md:block"
                         >
-                            <div className="hidden md:block relative h-full w-full"></div>
                             <Image
                                 src="/images/therapy.avif"
                                 alt="Therapy Hero Image"
@@ -46,8 +47,10 @@ const RevealInfoSection = () => {
                                 sizes="100vw"
                                 className="object-cover"
                             />
-                            </div>
                         </motion.div>
+
+                        {/* MOBILE VERSION — NO IMAGE */}
+                        <div className="block h-full w-full bg-[#fafafa] md:hidden" />
                     </div>
 
                     {/* Right curtain */}
@@ -85,15 +88,7 @@ const RevealInfoSection = () => {
                                             className="h-full w-full object-cover"
                                         />
                                     </div>
-                                    {/* <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
-                                        <Image
-                                            src="/images/office.avif"
-                                            alt="office"
-                                            width={100}
-                                            height={100}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div> */}
+
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/books.avif"
