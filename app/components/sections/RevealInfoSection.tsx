@@ -37,6 +37,7 @@ const RevealInfoSection = () => {
                             }}
                             className="relative h-full w-full"
                         >
+                            <div className="hidden md:block relative h-full w-full"></div>
                             <Image
                                 src="/images/therapy.avif"
                                 alt="Therapy Hero Image"
@@ -45,6 +46,7 @@ const RevealInfoSection = () => {
                                 sizes="100vw"
                                 className="object-cover"
                             />
+                            </div>
                         </motion.div>
                     </div>
 
