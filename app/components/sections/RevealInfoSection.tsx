@@ -104,8 +104,8 @@ const RevealInfoSection = () => {
                             </h2>
 
                             <p className="mb-8 text-lg text-textPrimary">
-                                My name is Marsha Canny and I am a chronic pain
-                                therapist based in Rochestown, Cork, Ireland and
+                                My name is Marsha Canny. I am a chronic pain
+                                therapist based in Rochestown, Cork, Ireland.
                                 I use a multi-disciplinary approach to help you
                                 cure your chronic pain, not manage it. I
                                 specialise in helping people with{" "}
@@ -115,13 +115,13 @@ const RevealInfoSection = () => {
                                 >
                                     persistent pain conditions
                                 </Link>{" "}
-                                and have worked with many people of all ages and
-                                ailments and seen fantastic results. <br />
+                                and I work with many people of all ages and
+                                ailments and see fantastic results. <br />
                                 <br />
-                                I will work with your body, nervous system and
-                                brain to get you back to good health. I also
-                                completely cured myself of chronic migraines and
+                                I completely cured myself of chronic migraines and
                                 neck pain that I suffered for over 10 years.
+                                I will work with your body, nervous system and
+                                brain to get you back to good health. 
                             </p>
 
                             <Link

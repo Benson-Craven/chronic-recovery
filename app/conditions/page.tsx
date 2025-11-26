@@ -54,12 +54,9 @@ const ConditionsPage = () => {
                         <div className="space-y-6">
                             <div>
                                 <h2 className="mb-4 text-xl font-semibold text-[#595358]">
-                                    Conditions We Treat
+                                    Conditions that are treatable
                                 </h2>
-                                <p className="mb-4 text-[#595358]">
-                                    Some conditions that are treatable and often
-                                    associated with chronic pain:
-                                </p>
+                                
                                 <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
                                     {treatable.map((condition, index) => (
                                         <li

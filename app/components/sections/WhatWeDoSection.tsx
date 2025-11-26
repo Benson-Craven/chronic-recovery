@@ -48,12 +48,12 @@ const WeDoSection = () => {
                             I am delighted to tell you that there is new help for
                             chronic pain sufferers and for people with other medically 
                             unexplained diagnoses such as IBS, long covid, chronic fatigue,
-                            migraines, anxiety, depression and many more. 
+                            migraines, anxiety, depression and other conditions. 
                             
                             If you have been to several medical professionals and are still 
-                            not getting better, you may benefit from this approach. I have 
-                            worked with many people of all ages and ailments with amazing, 
-                            life-changing, results. 
+                            not getting better, you will benefit from this approach. I work
+                            with many people of all ages and ailments with amazing, 
+                            life-changing results. 
                              
                             Let me help you too. 
                         </p>
