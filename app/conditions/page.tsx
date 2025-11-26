@@ -68,11 +68,17 @@ const ConditionsPage = () => {
                                     ))}
                                 </ul>
                             </div>
-
+s
                             <div>
+                                 <p className="mb-4 text-[#595358]">
+                                    ( )
+                                </p>
                                 <h2 className="mb-4 text-xl font-semibold text-[#595358]">
-                                    Conditions We Don't Treat
+                                    Conditions that are not treatable
                                 </h2>
+                                <p className="mb-4 text-[#595358]">
+                                    (Note: people with structural / disease-related issues and chronic pain also benefit from this treatment.)
+                                </p>
                                 <ul className="space-y-2">
                                     {nonTreatable.map((condition, index) => (
                                         <li
