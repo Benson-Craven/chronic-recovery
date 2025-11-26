@@ -17,13 +17,13 @@ const projects: Project[] = [
     {
         title: "Structured approach to resolving the causes",
         description:
-            "I specialise in helping people with persistent pain conditions and have worked with many people of all ages and ailments and seen fantastic results.",
+            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments and see fantastic results.",
         src: "phone.avif",
         url: "https://example.com/project1",
         color: "#cfdda5",
     },
     {
-        title: "1-1 60 minute sessions",
+        title: "1 to 1 60 - minute sessions",
         description:
             "I will work with your body, nervous system and brain to get you back to good health.",
         src: "meeting1.avif",
@@ -31,7 +31,7 @@ const projects: Project[] = [
         color: "#a4ac96",
     },
     {
-        title: "In person sessions in Cork, Ireland or online",
+        title: "In-person sessions in Cork, Ireland or online",
         description:
             "€70 per session in person at my home clinic or online. Package of 6 sessions available for €360",
         src: "cork.avif",

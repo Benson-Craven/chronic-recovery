@@ -17,7 +17,7 @@ const SciencePage = () => {
                     The Science
                 </h1>
                 <p className="text-xl text-gray-700">
-                    Understanding Chronic Pain and Its Treatments
+                    Understanding Chronic Pain and its Treatments
                 </p>
             </motion.div>
 
@@ -44,7 +44,7 @@ const SciencePage = () => {
                             What Causes Chronic Pain?
                         </h2>
                         <p className="leading-relaxed text-gray-700">
-  I am delighted to tell you that there is new help for chronic pain sufferers and for people with other medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraines, anxiety, back pain, fibromyalgia and many more. If you have been to several medical professionals and are still not getting better, you may benefit from this approach. You may even have been given a diagnosis for your chronic pain, but if your pain has not gotten better, then there has to be a neuroplastic component to it.
+  I am delighted to tell you that there is new help for chronic pain sufferers and for people with other medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraine, anxiety, back pain, fibromyalgia and many more. If you have been to several medical professionals and are still not getting better, you may benefit from this approach. You may even have been given a diagnosis for your chronic pain, but if your pain has not resolved, then there has to be a neuroplastic component to it.
 </p>
 
 <p className="leading-relaxed text-gray-700">
@@ -56,7 +56,7 @@ const SciencePage = () => {
 </p>
 
 <p className="leading-relaxed text-gray-700">
-  The biopsychosocial method is the most up-to-date approach to treating chronic pain and is now being taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. I have trained under Dr. Howard Schubiner, a pioneer in mind-body medicine, and have worked with many people of all ages and conditions with life-changing results. Let me help you too.
+  The biopsychosocial method is the most up-to-date approach to treating chronic pain and is now being taught to medical practitioners worldwide, including Australia, the US, and the NHS in the UK. I have trained under Dr. Howard Schubiner, a pioneer in mind-body medicine, and I work with many people of all ages and conditions, with life-changing results. Let me help you too.
 </p>
 
                     </div>
@@ -75,7 +75,7 @@ const SciencePage = () => {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {[
                             "Re-introducing movement / exercise and getting back to 'normal life' activities",
-                            "Pain reprocessing therapy",
+                            "PRT - Pain Reprocessing Therapy",
                             "Somatic tracking",
                             "Graded exposure therapy",
                             "EAET - Emotional awareness & expression therapy",
@@ -107,7 +107,7 @@ const SciencePage = () => {
                 >
                     <p className="text-gray-700">
                         <strong>NOTE:</strong> Please consult your doctor to
-                        rule out structural abnormality, disease, or infection.
+                        rule out structural abnormality, disease or infection.
                         Take the{" "}
                         <Link href="/self-assessment">
                             <b className="hover:darken">

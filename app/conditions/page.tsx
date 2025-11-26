@@ -34,7 +34,7 @@ const ConditionsPage = () => {
     ]
 
     const nonTreatable = [
-        "Structural (Note: Sometimes people have both structural or disease-related issues and chronic pain, and this type of treatment can still be beneficial.)",
+        "Structural ",
         "Acute injuries",
         "Oncology: cancer",
         "Infections: HIV, lyme disease, other infections",
@@ -56,6 +56,9 @@ const ConditionsPage = () => {
                                 <h2 className="mb-4 text-xl font-semibold text-[#595358]">
                                     Conditions that are treatable
                                 </h2>
+                                <p className="mb-4 text-[#595358]">
+                                    (Note: This is not an exhaustive list of all treatable conditions.)
+                                </p>
                                 
                                 <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
                                     {treatable.map((condition, index) => (
