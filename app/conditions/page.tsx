@@ -71,7 +71,7 @@ const ConditionsPage = () => {
 s
                             <div>
                                  <p className="mb-4 text-[#595358]">
-                                    ( )
+                                    
                                 </p>
                                 <h2 className="mb-4 text-xl font-semibold text-[#595358]">
                                     Conditions that are not treatable
