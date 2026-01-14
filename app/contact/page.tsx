@@ -2,10 +2,6 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import ShineUnderlineEffect from "../components/UnderlineEffect"
-import Image from "next/image"
-import Link from "next/link"
-import axios from "axios"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -74,7 +70,7 @@ const ContactPage = () => {
                     <div className="flex flex-col md:flex-row">
                         {/* Left Side */}
                         <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
-                            <h1 className="mb-6 text-6xl">Contact us today</h1>
+                            <h2 className="mb-6 text-6xl">Contact us today</h2>
                             <div className="mb-10 h-[1px] bg-black opacity-10" />
                             <p className="mb-4">
                                 Please fill out the form to learn more about our
