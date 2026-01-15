@@ -317,7 +317,7 @@ const AboutPage = () => {
                                 When I discovered the work of Dr. Schubiner and
                                 researchers like Dr. Yoni Ashar and Professor
                                 Tor Wager, everything clicked. Their 2022
-                                randomized clinical trial published in{" "}
+                                randomised clinical trial published in{" "}
                                 <em>JAMA Psychiatry</em> showed that{" "}
                                 <strong>Pain Reprocessing Therapy</strong>{" "}
                                 helped two-thirds of chronic back pain patients
@@ -342,7 +342,7 @@ const AboutPage = () => {
                             Who I Work With
                         </h2>
                         <p className="mb-6 text-lg text-gray-700">
-                            I specialize in helping people with:
+                            I specialise in helping people with:
                         </p>
                         <div className="grid gap-6 md:grid-cols-2">
                             {[
@@ -494,7 +494,7 @@ const AboutPage = () => {
                                 in years finally rest peacefully. I've seen
                                 people return to activities they loved but had
                                 given up on. I've witnessed the relief and joy
-                                when someone realizes they're not "broken" -
+                                when someone realises they're not "broken" -
                                 they just needed the right approach.
                             </p>
                         </div>
@@ -567,7 +567,7 @@ const AboutPage = () => {
                                 conditions often develop and accelerate over
                                 time through neurophysiological processes. The
                                 learned pain pathways become more entrenched.
-                                The nervous system becomes more sensitized.
+                                The nervous system becomes more sensitised.
                             </p>
                             <p className="font-medium">
                                 But here's the good news: neuroplasticity works

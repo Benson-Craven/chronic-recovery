@@ -17,13 +17,13 @@ const studies = [
         title: "Harvard PSRT for Post-Acute Sequelae of COVID-19",
         link: "https://www.medrxiv.org/content/10.1101/2022.10.07.22280732v1.full-text",
         description:
-            "A non-randomized interventional study measuring the SSS-8 symptoms found up to a 55% decrease in symptoms over 13 weeks. Mean symptom duration prior to the study was 267 days.",
+            "A non-randomised interventional study measuring the SSS-8 symptoms found up to a 55% decrease in symptoms over 13 weeks. Mean symptom duration prior to the study was 267 days.",
     },
     {
         title: "Emotional Awareness and Expression Therapy, CBT, and Education for Fibromyalgia",
         link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5680092/",
         description:
-            "A randomized controlled trial showing significant benefit from EAET versus CBT and FM education.",
+            "A randomised controlled trial showing significant benefit from EAET versus CBT and FM education.",
     },
 ]
 

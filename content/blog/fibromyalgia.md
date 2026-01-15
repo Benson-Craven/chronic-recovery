@@ -11,7 +11,7 @@ Living with fibromyalgia can feel isolating and overwhelming. The widespread pai
 
 ## What Is Fibromyalgia?
 
-Fibromyalgia is a chronic condition characterized by widespread musculoskeletal pain, often accompanied by fatigue, sleep disturbances, cognitive difficulties (sometimes called "fibro fog"), and mood changes. While the exact cause remains unclear, research suggests that fibromyalgia involves changes in how the brain and nervous system process pain signals, essentially amplifying pain sensations throughout the body.
+Fibromyalgia is a chronic condition characterised by widespread musculoskeletal pain, often accompanied by fatigue, sleep disturbances, cognitive difficulties (sometimes called "fibro fog"), and mood changes. While the exact cause remains unclear, research suggests that fibromyalgia involves changes in how the brain and nervous system process pain signals, essentially amplifying pain sensations throughout the body.
 
 The condition affects approximately 2-4% of the population, with women being diagnosed more frequently than men. Symptoms typically develop gradually and can be triggered or worsened by physical trauma, infection, significant psychological stress, or may appear without any obvious precipitating event.
 
@@ -27,13 +27,13 @@ While widespread pain is the hallmark of fibromyalgia, the condition often bring
 
 ## The Pain-Brain Connection
 
-One of the most important developments in understanding fibromyalgia is recognizing the role of central sensitization—a state where the nervous system becomes overly sensitive to stimuli. Think of it as a faulty alarm system that goes off at the slightest trigger, or a volume knob that's been turned up too high.
+One of the most important developments in understanding fibromyalgia is recognising the role of central sensitisation—a state where the nervous system becomes overly sensitive to stimuli. Think of it as a faulty alarm system that goes off at the slightest trigger, or a volume knob that's been turned up too high.
 
 This doesn't mean the pain is imaginary or exaggerated. The pain is real, but the nervous system's processing of pain signals has become altered. Understanding this concept is crucial because it opens the door to effective treatment approaches that focus on retraining the nervous system rather than simply masking symptoms.
 
 ## Moving Toward Recovery
 
-Recovery from fibromyalgia isn't about finding a single magic bullet—it's about addressing the condition from multiple angles and recognizing that the brain and body have remarkable capacity for change and healing.
+Recovery from fibromyalgia isn't about finding a single magic bullet—it's about addressing the condition from multiple angles and recognising that the brain and body have remarkable capacity for change and healing.
 
 **Pain neuroscience education** helps you understand what's happening in your body and why, reducing fear and anxiety around symptoms. Knowledge truly is power when it comes to chronic pain conditions.
 
@@ -41,17 +41,17 @@ Recovery from fibromyalgia isn't about finding a single magic bullet—it's abou
 
 **Stress management and nervous system regulation** are essential components of recovery. Techniques like mindfulness, meditation, breathing exercises, and progressive muscle relaxation can help calm an overactive nervous system and reduce symptom severity.
 
-**Sleep optimization** breaks the cycle of pain and poor rest. Establishing consistent sleep routines, creating a comfortable sleep environment, and addressing sleep disorders can dramatically improve overall symptoms.
+**Sleep optimisation** breaks the cycle of pain and poor rest. Establishing consistent sleep routines, creating a comfortable sleep environment, and addressing sleep disorders can dramatically improve overall symptoms.
 
 **Cognitive behavioral therapy** and other psychological approaches don't treat fibromyalgia because it's "all in your head," but because the relationship between thoughts, emotions, and physical symptoms is powerful and bidirectional. Learning to manage stress, challenge unhelpful thought patterns, and develop effective coping strategies can lead to significant improvements.
 
-**Pacing and energy management** involve learning to balance activity and rest, recognizing your limits while gradually expanding them, and avoiding the boom-and-bust cycle that many people with fibromyalgia experience.
+**Pacing and energy management** involve learning to balance activity and rest, recognising your limits while gradually expanding them, and avoiding the boom-and-bust cycle that many people with fibromyalgia experience.
 
 ## The Importance of a Comprehensive Approach
 
 Recovery from fibromyalgia rarely comes from a single intervention. The most successful outcomes typically involve a multidisciplinary approach that addresses the physical, psychological, and social aspects of the condition. This might include working with physiotherapists, pain psychologists, occupational therapists, and medical professionals who understand chronic pain.
 
-At Chronic Pain Recovery Ireland, we recognize that each person's experience with fibromyalgia is unique, and recovery requires a personalized, compassionate approach that honors your individual circumstances, goals, and challenges.
+At Chronic Pain Recovery Ireland, we recognise that each person's experience with fibromyalgia is unique, and recovery requires a personalised, compassionate approach that honors your individual circumstances, goals, and challenges.
 
 ## Hope for the Future
 

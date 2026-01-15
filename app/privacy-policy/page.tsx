@@ -66,7 +66,7 @@ const PrivacyPolicyPage = () => {
                         Our Commitment to Data Security
                     </h2>
                     <p>
-                        To prevent unauthorized access, maintain data accuracy,
+                        To prevent unauthorised access, maintain data accuracy,
                         and ensure the correct use of information, we have put
                         in place appropriate physical, electronic, and
                         managerial procedures to safeguard and secure the

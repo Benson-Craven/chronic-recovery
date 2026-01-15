@@ -76,7 +76,7 @@ const DisclaimerPage = () => {
                         timeliness, completeness or arising from a course of
                         dealing, usage, or trade practice. no oral advice or
                         written information provided by Chronic Pain Recovery
-                        Project or its employees or affiliate organizations or
+                        Project or its employees or affiliate organisations or
                         its employees, shall create a warranty; nor shall
                         members or visitors to the site rely on any such
                         information or advice.
@@ -96,7 +96,7 @@ const DisclaimerPage = () => {
                         omissions, interruptions, deletion of files, viruses,
                         error, defects, or any failure of performance,
                         communications failure, theft, destruction or
-                        unauthorized access.
+                        unauthorised access.
                     </p>
                 </div>
             </div>
