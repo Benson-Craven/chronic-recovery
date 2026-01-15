@@ -144,9 +144,6 @@ const Custom404Page = () => {
                                         className="cursor-pointer rounded-lg border-2 border-gray-200 bg-gray-50 p-4 text-left transition-all hover:border-textSecondary hover:bg-white hover:shadow-md"
                                     >
                                         <div className="mb-2 flex items-center gap-2">
-                                            <span className="text-2xl">
-                                                {link.icon}
-                                            </span>
                                             <span className="font-semibold text-textPrimary">
                                                 {link.label}
                                             </span>
