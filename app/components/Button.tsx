@@ -24,7 +24,7 @@ export default function Button({ isActive, toggleMenu }: ButtonProps) {
                     <PerspectiveText label="Contact" />
                 </div>
                 <div
-                    className="h-full w-full bg-textPrimary"
+                    className="bg-primary-text h-full w-full"
                     onClick={toggleMenu}
                 >
                     <PerspectiveText label="X" textColor="text-[#fafafa]" />

@@ -17,12 +17,12 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "#fafafa",
-                foreground: "#323629",
-                "primary-text": "#595358",
-                "secondary-text": "#A4AC96",
-                "tertiary-text": "#CFDDA5",
-                accent: "#c9fd74",
+                background: "#fafafa", // pearl white
+                foreground: "#323629", // dark dark green
+                "primary-text": "#595358", // moody mauve colour
+                "secondary-text": "#A4AC96", // dark mellow green
+                "tertiary-text": "#CFDDA5", // mellow green
+                accent: "#c9fd74", // neon green
             },
             fontFamily: {
                 butler: ["Butler", "serif"],
