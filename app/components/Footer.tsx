@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaFacebook, FaWhatsapp } from "react-icons/fa"
 import ShineUnderlineEffect from "./UnderlineEffect"
 
 const Footer = () => {
     return (
-        <footer className="font-Satoshi relative z-20 bg-foreground pb-6 pt-12 text-[#fafafa]">
+        <footer className="font-Satoshi bg-foreground relative z-20 pb-6 pt-12 text-[#fafafa]">
             <div className="container mx-auto px-4">
                 {/* Footer Content */}
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -66,9 +66,9 @@ const Footer = () => {
                                     icon: FaFacebook,
                                 },
                                 {
-                                    name: "Instagram",
-                                    url: "https://instagram.com",
-                                    icon: FaInstagram,
+                                    name: "Whatsapp",
+                                    url: "tel:+353892335106",
+                                    icon: FaWhatsapp,
                                 },
                             ].map(({ name, url, icon: Icon }) => (
                                 <li key={name}>

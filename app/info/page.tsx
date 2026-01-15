@@ -18,7 +18,7 @@ const Info = () => {
             <main>
                 <section className="flex h-[80vh] items-center justify-center bg-[#fafafa]">
                     <motion.h1
-                        className="font-butler mx-11 flex-wrap text-center text-4xl font-extralight uppercase text-primary-text md:text-5xl lg:text-7xl"
+                        className="text-primary-text mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase md:text-5xl lg:text-7xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
@@ -28,7 +28,7 @@ const Info = () => {
                         }}
                     >
                         The <i>Brain & Body </i> can{" "}
-                        <span className="text-textSecondary">
+                        <span className="text-secondary-text">
                             work together beautifully
                         </span>
                     </motion.h1>

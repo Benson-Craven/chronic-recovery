@@ -51,7 +51,7 @@ const SVGPathScienceSection = () => {
             </motion.svg>
             <div
                 ref={sectionRef}
-                className="font-Satoshi container mx-auto overflow-hidden text-primary-text"
+                className="font-Satoshi text-primary-text container mx-auto overflow-hidden"
             >
                 {/* Text Content */}
                 <div className="relative z-20 mb-16 max-w-xl p-6 px-4 md:w-1/2">
@@ -71,7 +71,12 @@ const SVGPathScienceSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mt-2 text-center text-lg md:mt-8 md:text-start md:text-xl lg:text-2xl xl:text-3xl"
                     >
-                        Chronic pain isn’t always caused by ongoing injury. Many long-lasting pain conditions come from learned neural pathways in the brain—patterns that continue to fire even after the body has healed. In this view, chronic pain is a real, physical experience created by a protective nervous system stuck in danger mode.
+                        Chronic pain isn’t always caused by ongoing injury. Many
+                        long-lasting pain conditions come from learned neural
+                        pathways in the brain—patterns that continue to fire
+                        even after the body has healed. In this view, chronic
+                        pain is a real, physical experience created by a
+                        protective nervous system stuck in danger mode.
                     </motion.p>
                 </div>
 
@@ -109,7 +114,7 @@ const SVGPathScienceSection = () => {
                             </p>
                             <Link
                                 href="/contact"
-                                className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                                className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                             >
                                 Book a Free Consultation
                             </Link>
@@ -134,7 +139,7 @@ const SVGPathScienceSection = () => {
                         </p>
                         <Link
                             href="/self-assessment"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Take the Self-Assessment
                         </Link>
@@ -162,7 +167,7 @@ const SVGPathScienceSection = () => {
                             </h3>
                             <Link
                                 href="/contact"
-                                className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                                className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                             >
                                 Get Started Now
                             </Link>
@@ -175,7 +180,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-textSecondary/30 p-6 lg:col-span-2"
+                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
                     >
                         <div className="flex items-center space-x-2">
                             <Activity className="h-6 w-6" />
@@ -192,7 +197,7 @@ const SVGPathScienceSection = () => {
                         </p>
                         <Link
                             href="/science"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Learn More About Treatments
                         </Link>
@@ -204,7 +209,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-textPrimary/30 p-6 lg:col-span-1"
+                        className="bg-primary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-1"
                     >
                         <div className="flex items-center space-x-2">
                             <Lightbulb className="h-6 w-6" />
@@ -216,7 +221,7 @@ const SVGPathScienceSection = () => {
                         </p>
                         <Link
                             href="/science"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Read More
                         </Link>
@@ -228,7 +233,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-textSecondary/30 p-6 lg:col-span-3"
+                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-3"
                     >
                         <div className="flex items-center space-x-2">
                             <ThumbsUp className="h-6 w-6" />
@@ -241,7 +246,7 @@ const SVGPathScienceSection = () => {
                         </p>
                         <Link
                             href="/contact"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Start Your Healing Today
                         </Link>
@@ -256,12 +261,12 @@ const SVGPathScienceSection = () => {
                         className="relative h-64 overflow-hidden rounded-3xl bg-amber-200/30 p-6 lg:col-span-4"
                     >
                         <div className="flex items-center space-x-2">
-                            <Smile className="h-6 w-6 text-textPrimary" />
-                            <h3 className="text-xl text-textPrimary">
+                            <Smile className="text-primary-text h-6 w-6" />
+                            <h3 className="text-primary-text text-xl">
                                 Pain Reprocessing Therapy (PRT)
                             </h3>
                         </div>
-                        <p className="mt-2 text-textPrimary">
+                        <p className="text-primary-text mt-2">
                             Chronic pain can persist due to neural circuits
                             sending pain signals, often triggered by stress,
                             trauma, or unprocessed emotions. PRT helps retrain
@@ -271,7 +276,7 @@ const SVGPathScienceSection = () => {
 
                         <Link
                             href="/science"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Learn More
                         </Link>
@@ -283,15 +288,15 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-textPrimary/30 p-6 lg:col-span-2"
+                        className="bg-primary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
                     >
                         <div className="flex items-center space-x-2">
-                            <Shield className="h-6 w-6 text-textPrimary" />
-                            <h3 className="text-xl text-textPrimary">
+                            <Shield className="text-primary-text h-6 w-6" />
+                            <h3 className="text-primary-text text-xl">
                                 Biopsychosocial Method
                             </h3>
                         </div>
-                        <p className="mt-2 text-textPrimary">
+                        <p className="text-primary-text mt-2">
                             The biopsychosocial method is a leading approach to
                             chronic pain treatment, taught worldwide. Trained
                             under Dr. Howard Schubiner, I’ve helped many achieve
@@ -300,7 +305,7 @@ const SVGPathScienceSection = () => {
 
                         <Link
                             href="/science"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Explore Techniques
                         </Link>
@@ -312,22 +317,22 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-textSecondary/30 p-6 lg:col-span-2"
+                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
                     >
                         <div className="flex items-center space-x-2">
-                            <HandHeart className="h-6 w-6 text-textPrimary" />
-                            <h3 className="text-xl text-textPrimary">
+                            <HandHeart className="text-primary-text h-6 w-6" />
+                            <h3 className="text-primary-text text-xl">
                                 All Pain Is Real
                             </h3>
                         </div>
-                        <p className="mt-2 text-textPrimary">
+                        <p className="text-primary-text mt-2">
                             Pain isn’t imaginary—it originates in the brain.
                             Treating chronic pain starts there, as confirmed by
                             recent scientific research.
                         </p>
                         <Link
                             href="/contact"
-                            className="mt-4 inline-block transform rounded-lg bg-white px-6 py-2 text-textPrimary transition duration-300 ease-in-out hover:scale-105 hover:bg-textPrimary hover:text-white"
+                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
                         >
                             Get The Help Your Deserve
                         </Link>

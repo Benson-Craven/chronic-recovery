@@ -1,6 +1,6 @@
 const DisclaimerPage = () => {
     return (
-        <div className="font-Satoshi min-h-screen bg-[#fafafa] text-textPrimary">
+        <div className="font-Satoshi text-primary-text min-h-screen bg-[#fafafa]">
             <div className="container mx-auto px-4 py-16">
                 <h1 className="mb-8 text-center font-butler text-4xl font-bold uppercase">
                     Disclaimer

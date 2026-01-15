@@ -67,7 +67,7 @@ const Card: React.FC<CardProps> = ({
                     <h2 className="mb-2 w-full text-3xl text-black md:text-5xl">
                         {title}
                     </h2>
-                    <div className="mb-6 h-[1px] bg-textPrimary opacity-40" />
+                    <div className="bg-primary-text mb-6 h-[1px] opacity-40" />
 
                     <p className="mb-6 text-lg text-black">{description}</p>
 

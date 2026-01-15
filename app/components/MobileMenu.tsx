@@ -41,7 +41,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                 onClick={onToggle}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
-                className="fixed right-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-textSecondary text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
+                className="bg-secondary-text fixed right-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
             >
                 {isOpen ? (
                     <X className="h-6 w-6" />

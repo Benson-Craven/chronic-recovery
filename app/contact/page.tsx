@@ -59,7 +59,7 @@ const ContactPage = () => {
     }
 
     return (
-        <div className="font-Satoshi min-h-screen bg-[#fafafa] p-4 text-textPrimary">
+        <div className="font-Satoshi text-primary-text min-h-screen bg-[#fafafa] p-4">
             <div className="container mx-auto">
                 {/* Contact Form Section */}
                 <motion.section
@@ -180,7 +180,7 @@ const ContactPage = () => {
                                         {/* Submit Button */}
                                         <button
                                             type="submit"
-                                            className="rounded-full bg-textSecondary px-6 py-2 text-white transition-colors"
+                                            className="bg-secondary-text rounded-full px-6 py-2 text-white transition-colors"
                                         >
                                             Submit
                                         </button>

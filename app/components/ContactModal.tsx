@@ -78,7 +78,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                     {/* Modal */}
                     <motion.div
-                        className="relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border-2 border-black bg-textSecondary shadow-xl"
+                        className="bg-secondary-text relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border-2 border-black shadow-xl"
                         variants={modalScale}
                         initial="hidden"
                         animate="visible"
@@ -190,7 +190,7 @@ function ContactForm({
                         rows={4}
                         maxLength={MAX_CHARS}
                         onChange={onMessageChange}
-                        className="w-full rounded-lg border border-gray-300 p-3 transition-colors focus:border-textSecondary focus:outline-none"
+                        className="focus:border-secondary-text w-full rounded-lg border border-gray-300 p-3 transition-colors focus:outline-none"
                     />
                     <p className="mt-1 text-sm text-gray-500">
                         {messageLength}/{MAX_CHARS} characters
@@ -206,7 +206,7 @@ function ContactForm({
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="rounded-full bg-textSecondary px-6 py-2.5 text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+                    className="bg-secondary-text rounded-full px-6 py-2.5 text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                 >
                     {isSubmitting ? "Sending..." : "Submit"}
                 </button>
@@ -245,7 +245,7 @@ function Field({ label, name, type, required }: FieldProps) {
                 id={name}
                 name={name}
                 required={required}
-                className="w-full rounded-lg border border-gray-300 p-3 transition-colors focus:border-textSecondary focus:outline-none"
+                className="focus:border-secondary-text w-full rounded-lg border border-gray-300 p-3 transition-colors focus:outline-none"
             />
         </div>
     )

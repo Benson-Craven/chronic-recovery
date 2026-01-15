@@ -36,7 +36,7 @@ const AboutPage = () => {
     }
 
     return (
-        <div className="font-Satoshi min-h-screen bg-background text-primary-text">
+        <div className="font-Satoshi bg-background text-primary-text min-h-screen">
             {/* DESKTOP HERO with Curtain Effect (hidden on mobile) */}
             <section
                 ref={container}
@@ -122,11 +122,11 @@ const AboutPage = () => {
                         </div>
 
                         <div className="md:w-1/2 md:pl-12">
-                            <h2 className="mb-6 text-4xl font-medium text-textPrimary">
+                            <h2 className="text-primary-text mb-6 text-4xl font-medium">
                                 About Me
                             </h2>
 
-                            <p className="mb-8 text-lg text-textPrimary">
+                            <p className="text-primary-text mb-8 text-lg">
                                 My name is Marsha Canny. I am a chronic pain
                                 therapist based in Rochestown, Cork, Ireland. I
                                 use a multi-disciplinary approach to help you
@@ -134,7 +134,7 @@ const AboutPage = () => {
                                 specialise in helping people with{" "}
                                 <Link
                                     href="/#illness"
-                                    className="text-textSecondary hover:text-[#D9D9D6]"
+                                    className="text-secondary-text hover:text-[#D9D9D6]"
                                 >
                                     persistent pain conditions
                                 </Link>{" "}
@@ -148,7 +148,7 @@ const AboutPage = () => {
 
                             <Link
                                 href="/contact"
-                                className="inline-flex items-center text-textPrimary transition duration-300 hover:text-[#D9D9D6]"
+                                className="text-primary-text inline-flex items-center transition duration-300 hover:text-[#D9D9D6]"
                             >
                                 <span className="mr-2">
                                     Book a consultation
@@ -197,7 +197,7 @@ const AboutPage = () => {
                                 - but you're still in pain. Day after day. Month
                                 after month. Maybe even year after year.
                             </p>
-                            <p className="text-xl font-medium text-textSecondary">
+                            <p className="text-secondary-text text-xl font-medium">
                                 I'm here to tell you something important: Your
                                 pain is real. And there's hope.
                             </p>
@@ -397,7 +397,7 @@ const AboutPage = () => {
                             </div>
 
                             <div className="rounded-lg bg-gray-50 p-6">
-                                <p className="text-xl font-semibold text-textSecondary">
+                                <p className="text-secondary-text text-xl font-semibold">
                                     Investment: €70 per session, or a package of
                                     6 sessions for €360
                                 </p>
@@ -484,7 +484,7 @@ const AboutPage = () => {
                                     key={index}
                                     className="flex items-start gap-3"
                                 >
-                                    <span className="mt-1 text-2xl text-textSecondary">
+                                    <span className="text-secondary-text mt-1 text-2xl">
                                         ✓
                                     </span>
                                     <p className="text-lg text-gray-700">
@@ -498,7 +498,7 @@ const AboutPage = () => {
                     {/* Important Note */}
                     <motion.section
                         variants={fadeInVariants}
-                        className="rounded-lg border-l-4 border-textSecondary bg-gray-50 p-6"
+                        className="border-secondary-text rounded-lg border-l-4 bg-gray-50 p-6"
                     >
                         <h3 className="mb-3 text-xl font-semibold">
                             Important: Please Rule Out Structural Issues First
@@ -509,7 +509,7 @@ const AboutPage = () => {
                             or infection. Once you've done that, take my{" "}
                             <Link
                                 href="/self-assessment"
-                                className="font-semibold text-textSecondary underline hover:no-underline"
+                                className="text-secondary-text font-semibold underline hover:no-underline"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -569,7 +569,7 @@ const AboutPage = () => {
                         </p>
                         <div className="space-y-4">
                             <Link href="/contact">
-                                <button className="rounded-full bg-textSecondary px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                     Book Your Free Consultation
                                 </button>
                             </Link>
@@ -577,7 +577,7 @@ const AboutPage = () => {
                                 Tel/WhatsApp:{" "}
                                 <a
                                     href="tel:+353892335106"
-                                    className="font-bold text-textSecondary hover:underline"
+                                    className="text-secondary-text font-bold hover:underline"
                                 >
                                     +353 (0) 89-233-5106
                                 </a>
@@ -669,12 +669,12 @@ const AboutPage = () => {
                                 Something backed by science. Something that
                                 treats the root cause, not just the symptoms.
                             </p>
-                            <p className="text-2xl font-semibold text-textPrimary">
+                            <p className="text-primary-text text-2xl font-semibold">
                                 I'm here when you're ready to take that first
                                 step.
                             </p>
                             <Link href="/contact">
-                                <button className="mt-6 rounded-full bg-textSecondary px-10 py-4 text-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                <button className="bg-secondary-text mt-6 rounded-full px-10 py-4 text-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                     Start Your Healing Journey Today
                                 </button>
                             </Link>

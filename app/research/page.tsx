@@ -57,7 +57,7 @@ const ResearchStudies = () => {
                                             href={study.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="font-semibold text-textSecondary transition hover:text-textPrimary"
+                                            className="hover:text-primary-text text-secondary-text font-semibold transition"
                                         >
                                             {study.title}
                                         </a>
