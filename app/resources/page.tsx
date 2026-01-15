@@ -73,10 +73,10 @@ const links: LinkSection[] = [
 
 const UsefulLinks: React.FC = () => {
     return (
-        <main className="min-h-screen bg-[#fafafa] py-16 text-textPrimary">
+        <main className="min-h-screen bg-background py-16 text-primary-text">
             <section className="container mx-auto max-w-5xl px-6 md:px-12 lg:px-24">
-                <div className="overflow-hidden rounded-2xl border border-secondary bg-primary p-8 shadow-xl md:p-12">
-                    <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-textPrimary sm:text-4xl md:text-7xl">
+                <div className="overflow-hidden rounded-2xl border border-foreground bg-background p-8 shadow-xl md:p-12">
+                    <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-primary-text sm:text-4xl md:text-7xl">
                         Useful Links
                     </h1>
                     <p className="mb-8 text-lg leading-relaxed">
@@ -86,7 +86,7 @@ const UsefulLinks: React.FC = () => {
                     </p>
                     {links.map((section, index) => (
                         <div key={index} className="mb-10">
-                            <h2 className="mb-4 border-b border-secondary pb-2 text-2xl font-bold text-textPrimary">
+                            <h2 className="mb-4 border-b border-foreground pb-2 text-2xl font-bold text-primary-text">
                                 {section.category}
                             </h2>
                             <ul className="space-y-4">
@@ -96,15 +96,15 @@ const UsefulLinks: React.FC = () => {
                                             href={item.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block transform rounded-xl border border-textThird bg-[#C4D199] p-4 transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:border-textSecondary hover:bg-[#B7C48C] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-textSecondary"
+                                            className="block transform rounded-xl border border-tertiary-text bg-[#C4D199] p-4 transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:border-secondary-text hover:bg-[#B7C48C] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-secondary-text"
                                         >
                                             <div className="flex items-center justify-between">
-                                                <span className="font-semibold text-textPrimary group-hover:text-textPrimary">
+                                                <span className="font-semibold text-primary-text group-hover:text-primary-text">
                                                     {item.title}
                                                 </span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    className="h-5 w-5 text-textSecondary opacity-0 transition-opacity group-hover:opacity-100"
+                                                    className="h-5 w-5 text-secondary-text opacity-0 transition-opacity group-hover:opacity-100"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"

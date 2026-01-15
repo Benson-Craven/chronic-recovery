@@ -48,15 +48,15 @@ export default function Services() {
     })
 
     return (
-        <main ref={container} className="relative bg-[#fafafa] pt-24">
+        <main ref={container} className="relative bg-background pt-24">
             <div
                 id="services"
                 className="container mx-auto flex items-center justify-center"
             >
-                <h2 className="p-5 text-3xl tracking-tight text-textPrimary sm:text-5xl md:text-7xl">
+                <h2 className="p-5 text-3xl tracking-tight text-primary-text sm:text-5xl md:text-7xl">
                     How can I help you?
                 </h2>
-                <div className="mb-16 h-[1px] bg-textPrimary opacity-10" />
+                <div className="mb-16 h-[1px] bg-primary-text opacity-10" />
             </div>
             <div className="mt-16">
                 {projects.map((project, i) => {
@@ -75,11 +75,11 @@ export default function Services() {
                 })}
             </div>
             <div className="container mx-auto max-w-5xl rounded-md border-t px-6 py-4">
-                <p className="text-center text-base text-textPrimary sm:text-lg">
+                <p className="text-center text-base text-primary-text sm:text-lg">
                     Please consult your doctor to rule out structural
                     abnormality, disease, or infection. Take the{" "}
                     <Link href="/self-assessment">
-                        <span className="text-textSecondary underline duration-150 hover:text-textThird">
+                        <span className="text-secondary-text underline duration-150 hover:text-tertiary-text">
                             self-assessment questionnaire
                         </span>
                     </Link>{" "}

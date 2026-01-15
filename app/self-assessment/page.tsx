@@ -52,12 +52,12 @@ export default function SelfAssessment() {
     }
 
     return (
-        <main className="min-h-screen bg-[#fafafa] text-textPrimary">
+        <main className="min-h-screen bg-[#fafafa] text-primary-text">
             <section className="container mx-auto px-6 py-12 md:px-12 lg:px-24">
-                <h1 className="mb-6 text-3xl font-bold tracking-tight text-secondary sm:text-4xl md:text-7xl">
+                <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-7xl">
                     Self Assessment
                 </h1>
-                <p className="mb-8 text-lg leading-relaxed text-secondary">
+                <p className="mb-8 text-lg leading-relaxed text-foreground">
                     These questions aim to increase understanding of your pain
                     or illness. The greater the number of questions to which you
                     respond "Yes," the higher the likelihood that a
@@ -68,11 +68,11 @@ export default function SelfAssessment() {
                     {questions.map((question, index) => (
                         <div
                             key={index}
-                            className="flex flex-col rounded-lg border-2 border-textThird bg-primary p-4 duration-150 hover:border-secondary"
+                            className="flex flex-col rounded-lg border-2 border-tertiary-text bg-background p-4 duration-150 hover:border-foreground"
                         >
                             <label
                                 htmlFor={`question-${index}`}
-                                className="mb-3 font-medium text-textPrimary"
+                                className="mb-3 font-medium text-primary-text"
                             >
                                 {index + 1}. {question}
                             </label>
@@ -84,8 +84,8 @@ export default function SelfAssessment() {
                                     }
                                     className={`rounded-lg px-4 py-2 font-medium ${
                                         answers[index] === "yes"
-                                            ? "bg-textThird text-secondary"
-                                            : "bg-secondary text-primary"
+                                            ? "bg-tertiary-text text-foreground"
+                                            : "bg-foreground text-background"
                                     }`}
                                 >
                                     Yes
@@ -97,8 +97,8 @@ export default function SelfAssessment() {
                                     }
                                     className={`rounded-lg px-4 py-2 font-medium ${
                                         answers[index] === "no"
-                                            ? "bg-textThird text-secondary"
-                                            : "bg-secondary text-primary"
+                                            ? "bg-tertiary-text text-foreground"
+                                            : "bg-foreground text-background"
                                     }`}
                                 >
                                     No
@@ -107,14 +107,14 @@ export default function SelfAssessment() {
                         </div>
                     ))}
                 </form>
-                <div className="mt-12 rounded-lg bg-secondary p-6 shadow-sm">
-                    <h2 className="text-2xl font-semibold text-primary">
+                <div className="mt-12 rounded-lg bg-foreground p-6 shadow-sm">
+                    <h2 className="text-2xl font-semibold text-background">
                         Assessment Summary
                     </h2>
-                    <p className="mt-4 text-lg text-textThird">
+                    <p className="mt-4 text-lg text-tertiary-text">
                         {feedbackMessage()}
                     </p>
-                    <p className="mt-2 text-textSecondary">
+                    <p className="mt-2 text-secondary-text">
                         You answered "Yes" to {yesCount} out of{" "}
                         {questions.length} questions.
                     </p>
@@ -122,7 +122,7 @@ export default function SelfAssessment() {
                 <div className="mt-8">
                     <Link
                         href="/"
-                        className="rounded-md bg-textPrimary px-6 py-3 text-lg font-semibold text-primary duration-150 hover:bg-secondary"
+                        className="rounded-md bg-primary-text px-6 py-3 text-lg font-semibold text-background duration-150 hover:bg-foreground"
                     >
                         Back
                     </Link>

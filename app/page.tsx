@@ -15,9 +15,9 @@ export default function Home() {
     return (
         <>
             <main>
-                <section className="flex h-[80vh] items-center justify-center bg-[#fafafa]">
+                <section className="flex h-[80vh] items-center justify-center bg-background">
                     <motion.h1
-                        className="mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase text-textPrimary md:text-5xl lg:text-7xl"
+                        className="mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase text-primary-text md:text-5xl lg:text-7xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
@@ -27,7 +27,7 @@ export default function Home() {
                         }}
                     >
                         The <i>Biopsychosocial Approach </i> to{" "}
-                        <span className="text-textSecondary">
+                        <span className="text-secondary-text">
                             chronic pain recovery
                         </span>
                     </motion.h1>

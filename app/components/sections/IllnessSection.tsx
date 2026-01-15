@@ -7,7 +7,7 @@ import Image from "next/image"
 
 const IllnessSection = () => {
     return (
-        <div id="illness" className="relative bg-secondary">
+        <div id="illness" className="relative bg-foreground">
             <div className="h-[25vh]" />
 
             <div className="absolute left-1/2 top-0.5 -translate-x-1/2 transform pt-6 text-center">
@@ -44,7 +44,7 @@ const IllnessSection = () => {
                     {/* Supportive Information Card */}
                     <div className="mt-6 w-4/5 max-w-lg rounded-lg border-none bg-white p-6 shadow-lg md:w-full">
                         {/* Sub-heading */}
-                        <h3 className="text-center text-xl text-textPrimary md:text-2xl">
+                        <h3 className="text-center text-xl text-primary-text md:text-2xl">
                             Is what you&apos;re{" "}
                             <span className="font-butler italic">
                                 experiencing
@@ -53,7 +53,7 @@ const IllnessSection = () => {
                         </h3>
 
                         {/* Descriptive Text */}
-                        <p className="mt-3 text-center text-base leading-relaxed text-textPrimary md:text-lg">
+                        <p className="mt-3 text-center text-base leading-relaxed text-primary-text md:text-lg">
                             We&apos;re here to help with any illness or concern,
                             even if it&apos;s not listed above. Reach out to
                             learn more and find the relief you deserve.
@@ -95,14 +95,14 @@ const IllnessSectionCarousel = () => {
             aria-label="Illness types carousel"
             role="region"
             ref={targetRef}
-            className="relative h-[250vh] bg-secondary"
+            className="relative h-[250vh] bg-foreground"
         >
             {/* Section Header */}
             <motion.div
                 style={{ opacity }}
                 className="sticky top-[130px] pl-5 md:top-16 md:pl-10"
             >
-                <h2 className="text-center text-3xl tracking-tight text-textThird md:text-5xl">
+                <h2 className="text-center text-3xl tracking-tight text-tertiary-text md:text-5xl">
                     Are you{" "}
                     <span className="font-butler italic">experiencing</span> any
                     of the following?
@@ -162,7 +162,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                     <div className="mt-3 space-y-1">
                         {card.symptoms?.map((symptom, idx) => (
                             <div key={idx} className="flex items-center gap-2">
-                                <div className="h-2 w-2 rounded-full bg-textThird" />
+                                <div className="h-2 w-2 rounded-full bg-tertiary-text" />
                                 <span className="text-xs text-gray-300 sm:text-sm">
                                     {symptom}
                                 </span>

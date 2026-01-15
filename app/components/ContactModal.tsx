@@ -1,5 +1,4 @@
-"use client"
-
+import Link from "next/link"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { modalScale } from "@/app/lib/animations"
@@ -213,8 +212,15 @@ function ContactForm({
                 </button>
 
                 <p className="text-xs text-gray-500">
-                    By continuing, you agree to our Terms & Conditions and
-                    Privacy Policy.
+                    By continuing, you agree to our{" "}
+                    <Link href="/terms-and-conditions" className="underline">
+                        Terms & Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="/privacy-policy" className="underline">
+                        Privacy Policy
+                    </Link>
+                    .
                 </p>
             </div>
         </form>

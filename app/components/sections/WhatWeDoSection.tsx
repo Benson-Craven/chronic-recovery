@@ -41,10 +41,10 @@ const WeDoSection = () => {
                     </div>
                     {/* Content Container */}
                     <div className="flex w-full flex-col justify-center text-center md:w-1/2 md:text-left">
-                        <h2 className="mb-6 text-3xl tracking-tight text-textPrimary md:text-4xl lg:text-5xl">
+                        <h2 className="mb-6 text-3xl tracking-tight text-primary-text md:text-4xl lg:text-5xl">
                             The biopsychosocial approach to healing chronic pain
                         </h2>
-                        <p className="mb-8 text-base text-textPrimary md:text-lg lg:text-xl">
+                        <p className="mb-8 text-base text-primary-text md:text-lg lg:text-xl">
                             I am delighted to tell you that there is new help for
                             chronic pain sufferers and for people with other medically 
                             unexplained diagnoses such as IBS, long covid, chronic fatigue,
@@ -60,7 +60,7 @@ const WeDoSection = () => {
                         <ShineUnderlineEffect>
                             <Link
                                 href="/info"
-                                className="inline-flex items-center justify-center text-textPrimary transition duration-300 hover:text-[#D9D9D6] md:justify-start"
+                                className="inline-flex items-center justify-center text-primary-text transition duration-300 hover:text-[#D9D9D6] md:justify-start"
                             >
                                 <span className="mr-2">Find Out More</span>
                                 <svg

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -195,9 +196,21 @@ const ContactPage = () => {
                                         </p>
                                         {/* Terms and Conditions */}
                                         <p className="text-sm text-gray-500">
-                                            By continuing, you agree to our
-                                            Terms & Conditions and our Privacy
-                                            Policy.
+                                            By continuing, you agree to our{" "}
+                                            <Link
+                                                href="/terms-and-conditions"
+                                                className="underline"
+                                            >
+                                                Terms & Conditions
+                                            </Link>{" "}
+                                            and our{" "}
+                                            <Link
+                                                href="/privacy-policy"
+                                                className="underline"
+                                            >
+                                                Privacy Policy
+                                            </Link>
+                                            .
                                         </p>
                                     </motion.form>
                                 ) : (

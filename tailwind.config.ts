@@ -17,21 +17,19 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                primary: "#F1E8DE",
-                secondary: "#323629",
-                textPrimary: "#595358",
-                textSecondary: "#A4AC96",
-                textThird: "#CFDDA5",
-                "custom-green": "#c9fd74", // Added for the Button component
+                background: "#fafafa",
+                foreground: "#323629",
+                "primary-text": "#595358",
+                "secondary-text": "#A4AC96",
+                "tertiary-text": "#CFDDA5",
+                accent: "#c9fd74",
             },
             fontFamily: {
-                PlayfairDisplay: ["Playfair Display", "serif"],
-                Jost: ["Jost", "sans-serif"],
                 butler: ["Butler", "serif"],
                 satoshi: ["Satoshi", "sans-serif"],
             },
             transitionTimingFunction: {
-                "custom-ease": "cubic-bezier(0.76, 0, 0.24, 1)", // Added for the Button component
+                "ease-out-quart": "cubic-bezier(0.76, 0, 0.24, 1)",
             },
         },
     },
@@ -43,7 +41,7 @@ const config: Config = {
             opacity: ["group-hover"],
         },
     },
-    plugins: [addVariablesForColors],
+    plugins: [addVariablesForColors, require("@tailwindcss/typography")],
 }
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

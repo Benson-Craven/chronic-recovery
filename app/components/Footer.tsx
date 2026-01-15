@@ -6,7 +6,7 @@ import ShineUnderlineEffect from "./UnderlineEffect"
 
 const Footer = () => {
     return (
-        <footer className="font-Satoshi relative z-20 bg-secondary pb-6 pt-12 text-[#fafafa]">
+        <footer className="font-Satoshi relative z-20 bg-foreground pb-6 pt-12 text-[#fafafa]">
             <div className="container mx-auto px-4">
                 {/* Footer Content */}
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -23,6 +23,7 @@ const Footer = () => {
                                 },
                                 { name: "Pain Types", url: "/#illness" },
                                 { name: "Resources", url: "/resources" },
+                                { name: "Blog", url: "/blog" },
                             ].map(({ name, url }) => (
                                 <li key={name}>
                                     <Link href={url}>
@@ -99,22 +100,33 @@ const Footer = () => {
 
                     <nav className="mt-4 md:mt-0">
                         <ul className="flex space-x-4">
-                            {[
-                                {
-                                    name: "Privacy Policy",
-                                },
-                                {
-                                    name: "Terms of Service",
-                                },
-                            ].map(({ name }) => (
-                                <li key={name}>
-                                    <Link href={"/"} className="text-sm">
-                                        <ShineUnderlineEffect>
-                                            {name}
-                                        </ShineUnderlineEffect>
-                                    </Link>
-                                </li>
-                            ))}
+                            <li>
+                                <Link
+                                    href="/privacy-policy"
+                                    className="text-sm"
+                                >
+                                    <ShineUnderlineEffect>
+                                        Privacy Policy
+                                    </ShineUnderlineEffect>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/terms-and-conditions"
+                                    className="text-sm"
+                                >
+                                    <ShineUnderlineEffect>
+                                        Terms of Service
+                                    </ShineUnderlineEffect>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/disclaimer" className="text-sm">
+                                    <ShineUnderlineEffect>
+                                        Disclaimer
+                                    </ShineUnderlineEffect>
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
                 </div>

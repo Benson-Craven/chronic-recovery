@@ -32,7 +32,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
 
     return (
         <nav
-            className={`font-Satoshi sticky top-0 z-50 flex h-16 items-center justify-between bg-[#fafafa] px-6 text-textPrimary md:h-16 ${className}`}
+            className={`font-Satoshi sticky top-0 z-50 flex h-16 items-center justify-between bg-background px-6 text-primary-text md:h-16 ${className}`}
         >
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
@@ -96,6 +96,11 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     <li>
                         <ShineUnderlineEffect>
                             <Link href="/info">About</Link>
+                        </ShineUnderlineEffect>
+                    </li>
+                    <li>
+                        <ShineUnderlineEffect>
+                            <Link href="/blog">Blog</Link>
                         </ShineUnderlineEffect>
                     </li>
                 </ul>

@@ -74,7 +74,7 @@ export default function MaskTextSection() {
     }
 
     return (
-        <main id="science" className="relative hidden bg-[#fafafa] md:block">
+        <main id="science" className="relative hidden bg-background md:block">
             <div className="h-[20vh]" />
             {/** Container with 400vh height to allow for long scroll **/}
             <div ref={container} className="relative h-[400vh]">
@@ -103,9 +103,9 @@ export default function MaskTextSection() {
                 </div>
                 {/** Scroll indicator **/}
                 <div className="absolute left-1/2 top-0 -translate-x-1/2 transform text-center">
-                    <p className="mb-2 text-textPrimary/30">Scroll Down</p>
+                    <p className="mb-2 text-primary-text/30">Scroll Down</p>
                     <svg
-                        className="mx-auto h-6 w-6 animate-bounce text-textPrimary/20"
+                        className="mx-auto h-6 w-6 animate-bounce text-primary-text/20"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"

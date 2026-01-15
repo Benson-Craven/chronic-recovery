@@ -51,7 +51,7 @@ const SVGPathScienceSection = () => {
             </motion.svg>
             <div
                 ref={sectionRef}
-                className="font-Satoshi container mx-auto overflow-hidden text-textPrimary"
+                className="font-Satoshi container mx-auto overflow-hidden text-primary-text"
             >
                 {/* Text Content */}
                 <div className="relative z-20 mb-16 max-w-xl p-6 px-4 md:w-1/2">
