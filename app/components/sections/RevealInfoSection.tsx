@@ -4,6 +4,7 @@ import React, { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import CallToActionSection from "../CallToActionSection"
 
 const AboutPage = () => {
     const container = useRef(null)
@@ -35,8 +36,50 @@ const AboutPage = () => {
         },
     }
 
+    const faqs = [
+        {
+            question: "How is this different from pain management?",
+            answer: "Pain management aims to reduce symptoms and help you cope. My approach aims to eliminate the pain by retraining your nervous system and turning off false danger signals.",
+        },
+        {
+            question: "Will this work for my specific condition?",
+            answer: "This approach has been shown to be effective for over 20 different chronic pain and medically unexplained conditions. The self-assessment questionnaire can help determine if you're a good candidate.",
+        },
+        {
+            question:
+                "Do I need to believe in mind-body medicine for this to work?",
+            answer: "Not at all. You just need to be open to learning about the neuroscience behind your pain and willing to try the techniques. The science speaks for itself.",
+        },
+        {
+            question: "How long does recovery take?",
+            answer: "Everyone's journey is different. Some people experience significant relief within weeks, while others need several months. We'll work at a pace that feels right for you.",
+        },
+        {
+            question: "Is this covered by health insurance?",
+            answer: "Currently, these sessions are private pay. However, you may be able to claim back costs depending on your health insurance provider - I recommend checking your policy.",
+        },
+    ]
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+            },
+        })),
+    }
+
     return (
         <div className="font-Satoshi bg-background text-primary-text min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+
             {/* DESKTOP HERO with Curtain Effect (hidden on mobile) */}
             <section
                 ref={container}
@@ -85,38 +128,38 @@ const AboutPage = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="space-y-6">
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Left column */}
+                                <div className="flex flex-col gap-4">
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/marsha.avif"
                                             alt="Marsha Canny"
                                             width={400}
-                                            height={600}
+                                            height={500}
                                             className="h-full w-full object-cover"
                                         />
                                     </div>
-                                </div>
-                                <div className="mt-2 space-y-6 md:mt-8">
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/cork.avif"
                                             alt="Cork, Ireland"
-                                            width={100}
-                                            height={150}
+                                            width={400}
+                                            height={200}
                                             className="h-full w-full object-cover"
                                         />
                                     </div>
+                                </div>
 
-                                    <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
-                                        <Image
-                                            src="/images/books.avif"
-                                            alt="Books and Resources"
-                                            width={300}
-                                            height={300}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
+                                {/* Right column */}
+                                <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
+                                    <Image
+                                        src="/images/cork-3.jpg"
+                                        alt="Cork"
+                                        width={400}
+                                        height={716}
+                                        className="h-full w-full object-cover"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -146,28 +189,22 @@ const AboutPage = () => {
                                 system and brain to get you back to good health.
                             </p>
 
-                            <Link
-                                href="/contact"
-                                className="text-primary-text inline-flex items-center transition duration-300 hover:text-[#D9D9D6]"
-                            >
-                                <span className="mr-2">
-                                    Book a consultation
-                                </span>
-                                <svg
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                    />
-                                </svg>
-                            </Link>
+                            <div className="space-y-4">
+                                <Link href="/contact">
+                                    <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                        Book Your Consultation
+                                    </button>
+                                </Link>
+                                <p className="text-gray-600">
+                                    Tel/WhatsApp:{" "}
+                                    <a
+                                        href="tel:+353892335106"
+                                        className="text-secondary-text font-bold hover:underline"
+                                    >
+                                        +353 (0) 89-233-5106
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -543,53 +580,7 @@ const AboutPage = () => {
                     </motion.section>
 
                     {/* CTA Section */}
-                    <motion.section
-                        variants={fadeInVariants}
-                        className="rounded-[25px] border-2 border-black bg-gradient-to-br from-white to-gray-50 p-8 text-center shadow-lg md:p-12"
-                    >
-                        <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                            Your Next Step
-                        </h2>
-                        <div className="mb-8 space-y-3 text-lg text-gray-700">
-                            <p>
-                                If you're tired of being told there's nothing
-                                more that can be done...
-                            </p>
-                            <p>
-                                If you're ready to try an approach that
-                                addresses the root cause of your pain...
-                            </p>
-                            <p>
-                                If you want to work with someone who truly
-                                believes in your capacity to heal...
-                            </p>
-                        </div>
-                        <p className="mb-8 text-2xl font-semibold">
-                            Let's talk.
-                        </p>
-                        <div className="space-y-4">
-                            <Link href="/contact">
-                                <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-                                    Book Your Free Consultation
-                                </button>
-                            </Link>
-                            <p className="text-gray-600">
-                                Tel/WhatsApp:{" "}
-                                <a
-                                    href="tel:+353892335106"
-                                    className="text-secondary-text font-bold hover:underline"
-                                >
-                                    +353 (0) 89-233-5106
-                                </a>
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                You can reach out via the contact form, phone,
-                                or WhatsApp. I typically respond within 24
-                                hours, and we can schedule your first session at
-                                a time that works for you.
-                            </p>
-                        </div>
-                    </motion.section>
+                    <CallToActionSection fadeInVariants={fadeInVariants} />
 
                     {/* FAQ Section */}
                     <motion.section variants={fadeInVariants}>

@@ -25,16 +25,16 @@ const SciencePage = () => {
     }
 
     return (
-        <div className="font-Satoshi min-h-screen bg-background">
+        <div className="font-Satoshi bg-background min-h-screen">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-b from-white to-background px-4 py-16 md:py-24">
+            <section className="to-background relative overflow-hidden bg-gradient-to-b from-white px-4 py-16 md:py-24">
                 <div className="container mx-auto max-w-5xl text-center">
                     <motion.div
                         initial={{ opacity: 0, y: -30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="mb-6 text-4xl font-bold text-primary-text md:text-5xl lg:text-6xl">
+                        <h1 className="text-primary-text mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
                             The Science Behind Chronic Pain Recovery
                         </h1>
                         <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl">
@@ -54,11 +54,11 @@ const SciencePage = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-16 rounded-[25px] border-2 border-black bg-white p-8 shadow-lg md:p-12"
                 >
-                    <h2 className="mb-6 text-3xl font-bold text-primary-text md:text-4xl">
+                    <h2 className="text-primary-text mb-6 text-3xl font-bold md:text-4xl">
                         A Revolutionary Discovery: Pain Lives in Your Brain
                     </h2>
                     <div className="space-y-4 text-lg leading-relaxed text-gray-700">
-                        <p className="text-xl font-medium text-secondary-text">
+                        <p className="text-secondary-text text-xl font-medium">
                             Here's what recent neuroscience research has proven:
                             ALL pain is real — but not all pain comes from
                             damaged tissue.
@@ -93,17 +93,17 @@ const SciencePage = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-16"
                 >
-                    <h2 className="mb-8 text-3xl font-bold text-primary-text md:text-4xl">
+                    <h2 className="text-primary-text mb-8 text-3xl font-bold md:text-4xl">
                         The Research That Changes Everything
                     </h2>
 
                     <div className="grid gap-8 md:grid-cols-2">
                         {/* Main Study Card */}
-                        <div className="rounded-[25px] border-2 border-secondary-text bg-gradient-to-br from-white to-gray-50 p-8">
-                            <div className="mb-4 inline-block rounded-full bg-secondary-text px-4 py-2 text-sm font-semibold text-white">
+                        <div className="border-secondary-text rounded-[25px] border-2 bg-gradient-to-br from-white to-gray-50 p-8">
+                            <div className="bg-secondary-text mb-4 inline-block rounded-full px-4 py-2 text-sm font-semibold text-white">
                                 NIH-Funded Research
                             </div>
-                            <h3 className="mb-4 text-2xl font-bold text-primary-text">
+                            <h3 className="text-primary-text mb-4 text-2xl font-bold">
                                 The Boulder Back Pain Study
                             </h3>
                             <div className="mb-6 space-y-3 text-gray-700">
@@ -119,7 +119,7 @@ const SciencePage = () => {
                                 </p>
                             </div>
 
-                            <div className="space-y-4 rounded-lg bg-secondary-text p-6">
+                            <div className="bg-secondary-text space-y-4 rounded-lg p-6">
                                 <h4 className="text-xl font-bold text-white">
                                     Results That Stunned the Medical Community:
                                 </h4>
@@ -164,7 +164,7 @@ const SciencePage = () => {
                         {/* Brain Imaging Evidence */}
                         <div className="space-y-6">
                             <div className="rounded-lg border-2 border-gray-200 bg-white p-6">
-                                <h3 className="mb-4 text-xl font-bold text-primary-text">
+                                <h3 className="text-primary-text mb-4 text-xl font-bold">
                                     What Brain Scans Revealed
                                 </h3>
                                 <p className="mb-4 text-gray-700">
@@ -193,7 +193,7 @@ const SciencePage = () => {
                                 </ul>
                             </div>
 
-                            <div className="rounded-lg bg-gradient-to-br from-secondary-text to-gray-700 p-6 text-white">
+                            <div className="from-secondary-text rounded-lg bg-gradient-to-br to-gray-700 p-6 text-white">
                                 <h3 className="mb-3 text-xl font-bold">
                                     What This Means for You
                                 </h3>
@@ -210,7 +210,7 @@ const SciencePage = () => {
                             </div>
 
                             <div className="rounded-lg border-2 border-gray-200 bg-white p-6">
-                                <h3 className="mb-3 text-xl font-bold text-primary-text">
+                                <h3 className="text-primary-text mb-3 text-xl font-bold">
                                     Compare to Traditional Treatments
                                 </h3>
                                 <div className="space-y-2 text-gray-700">
@@ -221,7 +221,7 @@ const SciencePage = () => {
                                     <p>
                                         <strong>10%</strong> - Usual care group
                                     </p>
-                                    <p className="mt-4 text-lg font-semibold text-secondary-text">
+                                    <p className="text-secondary-text mt-4 text-lg font-semibold">
                                         <strong>66%</strong> - Pain Reprocessing
                                         Therapy
                                     </p>
@@ -250,7 +250,7 @@ const SciencePage = () => {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-3xl font-bold text-primary-text md:text-4xl">
+                            <h2 className="text-primary-text text-3xl font-bold md:text-4xl">
                                 What Causes Chronic Pain?
                             </h2>
                             <div className="space-y-4 text-lg leading-relaxed text-gray-700">
@@ -317,7 +317,7 @@ const SciencePage = () => {
                     className="mb-16 text-center"
                 >
                     <div className="mx-auto max-w-4xl rounded-[25px] border-2 border-black bg-gradient-to-br from-white to-gray-50 p-8 md:p-12">
-                        <h2 className="mb-6 text-3xl font-bold text-primary-text">
+                        <h2 className="text-primary-text mb-6 text-3xl font-bold">
                             The Good News: Pain is Reversible
                         </h2>
                         <p className="mb-6 text-xl leading-relaxed text-gray-700">
@@ -327,7 +327,7 @@ const SciencePage = () => {
                             brain's ability to change and rewire itself at any
                             age.
                         </p>
-                        <div className="rounded-lg bg-secondary-text p-6 text-white">
+                        <div className="bg-secondary-text rounded-lg p-6 text-white">
                             <p className="text-lg">
                                 Pain Reprocessing Therapy teaches your brain to
                                 turn off false danger signals and reinterpret
@@ -346,7 +346,7 @@ const SciencePage = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-16"
                 >
-                    <h2 className="mb-8 text-center text-3xl font-bold text-primary-text md:text-4xl">
+                    <h2 className="text-primary-text mb-8 text-center text-3xl font-bold md:text-4xl">
                         Who Can Benefit from This Approach?
                     </h2>
 
@@ -361,7 +361,7 @@ const SciencePage = () => {
                         </p>
 
                         <div className="mb-6 rounded-lg bg-gray-50 p-6">
-                            <h3 className="mb-4 text-xl font-bold text-primary-text">
+                            <h3 className="text-primary-text mb-4 text-xl font-bold">
                                 Signs Your Pain May Be Neuroplastic:
                             </h3>
                             <div className="grid gap-3 md:grid-cols-2">
@@ -379,7 +379,7 @@ const SciencePage = () => {
                                         key={index}
                                         className="flex items-start gap-2"
                                     >
-                                        <span className="mt-1 text-secondary-text">
+                                        <span className="text-secondary-text mt-1">
                                             ✓
                                         </span>
                                         <p className="text-gray-700">{sign}</p>
@@ -404,7 +404,7 @@ const SciencePage = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-16"
                 >
-                    <h2 className="mb-8 text-center text-3xl font-bold text-primary-text md:text-4xl">
+                    <h2 className="text-primary-text mb-8 text-center text-3xl font-bold md:text-4xl">
                         Evidence-Based Treatment Approaches
                     </h2>
 
@@ -468,9 +468,9 @@ const SciencePage = () => {
                                 key={index}
                                 variants={fadeInUp}
                                 whileHover={{ scale: 1.03 }}
-                                className="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-md transition-all hover:border-secondary-text hover:shadow-lg"
+                                className="hover:border-secondary-text rounded-lg border-2 border-gray-200 bg-white p-6 shadow-md transition-all hover:shadow-lg"
                             >
-                                <h3 className="mb-3 text-lg font-bold text-primary-text">
+                                <h3 className="text-primary-text mb-3 text-lg font-bold">
                                     {treatment.title}
                                 </h3>
                                 <p className="text-gray-600">
@@ -489,8 +489,8 @@ const SciencePage = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-16"
                 >
-                    <div className="rounded-[25px] border-l-4 border-secondary-text bg-gray-50 p-8 md:p-12">
-                        <h3 className="mb-4 text-2xl font-bold text-primary-text">
+                    <div className="border-secondary-text rounded-[25px] border-l-4 bg-gray-50 p-8 md:p-12">
+                        <h3 className="text-primary-text mb-4 text-2xl font-bold">
                             Important: Rule Out Structural Issues First
                         </h3>
                         <p className="mb-4 text-lg text-gray-700">
@@ -499,7 +499,7 @@ const SciencePage = () => {
                             or infection. Once you've done that, take the{" "}
                             <Link
                                 href="/self-assessment"
-                                className="font-bold text-secondary-text underline hover:no-underline"
+                                className="text-secondary-text font-bold underline hover:no-underline"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -524,7 +524,7 @@ const SciencePage = () => {
                     className="text-center"
                 >
                     <div className="rounded-[25px] border-2 border-black bg-gradient-to-br from-white to-gray-50 p-8 md:p-12">
-                        <h2 className="mb-6 text-3xl font-bold text-primary-text md:text-4xl">
+                        <h2 className="text-primary-text mb-6 text-3xl font-bold md:text-4xl">
                             Ready to Start Your Recovery Journey?
                         </h2>
                         <p className="mb-8 text-xl text-gray-700">
@@ -535,12 +535,12 @@ const SciencePage = () => {
                         </p>
                         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                             <Link href="/contact">
-                                <button className="rounded-full bg-secondary-text px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-                                    Book Your Free Consultation
+                                <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                    Book Your Consultation
                                 </button>
                             </Link>
                             <Link href="/self-assessment">
-                                <button className="rounded-full border-2 border-secondary-text bg-white px-8 py-4 text-lg font-semibold text-secondary-text transition-all hover:bg-gray-50">
+                                <button className="border-secondary-text text-secondary-text rounded-full border-2 bg-white px-8 py-4 text-lg font-semibold transition-all hover:bg-gray-50">
                                     Take Self-Assessment
                                 </button>
                             </Link>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import "./globals.css"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
@@ -16,11 +17,13 @@ export default function RootLayout({
         <html lang="en">
             <head>
                 {/* Google Analytics (GA4) */}
-                <script
-                    async
+                <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-8EWZ9GXF1T"
-                ></script>
-                <script
+                    strategy="afterInteractive"
+                />
+                <Script
+                    id="google-analytics"
+                    strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
               window.dataLayer = window.dataLayer || [];
@@ -44,7 +47,7 @@ export default function RootLayout({
                 />
                 <meta
                     property="og:image"
-                    content="https://chronicpainrecovery.ie/path-to-image.jpg"
+                    content="https://chronicpainrecovery.ie/images/forest.avif"
                 />
                 <meta
                     property="og:url"
@@ -69,13 +72,12 @@ export default function RootLayout({
                                 "@type": "PostalAddress",
                                 streetAddress: "",
                                 addressLocality: "Cork",
-                                addressRegion: "Munster",
+                                addressRegion: "Rochestown",
                                 postalCode: "",
                                 addressCountry: "Ireland",
                             },
                             sameAs: [
                                 "https://www.facebook.com/chronicpainrecoveryireland",
-                                "https://www.instagram.com/yourpage/",
                             ],
                         }),
                     }}

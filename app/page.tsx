@@ -10,14 +10,26 @@ import MaskTextSection from "./components/sections/MaskTextSection"
 import SVGTest from "./components/sections/SVGTest"
 import SVGPathScienceSection from "./components/sections/SVGPathScienceSection"
 import Approach from "./components/sections/Approach"
+import CallToActionSection from "./components/CallToActionSection"
 
 export default function Home() {
+    const fadeInVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+            },
+        },
+    }
+
     return (
         <>
-            <main>
-                <section className="flex h-[80vh] items-center justify-center bg-background">
+            <main className="bg-background">
+                <section className="bg-background flex h-[80vh] items-center justify-center">
                     <motion.h1
-                        className="mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase text-primary-text md:text-5xl lg:text-7xl"
+                        className="text-primary-text mx-11 flex-wrap text-center font-butler text-4xl font-extralight uppercase md:text-5xl lg:text-7xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
@@ -41,6 +53,9 @@ export default function Home() {
                     {/* <ScienceSection /> */}
                     <Approach />
                     <Services />
+
+                    <CallToActionSection fadeInVariants={fadeInVariants} />
+
                     {/* <MaskTextSection /> */}
                     <SVGPathScienceSection />
 

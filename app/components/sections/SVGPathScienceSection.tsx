@@ -54,7 +54,7 @@ const SVGPathScienceSection = () => {
                 className="font-Satoshi text-primary-text container mx-auto overflow-hidden"
             >
                 {/* Text Content */}
-                <div className="relative z-20 mb-16 max-w-xl p-6 px-4 md:w-1/2">
+                <div className="relative z-20 mb-16 p-6 px-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
