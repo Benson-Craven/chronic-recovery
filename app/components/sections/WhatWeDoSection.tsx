@@ -1,6 +1,5 @@
 import React, { useRef } from "react"
 import Link from "next/link"
-import ShineUnderlineEffect from "../UnderlineEffect"
 import animationData from "../../../public/assets/women-health.json"
 import dynamic from "next/dynamic"
 import type { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
@@ -41,10 +40,10 @@ const WeDoSection = () => {
                     </div>
                     {/* Content Container */}
                     <div className="flex w-full flex-col justify-center text-center md:w-1/2 md:text-left">
-                        <h2 className="text-primary-text mb-6 text-3xl tracking-tight md:text-4xl lg:text-5xl">
+                        <h2 className="mb-6 text-3xl tracking-tight text-primary-text md:text-4xl lg:text-5xl">
                             The biopsychosocial approach to healing chronic pain
                         </h2>
-                        <p className="text-primary-text mb-8 text-base md:text-lg lg:text-xl">
+                        <p className="mb-8 text-base text-primary-text md:text-lg lg:text-xl">
                             I am delighted to tell you that there is new help
                             for chronic pain sufferers and for people with other
                             medically unexplained diagnoses such as IBS, long
@@ -58,7 +57,7 @@ const WeDoSection = () => {
                         </p>
                         <div className="space-y-4">
                             <Link href="/contact">
-                                <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                <button className="rounded-full bg-secondary-text px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                     Book Your Consultation
                                 </button>
                             </Link>
@@ -66,7 +65,7 @@ const WeDoSection = () => {
                                 Tel/WhatsApp:{" "}
                                 <a
                                     href="tel:+353892335106"
-                                    className="text-secondary-text font-bold hover:underline"
+                                    className="font-bold text-secondary-text hover:underline"
                                 >
                                     +353 (0) 89-233-5106
                                 </a>
