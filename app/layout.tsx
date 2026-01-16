@@ -4,10 +4,42 @@ import "./globals.css"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
+// 1. All SEO Tags live here now (Cleaner & Google-friendly)
 export const metadata: Metadata = {
     title: "Chronic Pain Recovery | Trusted Chronic Pain Treatment in Cork, Ireland",
     description:
-        "I provide expert chronic pain recovery treatments in Cork, Ireland. These treatments will help you cure your chronic pain. Start your recovery journey today!",
+        "Expert chronic pain recovery in Cork, Ireland. We provide evidence-based treatments and holistic support to help you overcome persistent pain and reclaim your life.",
+    keywords: [
+        "chronic pain recovery",
+        "chronic pain management Cork",
+        "chronic pain relief Ireland",
+        "holistic healing",
+        "pain treatment Cork",
+        "physiotherapy Ireland",
+        "natural pain relief",
+        "TMS therapy cork", // Added a high-value term
+    ],
+    authors: [{ name: "Chronic Pain Recovery Cork" }],
+    openGraph: {
+        title: "Chronic Pain Recovery | Trusted Support in Cork",
+        description:
+            "Expert chronic pain recovery solutions in Cork. Reclaim your life today.",
+        url: "https://chronicpainrecovery.ie",
+        siteName: "Chronic Pain Recovery Ireland",
+        images: [
+            {
+                url: "https://chronicpainrecovery.ie/images/forest.avif",
+                width: 1200,
+                height: 630,
+                alt: "Peaceful forest representing pain recovery",
+            },
+        ],
+        locale: "en_IE",
+        type: "website",
+    },
+    icons: {
+        icon: "/favicon.ico",
+    },
 }
 
 export default function RootLayout({
@@ -15,8 +47,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <head>
-                {/* Google Analytics (GA4) */}
+            <body className="font-satoshi">
+                {/* 2. Google Analytics (stays here, Next.js handles placement) */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-8EWZ9GXF1T"
                     strategy="afterInteractive"
@@ -34,30 +66,10 @@ export default function RootLayout({
                     }}
                 />
 
-                {/* SEO Meta Tags */}
-                <meta
-                    name="keywords"
-                    content="chronic pain recovery, chronic pain management Cork, chronic pain relief Ireland, holistic healing, pain treatment Cork, physiotherapy Ireland, natural pain relief, chronic pain solutions"
-                />
-                <meta name="author" content="Chronic Pain Recovery Cork" />
-                <meta property="og:title" content={String(metadata.title)} />
-                <meta
-                    property="og:description"
-                    content={String(metadata.description)}
-                />
-                <meta
-                    property="og:image"
-                    content="https://chronicpainrecovery.ie/images/forest.avif"
-                />
-                <meta
-                    property="og:url"
-                    content="https://chronicpainrecovery.ie"
-                />
-                <meta property="og:type" content="website" />
-                <meta property="og:locale" content="en_IE" />
-
-                {/* Structured Data */}
-                <script
+                {/* 3. Structured Data (Schema.org) */}
+                {/* Telling Google exactly who you are and where you are */}
+                <Script
+                    id="schema-org"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
@@ -65,32 +77,32 @@ export default function RootLayout({
                             "@type": "MedicalOrganization",
                             name: "Chronic Pain Recovery Cork",
                             url: "https://chronicpainrecovery.ie",
-                            logo: "/logos/Mending_Mindets.png",
+                            logo: "https://chronicpainrecovery.ie/logos/Mending_Mindets.png",
                             description:
-                                "Expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies to help you cure your chronic pain",
+                                "Expert chronic pain recovery solutions in Cork, Ireland. Personalised treatments and holistic pain management strategies.",
                             address: {
                                 "@type": "PostalAddress",
-                                streetAddress: "",
+                                streetAddress: "", // Fill this if you have a specific clinic door number
                                 addressLocality: "Cork",
                                 addressRegion: "Rochestown",
                                 postalCode: "",
-                                addressCountry: "Ireland",
+                                addressCountry: "IE",
                             },
                             sameAs: [
                                 "https://www.facebook.com/chronicpainrecoveryireland",
+                                // Add Instagram/LinkedIn here if you have them
                             ],
+                            contactPoint: {
+                                "@type": "ContactPoint",
+                                contactType: "customer support",
+                                email: "info@chronicpainrecovery.ie", // Optional: helps Google know how to contact you
+                            },
                         }),
                     }}
                 />
 
-                {/* Favicon */}
-                <link rel="icon" href="/favicon.ico" />
-            </head>
-
-            <body className="font-satoshi">
                 <Navbar />
                 {children}
-                {/* <LenisProvider>{children}</LenisProvider> */}
                 <Footer />
             </body>
         </html>
