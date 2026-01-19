@@ -4,13 +4,6 @@ const nextConfig = {
 
     async redirects() {
         return [
-            // 1. FIX CASE SENSITIVITY (The "Conditions" error)
-            {
-                source: "/Conditions",
-                destination: "/conditions",
-                permanent: true,
-            },
-
             // 2. FIX OLD DRUPAL PAGES (Mapping old -> new)
             {
                 source: "/questionnaire",
