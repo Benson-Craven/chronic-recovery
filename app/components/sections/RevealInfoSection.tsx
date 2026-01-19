@@ -74,7 +74,7 @@ const AboutPage = () => {
     }
 
     return (
-        <div className="font-Satoshi bg-background text-primary-text min-h-screen">
+        <div className="font-Satoshi min-h-screen bg-background text-primary-text">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -165,11 +165,11 @@ const AboutPage = () => {
                         </div>
 
                         <div className="md:w-1/2 md:pl-12">
-                            <h2 className="text-primary-text mb-6 text-4xl font-medium">
+                            <h2 className="mb-6 text-4xl font-medium text-primary-text">
                                 About Me
                             </h2>
 
-                            <p className="text-primary-text mb-8 text-lg">
+                            <p className="mb-8 text-lg text-primary-text">
                                 My name is Marsha Canny. I am a chronic pain
                                 therapist based in Rochestown, Cork, Ireland. I
                                 use a multi-disciplinary approach to help you
@@ -191,7 +191,7 @@ const AboutPage = () => {
 
                             <div className="space-y-4">
                                 <Link href="/contact">
-                                    <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                    <button className="rounded-full bg-secondary-text px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                         Book Your Consultation
                                     </button>
                                 </Link>
@@ -199,7 +199,7 @@ const AboutPage = () => {
                                     Tel/WhatsApp:{" "}
                                     <a
                                         href="tel:+353892335106"
-                                        className="text-secondary-text font-bold hover:underline"
+                                        className="font-bold text-secondary-text hover:underline"
                                     >
                                         +353 (0) 89-233-5106
                                     </a>
@@ -234,7 +234,7 @@ const AboutPage = () => {
                                 - but you're still in pain. Day after day. Month
                                 after month. Maybe even year after year.
                             </p>
-                            <p className="text-secondary-text text-xl font-medium">
+                            <p className="text-xl font-medium text-secondary-text">
                                 I'm here to tell you something important: Your
                                 pain is real. And there's hope.
                             </p>
@@ -254,18 +254,16 @@ const AboutPage = () => {
                                 something profound about how pain actually works
                                 - and more importantly, how it can be reversed.
                             </p>
-                            <p>
-                                My work centers on the{" "}
-                                <strong>biopsychosocial approach</strong> to
-                                chronic pain recovery, and I've been privileged
-                                to train directly under{" "}
-                                <strong>Dr. Howard Schubiner</strong>, one of
-                                the world's leading pioneers in mind-body
-                                medicine. Dr. Schubiner's groundbreaking
-                                research has helped thousands of people recover
-                                from conditions that conventional medicine often
-                                labels as "incurable" or "chronic."
-                            </p>
+                            My work centers on the{" "}
+                            <strong>biopsychosocial approach</strong> to chronic
+                            pain recovery, and I've completed specialised
+                            training in the methods developed by{" "}
+                            <strong>Dr. Howard Schubiner</strong>, one of the
+                            world's leading pioneers in mind-body medicine. Dr.
+                            Schubiner's groundbreaking research has helped
+                            thousands of people recover from conditions that
+                            conventional medicine often labels as "incurable" or
+                            "chronic."
                         </div>
                     </motion.section>
 
@@ -434,7 +432,7 @@ const AboutPage = () => {
                             </div>
 
                             <div className="rounded-lg bg-gray-50 p-6">
-                                <p className="text-secondary-text text-xl font-semibold">
+                                <p className="text-xl font-semibold text-secondary-text">
                                     Investment: €70 per session, or a package of
                                     6 sessions for €360
                                 </p>
@@ -521,7 +519,7 @@ const AboutPage = () => {
                                     key={index}
                                     className="flex items-start gap-3"
                                 >
-                                    <span className="text-secondary-text mt-1 text-2xl">
+                                    <span className="mt-1 text-2xl text-secondary-text">
                                         ✓
                                     </span>
                                     <p className="text-lg text-gray-700">
@@ -535,7 +533,7 @@ const AboutPage = () => {
                     {/* Important Note */}
                     <motion.section
                         variants={fadeInVariants}
-                        className="border-secondary-text rounded-lg border-l-4 bg-gray-50 p-6"
+                        className="rounded-lg border-l-4 border-secondary-text bg-gray-50 p-6"
                     >
                         <h3 className="mb-3 text-xl font-semibold">
                             Important: Please Rule Out Structural Issues First
@@ -546,7 +544,7 @@ const AboutPage = () => {
                             or infection. Once you've done that, take my{" "}
                             <Link
                                 href="/self-assessment"
-                                className="text-secondary-text font-semibold underline hover:no-underline"
+                                className="font-semibold text-secondary-text underline hover:no-underline"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -660,12 +658,12 @@ const AboutPage = () => {
                                 Something backed by science. Something that
                                 treats the root cause, not just the symptoms.
                             </p>
-                            <p className="text-primary-text text-2xl font-semibold">
+                            <p className="text-2xl font-semibold text-primary-text">
                                 I'm here when you're ready to take that first
                                 step.
                             </p>
                             <Link href="/contact">
-                                <button className="bg-secondary-text mt-6 rounded-full px-10 py-4 text-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                <button className="mt-6 rounded-full bg-secondary-text px-10 py-4 text-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                     Start Your Healing Journey Today
                                 </button>
                             </Link>
