@@ -15,7 +15,7 @@ Living with chronic pain in Cork doesn't mean accepting a life of limitations. O
 -   Treatment combines pain neuroscience education, movement therapy, and lifestyle modifications
 -   Recovery is possible—your pain isn't "all in your head," but your brain does play a crucial role
 -   Cork-based support available in-person and online for anywhere in Ireland and internationally
--   Free assessments help determine if you're suitable for our chronic pain treatment approach
+-   Consultations help determine if you're suitable for our chronic pain treatment approach
 
 ## What Is Chronic Pain and Why Does It Persist?
 
@@ -93,7 +93,7 @@ Not necessarily. Many people reduce or eliminate pain medication as they progres
 This is a common fear, but pain during movement doesn't mean you're causing damage (once serious conditions have been ruled out). We teach you to distinguish between acceptable discomfort and warning signs, then build your tolerance gradually.
 
 **Is this approach suitable for my specific condition?**  
-We work with a wide range of chronic pain conditions. The best way to find out if our chronic pain management Cork approach suits you is through a free initial assessment where we can discuss your specific situation.
+We work with a wide range of chronic pain conditions. The best way to find out if our chronic pain management Cork approach suits you is through a initial assessment where we can discuss your specific situation.
 
 ## Taking the First Step in Cork
 
@@ -101,15 +101,13 @@ Recovery from chronic pain starts with understanding that change is possible. Yo
 
 Whether you're in Cork city, the surrounding suburbs, or anywhere in County Cork, help is available. Our combination of in-person Cork consultations and online support means geography doesn't have to be a barrier to recovery.
 
-Ready to explore whether chronic pain management in Cork can help you? We offer free assessments to discuss your pain history, answer your questions, and determine if our approach is right for you. During this no-obligation consultation, we'll explain exactly how pain recovery techniques can apply to your specific situation.
-
-[Book your free assessment](/contact) or call us to speak with someone who understands what you're going through. You don't have to navigate chronic pain treatment alone—we're here to help you find your path to recovery.
+[Book your consultation](/contact) or call us to speak with someone who understands what you're going through. You don't have to navigate chronic pain treatment alone—we're here to help you find your path to recovery.
 
 ## Resources for Cork Residents
 
 -   [Understanding Chronic Pain](/info) – Learn the science behind persistent pain
 -   [Pain Neuroscience Explained](/science) – Discover why you hurt and how recovery works
 -   [Conditions We Treat](/conditions) – See specific chronic pain conditions we address
--   [Contact Us](/contact) – Get in touch for your free assessment
+-   [Contact Us](/contact) – Get in touch for your consultation
 
 Living with chronic pain in Cork doesn't have to mean accepting limitations. With the right chronic pain management approach, recovery is possible. Take the first step today.
