@@ -69,10 +69,7 @@ export default function Blog() {
                         style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
                     />
 
-                    <div
-                        className="grid grid-cols-1 gap-px md:grid-cols-2 lg:grid-cols-3"
-                        style={{ backgroundColor: "rgba(30,58,32,0.08)" }}
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {allPostsData.map(
                             (
                                 { id, date, title, excerpt, coverImage },
@@ -80,8 +77,11 @@ export default function Blog() {
                             ) => (
                                 <Link key={id} href={`/blog/${id}`}>
                                     <article
-                                        className="group flex flex-col"
-                                        style={{ backgroundColor: "#F7F4EF" }}
+                                        className="group flex flex-col border-b border-r"
+                                        style={{
+                                            backgroundColor: "#F7F4EF",
+                                            borderColor: "rgba(30,58,32,0.08)",
+                                        }}
                                     >
                                         {/* Cover image */}
                                         <div className="overflow-hidden">
@@ -146,7 +146,6 @@ export default function Blog() {
                                                 {excerpt}
                                             </p>
 
-                                            {/* Read more */}
                                             <div className="mt-auto flex items-center gap-2 pt-4">
                                                 <span
                                                     className="text-xs uppercase tracking-[0.15em] opacity-50 transition-opacity group-hover:opacity-100"
