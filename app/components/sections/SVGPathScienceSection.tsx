@@ -1,18 +1,14 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
-import Image from "next/image"
+import React, { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import {
     Brain,
     AlertTriangle,
     Activity,
-    Lightbulb,
     ThumbsUp,
-    BookOpen,
     Shield,
     Smile,
-    HandHeart,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -25,321 +21,386 @@ const SVGPathScienceSection = () => {
     })
 
     const pathLength = useTransform(scrollYProgress, [0.27, 1], [0, 1])
-    const pathOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1])
 
     return (
-        <section className="relative bg-[#fafafa]">
-            {/* SVG Path */}
+        <section className="relative" style={{ backgroundColor: "#F7F4EF" }}>
+            {/* SVG path — behind all content */}
             <motion.svg
                 viewBox="0 0 1000 2000"
                 fill="none"
-                xmlns="http://www.w3.org/3000/svg"
-                className="absolute -left-0 top-32 h-full w-full md:-left-[10%] lg:-left-[15%]"
+                xmlns="http://www.w3.org/2000/svg"
+                className="pointer-events-none absolute -left-0 top-32 h-full w-full md:-left-[10%] lg:-left-[15%]"
+                style={{ zIndex: 0 }}
                 preserveAspectRatio="xMidYMid slice"
             >
                 <motion.path
                     d="M-24.5 101C285 315 5.86278 448.291 144.223 631.238C239.404 757.091 559.515 782.846 608.808 617.456C658.101 452.067 497.627 367.073 406.298 426.797C314.968 486.521 263.347 612.858 322.909 865.537C384.086 1125.06 79.3992 1007.94 100 1261.99C144.222 1807.35 819 1325 513 1142.5C152.717 927.625 -45 1916.5 1191.5 1852"
-                    stroke="#A4AC96"
-                    strokeWidth="40"
+                    stroke="rgba(30,58,32,0.08)"
+                    strokeWidth="32"
                     strokeLinejoin="round"
                     strokeLinecap="round"
                     initial={{ pathLength: 0 }}
-                    style={{
-                        pathLength: pathLength,
-                    }}
+                    style={{ pathLength }}
                 />
             </motion.svg>
+
+            {/* Content */}
             <div
                 ref={sectionRef}
-                className="font-Satoshi text-primary-text container mx-auto overflow-hidden"
+                className="container relative mx-auto overflow-hidden"
+                style={{ zIndex: 10 }}
             >
-                {/* Text Content */}
-                <div className="relative z-20 mb-16 p-6 px-4">
+                {/* Section header */}
+                <div className="px-6 pb-12 pt-20 md:pt-28">
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        style={{
+                            color: "#1E3A20",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        The science
+                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center text-4xl leading-tight md:text-start md:text-5xl lg:text-6xl xl:text-7xl"
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="mb-8 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                        style={{
+                            fontFamily: "var(--font-dm-serif)",
+                            color: "#1E3A20",
+                        }}
                     >
-                        What causes chronic pain?
+                        What causes
+                        <br />
+                        <em>chronic pain?</em>
                     </motion.h2>
+                    <div
+                        className="h-px w-full"
+                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                    />
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mt-2 text-center text-lg md:mt-8 md:text-start md:text-xl lg:text-2xl xl:text-3xl"
+                        className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
+                        style={{
+                            color: "rgba(30,58,32,0.65)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
                     >
-                        Chronic pain isn’t always caused by ongoing injury. Many
+                        Chronic pain isn't always caused by ongoing injury. Many
                         long-lasting pain conditions come from learned neural
-                        pathways in the brain—patterns that continue to fire
-                        even after the body has healed. In this view, chronic
-                        pain is a real, physical experience created by a
-                        protective nervous system stuck in danger mode.
+                        pathways in the brain — patterns that continue to fire
+                        even after the body has healed.
                     </motion.p>
                 </div>
 
-                {/* Bento Grid */}
+                {/* Bento Grid
+                    Layout:
+                    Row 1–2: [Image 2×2] [Signals 1×2] [Treatment 1×2]
+                    Row 3:   [Good News 4×1                             ]
+                    Row 4:   [PRT 2×1          ] [Biopsychosocial 2×1  ]
+                */}
                 <div
                     id="treatment"
-                    className="relative z-10 mb-10 grid grid-cols-1 gap-4 px-4 pb-6 md:grid-cols-2 lg:mb-0 lg:grid-cols-4 lg:grid-rows-4"
+                    className="grid grid-cols-1 gap-3 px-6 pb-20 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-4"
                 >
-                    {/* First box (spans 2x2) */}
+                    {/* 01 — Image hero 2×2 */}
                     <motion.figure
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative h-64 overflow-hidden rounded-3xl lg:col-span-2 lg:row-span-2 lg:h-auto"
+                        className="relative h-64 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
+                        style={{ borderRadius: "20px" }}
                     >
                         <img
                             src="/images/meeting1.avif"
-                            alt="Team collaboration"
+                            alt="Unconscious brain"
                             className="h-full w-full object-cover"
                             loading="lazy"
                         />
-                        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
-                            <div className="flex items-center space-x-2">
-                                <Brain className="h-8 w-8" />
-                                <h2 className="text-2xl">
-                                    The Unconscious Brain
-                                </h2>
-                            </div>
-                            <p className="mt-4">
-                                95% of our brain function is unconscious,
+                        <div
+                            className="absolute inset-0 flex flex-col justify-end p-7"
+                            style={{
+                                background:
+                                    "linear-gradient(to top, rgba(10,25,12,0.97) 0%, rgba(10,25,12,0.6) 50%, transparent 100%)",
+                            }}
+                        >
+                            <Brain
+                                className="mb-3 h-5 w-5 opacity-50"
+                                style={{ color: "#C8E6C9" }}
+                            />
+                            <h3
+                                className="mb-3 text-2xl leading-snug text-white"
+                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                            >
+                                All pain is real — and it starts in the brain
+                            </h3>
+                            <p
+                                className="mb-5 text-sm leading-relaxed"
+                                style={{
+                                    color: "rgba(200,230,201,0.7)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                95% of brain function is unconscious —
                                 constantly interpreting signals to determine
-                                safety or danger based on past experiences - all
-                                without our awareness.
+                                safety or danger. Pain originates here, not in
+                                imagined injury.
                             </p>
-                            <Link
+                            <BentoLink
                                 href="/contact"
-                                className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                            >
-                                Book a Free Consultation
-                            </Link>
+                                label="Book a Consultation"
+                                dark
+                            />
                         </div>
                     </motion.figure>
 
-                    {/* Second box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-amber-200/30 p-6"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <AlertTriangle className="h-6 w-6" />
-                            <h3 className="text-xl">Stuck Signals</h3>
-                        </div>
-                        <p className="mt-2">
-                            Warning signals can persist long after healing,
-                            creating a cycle of chronic pain.
-                        </p>
-                        <Link
-                            href="/self-assessment"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Take the Self-Assessment
-                        </Link>
-                    </motion.figure>
+                    {/* 02 — Signals 1×2 */}
+                    <BentoCard
+                        delay={0.1}
+                        icon={<AlertTriangle className="h-4 w-4" />}
+                        title="Signals that won't switch off"
+                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain — and that language can be retrained."
+                        href="/self-assessment"
+                        linkLabel="Take the Self-Assessment"
+                        bg="cream"
+                        colSpan={1}
+                        rowSpan={2}
+                    />
 
-                    {/* Third box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative h-64 overflow-hidden rounded-3xl"
-                    >
-                        <video
-                            src="/videos/grain.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
-                            <h3 className="text-xl">
-                                Start Your Healing Journey
-                            </h3>
-                            <Link
-                                href="/contact"
-                                className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                            >
-                                Get Started Now
-                            </Link>
-                        </div>
-                    </motion.figure>
+                    {/* 03 — Treatment Paths 1×2 */}
+                    <BentoCard
+                        delay={0.15}
+                        icon={<Activity className="h-4 w-4" />}
+                        title="Treatment paths"
+                        body=""
+                        href="/science"
+                        linkLabel="Learn More"
+                        bg="green"
+                        colSpan={1}
+                        rowSpan={2}
+                        extra={
+                            <ul className="mt-3 space-y-2">
+                                {[
+                                    "Pain Reprocessing Therapy",
+                                    "Somatic Tracking Techniques",
+                                    "Graded Exposure Therapy",
+                                    "Emotional Awareness & Expression Therapy",
+                                ].map((t, i) => (
+                                    <li
+                                        key={i}
+                                        className="flex items-start gap-2"
+                                    >
+                                        <span
+                                            className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
+                                            style={{
+                                                backgroundColor:
+                                                    "rgba(200,230,201,0.5)",
+                                            }}
+                                        />
+                                        <span
+                                            className="text-xs leading-snug"
+                                            style={{
+                                                color: "rgba(200,230,201,0.75)",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            {t}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    />
 
-                    {/* Fourth box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <Activity className="h-6 w-6" />
-                            <h3 className="text-xl">Treatment Paths</h3>
-                        </div>
-                        <ul className="mt-2 grid list-disc pl-2 text-sm md:grid-cols-2">
-                            <li>Pain Reprocessing Therapy</li>
-                            <li>Somatic Tracking Techniques</li>
-                            <li>Graded Exposure Therapy</li>
-                            <li>Emotional Awareness & Expression Therapy</li>
-                        </ul>
-                        <p className="mt-2 text-sm">
-                            ... and many more transformative approaches.
-                        </p>
-                        <Link
-                            href="/science"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Learn More About Treatments
-                        </Link>
-                    </motion.figure>
+                    {/* 04 — The Good News 4×1 */}
+                    <BentoCard
+                        delay={0.1}
+                        icon={<ThumbsUp className="h-4 w-4" />}
+                        title="The good news"
+                        body="Turning off these signals is safe — and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
+                        href="/contact"
+                        linkLabel="Start Your Healing"
+                        bg="cream"
+                        colSpan={4}
+                        rowSpan={1}
+                    />
 
-                    {/* Fifth box */}
-                    <motion.figure
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="bg-primary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-1"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <Lightbulb className="h-6 w-6" />
-                            <h3 className="text-xl">Understanding Pain</h3>
-                        </div>
-                        <p className="mt-2">
-                            Physical symptoms are the language between your
-                            unconscious and conscious brain.
-                        </p>
-                        <Link
-                            href="/science"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Read More
-                        </Link>
-                    </motion.figure>
+                    {/* 05 — PRT 2×1 */}
+                    <BentoCard
+                        delay={0.1}
+                        icon={<Smile className="h-4 w-4" />}
+                        title="Pain Reprocessing Therapy"
+                        body="PRT helps retrain the brain to turn off misfiring pain signals — especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
+                        href="/science"
+                        linkLabel="Learn More"
+                        bg="green"
+                        colSpan={2}
+                        rowSpan={1}
+                    />
 
-                    {/* Sixth box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-3"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <ThumbsUp className="h-6 w-6" />
-                            <h3 className="text-xl">The Good News</h3>
-                        </div>
-                        <p className="mt-2">
-                            Turning off these signals is safe and something you
-                            can do yourself through various therapeutic
-                            approaches.
-                        </p>
-                        <Link
-                            href="/contact"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Start Your Healing Today
-                        </Link>
-                    </motion.figure>
-
-                    {/* Seventh box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative h-64 overflow-hidden rounded-3xl bg-amber-200/30 p-6 lg:col-span-4"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <Smile className="text-primary-text h-6 w-6" />
-                            <h3 className="text-primary-text text-xl">
-                                Pain Reprocessing Therapy (PRT)
-                            </h3>
-                        </div>
-                        <p className="text-primary-text mt-2">
-                            Chronic pain can persist due to neural circuits
-                            sending pain signals, often triggered by stress,
-                            trauma, or unprocessed emotions. PRT helps retrain
-                            the brain to turn off these signals, especially when
-                            pain lingers after an injury has healed.
-                        </p>
-
-                        <Link
-                            href="/science"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Learn More
-                        </Link>
-                    </motion.figure>
-
-                    {/* Eighth box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="bg-primary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <Shield className="text-primary-text h-6 w-6" />
-                            <h3 className="text-primary-text text-xl">
-                                Biopsychosocial Method
-                            </h3>
-                        </div>
-                        <p className="text-primary-text mt-2">
-                            The biopsychosocial method is a leading approach to
-                            chronic pain treatment, taught worldwide. Trained
-                            under Dr. Howard Schubiner, I’ve helped many achieve
-                            life-changing results—let me help you too.
-                        </p>
-
-                        <Link
-                            href="/science"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Explore Techniques
-                        </Link>
-                    </motion.figure>
-
-                    {/* Ninth box */}
-                    <motion.figure
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="bg-secondary-text/30 relative h-64 overflow-hidden rounded-3xl p-6 lg:col-span-2"
-                    >
-                        <div className="flex items-center space-x-2">
-                            <HandHeart className="text-primary-text h-6 w-6" />
-                            <h3 className="text-primary-text text-xl">
-                                All Pain Is Real
-                            </h3>
-                        </div>
-                        <p className="text-primary-text mt-2">
-                            Pain isn’t imaginary—it originates in the brain.
-                            Treating chronic pain starts there, as confirmed by
-                            recent scientific research.
-                        </p>
-                        <Link
-                            href="/contact"
-                            className="text-primary-text hover:bg-primary-text mt-4 inline-block transform rounded-lg bg-white px-6 py-2 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
-                        >
-                            Get The Help Your Deserve
-                        </Link>
-                    </motion.figure>
+                    {/* 06 — Biopsychosocial 2×1 */}
+                    <BentoCard
+                        delay={0.15}
+                        icon={<Shield className="h-4 w-4" />}
+                        title="Biopsychosocial method"
+                        body="A leading approach taught worldwide, including the NHS and US medical programmes. Trained directly under Dr. Howard Schubiner — one of the world's foremost pioneers in mind-body medicine."
+                        href="/science"
+                        linkLabel="Explore the Science"
+                        bg="cream"
+                        colSpan={2}
+                        rowSpan={1}
+                    />
                 </div>
             </div>
         </section>
+    )
+}
+
+// ── Lookup maps ────────────────────────────────────────────────────
+const colSpanClass: Record<number, string> = {
+    1: "lg:col-span-1",
+    2: "lg:col-span-2",
+    3: "lg:col-span-3",
+    4: "lg:col-span-4",
+}
+
+const rowSpanClass: Record<number, string> = {
+    1: "lg:row-span-1",
+    2: "lg:row-span-2",
+}
+
+// ── Shared bento card ──────────────────────────────────────────────
+type BentoCardProps = {
+    icon: React.ReactNode
+    title: string
+    body: string
+    href: string
+    linkLabel: string
+    bg: "green" | "cream"
+    colSpan?: 1 | 2 | 3 | 4
+    rowSpan?: 1 | 2
+    delay?: number
+    extra?: React.ReactNode
+}
+
+function BentoCard({
+    icon,
+    title,
+    body,
+    href,
+    linkLabel,
+    bg,
+    colSpan = 1,
+    rowSpan = 1,
+    delay = 0,
+    extra,
+}: BentoCardProps) {
+    const isGreen = bg === "green"
+    return (
+        <motion.figure
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay }}
+            className={`relative flex h-64 flex-col justify-between overflow-hidden p-7 ${colSpanClass[colSpan]} ${rowSpanClass[rowSpan]} lg:h-auto`}
+            style={{
+                borderRadius: "20px",
+                backgroundColor: isGreen ? "#1E3A20" : "#EDE9E0",
+            }}
+        >
+            <div>
+                <div className="mb-4 flex items-center gap-2.5">
+                    <span
+                        style={{
+                            color: isGreen
+                                ? "rgba(200,230,201,0.5)"
+                                : "rgba(30,58,32,0.35)",
+                        }}
+                    >
+                        {icon}
+                    </span>
+                    <h3
+                        className="text-lg leading-snug"
+                        style={{
+                            fontFamily: "var(--font-dm-serif)",
+                            color: isGreen ? "#ffffff" : "#1E3A20",
+                        }}
+                    >
+                        {title}
+                    </h3>
+                </div>
+                {body && (
+                    <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                            color: isGreen
+                                ? "rgba(200,230,201,0.65)"
+                                : "rgba(30,58,32,0.6)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
+                    >
+                        {body}
+                    </p>
+                )}
+                {extra}
+            </div>
+            <BentoLink href={href} label={linkLabel} dark={isGreen} />
+        </motion.figure>
+    )
+}
+
+// ── Shared link pill ───────────────────────────────────────────────
+function BentoLink({
+    href,
+    label,
+    dark,
+}: {
+    href: string
+    label: string
+    dark: boolean
+}) {
+    return (
+        <Link href={href} className="mt-4 inline-block">
+            <motion.span
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium"
+                style={{
+                    backgroundColor: dark ? "#F0EBE1" : "#1E3A20",
+                    color: dark ? "#1E3A20" : "#F7F4EF",
+                    fontFamily: "var(--font-dm-sans)",
+                    fontWeight: 500,
+                    letterSpacing: "0.04em",
+                }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+                {label}
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                    <path
+                        d="M2 10L10 2M10 2H4M10 2V8"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
+            </motion.span>
+        </Link>
     )
 }
 

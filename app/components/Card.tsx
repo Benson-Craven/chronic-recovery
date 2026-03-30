@@ -5,12 +5,12 @@ import Link from "next/link"
 
 interface CardProps {
     i: number
-    totalCards: number // Add total cards count to determine the last card
+    totalCards: number
     title: string
     description: string
     src: string
     url: string
-    color: string // color from the projects array
+    color: string
     progress: MotionValue<number>
     range: [number, number]
     targetScale: number
@@ -22,8 +22,6 @@ const Card: React.FC<CardProps> = ({
     title,
     description,
     src,
-    url,
-    color, // dynamically passed color
     progress,
     range,
     targetScale,
@@ -37,19 +35,23 @@ const Card: React.FC<CardProps> = ({
     const imageScale = useTransform(scrollYProgress, [0, 1], [1.5, 1])
     const scale = useTransform(progress, range, [1, targetScale])
 
+    const isEven = i % 2 === 0
+
     return (
         <div
             ref={container}
-            className="font-Satoshi sticky top-0 flex h-screen items-center justify-center"
+            className="sticky top-0 flex h-screen items-center justify-center"
         >
             <motion.div
                 style={{
                     scale,
                     top: `calc(-5vh + ${i * 25}px)`,
-                    backgroundColor: color,
-                }} // Apply dynamic color here
-                className="relative flex h-[500px] w-[400px] flex-col overflow-hidden rounded-[32px] border-2 border-black shadow-md md:h-[500px] md:w-[1000px] md:flex-row"
+                    backgroundColor: isEven ? "#1E3A20" : "#F7F4EF",
+                    borderRadius: "24px",
+                }}
+                className="relative flex h-[500px] w-[400px] flex-col overflow-hidden md:h-[500px] md:w-[1000px] md:flex-row"
             >
+                {/* Image — left half */}
                 <div className="relative h-1/3 overflow-hidden md:h-full md:w-1/2">
                     <motion.div
                         className="h-full w-full"
@@ -62,43 +64,105 @@ const Card: React.FC<CardProps> = ({
                             className="object-cover"
                         />
                     </motion.div>
+                    {/* Subtle overlay tying image to card colour */}
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            background: isEven
+                                ? "linear-gradient(to right, transparent 60%, #1E3A20)"
+                                : "linear-gradient(to right, transparent 60%, #F7F4EF)",
+                        }}
+                    />
                 </div>
-                <div className="flex flex-1 flex-col justify-center p-6 md:p-12">
-                    <h2 className="mb-2 w-full text-3xl text-black md:text-5xl">
-                        {title}
-                    </h2>
-                    <div className="bg-primary-text mb-6 h-[1px] opacity-40" />
 
-                    <p className="mb-6 text-lg text-black">{description}</p>
+                {/* Content — right half */}
+                <div className="flex flex-1 flex-col justify-between p-8 md:p-12">
+                    <div>
+                        {/* Index */}
+                        <span
+                            className="mb-6 block text-xs tabular-nums opacity-30"
+                            style={{
+                                color: isEven ? "#C8E6C9" : "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            {String(i + 1).padStart(2, "0")}
+                        </span>
 
+                        {/* Title */}
+                        <h2
+                            className="mb-6 text-3xl leading-[1.1] md:text-4xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: isEven ? "#ffffff" : "#1E3A20",
+                                fontStyle: i % 3 === 1 ? "italic" : "normal",
+                            }}
+                        >
+                            {title}
+                        </h2>
+
+                        {/* Divider */}
+                        <div
+                            className="mb-6 h-px w-12"
+                            style={{
+                                backgroundColor: isEven
+                                    ? "rgba(200,230,201,0.3)"
+                                    : "rgba(30,58,32,0.15)",
+                            }}
+                        />
+
+                        {/* Description */}
+                        <p
+                            className="text-base leading-relaxed md:text-lg"
+                            style={{
+                                color: isEven
+                                    ? "rgba(200,230,201,0.75)"
+                                    : "rgba(30,58,32,0.65)",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            {description}
+                        </p>
+                    </div>
+
+                    {/* CTA on last card only */}
                     {i === totalCards - 1 && (
-                        <Link href={"/contact"}>
-                            <motion.p
-                                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm text-black"
-                                whileHover={{
-                                    scale: 1.05,
-                                    backgroundColor: "#f3f4f6",
+                        <Link href="/contact" className="mt-8 inline-block">
+                            <motion.span
+                                className="inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide"
+                                style={{
+                                    backgroundColor: "#F0EBE1",
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 500,
+                                    letterSpacing: "0.04em",
                                 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20,
+                                }}
                             >
                                 Enquire About a Consultation
                                 <svg
-                                    className="ml-2"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 12 12"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
-                                        d="M5 12H19M19 12L12 5M19 12L12 19"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
+                                        d="M2 10L10 2M10 2H4M10 2V8"
+                                        stroke="#1E3A20"
+                                        strokeWidth="1.5"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                            </motion.p>
+                            </motion.span>
                         </Link>
                     )}
                 </div>

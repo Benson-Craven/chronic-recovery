@@ -1268,88 +1268,19 @@ const AboutPage = () => {
             {/* CTA Section — component */}
             <CallToActionSection fadeInVariants={fadeInVariants} />
 
-            {/* Location — cream */}
+            {/* Final CTA — cream editorial split */}
             <motion.section
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
                 style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Where to find me
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Located in Cork,
-                        <br />
-                        <em>serving all of Ireland</em>
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            01
-                        </span>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "rgba(30, 58, 32, 0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            While my home clinic is based in Rochestown, Cork, I
-                            work with clients throughout Ireland and worldwide
-                            via online video sessions. Location doesn't need to
-                            be a barrier to accessing this life-changing
-                            treatment approach.
-                        </p>
-                    </motion.div>
-                </div>
-            </motion.section>
-            {/* Final CTA — green editorial split */}
-            <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
                     <div
                         className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
+                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
                     />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — headline */}
@@ -1357,15 +1288,18 @@ const AboutPage = () => {
                             <p
                                 className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
                                 Your next step
                             </p>
                             <h2
-                                className="text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                                className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
+                                style={{
+                                    fontFamily: "var(--font-dm-serif)",
+                                    color: "#1E3A20",
+                                }}
                             >
                                 Something
                                 <br />
@@ -1376,7 +1310,7 @@ const AboutPage = () => {
                             <div
                                 className="mt-12 hidden h-px md:block"
                                 style={{
-                                    backgroundColor: "rgba(200,230,201,0.15)",
+                                    backgroundColor: "rgba(30,58,32,0.12)",
                                 }}
                             />
                         </div>
@@ -1386,7 +1320,7 @@ const AboutPage = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(200, 230, 201, 0.65)",
+                                    color: "rgba(30,58,32,0.65)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -1401,7 +1335,7 @@ const AboutPage = () => {
                                     style={{
                                         fontFamily: "var(--font-dm-serif)",
                                         fontStyle: "italic",
-                                        color: "rgba(200, 230, 201, 0.9)",
+                                        color: "#1E3A20",
                                         fontSize: "1.15rem",
                                     }}
                                 >
@@ -1427,8 +1361,8 @@ const AboutPage = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#F0EBE1",
-                                            color: "#1E3A20",
+                                            backgroundColor: "#1E3A20",
+                                            color: "#F7F4EF",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
@@ -1440,7 +1374,7 @@ const AboutPage = () => {
                                 <p
                                     className="text-sm"
                                     style={{
-                                        color: "rgba(200, 230, 201, 0.4)",
+                                        color: "rgba(30,58,32,0.4)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -1449,9 +1383,7 @@ const AboutPage = () => {
                                     <a
                                         href="tel:+353892335106"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
-                                        style={{
-                                            color: "rgba(200, 230, 201, 0.7)",
-                                        }}
+                                        style={{ color: "rgba(30,58,32,0.65)" }}
                                     >
                                         +353 (0) 89-233-5106
                                     </a>
@@ -1461,7 +1393,7 @@ const AboutPage = () => {
                     </div>
                     <div
                         className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
+                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
                     />
                 </div>
             </motion.section>

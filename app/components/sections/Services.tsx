@@ -17,26 +17,26 @@ const projects: Project[] = [
     {
         title: "Structured approach to resolving the causes",
         description:
-            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments and see fantastic results.",
+            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments — with fantastic results.",
         src: "phone.avif",
-        url: "https://example.com/project1",
-        color: "#cfdda5",
+        url: "",
+        color: "#1E3A20",
     },
     {
-        title: "1 to 1 60 - minute sessions",
+        title: "1-to-1, 60-minute sessions",
         description:
-            "I will work with your body, nervous system and brain to get you back to good health.",
+            "I will work with your body, nervous system, and brain to get you back to good health.",
         src: "meeting1.avif",
-        url: "https://example.com/project2",
-        color: "#a4ac96",
+        url: "",
+        color: "#F7F4EF",
     },
     {
-        title: "In-person sessions in Cork, Ireland or online",
+        title: "In-person in Cork or online",
         description:
-            "€70 per session in person at my home clinic or online. Package of 6 sessions available for €360",
+            "€70 per session at my home clinic in Rochestown, Cork — or online anywhere. Package of 6 sessions available for €360.",
         src: "cork.avif",
-        url: "https://example.com/project3",
-        color: "#cfdda5",
+        url: "",
+        color: "#1E3A20",
     },
 ]
 
@@ -48,22 +48,46 @@ export default function Services() {
     })
 
     return (
-        <main ref={container} className="relative bg-background pt-24">
-            <div
-                id="services"
-                className="container mx-auto flex items-center justify-center"
-            >
-                <h2 className="p-5 text-3xl tracking-tight text-primary-text sm:text-5xl md:text-7xl">
-                    How can I help you?
+        <main
+            ref={container}
+            className="relative pt-24"
+            style={{ backgroundColor: "#F7F4EF" }}
+        >
+            {/* Section header */}
+            <div id="services" className="mx-auto max-w-5xl px-6 pb-16">
+                <p
+                    className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                    style={{
+                        color: "#1E3A20",
+                        fontFamily: "var(--font-dm-sans)",
+                    }}
+                >
+                    Services
+                </p>
+                <h2
+                    className="text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                    style={{
+                        fontFamily: "var(--font-dm-serif)",
+                        color: "#1E3A20",
+                    }}
+                >
+                    How can I
+                    <br />
+                    <em>help you?</em>
                 </h2>
-                <div className="mb-16 h-[1px] bg-primary-text opacity-10" />
+                <div
+                    className="mt-10 h-px w-full"
+                    style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                />
             </div>
-            <div className="mt-16">
+
+            {/* Stacking cards */}
+            <div className="mt-4">
                 {projects.map((project, i) => {
                     const targetScale = 1 - (projects.length - i) * 0.05
                     return (
                         <Card
-                            totalCards={projects.length} // Pass total cards
+                            totalCards={projects.length}
                             key={`p_${i}`}
                             i={i}
                             {...project}
@@ -74,19 +98,33 @@ export default function Services() {
                     )
                 })}
             </div>
-            <div className="container mx-auto max-w-5xl rounded-md border-t px-6 py-4">
-                <p className="text-center text-base text-primary-text sm:text-lg">
+
+            {/* Disclaimer */}
+            <div
+                className="mx-auto max-w-3xl px-6 py-10"
+                style={{ borderTop: "1px solid rgba(30,58,32,0.1)" }}
+            >
+                <p
+                    className="text-center text-sm leading-relaxed md:text-base"
+                    style={{
+                        color: "rgba(30,58,32,0.5)",
+                        fontFamily: "var(--font-dm-sans)",
+                        fontWeight: 300,
+                    }}
+                >
                     Please consult your doctor to rule out structural
                     abnormality, disease, or infection. Take the{" "}
-                    <Link href="/self-assessment">
-                        <span className="text-secondary-text underline duration-150 hover:text-tertiary-text">
-                            self-assessment questionnaire
-                        </span>
+                    <Link
+                        href="/self-assessment"
+                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                        style={{ color: "#1E3A20" }}
+                    >
+                        self-assessment questionnaire
                     </Link>{" "}
-                    to help determine whether this approach is right for
-                    you.
+                    to help determine whether this approach is right for you.
                 </p>
             </div>
+
             <div className="h-[20vh]" />
         </main>
     )

@@ -5,26 +5,66 @@ import Link from "next/link"
 
 const Approach = () => {
     return (
-        <section className="flex min-h-screen items-center justify-center bg-background px-4 py-16 md:py-24">
-            <div className="flex w-full flex-col items-center justify-center text-center md:w-2/3">
-                <FadeInOnScroll threshold={0.7}>
-                    <h2 className="font-Satoshi p-5 text-2xl text-primary-text sm:text-3xl md:text-5xl">
-                        This is not pain management.
+        <section
+            className="w-full px-6 py-28 md:py-40"
+            style={{ backgroundColor: "#F7F4EF" }}
+        >
+            <div className="mx-auto max-w-3xl text-center">
+                <FadeInOnScroll threshold={0.5}>
+                    <h2
+                        className="mb-8 text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
+                        style={{
+                            fontFamily: "var(--font-dm-serif)",
+                            color: "#1E3A20",
+                        }}
+                    >
+                        This is not
+                        <br />
+                        <em>pain management.</em>
                     </h2>
                 </FadeInOnScroll>
-                <FadeInOnScroll threshold={0.7}>
-                    <p className="font-Satoshi mt-2 px-4 text-base text-secondary-text sm:text-lg md:text-2xl">
-                        The treatment I provide will help you cure your chronic pain.
+
+                <FadeInOnScroll threshold={0.5}>
+                    <div
+                        className="mx-auto mb-10 h-px w-16"
+                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
+                    />
+                </FadeInOnScroll>
+
+                <FadeInOnScroll threshold={0.5}>
+                    <p
+                        className="mx-auto mb-12 max-w-md text-base leading-relaxed md:text-lg"
+                        style={{
+                            color: "rgba(30,58,32,0.55)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
+                    >
+                        The treatment I provide will help you cure your chronic
+                        pain — not just cope with it.
                     </p>
                 </FadeInOnScroll>
-                <FadeInOnScroll threshold={0.7}>
+
+                <FadeInOnScroll threshold={0.5}>
                     <Link href="/contact">
                         <motion.button
-                            className="font-Satoshi mt-10 w-auto rounded-full bg-tertiary-text px-5 py-3 text-lg text-foreground sm:text-xl md:text-2xl"
-                            whileTap={{ scale: 0.85 }}
-                            whileHover={{ scale: 1.05 }}
+                            className="rounded-full px-8 py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg"
+                            style={{
+                                backgroundColor: "#1E3A20",
+                                color: "#F7F4EF",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 500,
+                                letterSpacing: "0.04em",
+                            }}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                            }}
                         >
-                            Book Your Consultation Now
+                            Book Your Consultation
                         </motion.button>
                     </Link>
                 </FadeInOnScroll>
