@@ -6,20 +6,8 @@ import Link from "next/link"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
-    const [messageLength, setMessageLength] = useState(0) // Track message length
-    const maxMessageLength = 500 // Set maximum character limit for the message
-
-    const formVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: 0.5,
-                duration: 0.5,
-            },
-        },
-    }
+    const [messageLength, setMessageLength] = useState(0)
+    const maxMessageLength = 500
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -27,7 +15,6 @@ const ContactPage = () => {
         const form = e.target as HTMLFormElement
         const formData = new FormData(form)
 
-        // Validate message length
         const message = formData.get("message") as string
         if (message.length > maxMessageLength) {
             alert(`Message must be less than ${maxMessageLength} characters.`)
@@ -40,7 +27,7 @@ const ContactPage = () => {
                 body: JSON.stringify({
                     name: formData.get("name"),
                     email: formData.get("email"),
-                    phone: formData.get("phone"), // Include phone number
+                    phone: formData.get("phone"),
                     message: formData.get("message"),
                 }),
                 headers: {
@@ -52,58 +39,218 @@ const ContactPage = () => {
             console.log(json)
 
             form.reset()
+            setMessageLength(0)
             setIsFormSubmitted(true)
         } catch (error) {
             console.log(error)
         }
     }
 
+    const inputStyles: React.CSSProperties = {
+        width: "100%",
+        backgroundColor: "transparent",
+        borderBottom: "1px solid rgba(30,58,32,0.2)",
+        borderTop: "none",
+        borderLeft: "none",
+        borderRight: "none",
+        borderRadius: 0,
+        padding: "10px 0",
+        outline: "none",
+        color: "#1E3A20",
+        fontFamily: "var(--font-dm-sans)",
+        fontWeight: 300,
+        fontSize: "1rem",
+    }
+
+    const labelStyles: React.CSSProperties = {
+        display: "block",
+        marginBottom: "6px",
+        fontSize: "0.7rem",
+        fontFamily: "var(--font-dm-sans)",
+        fontWeight: 500,
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "rgba(30,58,32,0.4)",
+    }
+
     return (
-        <div className="font-Satoshi text-primary-text min-h-screen bg-[#fafafa] p-4">
-            <div className="container mx-auto">
-                {/* Contact Form Section */}
-                <motion.section
-                    className="rounded-[25px] border-2 border-black bg-white shadow-lg"
-                    variants={formVariants}
-                    initial="hidden"
-                    animate="visible"
+        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+            {/* Hero — green */}
+            <section
+                style={{ backgroundColor: "#1E3A20" }}
+                className="w-full px-6 py-24 md:py-36"
+            >
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mx-auto max-w-3xl"
                 >
-                    <div className="flex flex-col md:flex-row">
-                        {/* Left Side */}
-                        <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
-                            <h2 className="mb-6 text-6xl">Contact us today</h2>
-                            <div className="mb-10 h-[1px] bg-black opacity-10" />
-                            <p className="mb-4">
-                                Please fill out the form to learn more about our
-                                services and how we can help you.
+                    <p
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        style={{
+                            color: "#C8E6C9",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        Get in touch
+                    </p>
+                    <h1
+                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+                        style={{ fontFamily: "var(--font-dm-serif)" }}
+                    >
+                        Let's start your
+                        <br />
+                        <em>recovery together</em>
+                    </h1>
+                    <div
+                        className="h-px w-full"
+                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
+                    />
+                    <p
+                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
+                        style={{
+                            color: "rgba(200,230,201,0.65)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
+                    >
+                        Fill out the form and I'll get back to you as quickly as
+                        possible — usually within 24 hours.
+                    </p>
+                </motion.div>
+            </section>
+
+            {/* Form section — cream */}
+            <section
+                style={{ backgroundColor: "#F7F4EF" }}
+                className="w-full px-6 py-20 md:py-28"
+            >
+                <div className="mx-auto max-w-5xl">
+                    <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
+                        {/* Left — context */}
+                        <div>
+                            <p
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                Contact
                             </p>
-                            <p className="mb-4">
-                                We will get back to you as quickly as we can.
-                            </p>
+                            <h2
+                                className="mb-10 text-4xl leading-[1.1] md:text-5xl"
+                                style={{
+                                    fontFamily: "var(--font-dm-serif)",
+                                    color: "#1E3A20",
+                                }}
+                            >
+                                Contact us
+                                <br />
+                                <em>today</em>
+                            </h2>
+
+                            <div
+                                className="mb-10 h-px w-full"
+                                style={{
+                                    backgroundColor: "rgba(30,58,32,0.12)",
+                                }}
+                            />
+
+                            <div className="space-y-8">
+                                {[
+                                    {
+                                        label: "Response time",
+                                        value: "I typically respond within 24 hours.",
+                                    },
+                                    {
+                                        label: "Sessions",
+                                        value: "In-person in Rochestown, Cork — or online via video call.",
+                                    },
+                                    {
+                                        label: "Tel / WhatsApp",
+                                        value: "+353 (0) 89-233-5106",
+                                        href: "tel:+353892335106",
+                                    },
+                                ].map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-start gap-6"
+                                    >
+                                        <span
+                                            className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                            style={{
+                                                color: "#1E3A20",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
+                                        <div>
+                                            <p
+                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                style={{
+                                                    color: "#1E3A20",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 500,
+                                                }}
+                                            >
+                                                {item.label}
+                                            </p>
+                                            {item.href ? (
+                                                <a
+                                                    href={item.href}
+                                                    className="text-base underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    style={{
+                                                        color: "#1E3A20",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    {item.value}
+                                                </a>
+                                            ) : (
+                                                <p
+                                                    className="text-base leading-relaxed"
+                                                    style={{
+                                                        color: "rgba(30,58,32,0.65)",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    {item.value}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
-                        {/* Right Side */}
-                        <div className="flex w-full flex-col justify-center rounded-[25px] bg-white p-12 md:w-1/2">
-                            <AnimatePresence>
+                        {/* Right — form */}
+                        <div>
+                            <AnimatePresence mode="wait">
                                 {!isFormSubmitted ? (
                                     <motion.form
-                                        className="space-y-6"
+                                        key="form"
                                         onSubmit={handleSubmit}
-                                        variants={formVariants}
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="hidden"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="space-y-8"
                                     >
-                                        <h1 className="mb-6 text-3xl font-medium md:hidden">
-                                            Contact us today
-                                        </h1>
-                                        <div className="h-[1px] bg-black opacity-10 md:hidden"></div>
-
-                                        {/* Name Field */}
+                                        {/* Name */}
                                         <div>
                                             <label
                                                 htmlFor="name"
-                                                className="mb-2 block"
+                                                style={labelStyles}
                                             >
                                                 Name *
                                             </label>
@@ -112,15 +259,16 @@ const ContactPage = () => {
                                                 id="name"
                                                 name="name"
                                                 required
-                                                className="w-full rounded border border-gray-300 p-2"
+                                                placeholder="Your full name"
+                                                style={inputStyles}
                                             />
                                         </div>
 
-                                        {/* Email Field */}
+                                        {/* Email */}
                                         <div>
                                             <label
                                                 htmlFor="email"
-                                                className="mb-2 block"
+                                                style={labelStyles}
                                             >
                                                 Email *
                                             </label>
@@ -129,111 +277,187 @@ const ContactPage = () => {
                                                 id="email"
                                                 name="email"
                                                 required
-                                                className="w-full rounded border border-gray-300 p-2"
+                                                placeholder="your@email.com"
+                                                style={inputStyles}
                                             />
                                         </div>
 
-                                        {/* Phone Field */}
+                                        {/* Phone */}
                                         <div>
                                             <label
                                                 htmlFor="phone"
-                                                className="mb-2 block"
+                                                style={labelStyles}
                                             >
-                                                Phone Number *
+                                                Phone number *
                                             </label>
                                             <input
                                                 type="tel"
                                                 id="phone"
                                                 name="phone"
                                                 required
-                                                className="w-full rounded border border-gray-300 p-2"
+                                                placeholder="+353..."
+                                                style={inputStyles}
                                             />
                                         </div>
 
-                                        {/* Message Field */}
+                                        {/* Message */}
                                         <div>
                                             <label
                                                 htmlFor="message"
-                                                className="mb-2 block"
+                                                style={labelStyles}
                                             >
                                                 Message *
                                             </label>
                                             <textarea
                                                 id="message"
                                                 name="message"
-                                                rows={4}
+                                                rows={5}
                                                 required
                                                 maxLength={maxMessageLength}
+                                                placeholder="Tell me a little about what you're experiencing..."
                                                 onChange={(e) =>
                                                     setMessageLength(
                                                         e.target.value.length,
                                                     )
                                                 }
-                                                className="w-full rounded border border-gray-300 p-2"
-                                            ></textarea>
-                                            <p className="mt-1 text-sm text-gray-500">
+                                                style={{
+                                                    ...inputStyles,
+                                                    resize: "none",
+                                                    borderBottom:
+                                                        "1px solid rgba(30,58,32,0.2)",
+                                                }}
+                                            />
+                                            <p
+                                                className="mt-2 text-right text-xs tabular-nums"
+                                                style={{
+                                                    color: "rgba(30,58,32,0.3)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
                                                 {messageLength}/
-                                                {maxMessageLength} characters
+                                                {maxMessageLength}
                                             </p>
                                         </div>
 
-                                        {/* Submit Button */}
-                                        <button
-                                            type="submit"
-                                            className="bg-secondary-text rounded-full px-6 py-2 text-white transition-colors"
-                                        >
-                                            Submit
-                                        </button>
-                                        <p className="mb-4 text-sm text-gray-500">
-                                            Alternatively, contact via Tel /
-                                            WhatsApp:
-                                            <a
-                                                href="tel:+353892335106"
-                                                className="font-bold hover:underline"
+                                        {/* Submit */}
+                                        <div className="flex flex-col gap-4 pt-2">
+                                            <motion.button
+                                                type="submit"
+                                                whileHover={{ scale: 1.03 }}
+                                                whileTap={{ scale: 0.98 }}
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 300,
+                                                    damping: 20,
+                                                }}
+                                                className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
+                                                style={{
+                                                    backgroundColor: "#1E3A20",
+                                                    color: "#F7F4EF",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 500,
+                                                    letterSpacing: "0.04em",
+                                                }}
                                             >
-                                                +353 (0) 89-233-5106
-                                            </a>
-                                        </p>
-                                        {/* Terms and Conditions */}
-                                        <p className="text-sm text-gray-500">
-                                            By continuing, you agree to our{" "}
-                                            <Link
-                                                href="/terms-and-conditions"
-                                                className="underline"
+                                                Send Message
+                                            </motion.button>
+
+                                            {/* Legal */}
+                                            <p
+                                                className="text-xs leading-relaxed"
+                                                style={{
+                                                    color: "rgba(30,58,32,0.35)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
                                             >
-                                                Terms & Conditions
-                                            </Link>{" "}
-                                            and our{" "}
-                                            <Link
-                                                href="/privacy-policy"
-                                                className="underline"
-                                            >
-                                                Privacy Policy
-                                            </Link>
-                                            .
-                                        </p>
+                                                By continuing, you agree to our{" "}
+                                                <Link
+                                                    href="/terms-and-conditions"
+                                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    style={{ color: "#1E3A20" }}
+                                                >
+                                                    Terms & Conditions
+                                                </Link>{" "}
+                                                and{" "}
+                                                <Link
+                                                    href="/privacy-policy"
+                                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    style={{ color: "#1E3A20" }}
+                                                >
+                                                    Privacy Policy
+                                                </Link>
+                                                .
+                                            </p>
+                                        </div>
                                     </motion.form>
                                 ) : (
                                     <motion.div
-                                        className="text-center"
-                                        variants={formVariants}
-                                        initial="hidden"
-                                        animate="visible"
+                                        key="success"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6 }}
+                                        className="flex flex-col gap-6"
                                     >
-                                        <h2 className="mb-4 text-2xl font-semibold">
-                                            Thank you for contacting us!
+                                        <div
+                                            className="h-px w-full"
+                                            style={{
+                                                backgroundColor:
+                                                    "rgba(30,58,32,0.12)",
+                                            }}
+                                        />
+                                        <p
+                                            className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                            style={{
+                                                color: "#1E3A20",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                            }}
+                                        >
+                                            Message sent
+                                        </p>
+                                        <h2
+                                            className="text-4xl leading-[1.1] md:text-5xl"
+                                            style={{
+                                                fontFamily:
+                                                    "var(--font-dm-serif)",
+                                                color: "#1E3A20",
+                                            }}
+                                        >
+                                            Thank you for
+                                            <br />
+                                            <em>reaching out.</em>
                                         </h2>
-                                        <p>
-                                            We will get back to you as soon as
-                                            possible.
+                                        <div
+                                            className="h-px w-full"
+                                            style={{
+                                                backgroundColor:
+                                                    "rgba(30,58,32,0.12)",
+                                            }}
+                                        />
+                                        <p
+                                            className="text-base leading-relaxed"
+                                            style={{
+                                                color: "rgba(30,58,32,0.65)",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            I'll get back to you as soon as
+                                            possible — usually within 24 hours.
                                         </p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
                         </div>
                     </div>
-                </motion.section>
-            </div>
+                </div>
+            </section>
         </div>
     )
 }

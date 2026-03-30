@@ -20,207 +20,352 @@ const Custom404Page = () => {
                 return prev - 1
             })
         }, 1000)
-
         return () => clearInterval(timer)
     }, [router])
 
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6 },
+    const links = [
+        { href: "/", label: "Home", description: "Start from the beginning" },
+        {
+            href: "/info",
+            label: "About me",
+            description: "Learn about my approach",
         },
-    }
-
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-            },
+        {
+            href: "/science",
+            label: "The science",
+            description: "Understanding chronic pain",
         },
-    }
-
-    const floatAnimation = {
-        y: [0, -10, 0],
-        transition: {
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-        },
-    }
+        { href: "/contact", label: "Contact", description: "Get in touch" },
+    ]
 
     return (
-        <div className="font-Satoshi flex min-h-screen items-center justify-center bg-gradient-to-b from-[#fafafa] to-gray-100 px-4 py-12">
-            <div className="container mx-auto max-w-4xl text-center">
+        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+            {/* Hero — green */}
+            <section
+                style={{ backgroundColor: "#1E3A20" }}
+                className="w-full px-6 py-24 md:py-36"
+            >
                 <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mx-auto max-w-3xl"
                 >
-                    {/* Animated 404 Number */}
-                    <motion.div variants={fadeInUp} animate={floatAnimation}>
-                        <h1 className="text-[150px] font-bold leading-none text-secondary-text opacity-20 md:text-[200px]">
+                    <p
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        style={{
+                            color: "#C8E6C9",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        Error 404
+                    </p>
+
+                    {/* Ghost 404 number */}
+                    <div className="relative mb-4 select-none">
+                        <motion.p
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            className="text-[120px] leading-none md:text-[160px]"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                fontStyle: "italic",
+                                color: "rgba(200,230,201,0.08)",
+                                userSelect: "none",
+                            }}
+                        >
                             404
-                        </h1>
-                    </motion.div>
-
-                    {/* Main Message */}
-                    <motion.div variants={fadeInUp} className="space-y-4">
-                        <h2 className="text-3xl font-bold text-primary-text md:text-4xl lg:text-5xl">
-                            This Page Seems to Have Wandered Off
-                        </h2>
-                        <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700">
-                            Just like chronic pain, sometimes things don't end
-                            up where they should be. But unlike chronic pain,
-                            there's a fix!
-                        </p>
-                    </motion.div>
-
-                    {/* Helpful Message Card */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mx-auto max-w-2xl rounded-[25px] border-2 border-black bg-white p-8 shadow-lg md:p-10"
-                    >
-                        <h3 className="mb-6 text-2xl font-semibold text-primary-text">
-                            Let's Get You Back on Track
-                        </h3>
-
-                        <div className="mb-8 space-y-4 text-left">
-                            <p className="text-lg text-gray-700">
-                                The page you're looking for might have been:
-                            </p>
-                            <ul className="space-y-2 pl-6 text-gray-700">
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1">•</span>
-                                    <span>Moved to a different location</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1">•</span>
-                                    <span>Removed from our site</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1">•</span>
-                                    <span>Or the URL might be mistyped</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Quick Links */}
-                        <div className="mb-8 grid gap-4 md:grid-cols-2">
-                            {[
-                                {
-                                    href: "/",
-                                    label: "Home",
-                                    description: "Start from the beginning",
-                                },
-                                {
-                                    href: "/info",
-                                    label: "About Me",
-                                    description: "Learn about my approach",
-                                },
-                                {
-                                    href: "/science",
-                                    label: "The Science",
-                                    description: "Understanding chronic pain",
-                                },
-                                {
-                                    href: "/contact",
-                                    label: "Contact",
-                                    description: "Get in touch with me",
-                                },
-                            ].map((link, index) => (
-                                <Link key={index} href={link.href}>
-                                    <motion.div
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="cursor-pointer rounded-lg border-2 border-gray-200 bg-gray-50 p-4 text-left transition-all hover:border-secondary-text hover:bg-white hover:shadow-md"
-                                    >
-                                        <div className="mb-2 flex items-center gap-2">
-                                            <span className="font-semibold text-primary-text">
-                                                {link.label}
-                                            </span>
-                                        </div>
-                                        <p className="text-sm text-gray-600">
-                                            {link.description}
-                                        </p>
-                                    </motion.div>
-                                </Link>
-                            ))}
-                        </div>
-
-                        {/* Auto-redirect Notice */}
-                        <motion.div
-                            variants={fadeInUp}
-                            className="rounded-lg bg-gradient-to-r from-secondary-text to-gray-700 p-4 text-white"
-                        >
-                            <p className="text-sm">
-                                Redirecting to home page in{" "}
-                                <span className="text-xl font-bold">
-                                    {countdown}
-                                </span>{" "}
-                                seconds...
-                            </p>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Main CTA */}
-                    <motion.div variants={fadeInUp} className="space-y-4">
-                        <Link href="/">
-                            <button className="rounded-full bg-secondary-text px-10 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-                                Go to Homepage
-                            </button>
-                        </Link>
-
-                        <p className="text-gray-600">
-                            Or call me directly:{" "}
-                            <a
-                                href="tel:+353892335106"
-                                className="font-bold text-secondary-text hover:underline"
+                        </motion.p>
+                        {/* Overlaid headline */}
+                        <div className="absolute inset-0 flex items-center">
+                            <h1
+                                className="text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
+                                style={{ fontFamily: "var(--font-dm-serif)" }}
                             >
-                                +353 (0) 89-233-5106
-                            </a>
-                        </p>
-                    </motion.div>
+                                This page has
+                                <br />
+                                <em>wandered off.</em>
+                            </h1>
+                        </div>
+                    </div>
 
-                    {/* Helpful Message */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mx-auto max-w-xl rounded-lg border-l-4 border-secondary-text bg-white p-6 text-left"
+                    <div
+                        className="mt-6 h-px w-full"
+                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
+                    />
+
+                    <p
+                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
+                        style={{
+                            color: "rgba(200,230,201,0.65)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
                     >
-                        <h4 className="mb-2 font-semibold text-primary-text">
-                            Still experiencing chronic pain?
-                        </h4>
-                        <p className="mb-3 text-gray-700">
-                            Don't let a wrong turn stop you from finding relief.
-                            Unlike this 404 error, your chronic pain has a
-                            solution.
-                        </p>
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center font-semibold text-secondary-text hover:underline"
-                        >
-                            Book a free consultation
-                            <svg
-                                className="ml-2 h-5 w-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                />
-                            </svg>
-                        </Link>
-                    </motion.div>
+                        Just like chronic pain, sometimes things don't end up
+                        where they should. Unlike chronic pain — this one is
+                        easy to fix.
+                    </p>
                 </motion.div>
-            </div>
+            </section>
+
+            {/* Quick links — cream */}
+            <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ backgroundColor: "#F7F4EF" }}
+                className="w-full px-6 py-20 md:py-28"
+            >
+                <div className="mx-auto max-w-3xl">
+                    <p
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        style={{
+                            color: "#1E3A20",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        Where to go
+                    </p>
+                    <h2
+                        className="mb-14 text-4xl leading-[1.1] md:text-5xl"
+                        style={{
+                            fontFamily: "var(--font-dm-serif)",
+                            color: "#1E3A20",
+                        }}
+                    >
+                        Let's get you
+                        <br />
+                        <em>back on track</em>
+                    </h2>
+
+                    <div
+                        className="h-px w-full"
+                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                    />
+
+                    {links.map((link, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.4,
+                                delay: 0.3 + index * 0.07,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <Link href={link.href}>
+                                <div
+                                    className="group flex items-start gap-6 border-b py-8 transition-opacity hover:opacity-70"
+                                    style={{
+                                        borderColor: "rgba(30,58,32,0.12)",
+                                    }}
+                                >
+                                    <span
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <div className="flex flex-1 items-center justify-between">
+                                        <div>
+                                            <p
+                                                className="mb-1 text-base font-medium md:text-lg"
+                                                style={{
+                                                    color: "#1E3A20",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                }}
+                                            >
+                                                {link.label}
+                                            </p>
+                                            <p
+                                                className="text-sm"
+                                                style={{
+                                                    color: "rgba(30,58,32,0.5)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                {link.description}
+                                            </p>
+                                        </div>
+                                        <svg
+                                            className="shrink-0 opacity-20 transition-opacity group-hover:opacity-60"
+                                            width="14"
+                                            height="14"
+                                            viewBox="0 0 12 12"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M2 10L10 2M10 2H4M10 2V8"
+                                                stroke="#1E3A20"
+                                                strokeWidth="1.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.section>
+
+            {/* Countdown + CTA — green */}
+            <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                style={{ backgroundColor: "#1E3A20" }}
+                className="w-full px-6 py-20 md:py-28"
+            >
+                <div className="mx-auto max-w-3xl">
+                    <div
+                        className="mb-12 h-px w-full"
+                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
+                    />
+
+                    <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
+                        {/* Countdown */}
+                        <div>
+                            <p
+                                className="mb-3 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                style={{
+                                    color: "#C8E6C9",
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                Auto-redirecting
+                            </p>
+                            <div className="flex items-baseline gap-3">
+                                <motion.span
+                                    key={countdown}
+                                    initial={{ opacity: 0, y: -8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="text-6xl leading-none text-white"
+                                    style={{
+                                        fontFamily: "var(--font-dm-serif)",
+                                    }}
+                                >
+                                    {countdown}
+                                </motion.span>
+                                <span
+                                    className="text-base opacity-40"
+                                    style={{
+                                        color: "#C8E6C9",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    seconds to home
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* CTA buttons */}
+                        <div className="flex flex-col gap-3">
+                            <Link href="/">
+                                <motion.button
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 300,
+                                        damping: 20,
+                                    }}
+                                    className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
+                                    style={{
+                                        backgroundColor: "#F0EBE1",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Go to Homepage
+                                </motion.button>
+                            </Link>
+                            <p
+                                className="text-sm"
+                                style={{
+                                    color: "rgba(200,230,201,0.35)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                or call / WhatsApp{" "}
+                                <a
+                                    href="tel:+353892335106"
+                                    className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                    style={{ color: "rgba(200,230,201,0.6)" }}
+                                >
+                                    +353 (0) 89-233-5106
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Pull quote */}
+                    <div
+                        className="mt-16 h-px w-full"
+                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
+                    />
+                    <p
+                        className="mt-12 max-w-xl text-2xl leading-snug md:text-3xl"
+                        style={{
+                            fontFamily: "var(--font-dm-serif)",
+                            fontStyle: "italic",
+                            color: "rgba(200,230,201,0.7)",
+                        }}
+                    >
+                        "Still experiencing chronic pain?
+                        <br />
+                        Unlike this error — that has a solution."
+                    </p>
+                    <Link
+                        href="/contact"
+                        className="mt-6 inline-flex items-center gap-2 transition-opacity hover:opacity-60"
+                        style={{
+                            color: "rgba(200,230,201,0.5)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                            fontSize: "0.75rem",
+                            letterSpacing: "0.2em",
+                            textTransform: "uppercase",
+                        }}
+                    >
+                        Book a consultation
+                        <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                        >
+                            <path
+                                d="M2 10L10 2M10 2H4M10 2V8"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </Link>
+                </div>
+            </motion.section>
         </div>
     )
 }

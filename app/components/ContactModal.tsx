@@ -12,6 +12,33 @@ type ContactModalProps = {
 
 type FormStatus = "idle" | "submitting" | "success" | "error"
 
+const inputStyles: React.CSSProperties = {
+    width: "100%",
+    backgroundColor: "transparent",
+    borderBottom: "1px solid rgba(30,58,32,0.2)",
+    borderTop: "none",
+    borderLeft: "none",
+    borderRight: "none",
+    borderRadius: 0,
+    padding: "10px 0",
+    outline: "none",
+    color: "#1E3A20",
+    fontFamily: "var(--font-dm-sans)",
+    fontWeight: 300,
+    fontSize: "0.95rem",
+}
+
+const labelStyles: React.CSSProperties = {
+    display: "block",
+    marginBottom: "6px",
+    fontSize: "0.65rem",
+    fontFamily: "var(--font-dm-sans)",
+    fontWeight: 500,
+    letterSpacing: "0.2em",
+    textTransform: "uppercase" as const,
+    color: "rgba(30,58,32,0.4)",
+}
+
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [messageLength, setMessageLength] = useState(0)
     const [status, setStatus] = useState<FormStatus>("idle")
@@ -52,7 +79,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             setTimeout(() => {
                 onClose()
                 setTimeout(() => setStatus("idle"), 300)
-            }, 2000)
+            }, 2500)
         } catch {
             setStatus("error")
         }
@@ -69,7 +96,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 >
                     {/* Backdrop */}
                     <motion.div
-                        className="absolute inset-0 bg-black/50"
+                        className="absolute inset-0"
+                        style={{
+                            backgroundColor: "rgba(30,58,32,0.6)",
+                            backdropFilter: "blur(4px)",
+                        }}
                         onClick={onClose}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -78,175 +109,419 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                     {/* Modal */}
                     <motion.div
-                        className="bg-secondary-text relative z-10 w-full max-w-4xl overflow-hidden rounded-3xl border-2 border-black shadow-xl"
+                        className="relative z-10 w-full max-w-4xl overflow-hidden"
+                        style={{ borderRadius: "24px" }}
                         variants={modalScale}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                     >
-                        {status === "success" ? (
-                            <SuccessMessage />
-                        ) : (
-                            <div className="flex flex-col md:flex-row">
-                                <ContactInfo />
-                                <ContactForm
-                                    onSubmit={handleSubmit}
-                                    messageLength={messageLength}
-                                    onMessageChange={handleMessageChange}
-                                    isSubmitting={status === "submitting"}
-                                    hasError={status === "error"}
-                                />
-                            </div>
-                        )}
+                        <AnimatePresence mode="wait">
+                            {status === "success" ? (
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, y: 16 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -16 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="flex min-h-[360px] flex-col items-start justify-center p-12 md:p-16"
+                                    style={{ backgroundColor: "#1E3A20" }}
+                                >
+                                    <p
+                                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                        style={{
+                                            color: "#C8E6C9",
+                                            fontFamily: "var(--font-dm-sans)",
+                                        }}
+                                    >
+                                        Message sent
+                                    </p>
+                                    <h2
+                                        className="text-4xl leading-[1.1] text-white md:text-5xl"
+                                        style={{
+                                            fontFamily: "var(--font-dm-serif)",
+                                        }}
+                                    >
+                                        Thank you for
+                                        <br />
+                                        <em>reaching out.</em>
+                                    </h2>
+                                    <div
+                                        className="mt-8 h-px w-full"
+                                        style={{
+                                            backgroundColor:
+                                                "rgba(200,230,201,0.15)",
+                                        }}
+                                    />
+                                    <p
+                                        className="mt-6 text-base"
+                                        style={{
+                                            color: "rgba(200,230,201,0.6)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        I'll be in touch as soon as possible —
+                                        usually within 24 hours.
+                                    </p>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="form"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="flex flex-col md:flex-row"
+                                >
+                                    {/* Left — green info panel */}
+                                    <div
+                                        className="hidden flex-col justify-between p-10 md:flex md:w-5/12"
+                                        style={{ backgroundColor: "#1E3A20" }}
+                                    >
+                                        <div>
+                                            <p
+                                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                                style={{
+                                                    color: "#C8E6C9",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                }}
+                                            >
+                                                Get in touch
+                                            </p>
+                                            <h2
+                                                className="mb-10 text-3xl leading-[1.1] text-white lg:text-4xl"
+                                                style={{
+                                                    fontFamily:
+                                                        "var(--font-dm-serif)",
+                                                }}
+                                            >
+                                                Let's start your
+                                                <br />
+                                                <em>recovery together</em>
+                                            </h2>
+
+                                            <div
+                                                className="h-px w-full"
+                                                style={{
+                                                    backgroundColor:
+                                                        "rgba(200,230,201,0.15)",
+                                                }}
+                                            />
+
+                                            <div className="mt-8 space-y-7">
+                                                {[
+                                                    {
+                                                        label: "Response time",
+                                                        value: "Usually within 24 hours.",
+                                                    },
+                                                    {
+                                                        label: "Sessions",
+                                                        value: "In-person in Cork, or online anywhere.",
+                                                    },
+                                                ].map((item, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="flex items-start gap-4"
+                                                    >
+                                                        <span
+                                                            className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                                            style={{
+                                                                color: "#C8E6C9",
+                                                                fontFamily:
+                                                                    "var(--font-dm-sans)",
+                                                                fontWeight: 300,
+                                                            }}
+                                                        >
+                                                            {String(
+                                                                index + 1,
+                                                            ).padStart(2, "0")}
+                                                        </span>
+                                                        <div>
+                                                            <p
+                                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                                style={{
+                                                                    color: "#C8E6C9",
+                                                                    fontFamily:
+                                                                        "var(--font-dm-sans)",
+                                                                    fontWeight: 500,
+                                                                }}
+                                                            >
+                                                                {item.label}
+                                                            </p>
+                                                            <p
+                                                                className="text-sm leading-relaxed"
+                                                                style={{
+                                                                    color: "rgba(200,230,201,0.65)",
+                                                                    fontFamily:
+                                                                        "var(--font-dm-sans)",
+                                                                    fontWeight: 300,
+                                                                }}
+                                                            >
+                                                                {item.value}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Phone */}
+                                        <div className="mt-10">
+                                            <p
+                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                style={{
+                                                    color: "#C8E6C9",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 500,
+                                                }}
+                                            >
+                                                Tel / WhatsApp
+                                            </p>
+                                            <a
+                                                href="tel:+353892335106"
+                                                className="text-sm underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                style={{
+                                                    color: "#C8E6C9",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                +353 (0) 89-233-5106
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    {/* Right — cream form panel */}
+                                    <div
+                                        className="flex w-full flex-col justify-center p-8 md:w-7/12 md:p-10"
+                                        style={{ backgroundColor: "#F7F4EF" }}
+                                    >
+                                        {/* Close button */}
+                                        <div className="mb-8 flex items-center justify-between">
+                                            <p
+                                                className="text-xs font-medium uppercase tracking-[0.25em] opacity-40 md:hidden"
+                                                style={{
+                                                    color: "#1E3A20",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                }}
+                                            >
+                                                Contact
+                                            </p>
+                                            <button
+                                                type="button"
+                                                onClick={onClose}
+                                                className="ml-auto flex h-8 w-8 items-center justify-center rounded-full transition-opacity hover:opacity-50"
+                                                style={{
+                                                    border: "1px solid rgba(30,58,32,0.2)",
+                                                }}
+                                                aria-label="Close"
+                                            >
+                                                <svg
+                                                    width="10"
+                                                    height="10"
+                                                    viewBox="0 0 10 10"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        d="M1 1L9 9M9 1L1 9"
+                                                        stroke="#1E3A20"
+                                                        strokeWidth="1.5"
+                                                        strokeLinecap="round"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <form
+                                            onSubmit={handleSubmit}
+                                            className="space-y-7"
+                                        >
+                                            {/* Name */}
+                                            <div>
+                                                <label
+                                                    htmlFor="modal-name"
+                                                    style={labelStyles}
+                                                >
+                                                    Name *
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="modal-name"
+                                                    name="name"
+                                                    required
+                                                    placeholder="Your full name"
+                                                    style={inputStyles}
+                                                />
+                                            </div>
+
+                                            {/* Email */}
+                                            <div>
+                                                <label
+                                                    htmlFor="modal-email"
+                                                    style={labelStyles}
+                                                >
+                                                    Email *
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    id="modal-email"
+                                                    name="email"
+                                                    required
+                                                    placeholder="your@email.com"
+                                                    style={inputStyles}
+                                                />
+                                            </div>
+
+                                            {/* Phone */}
+                                            <div>
+                                                <label
+                                                    htmlFor="modal-phone"
+                                                    style={labelStyles}
+                                                >
+                                                    Phone *
+                                                </label>
+                                                <input
+                                                    type="tel"
+                                                    id="modal-phone"
+                                                    name="phone"
+                                                    required
+                                                    placeholder="+353..."
+                                                    style={inputStyles}
+                                                />
+                                            </div>
+
+                                            {/* Message */}
+                                            <div>
+                                                <label
+                                                    htmlFor="modal-message"
+                                                    style={labelStyles}
+                                                >
+                                                    Message
+                                                </label>
+                                                <textarea
+                                                    id="modal-message"
+                                                    name="message"
+                                                    rows={3}
+                                                    maxLength={MAX_CHARS}
+                                                    onChange={
+                                                        handleMessageChange
+                                                    }
+                                                    placeholder="Tell me a little about what you're experiencing..."
+                                                    style={{
+                                                        ...inputStyles,
+                                                        resize: "none",
+                                                    }}
+                                                />
+                                                <p
+                                                    className="mt-1 text-right text-xs tabular-nums"
+                                                    style={{
+                                                        color: "rgba(30,58,32,0.3)",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    {messageLength}/{MAX_CHARS}
+                                                </p>
+                                            </div>
+
+                                            {/* Error state */}
+                                            {status === "error" && (
+                                                <p
+                                                    className="text-xs"
+                                                    style={{
+                                                        color: "rgba(180,60,60,0.8)",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    Something went wrong. Please
+                                                    try again.
+                                                </p>
+                                            )}
+
+                                            {/* Submit */}
+                                            <div className="flex flex-col gap-3 pt-1">
+                                                <motion.button
+                                                    type="submit"
+                                                    disabled={
+                                                        status === "submitting"
+                                                    }
+                                                    whileHover={{
+                                                        scale:
+                                                            status ===
+                                                            "submitting"
+                                                                ? 1
+                                                                : 1.03,
+                                                    }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 300,
+                                                        damping: 20,
+                                                    }}
+                                                    className="w-full rounded-full py-3.5 text-sm font-medium tracking-wide transition-shadow disabled:opacity-50"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "#1E3A20",
+                                                        color: "#F7F4EF",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 500,
+                                                        letterSpacing: "0.04em",
+                                                    }}
+                                                >
+                                                    {status === "submitting"
+                                                        ? "Sending..."
+                                                        : "Send Message"}
+                                                </motion.button>
+
+                                                <p
+                                                    className="text-center text-xs leading-relaxed"
+                                                    style={{
+                                                        color: "rgba(30,58,32,0.3)",
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    By continuing, you agree to
+                                                    our{" "}
+                                                    <Link
+                                                        href="/terms-and-conditions"
+                                                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                        style={{
+                                                            color: "#1E3A20",
+                                                        }}
+                                                    >
+                                                        Terms & Conditions
+                                                    </Link>{" "}
+                                                    and{" "}
+                                                    <Link
+                                                        href="/privacy-policy"
+                                                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                        style={{
+                                                            color: "#1E3A20",
+                                                        }}
+                                                    >
+                                                        Privacy Policy
+                                                    </Link>
+                                                    .
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </motion.div>
             )}
         </AnimatePresence>
-    )
-}
-
-function SuccessMessage() {
-    return (
-        <motion.div
-            className="flex min-h-[400px] items-center justify-center p-12 text-center text-white"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-        >
-            <div>
-                <h2 className="mb-4 text-3xl font-medium">
-                    Thank you for your enquiry!
-                </h2>
-                <p>We&apos;ll get back to you as soon as possible.</p>
-            </div>
-        </motion.div>
-    )
-}
-
-function ContactInfo() {
-    return (
-        <div className="hidden flex-col justify-center p-12 text-[#3C3C3C] md:flex md:w-1/2">
-            <h1 className="mb-6 text-5xl font-medium">Contact us today</h1>
-            <div className="mb-8 h-px bg-black/10" />
-            <p className="mb-4">
-                Fill out the form to learn more about Chronic Pain Recovery and
-                how it can improve your everyday life.
-            </p>
-            <p className="mb-4">
-                We&apos;ll get back to you as quickly as we can.
-            </p>
-            <p>
-                Or call/WhatsApp:{" "}
-                <a
-                    href="tel:+353892335106"
-                    className="font-bold hover:underline"
-                >
-                    +353 (0) 89-233-5106
-                </a>
-            </p>
-        </div>
-    )
-}
-
-type ContactFormProps = {
-    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
-    messageLength: number
-    onMessageChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-    isSubmitting: boolean
-    hasError: boolean
-}
-
-function ContactForm({
-    onSubmit,
-    messageLength,
-    onMessageChange,
-    isSubmitting,
-    hasError,
-}: ContactFormProps) {
-    return (
-        <form
-            onSubmit={onSubmit}
-            className="flex w-full flex-col justify-center rounded-3xl bg-white p-8 md:w-1/2 md:p-12"
-        >
-            <h2 className="mb-6 text-2xl font-medium md:hidden">
-                Contact us today
-            </h2>
-            <div className="mb-6 h-px bg-black/10 md:hidden" />
-
-            <div className="space-y-5">
-                <Field label="Name" name="name" type="text" required />
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Phone" name="phone" type="tel" required />
-
-                <div>
-                    <label
-                        htmlFor="message"
-                        className="mb-2 block text-sm font-medium"
-                    >
-                        Message
-                    </label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        maxLength={MAX_CHARS}
-                        onChange={onMessageChange}
-                        className="focus:border-secondary-text w-full rounded-lg border border-gray-300 p-3 transition-colors focus:outline-none"
-                    />
-                    <p className="mt-1 text-sm text-gray-500">
-                        {messageLength}/{MAX_CHARS} characters
-                    </p>
-                </div>
-
-                {hasError && (
-                    <p className="text-sm text-red-600">
-                        Something went wrong. Please try again.
-                    </p>
-                )}
-
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-secondary-text rounded-full px-6 py-2.5 text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-                >
-                    {isSubmitting ? "Sending..." : "Submit"}
-                </button>
-
-                <p className="text-xs text-gray-500">
-                    By continuing, you agree to our{" "}
-                    <Link href="/terms-and-conditions" className="underline">
-                        Terms & Conditions
-                    </Link>{" "}
-                    and{" "}
-                    <Link href="/privacy-policy" className="underline">
-                        Privacy Policy
-                    </Link>
-                    .
-                </p>
-            </div>
-        </form>
-    )
-}
-
-type FieldProps = {
-    label: string
-    name: string
-    type: string
-    required?: boolean
-}
-
-function Field({ label, name, type, required }: FieldProps) {
-    return (
-        <div>
-            <label htmlFor={name} className="mb-2 block text-sm font-medium">
-                {label} {required && "*"}
-            </label>
-            <input
-                type={type}
-                id={name}
-                name={name}
-                required={required}
-                className="focus:border-secondary-text w-full rounded-lg border border-gray-300 p-3 transition-colors focus:outline-none"
-            />
-        </div>
     )
 }

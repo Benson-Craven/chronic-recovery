@@ -37,10 +37,10 @@ export default function Navbar({ className = "" }: NavbarProps) {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
                 <Image
-                    src="/logos/Mending_Mindets.png"
+                    src="/logos/mc-logo.png"
                     alt="Mending Mindsets"
-                    width={80}
-                    height={80}
+                    width={120}
+                    height={120}
                     className="h-auto w-16 md:w-20"
                     priority
                 />
