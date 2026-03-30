@@ -21,55 +21,116 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
     fadeInVariants,
 }) => {
     return (
-        <div className="container mx-auto px-4 py-12 md:py-20">
+        <>
             <motion.section
                 variants={fadeInVariants}
-                className="rounded-[25px] border-2 border-black bg-gradient-to-br from-white to-gray-50 p-8 text-center shadow-lg md:p-12"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                style={{ backgroundColor: "#1E3A20" }}
+                className="w-full rounded-3xl px-6 py-20 md:py-28 lg:py-36"
             >
-                <h2 className="text-secondary-text mb-6 text-3xl font-bold md:text-4xl">
-                    Your Next Step
-                </h2>
-                <div className="mb-8 space-y-3 text-lg text-gray-700">
-                    <p>
-                        If you're tired of being told there's nothing more that
-                        can be done...
+                <div className="mx-auto max-w-3xl text-center">
+                    {/* Eyebrow label */}
+                    <p
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-60"
+                        style={{
+                            color: "#C8E6C9",
+                            fontFamily: "'DM Sans', sans-serif",
+                        }}
+                    >
+                        Take the first step
                     </p>
-                    <p>
-                        If you're ready to try an approach that addresses the
-                        root cause of your pain...
-                    </p>
-                    <p>
-                        If you want to work with someone who truly believes in
-                        your capacity to heal...
-                    </p>
-                </div>
-                <p className="text-secondary-text mb-8 text-2xl font-semibold">
-                    Let's talk.
-                </p>
-                <div className="space-y-4">
-                    <Link href="/contact">
-                        <button className="bg-secondary-text rounded-full px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
-                            Book Your Consultation
-                        </button>
-                    </Link>
-                    <p className="text-gray-600">
-                        Tel/WhatsApp:{" "}
+
+                    {/* Main headline */}
+                    <h2
+                        className="mb-8 text-5xl leading-[1.1] text-white md:text-6xl lg:text-7xl"
+                        style={{ fontFamily: "'DM Serif Display', serif" }}
+                    >
+                        Ready to feel
+                        <br />
+                        <em>like yourself again?</em>
+                    </h2>
+
+                    {/* Body copy */}
+                    <div
+                        className="mx-auto mb-10 max-w-xl space-y-2 text-base leading-relaxed md:text-lg"
+                        style={{
+                            color: "rgba(200, 230, 201, 0.8)",
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontWeight: 300,
+                        }}
+                    >
+                        <p>
+                            Tired of being told there's nothing more that can be
+                            done?
+                        </p>
+                        <p>
+                            Ready for an approach that addresses the root cause
+                            of your pain?
+                        </p>
+                        <p>
+                            Looking for someone who truly believes in your
+                            capacity to heal?
+                        </p>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="mb-10 flex flex-col items-center gap-4">
+                        <Link href="/contact">
+                            <motion.button
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20,
+                                }}
+                                className="rounded-full px-10 py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-xl"
+                                style={{
+                                    backgroundColor: "#F0EBE1",
+                                    color: "#1E3A20",
+                                    fontFamily: "'DM Sans', sans-serif",
+                                    fontWeight: 500,
+                                    letterSpacing: "0.04em",
+                                }}
+                            >
+                                Book Your Consultation
+                            </motion.button>
+                        </Link>
+
+                        {/* Phone / WhatsApp */}
                         <a
                             href="tel:+353892335106"
-                            className="text-secondary-text font-bold hover:underline"
+                            className="text-sm transition-opacity hover:opacity-100"
+                            style={{
+                                color: "rgba(200, 230, 201, 0.6)",
+                                fontFamily: "'DM Sans', sans-serif",
+                                fontWeight: 300,
+                            }}
                         >
-                            +353 (0) 89-233-5106
+                            or call / WhatsApp{" "}
+                            <span style={{ color: "#C8E6C9", fontWeight: 400 }}>
+                                +353 (0) 89-233-5106
+                            </span>
                         </a>
-                    </p>
-                    <p className="text-sm text-gray-500">
-                        You can reach out via the contact form, phone, or
-                        WhatsApp. I typically respond within 24 hours, and we
-                        can schedule your first session at a time that works for
-                        you.
+                    </div>
+
+                    {/* Fine print */}
+                    <p
+                        className="mx-auto max-w-sm text-xs leading-relaxed"
+                        style={{
+                            color: "rgba(200, 230, 201, 0.4)",
+                            fontFamily: "'DM Sans', sans-serif",
+                        }}
+                    >
+                        Reach out via the contact form, phone, or WhatsApp. I
+                        typically respond within 24 hours and we'll schedule at
+                        a time that works for you.
                     </p>
                 </div>
             </motion.section>
-        </div>
+        </>
     )
 }
 

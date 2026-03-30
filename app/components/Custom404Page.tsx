@@ -63,20 +63,20 @@ const Custom404Page = () => {
                 >
                     {/* Animated 404 Number */}
                     <motion.div variants={fadeInUp} animate={floatAnimation}>
-                        <h1 className="text-secondary-text text-[150px] font-bold leading-none opacity-20 md:text-[200px]">
+                        <h1 className="text-[150px] font-bold leading-none text-secondary-text opacity-20 md:text-[200px]">
                             404
                         </h1>
                     </motion.div>
 
                     {/* Main Message */}
                     <motion.div variants={fadeInUp} className="space-y-4">
-                        <h2 className="text-primary-text text-3xl font-bold md:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl font-bold text-primary-text md:text-4xl lg:text-5xl">
                             This Page Seems to Have Wandered Off
                         </h2>
                         <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700">
                             Just like chronic pain, sometimes things don't end
                             up where they should be. But unlike chronic pain,
-                            this is easy to fix!
+                            there's a fix!
                         </p>
                     </motion.div>
 
@@ -85,7 +85,7 @@ const Custom404Page = () => {
                         variants={fadeInUp}
                         className="mx-auto max-w-2xl rounded-[25px] border-2 border-black bg-white p-8 shadow-lg md:p-10"
                     >
-                        <h3 className="text-primary-text mb-6 text-2xl font-semibold">
+                        <h3 className="mb-6 text-2xl font-semibold text-primary-text">
                             Let's Get You Back on Track
                         </h3>
 
@@ -137,10 +137,10 @@ const Custom404Page = () => {
                                     <motion.div
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="hover:border-secondary-text cursor-pointer rounded-lg border-2 border-gray-200 bg-gray-50 p-4 text-left transition-all hover:bg-white hover:shadow-md"
+                                        className="cursor-pointer rounded-lg border-2 border-gray-200 bg-gray-50 p-4 text-left transition-all hover:border-secondary-text hover:bg-white hover:shadow-md"
                                     >
                                         <div className="mb-2 flex items-center gap-2">
-                                            <span className="text-primary-text font-semibold">
+                                            <span className="font-semibold text-primary-text">
                                                 {link.label}
                                             </span>
                                         </div>
@@ -155,7 +155,7 @@ const Custom404Page = () => {
                         {/* Auto-redirect Notice */}
                         <motion.div
                             variants={fadeInUp}
-                            className="from-secondary-text rounded-lg bg-gradient-to-r to-gray-700 p-4 text-white"
+                            className="rounded-lg bg-gradient-to-r from-secondary-text to-gray-700 p-4 text-white"
                         >
                             <p className="text-sm">
                                 Redirecting to home page in{" "}
@@ -170,7 +170,7 @@ const Custom404Page = () => {
                     {/* Main CTA */}
                     <motion.div variants={fadeInUp} className="space-y-4">
                         <Link href="/">
-                            <button className="bg-secondary-text rounded-full px-10 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                            <button className="rounded-full bg-secondary-text px-10 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
                                 Go to Homepage
                             </button>
                         </Link>
@@ -179,7 +179,7 @@ const Custom404Page = () => {
                             Or call me directly:{" "}
                             <a
                                 href="tel:+353892335106"
-                                className="text-secondary-text font-bold hover:underline"
+                                className="font-bold text-secondary-text hover:underline"
                             >
                                 +353 (0) 89-233-5106
                             </a>
@@ -189,9 +189,9 @@ const Custom404Page = () => {
                     {/* Helpful Message */}
                     <motion.div
                         variants={fadeInUp}
-                        className="border-secondary-text mx-auto max-w-xl rounded-lg border-l-4 bg-white p-6 text-left"
+                        className="mx-auto max-w-xl rounded-lg border-l-4 border-secondary-text bg-white p-6 text-left"
                     >
-                        <h4 className="text-primary-text mb-2 font-semibold">
+                        <h4 className="mb-2 font-semibold text-primary-text">
                             Still experiencing chronic pain?
                         </h4>
                         <p className="mb-3 text-gray-700">
@@ -201,7 +201,7 @@ const Custom404Page = () => {
                         </p>
                         <Link
                             href="/contact"
-                            className="text-secondary-text inline-flex items-center font-semibold hover:underline"
+                            className="inline-flex items-center font-semibold text-secondary-text hover:underline"
                         >
                             Book a free consultation
                             <svg

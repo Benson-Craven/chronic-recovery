@@ -75,11 +75,6 @@ const AboutPage = () => {
 
     return (
         <div className="font-Satoshi min-h-screen bg-background text-primary-text">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
-
             {/* DESKTOP HERO with Curtain Effect (hidden on mobile) */}
             <section
                 ref={container}
@@ -191,7 +186,7 @@ const AboutPage = () => {
 
                             <div className="space-y-4">
                                 <Link href="/contact">
-                                    <button className="rounded-full bg-secondary-text px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                    <button className="rounded-full bg-secondary-text px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105 hover:shadow-lg">
                                         Book Your Consultation
                                     </button>
                                 </Link>
@@ -221,7 +216,7 @@ const AboutPage = () => {
                 >
                     {/* I Know What It's Like */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-4 text-2xl font-medium md:text-3xl">
                             I Know What It's Like to Be Told "There's Nothing
                             More We Can Do"
                         </h2>
@@ -243,7 +238,7 @@ const AboutPage = () => {
 
                     {/* Journey Section */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-4 text-2xl font-medium md:text-3xl">
                             My Journey to Chronic Pain Recovery Work
                         </h2>
                         <div className="space-y-4 text-lg leading-relaxed text-gray-700">
@@ -272,24 +267,13 @@ const AboutPage = () => {
                         variants={fadeInVariants}
                         className="rounded-[25px] border-2 border-black bg-white p-8 shadow-lg md:p-12"
                     >
-                        <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-6 text-2xl font-medium md:text-3xl">
                             Why I'm Different from Other Practitioners You've
                             Seen
                         </h2>
                         <div className="space-y-4 text-lg leading-relaxed text-gray-700">
                             <p className="text-xl font-medium">
                                 Here's what sets my approach apart:
-                            </p>
-                            <p>
-                                <strong>
-                                    I don't just help you manage pain - I help
-                                    you cure it.
-                                </strong>{" "}
-                                This isn't about learning to live with your
-                                symptoms. It's about understanding why your
-                                nervous system is stuck in a danger response and
-                                teaching your brain to turn off those pain
-                                signals safely.
                             </p>
                             <p>
                                 Most chronic pain isn't caused by ongoing
@@ -302,41 +286,18 @@ const AboutPage = () => {
                                 faulty alarm system that keeps going off even
                                 when there's no danger.
                             </p>
-                        </div>
-                    </motion.section>
-
-                    {/* The Science */}
-                    <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
-                            The Science That Changed Everything
-                        </h2>
-                        <div className="space-y-4 text-lg leading-relaxed text-gray-700">
                             <p>
-                                When I discovered the work of Dr. Schubiner and
-                                researchers like Dr. Yoni Ashar and Professor
-                                Tor Wager, everything clicked. Their 2022
-                                randomised clinical trial published in{" "}
-                                <em>JAMA Psychiatry</em> showed that{" "}
-                                <strong>Pain Reprocessing Therapy</strong>{" "}
-                                helped two-thirds of chronic back pain patients
-                                become pain-free or nearly pain-free - and these
-                                results lasted a full year after treatment.
-                            </p>
-                            <p className="font-medium">
-                                This wasn't pain management. This was pain
-                                reversal.
-                            </p>
-                            <p>
-                                I knew I had to bring this approach to Ireland,
-                                where over half a million people struggle with
-                                chronic pain conditions every single day.
+                                <strong>
+                                    I don't just help you manage pain - I help
+                                    you reverse it.
+                                </strong>{" "}
                             </p>
                         </div>
                     </motion.section>
 
                     {/* Who I Work With */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-6 text-2xl font-medium md:text-3xl">
                             Who I Work With
                         </h2>
                         <p className="mb-6 text-lg text-gray-700">
@@ -370,16 +331,14 @@ const AboutPage = () => {
                                         "Long Covid, chronic fatigue, brain fog",
                                 },
                                 {
-                                    title: "And More",
-                                    conditions:
-                                        "Many other medically unexplained symptoms",
+                                    title: "and many more...",
                                 },
                             ].map((item, index) => (
                                 <div
                                     key={index}
                                     className="rounded-lg border border-gray-200 bg-white p-6"
                                 >
-                                    <h3 className="mb-2 text-xl font-semibold">
+                                    <h3 className="mb-2 text-xl font-medium">
                                         {item.title}
                                     </h3>
                                     <p className="text-gray-600">
@@ -403,7 +362,7 @@ const AboutPage = () => {
                         variants={fadeInVariants}
                         className="rounded-[25px] border-2 border-black bg-white p-8 shadow-lg md:p-12"
                     >
-                        <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-6 text-2xl font-medium md:text-3xl">
                             What Working Together Looks Like
                         </h2>
                         <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -415,7 +374,7 @@ const AboutPage = () => {
                             </p>
 
                             <div className="space-y-3">
-                                <p className="font-semibold">
+                                <p className="font-medium">
                                     Sessions are available:
                                 </p>
                                 <ul className="space-y-2 pl-6">
@@ -432,14 +391,14 @@ const AboutPage = () => {
                             </div>
 
                             <div className="rounded-lg bg-gray-50 p-6">
-                                <p className="text-xl font-semibold text-secondary-text">
+                                <p className="text-xl font-medium text-secondary-text">
                                     Investment: €70 per session, or a package of
                                     6 sessions for €360
                                 </p>
                             </div>
 
                             <div className="space-y-3">
-                                <p className="font-semibold">
+                                <p className="font-medium">
                                     I use evidence-based therapeutic approaches
                                     including:
                                 </p>
@@ -468,7 +427,7 @@ const AboutPage = () => {
 
                     {/* Real Results */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-4 text-2xl font-medium md:text-3xl">
                             Real Results for Real People
                         </h2>
                         <div className="space-y-4 text-lg leading-relaxed text-gray-700">
@@ -487,20 +446,12 @@ const AboutPage = () => {
                                 actually causing their pain - and that they have
                                 the power to heal it.
                             </p>
-                            <p>
-                                I've watched clients who hadn't slept properly
-                                in years finally rest peacefully. I've seen
-                                people return to activities they loved but had
-                                given up on. I've witnessed the relief and joy
-                                when someone realises they're not "broken" -
-                                they just needed the right approach.
-                            </p>
                         </div>
                     </motion.section>
 
                     {/* My Commitment */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-6 text-2xl font-medium md:text-3xl">
                             My Commitment to You
                         </h2>
                         <p className="mb-6 text-lg text-gray-700">
@@ -535,7 +486,7 @@ const AboutPage = () => {
                         variants={fadeInVariants}
                         className="rounded-lg border-l-4 border-secondary-text bg-gray-50 p-6"
                     >
-                        <h3 className="mb-3 text-xl font-semibold">
+                        <h3 className="mb-3 text-xl font-medium">
                             Important: Please Rule Out Structural Issues First
                         </h3>
                         <p className="text-gray-700">
@@ -544,7 +495,7 @@ const AboutPage = () => {
                             or infection. Once you've done that, take my{" "}
                             <Link
                                 href="/self-assessment"
-                                className="font-semibold text-secondary-text underline hover:no-underline"
+                                className="font-medium text-secondary-text underline hover:no-underline"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -555,7 +506,7 @@ const AboutPage = () => {
 
                     {/* Why Now */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-4 text-2xl font-medium md:text-3xl">
                             Why Now Is the Time to Act
                         </h2>
                         <div className="space-y-4 text-lg leading-relaxed text-gray-700">
@@ -580,61 +531,14 @@ const AboutPage = () => {
                     {/* CTA Section */}
                     <CallToActionSection fadeInVariants={fadeInVariants} />
 
-                    {/* FAQ Section */}
-                    <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-8 text-2xl font-semibold md:text-3xl">
-                            Frequently Asked Questions
-                        </h2>
-                        <div className="space-y-6">
-                            {[
-                                {
-                                    question:
-                                        "How is this different from pain management?",
-                                    answer: "Pain management aims to reduce symptoms and help you cope. My approach aims to eliminate the pain by retraining your nervous system and turning off false danger signals.",
-                                },
-                                {
-                                    question:
-                                        "Will this work for my specific condition?",
-                                    answer: "This approach has been shown to be effective for over 20 different chronic pain and medically unexplained conditions. The self-assessment questionnaire can help determine if you're a good candidate.",
-                                },
-                                {
-                                    question:
-                                        "Do I need to believe in mind-body medicine for this to work?",
-                                    answer: "Not at all. You just need to be open to learning about the neuroscience behind your pain and willing to try the techniques. The science speaks for itself.",
-                                },
-                                {
-                                    question: "How long does recovery take?",
-                                    answer: "Everyone's journey is different. Some people experience significant relief within weeks, while others need several months. We'll work at a pace that feels right for you.",
-                                },
-                                {
-                                    question:
-                                        "Is this covered by health insurance?",
-                                    answer: "Currently, these sessions are private pay. However, you may be able to claim back costs depending on your health insurance provider - I recommend checking your policy.",
-                                },
-                            ].map((faq, index) => (
-                                <div
-                                    key={index}
-                                    className="rounded-lg border border-gray-200 bg-white p-6"
-                                >
-                                    <h3 className="mb-3 text-xl font-semibold">
-                                        {faq.question}
-                                    </h3>
-                                    <p className="text-gray-700">
-                                        {faq.answer}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.section>
-
                     {/* Location Section */}
                     <motion.section variants={fadeInVariants}>
-                        <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+                        <h2 className="mb-4 text-2xl font-medium md:text-3xl">
                             Located in Cork, Serving All of Ireland
                         </h2>
                         <p className="text-lg leading-relaxed text-gray-700">
                             While my home clinic is based in Rochestown, Cork, I
-                            work with clients throughout Ireland via online
+                            work with clients throughout worldwide via online
                             video sessions. Location doesn't need to be a
                             barrier to accessing this life-changing treatment
                             approach.
@@ -658,12 +562,12 @@ const AboutPage = () => {
                                 Something backed by science. Something that
                                 treats the root cause, not just the symptoms.
                             </p>
-                            <p className="text-2xl font-semibold text-primary-text">
+                            <p className="text-2xl font-medium text-primary-text">
                                 I'm here when you're ready to take that first
                                 step.
                             </p>
                             <Link href="/contact">
-                                <button className="mt-6 rounded-full bg-secondary-text px-10 py-4 text-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">
+                                <button className="mt-6 rounded-full bg-secondary-text px-10 py-4 text-xl font-medium text-white transition-all hover:scale-105 hover:shadow-lg">
                                     Start Your Healing Journey Today
                                 </button>
                             </Link>
