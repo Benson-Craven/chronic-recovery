@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         "pain treatment Cork",
         "physiotherapy Ireland",
         "natural pain relief",
-        "TMS therapy cork", // Added a high-value term
+        "TMS therapy cork",
     ],
     authors: [{ name: "Chronic Pain Recovery Cork" }],
     openGraph: {
