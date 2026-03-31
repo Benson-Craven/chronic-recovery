@@ -5,6 +5,10 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import CallToActionSection from "../CallToActionSection"
+import { Section, Container, Divider } from "../ui/Layout"
+import { Heading, Text, Eyebrow, ItalicQuote } from "../ui/Typography"
+import { CtaButton } from "../ui/CtaButton"
+import { NumberRow } from "../ui/NumberRow"
 
 const AboutPage = () => {
     const container = useRef(null)
@@ -24,32 +28,8 @@ const AboutPage = () => {
         },
     }
 
-    const faqs = [
-        {
-            question: "How is this different from pain management?",
-            answer: "Pain management aims to reduce symptoms and help you cope. My approach aims to eliminate the pain by retraining your nervous system and turning off false danger signals.",
-        },
-        {
-            question: "Will this work for my specific condition?",
-            answer: "This approach has been shown to be effective for over 20 different chronic pain and medically unexplained conditions. The self-assessment questionnaire can help determine if you're a good candidate.",
-        },
-        {
-            question:
-                "Do I need to believe in mind-body medicine for this to work?",
-            answer: "Not at all. You just need to be open to learning about the neuroscience behind your pain and willing to try the techniques. The science speaks for itself.",
-        },
-        {
-            question: "How long does recovery take?",
-            answer: "Everyone's journey is different. Some people experience significant relief within weeks, while others need several months. We'll work at a pace that feels right for you.",
-        },
-        {
-            question: "Is this covered by health insurance?",
-            answer: "Currently, these sessions are private pay. However, you may be able to claim back costs depending on your health insurance provider - I recommend checking your policy.",
-        },
-    ]
-
     return (
-        <div className="font-Satoshi min-h-screen bg-background text-primary-text">
+        <div className="font-satoshi min-h-screen bg-background text-primary-text">
             {/* DESKTOP HERO — Curtain Effect */}
             <section
                 ref={container}
@@ -89,11 +69,8 @@ const AboutPage = () => {
             </section>
 
             {/* INTRO SECTION */}
-            <section
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="flex items-center justify-center bg-[#fafafa] py-12 md:py-24"
-            >
-                <div className="container mx-auto px-4">
+            <Section variant="cream" className="py-12 md:py-24">
+                <Container size="wide">
                     <div className="flex flex-col items-center md:flex-row">
                         <div className="mb-8 md:mb-0 md:w-1/2">
                             <div className="grid grid-cols-2 gap-4">
@@ -130,32 +107,9 @@ const AboutPage = () => {
                         </div>
 
                         <div className="md:w-1/2 md:pl-12">
-                            <p
-                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
-                                About me
-                            </p>
-                            <h2
-                                className="mb-6 text-4xl leading-[1.1] md:text-5xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
-                                Marsha Canny
-                            </h2>
-                            <p
-                                className="mb-8 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "rgba(30,58,32,0.7)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <Eyebrow>About me</Eyebrow>
+                            <Heading className="mb-6">Marsha Canny</Heading>
+                            <Text className="mb-8">
                                 I am a chronic pain therapist based in
                                 Rochestown, Cork, Ireland. I use a
                                 multi-disciplinary approach to help you cure
@@ -175,30 +129,12 @@ const AboutPage = () => {
                                 migraines and neck pain that I suffered for over
                                 10 years. I will work with your body, nervous
                                 system and brain to get you back to good health.
-                            </p>
+                            </Text>
 
                             <div className="space-y-4">
-                                <Link href="/contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="rounded-full px-8 py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg"
-                                        style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Your Consultation
-                                    </motion.button>
-                                </Link>
+                                <CtaButton href="/contact">
+                                    Book Your Consultation
+                                </CtaButton>
                                 <p
                                     className="text-sm"
                                     style={{
@@ -222,80 +158,32 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </Container>
+            </Section>
 
             {/* I Know What It's Like — cream */}
-            <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        You are not alone
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
+            <Section variant="cream" id="know-what-its-like">
+                <Container>
+                    <Eyebrow>You are not alone</Eyebrow>
+                    <Heading className="mb-14">
                         I know what it's like
                         <br />
                         <em>to be told there's nothing</em>
                         <br />
                         more we can do.
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    </Heading>
+                    <Divider className="mb-0" />
+                    
+                    <NumberRow number={1}>
+                        If you're reading this, you've probably heard those
+                        words before. You've seen multiple specialists.
+                        You've had the scans, the x-rays, the blood tests.
+                        Everything comes back "normal" — but you're still in
+                        pain. Day after day. Month after month. Maybe even
+                        year after year.
+                    </NumberRow>
+
                     <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            01
-                        </span>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "rgba(30, 58, 32, 0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            If you're reading this, you've probably heard those
-                            words before. You've seen multiple specialists.
-                            You've had the scans, the x-rays, the blood tests.
-                            Everything comes back "normal" — but you're still in
-                            pain. Day after day. Month after month. Maybe even
-                            year after year.
-                        </p>
-                    </motion.div>
-                    <motion.p
                         initial={{ opacity: 0, y: 14 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -304,98 +192,35 @@ const AboutPage = () => {
                             delay: 0.15,
                             ease: "easeOut",
                         }}
-                        className="mt-12 text-2xl leading-snug md:text-3xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "#1E3A20",
-                        }}
                     >
-                        "Your pain is real.
-                        <br />
-                        And there is hope."
-                    </motion.p>
-                </div>
-            </motion.section>
+                        <ItalicQuote className="mt-12">
+                            "Your pain is real.
+                            <br />
+                            And there is hope."
+                        </ItalicQuote>
+                    </motion.div>
+                </Container>
+            </Section>
 
             {/* Journey — green */}
-            <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        My background
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+            <Section variant="green">
+                <Container>
+                    <Eyebrow style={{ color: "#C8E6C9" }}>My background</Eyebrow>
+                    <Heading className="mb-14 text-white">
                         My journey to
                         <br />
                         <em>chronic pain recovery work</em>
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
-                    {[
-                        {
-                            number: "01",
-                            body: "I didn't start out in this field by chance. Like many practitioners working with chronic pain, I've walked a path that's led me to understand something profound about how pain actually works — and more importantly, how it can be reversed.",
-                        },
-                        {
-                            number: "02",
-                            body: "My work centres on the biopsychosocial approach to chronic pain recovery. I've completed specialised training in the methods developed by Dr. Howard Schubiner — one of the world's leading pioneers in mind-body medicine — whose groundbreaking research has helped thousands recover from conditions conventional medicine often labels as incurable.",
-                        },
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                duration: 0.5,
-                                delay: index * 0.1,
-                                ease: "easeOut",
-                            }}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(200,230,201,0.12)" }}
-                        >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {item.number}
-                            </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "rgba(200, 230, 201, 0.7)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {item.body}
-                            </p>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.section>
+                    </Heading>
+                    <Divider variant="cream" className="mb-0" />
+                    
+                    <NumberRow number={1} variant="green">
+                        I didn't start out in this field by chance. Like many practitioners working with chronic pain, I've walked a path that's led me to understand something profound about how pain actually works — and more importantly, how it can be reversed.
+                    </NumberRow>
+                    <NumberRow number={2} variant="green" index={1}>
+                        My work centres on the biopsychosocial approach to chronic pain recovery. I've completed specialised training in the methods developed by Dr. Howard Schubiner — one of the world's leading pioneers in mind-body medicine — whose groundbreaking research has helped thousands recover from conditions conventional medicine often labels as incurable.
+                    </NumberRow>
+                </Container>
+            </Section>
 
             {/* What Makes Me Different — cream */}
             <motion.section

@@ -4,103 +4,92 @@ import { useRef } from "react"
 import React from "react"
 import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 import Image from "next/image"
+import { Section, Container, Divider } from "../ui/Layout"
+import { Heading, Text, Eyebrow } from "../ui/Typography"
 
 const IllnessSection = () => {
     return (
-        <div
-            id="illness"
-            className="relative"
-            style={{ backgroundColor: "#1E3A20" }}
-        >
-            {/* Scroll indicator */}
-            <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
-                <p
-                    className="mb-2 text-xs uppercase tracking-[0.2em] opacity-30"
-                    style={{
-                        color: "#C8E6C9",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 300,
-                    }}
-                >
-                    Scroll
-                </p>
-                <svg
-                    className="mx-auto h-4 w-4 animate-bounce"
-                    style={{ color: "rgba(200,230,201,0.3)" }}
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </div>
-
-            <div className="h-[25vh]" />
-
-            <IllnessSectionCarousel />
-
-            {/* Closing question block */}
-            <FadeInOnScroll>
-                <div className="mx-auto max-w-3xl px-6 py-20 md:py-28">
-                    <div
-                        className="mb-16 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
-
+        <div id="illness">
+            <Section variant="green" className="relative pb-0 pt-6">
+                {/* Scroll indicator */}
+                <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
                     <p
-                        className="mb-8 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-2 text-xs uppercase tracking-[0.2em] opacity-30"
                         style={{
                             color: "#C8E6C9",
                             fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
                         }}
                     >
-                        Still unsure?
+                        Scroll
                     </p>
-
-                    <h3
-                        className="mb-10 text-4xl leading-[1.1] text-white md:text-5xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
+                    <svg
+                        className="mx-auto h-4 w-4 animate-bounce"
+                        style={{ color: "rgba(200,230,201,0.3)" }}
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                     >
-                        Have you seen <em>multiple</em> professionals without
-                        finding <em>lasting relief?</em>
-                    </h3>
-
-                    <div
-                        className="rounded-2xl px-8 py-7"
-                        style={{
-                            backgroundColor: "rgba(200,230,201,0.07)",
-                            border: "1px solid rgba(200,230,201,0.12)",
-                        }}
-                    >
-                        <p
-                            className="mb-2 text-sm font-medium"
-                            style={{
-                                color: "#C8E6C9",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
-                            Not listed above?
-                        </p>
-                        <p
-                            className="text-base leading-relaxed"
-                            style={{
-                                color: "rgba(200,230,201,0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            I'm here to help with any illness or concern, even
-                            if it's not listed. Reach out to learn more and find
-                            the relief you deserve.
-                        </p>
-                    </div>
+                        <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
                 </div>
-            </FadeInOnScroll>
 
-            <div className="h-[20vh]" />
+                <div className="h-[20vh]" />
+
+                <IllnessSectionCarousel />
+            </Section>
+
+            {/* Closing question block */}
+            <Section variant="green" className="pt-0">
+                <FadeInOnScroll>
+                    <Container size="narrow">
+                        <Divider variant="cream" className="mb-16" />
+
+                        <Eyebrow className="mb-8" style={{ color: "#C8E6C9" }}>
+                            Still unsure?
+                        </Eyebrow>
+
+                        <Heading
+                            as="h3"
+                            className="mb-10 text-white"
+                        >
+                            Have you seen <em>multiple</em> professionals
+                            without finding <em>lasting relief?</em>
+                        </Heading>
+
+                        <div
+                            className="rounded-2xl px-8 py-7"
+                            style={{
+                                backgroundColor: "rgba(200,230,201,0.07)",
+                                border: "1px solid rgba(200,230,201,0.12)",
+                            }}
+                        >
+                            <p
+                                className="mb-2 text-sm font-medium"
+                                style={{
+                                    color: "#C8E6C9",
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                Not listed above?
+                            </p>
+                            <Text
+                                className="text-base"
+                                style={{ color: "rgba(200,230,201,0.65)" }}
+                            >
+                                I&apos;m here to help with any illness or
+                                concern, even if it&apos;s not listed. Reach
+                                out to learn more and find the relief you
+                                deserve.
+                            </Text>
+                        </div>
+                    </Container>
+                </FadeInOnScroll>
+                <div className="h-[10vh]" />
+            </Section>
         </div>
     )
 }
@@ -127,28 +116,16 @@ const IllnessSectionCarousel = () => {
             role="region"
             ref={targetRef}
             className="relative h-[250vh]"
-            style={{ backgroundColor: "#1E3A20" }}
         >
             {/* Section header */}
             <motion.div
                 style={{ opacity }}
-                className="sticky top-[130px] px-6 md:top-16 md:px-10"
+                className="sticky top-[130px] z-10 md:top-16"
             >
-                <p
-                    className="mb-4 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                    style={{
-                        color: "#C8E6C9",
-                        fontFamily: "var(--font-dm-sans)",
-                    }}
-                >
-                    Conditions
-                </p>
-                <h2
-                    className="text-3xl leading-[1.1] text-white md:text-5xl"
-                    style={{ fontFamily: "var(--font-dm-serif)" }}
-                >
+                <Eyebrow style={{ color: "#C8E6C9" }}>Conditions</Eyebrow>
+                <Heading className="text-white">
                     Are you <em>experiencing</em> any of the following?
-                </h2>
+                </Heading>
             </motion.div>
 
             {/* Horizontal scroll container — mechanics unchanged */}
@@ -213,12 +190,12 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
 
                     {/* Bottom content */}
                     <div className="transition-transform duration-300 group-hover:translate-y-[-6px]">
-                        <h3
-                            className="mb-4 text-2xl leading-snug text-white"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
+                        <Heading
+                            as="h3"
+                            className="mb-4 text-2xl leading-snug text-white md:text-2xl lg:text-2xl"
                         >
                             {card.title}
-                        </h3>
+                        </Heading>
 
                         <div
                             className="mb-4 h-px w-10"

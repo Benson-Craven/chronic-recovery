@@ -1,9 +1,11 @@
 import React, { useRef } from "react"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import animationData from "../../../public/assets/women-health.json"
 import dynamic from "next/dynamic"
 import type { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
+import { Section, Container, Divider } from "../ui/Layout"
+import { Heading, Text, Eyebrow } from "../ui/Typography"
+import { CtaButton } from "../ui/CtaButton"
 
 const LottieClientWrapper = dynamic(() => import("../LottieWrapper"), {
     ssr: false,
@@ -16,10 +18,9 @@ const LottieClientWrapper = dynamic(() => import("../LottieWrapper"), {
 })
 
 const WeDoSection = () => {
-    const container = useRef(null)
+    const container = useRef<HTMLDivElement>(null)
     const aniRef = useRef<LottieRefCurrentProps>(null)
 
-    // Lottie scroll mechanics — unchanged
     const interactivity: Omit<InteractivityProps, "lottieObj"> = {
         mode: "scroll",
         actions: [
@@ -32,27 +33,10 @@ const WeDoSection = () => {
     }
 
     return (
-        <section
-            id="mission"
-            className="w-full px-6 py-20 md:py-28"
-            style={{ backgroundColor: "#F7F4EF" }}
-        >
-            <div ref={container} className="mx-auto max-w-5xl">
-                {/* Eyebrow */}
-                <p
-                    className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                    style={{
-                        color: "#1E3A20",
-                        fontFamily: "var(--font-dm-sans)",
-                    }}
-                >
-                    Our approach
-                </p>
-
-                <div
-                    className="mb-16 h-px w-full"
-                    style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                />
+        <Section id="mission" variant="cream">
+            <Container ref={container} size="wide">
+                <Eyebrow>Our approach</Eyebrow>
+                <Divider className="mb-16" />
 
                 <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
                     {/* Lottie — left */}
@@ -67,31 +51,15 @@ const WeDoSection = () => {
 
                     {/* Content — right */}
                     <div className="flex w-full flex-col justify-center md:w-1/2">
-                        <h2
-                            className="mb-8 text-4xl leading-[1.1] md:text-5xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <Heading className="mb-8">
                             The biopsychosocial
                             <br />
                             <em>approach to healing</em>
-                        </h2>
+                        </Heading>
 
-                        <div
-                            className="mb-8 h-px w-12"
-                            style={{ backgroundColor: "rgba(30,58,32,0.2)" }}
-                        />
+                        <Divider className="mb-8 w-12" />
 
-                        <p
-                            className="mb-10 text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "rgba(30,58,32,0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <Text className="mb-10">
                             There is new help for chronic pain sufferers — and
                             for people with medically unexplained diagnoses such
                             as IBS, long covid, chronic fatigue, migraines,
@@ -100,30 +68,12 @@ const WeDoSection = () => {
                             better, you will benefit from this approach. I work
                             with people of all ages and ailments with
                             life-changing results.
-                        </p>
+                        </Text>
 
                         <div className="flex flex-col gap-4">
-                            <Link href="/contact">
-                                <motion.button
-                                    whileHover={{ scale: 1.03 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 20,
-                                    }}
-                                    className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                    style={{
-                                        backgroundColor: "#1E3A20",
-                                        color: "#F7F4EF",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
-                                    }}
-                                >
-                                    Book Your Consultation
-                                </motion.button>
-                            </Link>
+                            <CtaButton href="/contact">
+                                Book Your Consultation
+                            </CtaButton>
                             <p
                                 className="text-sm"
                                 style={{
@@ -144,8 +94,8 @@ const WeDoSection = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     )
 }
 

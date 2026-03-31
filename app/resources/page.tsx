@@ -2,6 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 type Item = {
     title: string
@@ -419,7 +420,8 @@ const UsefulLinks: React.FC = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <a href="/contact">
+                                <Link href="/contact">
+                                    {" "}
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.98 }}
@@ -439,8 +441,8 @@ const UsefulLinks: React.FC = () => {
                                     >
                                         Book Your Consultation
                                     </motion.button>
-                                </a>
-                                <a href="/self-assessment">
+                                </Link>
+                                <Link href="/self-assessment">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.98 }}
@@ -461,7 +463,7 @@ const UsefulLinks: React.FC = () => {
                                     >
                                         Take the Self-Assessment
                                     </motion.button>
-                                </a>
+                                </Link>
                                 <p
                                     className="text-sm"
                                     style={{
