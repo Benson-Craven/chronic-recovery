@@ -29,7 +29,7 @@ const AboutPage = () => {
     }
 
     return (
-        <div className="font-satoshi min-h-screen bg-background text-primary-text">
+        <div className="min-h-screen bg-background font-satoshi text-primary-text">
             {/* DESKTOP HERO — Curtain Effect */}
             <section
                 ref={container}
@@ -77,7 +77,7 @@ const AboutPage = () => {
                                 <div className="flex flex-col gap-4">
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
-                                            src="/images/marsha.avif"
+                                            src="/images/marsha-new.jpg"
                                             alt="Marsha Canny"
                                             width={400}
                                             height={500}
@@ -173,14 +173,14 @@ const AboutPage = () => {
                         more we can do.
                     </Heading>
                     <Divider className="mb-0" />
-                    
+
                     <NumberRow number={1}>
                         If you're reading this, you've probably heard those
-                        words before. You've seen multiple specialists.
-                        You've had the scans, the x-rays, the blood tests.
-                        Everything comes back "normal" — but you're still in
-                        pain. Day after day. Month after month. Maybe even
-                        year after year.
+                        words before. You've seen multiple specialists. You've
+                        had the scans, the x-rays, the blood tests. Everything
+                        comes back "normal" or you've even been given a
+                        "diagnosis" — but you're still in pain. Day after day.
+                        Month after month. Maybe even year after year.
                     </NumberRow>
 
                     <motion.div
@@ -205,19 +205,31 @@ const AboutPage = () => {
             {/* Journey — green */}
             <Section variant="green">
                 <Container>
-                    <Eyebrow style={{ color: "#C8E6C9" }}>My background</Eyebrow>
+                    <Eyebrow style={{ color: "#C8E6C9" }}>
+                        My background
+                    </Eyebrow>
                     <Heading className="mb-14 text-white">
                         My journey to
                         <br />
                         <em>chronic pain recovery work</em>
                     </Heading>
                     <Divider variant="cream" className="mb-0" />
-                    
+
                     <NumberRow number={1} variant="green">
-                        I didn't start out in this field by chance. Like many practitioners working with chronic pain, I've walked a path that's led me to understand something profound about how pain actually works — and more importantly, how it can be reversed.
+                        I didn't start out in this field by chance. Like many
+                        practitioners working with chronic pain, I've walked a
+                        path that's led me to understand something profound
+                        about how pain actually works — and more importantly,
+                        how it can be reversed.
                     </NumberRow>
                     <NumberRow number={2} variant="green" index={1}>
-                        My work centres on the biopsychosocial approach to chronic pain recovery. I've completed specialised training in the methods developed by Dr. Howard Schubiner — one of the world's leading pioneers in mind-body medicine — whose groundbreaking research has helped thousands recover from conditions conventional medicine often labels as incurable.
+                        My work centres on the biopsychosocial approach to
+                        chronic pain recovery. I've completed specialised
+                        training in the methods developed by Dr. Howard
+                        Schubiner — one of the world's leading pioneers in
+                        mind-body medicine — whose groundbreaking research has
+                        helped thousands recover from conditions conventional
+                        medicine often labels as incurable.
                     </NumberRow>
                 </Container>
             </Section>

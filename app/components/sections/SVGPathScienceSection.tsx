@@ -257,7 +257,7 @@ const SVGPathScienceSection = () => {
                         delay={0.15}
                         icon={<Shield className="h-4 w-4" />}
                         title="Biopsychosocial method"
-                        body="A leading approach taught worldwide, including the NHS and US medical programmes. Trained directly under Dr. Howard Schubiner — one of the world's foremost pioneers in mind-body medicine."
+                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner — one of the world's foremost pioneers in mind-body medicine."
                         href="/science"
                         linkLabel="Explore the Science"
                         bg="cream"

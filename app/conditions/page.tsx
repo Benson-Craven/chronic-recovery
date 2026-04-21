@@ -42,7 +42,6 @@ const nonTreatable = [
     "Infections — HIV, Lyme disease, and other active infections",
     "CNS conditions — Parkinson's disease, dementia, ALS",
     "ENT conditions — hearing loss, Ménière's disease",
-    "Musculoskeletal — neurogenic findings of ruptured discs, arthritis causing significant limitations in movement",
 ]
 
 const fadeInVariants = {
