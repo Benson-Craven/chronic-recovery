@@ -168,7 +168,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                     </motion.button>
                                 </Link>
                                 <a
-                                    href="tel:+353892335106"
+                                    href="tel:+353871025108"
                                     className="mt-4 block text-center text-xs transition-opacity hover:opacity-60"
                                     style={{
                                         color: "rgba(30,58,32,0.4)",
@@ -176,7 +176,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    +353 (0) 89-233-5106
+                                    +353 (0) 87-102-5108
                                 </a>
                             </div>
                         </motion.nav>

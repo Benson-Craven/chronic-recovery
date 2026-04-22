@@ -127,7 +127,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="tel:+353892335106"
+                                    href="tel:+353871025108"
                                     className="flex items-center gap-3 transition-opacity hover:opacity-60"
                                 >
                                     <FaWhatsapp
@@ -146,7 +146,7 @@ const Footer = () => {
                                             fontWeight: 300,
                                         }}
                                     >
-                                        +353 (0) 89-233-5106
+                                        +353 (0) 87-102-5108
                                     </span>
                                 </a>
                             </li>

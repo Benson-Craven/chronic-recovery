@@ -101,7 +101,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
 
                         {/* Phone / WhatsApp */}
                         <a
-                            href="tel:+353892335106"
+                            href="tel:+353871025108"
                             className="text-sm transition-opacity hover:opacity-100"
                             style={{
                                 color: "rgba(200, 230, 201, 0.6)",
@@ -111,7 +111,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         >
                             or call / WhatsApp{" "}
                             <span style={{ color: "#C8E6C9", fontWeight: 400 }}>
-                                +353 (0) 89-233-5106
+                                +353 (0) 87-102-5108
                             </span>
                         </a>
                     </div>

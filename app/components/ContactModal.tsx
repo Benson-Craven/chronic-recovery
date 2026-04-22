@@ -280,7 +280,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 Tel / WhatsApp
                                             </p>
                                             <a
-                                                href="tel:+353892335106"
+                                                href="tel:+353871025108"
                                                 className="text-sm underline underline-offset-2 transition-opacity hover:opacity-60"
                                                 style={{
                                                     color: "#C8E6C9",
@@ -289,7 +289,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     fontWeight: 300,
                                                 }}
                                             >
-                                                +353 (0) 89-233-5106
+                                                +353 (0) 87-102-5108
                                             </a>
                                         </div>
                                     </div>

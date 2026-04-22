@@ -145,14 +145,14 @@ const AboutPage = () => {
                                 >
                                     or call / WhatsApp{" "}
                                     <a
-                                        href="tel:+353892335106"
+                                        href="tel:+353871025108"
                                         className="underline underline-offset-2"
                                         style={{
                                             color: "#1E3A20",
                                             opacity: 0.7,
                                         }}
                                     >
-                                        +353 (0) 89-233-5106
+                                        +353 (0) 87-102-5108
                                     </a>
                                 </p>
                             </div>
@@ -1218,11 +1218,11 @@ const AboutPage = () => {
                                 >
                                     or call / WhatsApp{" "}
                                     <a
-                                        href="tel:+353892335106"
+                                        href="tel:+353871025108"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{ color: "rgba(30,58,32,0.65)" }}
                                     >
-                                        +353 (0) 89-233-5106
+                                        +353 (0) 87-102-5108
                                     </a>
                                 </p>
                             </div>

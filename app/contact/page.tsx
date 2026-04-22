@@ -170,8 +170,8 @@ const ContactPage = () => {
                                     },
                                     {
                                         label: "Tel / WhatsApp",
-                                        value: "+353 (0) 89-233-5106",
-                                        href: "tel:+353892335106",
+                                        value: "+353 (0) 87-102-5108",
+                                        href: "tel:+353871025108",
                                     },
                                 ].map((item, index) => (
                                     <div
