@@ -8,14 +8,15 @@ import Footer from "./components/Footer"
 export const metadata: Metadata = {
     title: "Chronic Pain Recovery | Trusted Chronic Pain Treatment in Cork, Ireland",
     description:
-        "Expert chronic pain recovery in Cork, Ireland. We provide evidence-based treatments and holistic support to help you overcome persistent pain and reclaim your life.",
+        "Expert chronic pain recovery in Cork, Ireland. We provide evidence-based treatments and mind body support to help you overcome persistent pain and reclaim your life.",
     keywords: [
         "chronic pain recovery",
         "chronic pain management Cork",
         "chronic pain relief Ireland",
-        "holistic healing",
+        "mind body healing",
         "pain treatment Cork",
-        "physiotherapy Ireland",
+        "pain reprocessing therapy Ireland",
+        "PRT Ireland",
         "natural pain relief",
         "TMS therapy cork",
     ],
