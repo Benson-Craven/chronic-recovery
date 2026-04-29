@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chronic Pain Recovery Project
+
+Next.js website for Chronic Pain Recovery Ireland, focused on chronic pain recovery, mind-body education, resources, blog content, self-assessment, and contact enquiries for the Cork practice.
+
+## Tech Stack
+
+-   Next.js 14 with the App Router
+-   React 18 and TypeScript
+-   Tailwind CSS
+-   Framer Motion and Lenis for motion and scrolling
+-   Markdown blog posts via `gray-matter`, `remark`, and `remark-html`
+-   SendGrid for contact form email delivery
+-   `next-sitemap` for sitemap and robots.txt generation
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create a local `.env.local` file with the values needed by the contact form:
 
-## Learn More
+```bash
+SENDGRID_API_KEY=your_sendgrid_api_key
+EMAIL_TO=recipient@example.com
+```
 
-To learn more about Next.js, take a look at the following resources:
+The API route sends enquiries from `noreply@chronicpainrecovery.ie`, so that sender domain or address must be verified in SendGrid before production email delivery will work reliably.
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+Starts the local development server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Builds the production app and runs `next-sitemap` through the `postbuild` script.
+
+```bash
+npm run start
+```
+
+Starts the production server after a successful build.
+
+```bash
+npm run lint
+```
+
+Runs the Next.js lint command.
+
+## Project Structure
+
+-   `app/page.tsx` - homepage composition
+-   `app/layout.tsx` - shared layout, metadata, Google Analytics, and structured data
+-   `app/components/` - shared UI, navigation, footer, CTAs, and homepage sections
+-   `app/api/sendEmail/route.ts` - SendGrid-backed contact form endpoint
+-   `app/blog/` - blog index and dynamic blog post route
+-   `content/blog/` - markdown blog posts
+-   `public/images/`, `public/logos/`, `public/videos/`, `public/fonts/` - static assets
+-   `next-sitemap.config.js` - sitemap, robots.txt, route priority, and indexing rules
+
+## Content Editing
+
+Pages are defined in the `app/` directory. Core public pages include:
+
+-   `/`
+-   `/info`
+-   `/science`
+-   `/conditions`
+-   `/self-assessment`
+-   `/research`
+-   `/resources`
+-   `/blog`
+-   `/contact`
+-   `/privacy-policy`
+-   `/terms-and-conditions`
+-   `/disclaimer`
+
+Blog posts live in `content/blog` as markdown files. Each post should include front matter for:
+
+```markdown
+---
+title: "Post title"
+date: "2026-01-01"
+excerpt: "Short summary shown on the blog index."
+coverImage: "/images/example.avif"
+---
+```
+
+The slug is derived from the markdown filename.
+
+## SEO And Indexing
+
+Global metadata, Open Graph data, Google Analytics, and Schema.org structured data are configured in `app/layout.tsx`.
+
+Sitemap and robots.txt behavior is configured in `next-sitemap.config.js`. API routes are excluded from indexing, while core content pages are assigned custom priorities and change frequencies.
+
+## Contact Form
+
+The contact page posts to `/api/sendEmail`, which expects:
+
+-   `name`
+-   `email`
+-   `phone`
+-   `message`
+
+The server route uses `SENDGRID_API_KEY` and `EMAIL_TO` from the environment. Keep secrets out of source control.
+
+## Deployment
+
+The app can be deployed to any platform that supports Next.js. For production:
+
+1. Configure the required environment variables.
+2. Verify the SendGrid sender used by the contact API.
+3. Run `npm run build`.
+4. Serve with `npm run start` or deploy through the chosen hosting provider.
