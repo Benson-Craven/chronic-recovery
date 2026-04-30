@@ -124,7 +124,7 @@ const SVGPathScienceSection = () => {
                     >
                         <img
                             src="/images/meeting1.avif"
-                            alt="Unconscious brain"
+                            alt="Calm therapy room for chronic pain recovery support"
                             className="h-full w-full object-cover"
                             loading="lazy"
                         />

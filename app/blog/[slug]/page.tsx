@@ -1,17 +1,100 @@
 import { getPostData, getAllPostIds } from "../../lib/posts"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import {
+    BreadcrumbJsonLd,
+    JsonLd,
+    absoluteUrl,
+    createPageMetadata,
+    siteName,
+    siteUrl,
+} from "../../lib/seo"
 
 export async function generateStaticParams() {
     const paths = getAllPostIds()
     return paths
 }
 
+function parsePostDate(date: string) {
+    const [day, month, year] = date.split("-")
+    if (!day || !month || !year) return date
+    return `${year}-${month}-${day}`
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: { slug: string }
+}): Promise<Metadata> {
+    try {
+        const postData = await getPostData(params.slug)
+
+        return createPageMetadata({
+            title: `${postData.title} | Chronic Pain Recovery`,
+            description: postData.excerpt,
+            path: `/blog/${params.slug}`,
+            type: "article",
+            image: postData.coverImage || undefined,
+        })
+    } catch {
+        return createPageMetadata({
+            title: "Article Not Found | Chronic Pain Recovery",
+            description:
+                "This Chronic Pain Recovery article could not be found.",
+            path: `/blog/${params.slug}`,
+        })
+    }
+}
+
 export default async function Post({ params }: { params: { slug: string } }) {
-    const postData = await getPostData(params.slug)
+    let postData
+
+    try {
+        postData = await getPostData(params.slug)
+    } catch {
+        notFound()
+    }
+
+    const articleUrl = absoluteUrl(`/blog/${params.slug}`)
+    const publishedDate = parsePostDate(postData.date)
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: postData.title,
+        description: postData.excerpt,
+        image: postData.coverImage ? absoluteUrl(postData.coverImage) : undefined,
+        datePublished: publishedDate,
+        dateModified: publishedDate,
+        author: {
+            "@type": "Organization",
+            name: siteName,
+            url: absoluteUrl("/info"),
+        },
+        publisher: {
+            "@type": "Organization",
+            name: siteName,
+            url: siteUrl,
+            logo: {
+                "@type": "ImageObject",
+                url: absoluteUrl("/logos/Mending_Mindets.png"),
+            },
+        },
+        mainEntityOfPage: articleUrl,
+    }
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+            <BreadcrumbJsonLd
+                id="blog-post-breadcrumb-schema"
+                items={[
+                    { name: "Home", path: "/" },
+                    { name: "Journal", path: "/blog" },
+                    { name: postData.title, path: `/blog/${params.slug}` },
+                ]}
+            />
+            <JsonLd id="article-schema" data={articleSchema} />
             {/* Hero — green */}
             <section
                 style={{ backgroundColor: "#1E3A20" }}
@@ -79,9 +162,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         <div className="overflow-hidden">
                             <Image
                                 src={postData.coverImage}
-                                alt={postData.title}
+                                alt={`${postData.title} article cover image`}
                                 width={1200}
                                 height={600}
+                                priority
                                 className="w-full object-cover"
                                 style={{ maxHeight: "480px" }}
                             />

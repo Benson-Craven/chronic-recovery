@@ -64,7 +64,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = () => {
                             <Image
                                 src={`/images/${src}`}
                                 fill
-                                alt={`Image ${index + 1}`}
+                                alt="Forest path representing chronic pain recovery"
                                 className="object-cover"
                             />
                         </div>

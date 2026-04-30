@@ -114,7 +114,7 @@ const SciencePage = () => {
                         },
                         {
                             number: "04",
-                            body: "The biopsychosocial method is the most up-to-date approach to treating chronic pain and is now being taught to medical practitioners worldwide — including in Australia, the US, and the NHS in the UK. I'm a graduate of Dr. Howard Schubiner, a pioneer in mind-body medicine.",
+                            body: "The biopsychosocial method is an evidence-informed approach to supporting chronic pain recovery and is now being taught to medical practitioners worldwide — including in Australia, the US, and the NHS in the UK. I'm a graduate of Dr. Howard Schubiner, a pioneer in mind-body medicine.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -348,7 +348,8 @@ const SciencePage = () => {
                         >
                             Pain Reprocessing Therapy teaches your brain to turn
                             off false danger signals and reinterpret sensations
-                            as safe — eliminating pain at its source.
+                            as safe, which may help reduce persistent pain when
+                            this approach is appropriate.
                         </p>
                     </motion.div>
 

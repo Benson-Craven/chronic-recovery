@@ -65,9 +65,9 @@ const WeDoSection = () => {
                             as IBS, long covid, chronic fatigue, migraines,
                             anxiety, and depression. If you've seen several
                             medical professionals and are still not getting
-                            better, you will benefit from this approach. I work
-                            with people of all ages and ailments with
-                            life-changing results.
+                            better, you may benefit from this approach. I work
+                            with people of all ages on recovery-oriented,
+                            evidence-informed support.
                         </Text>
 
                         <div className="flex flex-col gap-4">

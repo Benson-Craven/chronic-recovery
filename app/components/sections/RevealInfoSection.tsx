@@ -53,7 +53,7 @@ const AboutPage = () => {
                         >
                             <Image
                                 src="/images/therapy.avif"
-                                alt="Therapy Hero Image"
+                                alt="Therapy room for brain-body chronic pain support"
                                 fill
                                 priority
                                 sizes="100vw"
@@ -78,7 +78,7 @@ const AboutPage = () => {
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/marsha-new.jpg"
-                                            alt="Marsha Canny"
+                                            alt="Marsha Canny of Chronic Pain Recovery Cork"
                                             width={400}
                                             height={500}
                                             className="h-full w-full object-cover"
@@ -87,7 +87,7 @@ const AboutPage = () => {
                                     <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                         <Image
                                             src="/images/cork.avif"
-                                            alt="Cork, Ireland"
+                                            alt="Cork, Ireland near the Chronic Pain Recovery practice"
                                             width={400}
                                             height={200}
                                             className="h-full w-full object-cover"
@@ -97,7 +97,7 @@ const AboutPage = () => {
                                 <div className="overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105">
                                     <Image
                                         src="/images/cork-3.jpg"
-                                        alt="Cork"
+                                        alt="Cork city and harbour area"
                                         width={400}
                                         height={716}
                                         className="h-full w-full object-cover"

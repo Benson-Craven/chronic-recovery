@@ -44,8 +44,9 @@ const RevealImageSection = () => {
                     >
                         <Image
                             src="/images/forest.avif"
-                            alt="Forest Image"
+                            alt="Forest path representing the journey toward chronic pain recovery"
                             fill
+                            priority
                             style={{ objectFit: "cover" }}
                         />
                     </motion.div>
