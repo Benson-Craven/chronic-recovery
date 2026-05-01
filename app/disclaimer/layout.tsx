@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Breadcrumbs from "../components/Breadcrumbs"
 import { BreadcrumbJsonLd, createPageMetadata } from "../lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
@@ -13,15 +14,18 @@ export default function DisclaimerLayout({
 }: {
     children: React.ReactNode
 }) {
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        { name: "Disclaimer", path: "/disclaimer" },
+    ]
+
     return (
         <>
             <BreadcrumbJsonLd
                 id="disclaimer-breadcrumb-schema"
-                items={[
-                    { name: "Home", path: "/" },
-                    { name: "Disclaimer", path: "/disclaimer" },
-                ]}
+                items={breadcrumbs}
             />
+            <Breadcrumbs items={breadcrumbs} />
             {children}
         </>
     )

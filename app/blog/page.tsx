@@ -2,19 +2,22 @@ import Link from "next/link"
 import { getSortedPostsData } from "../lib/posts"
 import Image from "next/image"
 import { BreadcrumbJsonLd } from "../lib/seo"
+import Breadcrumbs from "../components/Breadcrumbs"
 
 export default function Blog() {
     const allPostsData = getSortedPostsData()
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        { name: "Journal", path: "/blog" },
+    ]
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
             <BreadcrumbJsonLd
                 id="blog-breadcrumb-schema"
-                items={[
-                    { name: "Home", path: "/" },
-                    { name: "Journal", path: "/blog" },
-                ]}
+                items={breadcrumbs}
             />
+            <Breadcrumbs items={breadcrumbs} />
             {/* Hero — green */}
             <section
                 style={{ backgroundColor: "#1E3A20" }}

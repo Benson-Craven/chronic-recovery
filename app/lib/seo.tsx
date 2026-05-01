@@ -13,6 +13,11 @@ type PageMetadata = {
     image?: string
 }
 
+export type BreadcrumbItem = {
+    name: string
+    path: string
+}
+
 export function absoluteUrl(path = "") {
     if (!path || path === "/") return siteUrl
     return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`
@@ -76,7 +81,7 @@ export function JsonLd({
     )
 }
 
-export function breadcrumbSchema(items: { name: string; path: string }[]) {
+export function breadcrumbSchema(items: BreadcrumbItem[]) {
     return {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -94,7 +99,7 @@ export function BreadcrumbJsonLd({
     items,
 }: {
     id: string
-    items: { name: string; path: string }[]
+    items: BreadcrumbItem[]
 }) {
     return <JsonLd id={id} data={breadcrumbSchema(items)} />
 }

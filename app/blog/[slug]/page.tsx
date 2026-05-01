@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import Breadcrumbs from "../../components/Breadcrumbs"
 import {
     BreadcrumbJsonLd,
     JsonLd,
@@ -59,6 +60,11 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
     const articleUrl = absoluteUrl(`/blog/${params.slug}`)
     const publishedDate = parsePostDate(postData.date)
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        { name: "Journal", path: "/blog" },
+        { name: postData.title, path: `/blog/${params.slug}` },
+    ]
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -88,13 +94,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
             <BreadcrumbJsonLd
                 id="blog-post-breadcrumb-schema"
-                items={[
-                    { name: "Home", path: "/" },
-                    { name: "Journal", path: "/blog" },
-                    { name: postData.title, path: `/blog/${params.slug}` },
-                ]}
+                items={breadcrumbs}
             />
             <JsonLd id="article-schema" data={articleSchema} />
+            <Breadcrumbs items={breadcrumbs} />
             {/* Hero — green */}
             <section
                 style={{ backgroundColor: "#1E3A20" }}

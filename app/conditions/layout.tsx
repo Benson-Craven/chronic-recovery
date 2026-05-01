@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Breadcrumbs from "../components/Breadcrumbs"
 import { BreadcrumbJsonLd, createPageMetadata } from "../lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
@@ -13,15 +14,18 @@ export default function ConditionsLayout({
 }: {
     children: React.ReactNode
 }) {
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        { name: "Conditions", path: "/conditions" },
+    ]
+
     return (
         <>
             <BreadcrumbJsonLd
                 id="conditions-breadcrumb-schema"
-                items={[
-                    { name: "Home", path: "/" },
-                    { name: "Conditions", path: "/conditions" },
-                ]}
+                items={breadcrumbs}
             />
+            <Breadcrumbs items={breadcrumbs} />
             {children}
         </>
     )

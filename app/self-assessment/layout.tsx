@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Breadcrumbs from "../components/Breadcrumbs"
 import { BreadcrumbJsonLd, createPageMetadata } from "../lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
@@ -13,18 +14,21 @@ export default function SelfAssessmentLayout({
 }: {
     children: React.ReactNode
 }) {
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        {
+            name: "Neuroplastic Pain Self-Assessment",
+            path: "/self-assessment",
+        },
+    ]
+
     return (
         <>
             <BreadcrumbJsonLd
                 id="self-assessment-breadcrumb-schema"
-                items={[
-                    { name: "Home", path: "/" },
-                    {
-                        name: "Neuroplastic Pain Self-Assessment",
-                        path: "/self-assessment",
-                    },
-                ]}
+                items={breadcrumbs}
             />
+            <Breadcrumbs items={breadcrumbs} />
             {children}
         </>
     )
