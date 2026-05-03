@@ -30,6 +30,13 @@ type RelatedLink = {
     label: string
 }
 
+type ResearchLink = {
+    title: string
+    source: string
+    href: string
+    summary: string
+}
+
 type SeoContentPageProps = {
     hero: {
         eyebrow: string
@@ -42,6 +49,7 @@ type SeoContentPageProps = {
         heading: string
         body: string
     }
+    researchLinks?: ResearchLink[]
     relatedLinks: RelatedLink[]
 }
 
@@ -55,6 +63,7 @@ export default function SeoContentPage({
     sections,
     listSection,
     safetyNote,
+    researchLinks,
     relatedLinks,
 }: SeoContentPageProps) {
     return (
@@ -267,6 +276,111 @@ export default function SeoContentPage({
                     </div>
                 </div>
             </motion.section>
+
+            {researchLinks && researchLinks.length > 0 && (
+                <section
+                    style={{ backgroundColor: "#F7F4EF" }}
+                    className="w-full px-6 py-20 md:py-28"
+                >
+                    <div className="mx-auto max-w-5xl">
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Research links
+                        </p>
+                        <h2
+                            className="mb-6 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-serif)",
+                            }}
+                        >
+                            Evidence behind
+                            <br />
+                            <em>this approach</em>
+                        </h2>
+                        <p
+                            className="mb-12 max-w-2xl text-base leading-relaxed md:text-lg"
+                            style={{
+                                color: "rgba(30,58,32,0.68)",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            These external research links are included for
+                            transparency. They do not replace personalised
+                            medical advice or assessment.
+                        </p>
+                        <div
+                            className="grid grid-cols-1 gap-px md:grid-cols-2"
+                            style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
+                        >
+                            {researchLinks.map((link, index) => (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="group flex min-h-64 flex-col p-7 transition-colors"
+                                    style={{ backgroundColor: "#F7F4EF" }}
+                                >
+                                    <span
+                                        className="mb-5 block text-xs tabular-nums opacity-35"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <span
+                                        className="mb-3 text-xs font-medium uppercase tracking-[0.16em] opacity-45"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-sans)",
+                                        }}
+                                    >
+                                        {link.source}
+                                    </span>
+                                    <h3
+                                        className="mb-5 text-xl leading-snug transition-opacity group-hover:opacity-70 md:text-2xl"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-serif)",
+                                        }}
+                                    >
+                                        {link.title}
+                                    </h3>
+                                    <p
+                                        className="text-sm leading-relaxed md:text-base"
+                                        style={{
+                                            color: "rgba(30,58,32,0.65)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {link.summary}
+                                    </p>
+                                    <span
+                                        className="mt-auto pt-8 text-xs font-medium uppercase tracking-[0.16em] opacity-55 transition-opacity group-hover:opacity-100"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-sans)",
+                                        }}
+                                    >
+                                        View research
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <section
                 style={{ backgroundColor: "#F7F4EF" }}

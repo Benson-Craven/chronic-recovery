@@ -57,11 +57,11 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0">
                     <Image
-                        src="/logos/Mending_Mindets.png"
-                        alt="Mending Mindsets"
-                        width={80}
-                        height={80}
-                        className="h-auto w-14 md:w-16"
+                        src="/logos/logo-removebg-preview.png"
+                        alt="Chronic Pain Recovery Logo"
+                        width={144}
+                        height={144}
+                        className="h-auto w-28 md:w-32"
                         priority
                     />
                 </Link>

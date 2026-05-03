@@ -127,6 +127,29 @@ export default function PainRehabilitationPage() {
                     body:
                         "Please consult your GP, consultant, physiotherapist, or relevant medical professional to assess structural abnormalities, disease, infection, acute injury, or urgent symptoms before beginning this approach.",
                 }}
+                researchLinks={[
+                    {
+                        title: "Multidisciplinary biopsychosocial rehabilitation for chronic low back pain",
+                        source: "Cochrane Review, 2014",
+                        href: "https://pubmed.ncbi.nlm.nih.gov/25180773/",
+                        summary:
+                            "Systematic review of randomised trials evaluating rehabilitation programmes that address physical, psychological, and social or work-related factors in chronic low back pain.",
+                    },
+                    {
+                        title: "Multidisciplinary biopsychosocial rehabilitation for chronic low back pain",
+                        source: "BMJ, 2015",
+                        href: "https://www.bmj.com/content/350/bmj.h444",
+                        summary:
+                            "BMJ systematic review and meta-analysis summarising evidence for multidisciplinary rehabilitation compared with usual care, physical treatment, surgery, and waiting-list controls.",
+                    },
+                    {
+                        title: "Pain Neuroscience Education for Adults With Chronic Musculoskeletal Pain",
+                        source: "The Journal of Pain, 2019",
+                        href: "https://pubmed.ncbi.nlm.nih.gov/30831273/",
+                        summary:
+                            "Mixed-methods systematic review and meta-analysis on pain neuroscience education, a core element of many modern pain rehabilitation approaches.",
+                    },
+                ]}
                 relatedLinks={[
                     {
                         href: "/treatments/pain-reprocessing-therapy",

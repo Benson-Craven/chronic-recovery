@@ -5,6 +5,17 @@ export const siteUrl = "https://chronicpainrecovery.ie"
 export const siteName = "Chronic Pain Recovery"
 export const defaultOgImage = "/og-image.jpg"
 
+export const authorProfile = {
+    name: "Marsha Canny",
+    role: "Chronic pain therapist",
+    url: "/info",
+    image: "/images/marsha-new.jpg",
+    location: "Rochestown, Cork, Ireland",
+    bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. Her work draws on pain neuroscience education, Pain Reprocessing Therapy, and a biopsychosocial approach to support people with persistent pain when serious medical causes have been assessed.",
+    personalExperience:
+        "Marsha also brings lived experience of recovering from long-term migraines and neck pain, which informs her compassionate, practical approach to chronic pain recovery work.",
+}
+
 type PageMetadata = {
     title: string
     description: string
@@ -138,7 +149,7 @@ export const localBusinessSchema = {
     url: siteUrl,
     telephone: "+353871025108",
     image: absoluteUrl(defaultOgImage),
-    logo: absoluteUrl("/logos/Mending_Mindets.png"),
+    logo: absoluteUrl("/logos/logo-removebg-preview.png"),
     description:
         "Biopsychosocial chronic pain support in Cork, Ireland. Pain Reprocessing Therapy and related approaches may help people with persistent pain when serious medical causes have been assessed.",
     address: {

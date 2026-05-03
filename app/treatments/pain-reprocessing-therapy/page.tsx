@@ -127,6 +127,22 @@ export default function PainReprocessingTherapyPage() {
                     body:
                         "Pain Reprocessing Therapy should only be considered after appropriate medical assessment. It is not a replacement for treatment of active disease, infection, acute injury, cancer, urgent symptoms, or structural problems requiring surgical intervention.",
                 }}
+                researchLinks={[
+                    {
+                        title: "Effect of Pain Reprocessing Therapy vs Placebo and Usual Care for Patients With Chronic Back Pain",
+                        source: "JAMA Psychiatry, 2022",
+                        href: "https://pubmed.ncbi.nlm.nih.gov/34586357/",
+                        summary:
+                            "Randomised clinical trial of 151 adults with primary chronic back pain comparing PRT with open-label placebo and usual care, with one-year follow-up.",
+                    },
+                    {
+                        title: "Pain Reprocessing Therapy vs Placebo and Usual Care: 5-Year Follow-Up",
+                        source: "JAMA Psychiatry, 2025",
+                        href: "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2837160",
+                        summary:
+                            "Long-term follow-up from the original PRT trial reporting durability of outcomes in chronic back pain. Useful context, while still specific to the trial population studied.",
+                    },
+                ]}
                 relatedLinks={[
                     {
                         href: "/treatments/pain-rehabilitation",

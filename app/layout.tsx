@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import {
     JsonLd,
+    authorProfile,
     createPageMetadata,
     localBusinessSchema,
     siteUrl,
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
         "neuroplastic pain",
         "TMS therapy Cork",
     ],
-    authors: [{ name: "Chronic Pain Recovery" }],
+    authors: [{ name: authorProfile.name, url: authorProfile.url }],
     icons: {
         icon: "/favicon.ico",
     },
