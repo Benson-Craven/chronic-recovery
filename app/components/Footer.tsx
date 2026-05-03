@@ -5,7 +5,20 @@ import { FaFacebook, FaWhatsapp } from "react-icons/fa"
 
 const SITE_LINKS = [
     { name: "Treatment Options", url: "/#treatment" },
+    {
+        name: "Pain Reprocessing Therapy",
+        url: "/treatments/pain-reprocessing-therapy",
+    },
     { name: "Pain Types", url: "/conditions" },
+    { name: "Long Covid", url: "/conditions/long-covid" },
+    {
+        name: "Chronic Pain Cork",
+        url: "/locations/chronic-pain-management-cork",
+    },
+    {
+        name: "Online Support Ireland",
+        url: "/locations/chronic-pain-management-ireland-online",
+    },
     { name: "Resources", url: "/resources" },
     { name: "Journal", url: "/blog" },
     { name: "About Me", url: "/info" },

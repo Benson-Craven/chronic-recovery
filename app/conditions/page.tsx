@@ -3,6 +3,8 @@
 import Link from "next/link"
 import React from "react"
 import { motion } from "framer-motion"
+import Breadcrumbs from "../components/Breadcrumbs"
+import { BreadcrumbJsonLd } from "../lib/seo"
 
 const treatable = [
     "Fibromyalgia",
@@ -50,8 +52,18 @@ const fadeInVariants = {
 }
 
 const ConditionsPage = () => {
+    const breadcrumbs = [
+        { name: "Home", path: "/" },
+        { name: "Conditions", path: "/conditions" },
+    ]
+
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+            <BreadcrumbJsonLd
+                id="conditions-breadcrumb-schema"
+                items={breadcrumbs}
+            />
+            <Breadcrumbs items={breadcrumbs} />
             {/* Hero — green */}
             <section
                 style={{ backgroundColor: "#1E3A20" }}

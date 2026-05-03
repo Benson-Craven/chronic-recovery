@@ -26,6 +26,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/conditions/long-covid`,
+            lastModified: staticLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/treatments/pain-reprocessing-therapy`,
+            lastModified: staticLastModified,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/locations/chronic-pain-management-cork`,
+            lastModified: staticLastModified,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/locations/chronic-pain-management-ireland-online`,
+            lastModified: staticLastModified,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
             url: `${baseUrl}/info`,
             lastModified: staticLastModified,
             changeFrequency: "monthly",

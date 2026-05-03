@@ -55,6 +55,42 @@ module.exports = {
             }
         }
 
+        if (path === "/conditions/long-covid") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.75,
+                lastmod: staticLastModified,
+            }
+        }
+
+        if (path === "/treatments/pain-reprocessing-therapy") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.85,
+                lastmod: staticLastModified,
+            }
+        }
+
+        if (path === "/locations/chronic-pain-management-cork") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.85,
+                lastmod: staticLastModified,
+            }
+        }
+
+        if (path === "/locations/chronic-pain-management-ireland-online") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.8,
+                lastmod: staticLastModified,
+            }
+        }
+
         if (path === "/blog") {
             return {
                 loc: path,
