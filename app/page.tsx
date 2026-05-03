@@ -11,6 +11,7 @@ import SVGTest from "./components/sections/SVGTest"
 import SVGPathScienceSection from "./components/sections/SVGPathScienceSection"
 import Approach from "./components/sections/Approach"
 import CallToActionSection from "./components/CallToActionSection"
+import CredentialsSection from "./components/sections/CredentialsSection"
 
 const homepageFaqSchema = {
     "@context": "https://schema.org",
@@ -87,6 +88,7 @@ export default function Home() {
                     <MindBodySection />
                     <WeDoSection />
                     <IllnessSection />
+                    <CredentialsSection />
 
                     {/* <ScienceSection /> */}
                     <Approach />

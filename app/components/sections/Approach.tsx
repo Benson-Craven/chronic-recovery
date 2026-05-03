@@ -22,8 +22,8 @@ const Approach = () => {
 
                 <FadeInOnScroll threshold={0.5}>
                     <Text className="mx-auto mb-12 max-w-md">
-                        The treatment I provide will help you cure your chronic
-                        pain — not just cope with it.
+                        The treatment I provide can support chronic pain
+                        recovery — not just coping with symptoms.
                     </Text>
                 </FadeInOnScroll>
 

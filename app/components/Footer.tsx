@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { FaFacebook, FaWhatsapp } from "react-icons/fa"
+import { FaCertificate, FaFacebook, FaWhatsapp } from "react-icons/fa"
+import { authorProfile } from "../lib/seo"
 
 const SITE_LINKS = [
     { name: "Treatment Options", url: "/#treatment" },
@@ -170,6 +171,33 @@ const Footer = () => {
                                         +353 (0) 87-102-5108
                                     </span>
                                 </a>
+                            </li>
+                            <li>
+                                <Link
+                                    href={authorProfile.atnsUrl}
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                >
+                                    <FaCertificate
+                                        className="shrink-0"
+                                        style={{
+                                            color: "rgba(200,230,201,0.5)",
+                                            width: 16,
+                                            height: 16,
+                                        }}
+                                    />
+                                    <span
+                                        className="text-sm"
+                                        style={{
+                                            color: "rgba(200,230,201,0.65)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        ATNS directory profile
+                                    </span>
+                                </Link>
                             </li>
                         </ul>
 

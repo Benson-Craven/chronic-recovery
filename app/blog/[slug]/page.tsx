@@ -81,6 +81,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
             url: absoluteUrl(authorProfile.url),
             image: absoluteUrl(authorProfile.image),
             jobTitle: authorProfile.role,
+            sameAs: [authorProfile.atnsUrl],
+            knowsAbout: [
+                "Pain neuroscience education",
+                "Pain Reprocessing Therapy",
+                "Neuroplastic symptoms",
+                "Biopsychosocial chronic pain support",
+            ],
             worksFor: {
                 "@type": "Organization",
                 name: siteName,
@@ -312,6 +319,16 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                     }}
                                 >
                                     {authorProfile.bio}
+                                </p>
+                                <p
+                                    className="mb-4 text-base leading-relaxed"
+                                    style={{
+                                        color: "rgba(30,58,32,0.68)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    {authorProfile.credentials}
                                 </p>
                                 <p
                                     className="mb-5 text-base leading-relaxed"

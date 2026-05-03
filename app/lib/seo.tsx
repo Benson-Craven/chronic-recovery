@@ -11,7 +11,11 @@ export const authorProfile = {
     url: "/info",
     image: "/images/marsha-new.jpg",
     location: "Rochestown, Cork, Ireland",
-    bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. Her work draws on pain neuroscience education, Pain Reprocessing Therapy, and a biopsychosocial approach to support people with persistent pain when serious medical causes have been assessed.",
+    atnsUrl:
+        "https://www.symptomatic.me/practitioner-directory#!biz/id/6931943a34afb87d36038b44",
+    credentials:
+        "Listed in the ATNS Practitioner & Coach Directory and trained in pain neuroscience, Pain Reprocessing Therapy, and Dr. Howard Schubiner's mind-body methods.",
+    bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. Her work draws on pain neuroscience education, Pain Reprocessing Therapy, Dr. Howard Schubiner's mind-body methods, and a biopsychosocial approach to support people with persistent pain when serious medical causes have been assessed.",
     personalExperience:
         "Marsha also brings lived experience of recovering from long-term migraines and neck pain, which informs her compassionate, practical approach to chronic pain recovery work.",
 }
@@ -164,8 +168,25 @@ export const localBusinessSchema = {
         longitude: -8.4047,
     },
     openingHours: "Mo-Fr 09:00-18:00",
-    sameAs: ["https://www.facebook.com/chronicpainrecoveryireland"],
+    sameAs: [
+        "https://www.facebook.com/chronicpainrecoveryireland",
+        authorProfile.atnsUrl,
+    ],
     medicalSpecialty: "Pain Management",
+    founder: {
+        "@type": "Person",
+        name: authorProfile.name,
+        jobTitle: authorProfile.role,
+        image: absoluteUrl(authorProfile.image),
+        url: absoluteUrl(authorProfile.url),
+        sameAs: [authorProfile.atnsUrl],
+        knowsAbout: [
+            "Pain neuroscience education",
+            "Pain Reprocessing Therapy",
+            "Neuroplastic symptoms",
+            "Biopsychosocial chronic pain support",
+        ],
+    },
     areaServed: [
         {
             "@type": "AdministrativeArea",

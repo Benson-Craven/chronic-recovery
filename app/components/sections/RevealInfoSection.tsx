@@ -9,6 +9,13 @@ import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow, ItalicQuote } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
 import { NumberRow } from "../ui/NumberRow"
+import { authorProfile } from "@/app/lib/seo"
+
+const trainingItems = [
+    "Listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
+    "Specialised training in Pain Reprocessing Therapy and Dr. Howard Schubiner's mind-body methods.",
+    "Ongoing study in pain neuroscience education, neuroplastic symptoms, and biopsychosocial chronic pain support.",
+]
 
 const AboutPage = () => {
     const container = useRef(null)
@@ -112,9 +119,9 @@ const AboutPage = () => {
                             <Text className="mb-8">
                                 I am a chronic pain therapist based in
                                 Rochestown, Cork, Ireland. I use a
-                                multi-disciplinary approach to help you cure
-                                your chronic pain, not manage it. I specialise
-                                in helping people with{" "}
+                                multi-disciplinary approach to support chronic
+                                pain recovery, not just pain management. I
+                                specialise in helping people with{" "}
                                 <Link
                                     href="/#illness"
                                     className="underline underline-offset-2 transition-opacity hover:opacity-70"
@@ -125,7 +132,7 @@ const AboutPage = () => {
                                 and see fantastic results across all ages and
                                 ailments.
                                 <br />
-                                <br />I completely cured myself of chronic
+                                <br />I recovered from chronic
                                 migraines and neck pain that I suffered for over
                                 10 years. I will work with your body, nervous
                                 system and brain to get you back to good health.
@@ -220,7 +227,7 @@ const AboutPage = () => {
                         practitioners working with chronic pain, I've walked a
                         path that's led me to understand something profound
                         about how pain actually works — and more importantly,
-                        how it can be reversed.
+                        how recovery may be possible.
                     </NumberRow>
                     <NumberRow number={2} variant="green" index={1}>
                         My work centres on the biopsychosocial approach to
@@ -231,6 +238,44 @@ const AboutPage = () => {
                         helped thousands recover from conditions conventional
                         medicine often labels as incurable.
                     </NumberRow>
+                    <NumberRow number={3} variant="green" index={2}>
+                        I am listed in the Association for the Treatment of
+                        Neuroplastic Symptoms (ATNS) Practitioner & Coach
+                        Directory, which helps people find practitioners and
+                        coaches working with neuroplastic symptoms.
+                    </NumberRow>
+                </Container>
+            </Section>
+
+            {/* Credentials — cream */}
+            <Section variant="cream" id="credentials-training">
+                <Container>
+                    <Eyebrow>Credentials & training</Eyebrow>
+                    <Heading className="mb-14">
+                        Training that supports
+                        <br />
+                        <em>safe, evidence-informed care.</em>
+                    </Heading>
+                    <Divider className="mb-0" />
+
+                    {trainingItems.map((item, index) => (
+                        <NumberRow key={item} number={index + 1}>
+                            {item}
+                        </NumberRow>
+                    ))}
+
+                    <Link
+                        href={authorProfile.atnsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-12 inline-flex text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-65"
+                        style={{
+                            color: "#1E3A20",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        View Marsha's ATNS directory profile
+                    </Link>
                 </Container>
             </Section>
 
@@ -279,8 +324,8 @@ const AboutPage = () => {
                         {
                             number: "02",
                             heading:
-                                "I don't manage pain — I help you reverse it",
-                            body: "Most practitioners give you tools to cope. My approach works at the level of the nervous system to retrain those misfiring pain signals, giving your brain a new pattern to follow — one that isn't pain.",
+                                "I don't only manage pain — I support recovery",
+                            body: "Many approaches focus mainly on coping tools. My approach works at the level of the nervous system to retrain learned danger signals, giving your brain a new pattern to practise.",
                         },
                     ].map((item, index) => (
                         <motion.div
