@@ -129,16 +129,20 @@ export default function OnlineIrelandPage() {
                 }}
                 relatedLinks={[
                     {
+                        href: "/locations/chronic-pain-management-dublin-online",
+                        label: "Online support for Dublin clients",
+                    },
+                    {
+                        href: "/treatments/pain-rehabilitation",
+                        label: "Pain rehabilitation Ireland",
+                    },
+                    {
+                        href: "/treatments/pain-reprocessing-therapy",
+                        label: "Pain Reprocessing Therapy Ireland",
+                    },
+                    {
                         href: "/locations/chronic-pain-management-cork",
                         label: "Chronic pain management Cork",
-                    },
-                    {
-                        href: "/science",
-                        label: "The science of chronic pain",
-                    },
-                    {
-                        href: "/contact",
-                        label: "Book an online consultation",
                     },
                 ]}
             />

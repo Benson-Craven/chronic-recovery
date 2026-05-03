@@ -129,12 +129,16 @@ export default function ChronicPainManagementCorkPage() {
                 }}
                 relatedLinks={[
                     {
+                        href: "/treatments/pain-rehabilitation",
+                        label: "Pain rehabilitation Ireland",
+                    },
+                    {
                         href: "/treatments/pain-reprocessing-therapy",
                         label: "Pain Reprocessing Therapy",
                     },
                     {
-                        href: "/conditions",
-                        label: "Conditions that may benefit",
+                        href: "/locations/chronic-pain-management-ireland-online",
+                        label: "Online support across Ireland",
                     },
                     {
                         href: "/self-assessment",

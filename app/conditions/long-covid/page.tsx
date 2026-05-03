@@ -127,16 +127,16 @@ export default function LongCovidPage() {
                 }}
                 relatedLinks={[
                     {
+                        href: "/treatments/pain-rehabilitation",
+                        label: "Pain rehabilitation Ireland",
+                    },
+                    {
+                        href: "/treatments/pain-reprocessing-therapy",
+                        label: "Pain Reprocessing Therapy",
+                    },
+                    {
                         href: "/science",
                         label: "How neuroplastic pain works",
-                    },
-                    {
-                        href: "/locations/chronic-pain-management-ireland-online",
-                        label: "Online support across Ireland",
-                    },
-                    {
-                        href: "/conditions",
-                        label: "Other conditions we support",
                     },
                 ]}
             />

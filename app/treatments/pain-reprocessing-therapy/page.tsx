@@ -129,12 +129,16 @@ export default function PainReprocessingTherapyPage() {
                 }}
                 relatedLinks={[
                     {
+                        href: "/treatments/pain-rehabilitation",
+                        label: "Pain rehabilitation Ireland",
+                    },
+                    {
                         href: "/science",
                         label: "The science of chronic pain",
                     },
                     {
-                        href: "/research",
-                        label: "Research and evidence",
+                        href: "/blog/pain-reprocessing-therapy-ireland",
+                        label: "Pain Reprocessing Therapy in Ireland",
                     },
                     {
                         href: "/blog/why-pain-persists-after-healing",

@@ -73,6 +73,15 @@ module.exports = {
             }
         }
 
+        if (path === "/treatments/pain-rehabilitation") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.85,
+                lastmod: staticLastModified,
+            }
+        }
+
         if (path === "/locations/chronic-pain-management-cork") {
             return {
                 loc: path,
@@ -87,6 +96,15 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.8,
+                lastmod: staticLastModified,
+            }
+        }
+
+        if (path === "/locations/chronic-pain-management-dublin-online") {
+            return {
+                loc: path,
+                changefreq: "monthly",
+                priority: 0.75,
                 lastmod: staticLastModified,
             }
         }

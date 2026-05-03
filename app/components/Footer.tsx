@@ -9,6 +9,10 @@ const SITE_LINKS = [
         name: "Pain Reprocessing Therapy",
         url: "/treatments/pain-reprocessing-therapy",
     },
+    {
+        name: "Pain Rehabilitation",
+        url: "/treatments/pain-rehabilitation",
+    },
     { name: "Pain Types", url: "/conditions" },
     { name: "Long Covid", url: "/conditions/long-covid" },
     {
@@ -18,6 +22,10 @@ const SITE_LINKS = [
     {
         name: "Online Support Ireland",
         url: "/locations/chronic-pain-management-ireland-online",
+    },
+    {
+        name: "Online Support Dublin",
+        url: "/locations/chronic-pain-management-dublin-online",
     },
     { name: "Resources", url: "/resources" },
     { name: "Journal", url: "/blog" },

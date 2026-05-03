@@ -21,11 +21,21 @@ const NAV_LINKS: NavLink[] = [
             { href: "/science", label: "The Science", number: "01" },
             { href: "/research", label: "Research Studies", number: "02" },
             { href: "/resources", label: "Useful Links", number: "03" },
-            { href: "/conditions", label: "Conditions", number: "04" },
+            {
+                href: "/treatments/pain-reprocessing-therapy",
+                label: "Pain Reprocessing Therapy",
+                number: "04",
+            },
+            {
+                href: "/treatments/pain-rehabilitation",
+                label: "Pain Rehabilitation",
+                number: "05",
+            },
+            { href: "/conditions", label: "Conditions", number: "06" },
             {
                 href: "/self-assessment",
                 label: "Self-Assessment",
-                number: "05",
+                number: "07",
             },
         ],
     },
