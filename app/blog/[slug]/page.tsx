@@ -1,4 +1,9 @@
-import { getPostData, getAllPostIds } from "../../lib/posts"
+import {
+    formatBlogDate,
+    getAllPostIds,
+    getPostData,
+    parseBlogDate,
+} from "../../lib/posts"
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -16,12 +21,6 @@ import {
 export async function generateStaticParams() {
     const paths = getAllPostIds()
     return paths
-}
-
-function parsePostDate(date: string) {
-    const [day, month, year] = date.split("-")
-    if (!day || !month || !year) return date
-    return `${year}-${month}-${day}`
 }
 
 export async function generateMetadata({
@@ -59,7 +58,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
     }
 
     const articleUrl = absoluteUrl(`/blog/${params.slug}`)
-    const publishedDate = parsePostDate(postData.date)
+    const publishedDate = parseBlogDate(postData.date)
+    const displayDate = formatBlogDate(postData.date)
     const breadcrumbs = [
         { name: "Home", path: "/" },
         { name: "Journal", path: "/blog" },
@@ -67,12 +67,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
     ]
     const articleSchema = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
         headline: postData.title,
         description: postData.excerpt,
         image: postData.coverImage ? absoluteUrl(postData.coverImage) : undefined,
         datePublished: publishedDate,
-        dateModified: publishedDate,
+        dateModified: postData.modifiedDate || publishedDate,
+        inLanguage: "en-IE",
         author: {
             "@type": "Organization",
             name: siteName,
@@ -87,7 +88,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 url: absoluteUrl("/logos/Mending_Mindets.png"),
             },
         },
-        mainEntityOfPage: articleUrl,
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": articleUrl,
+        },
     }
 
     return (
@@ -134,15 +138,16 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         Journal
                     </Link>
 
-                    <p
+                    <time
+                        dateTime={publishedDate}
                         className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-40"
                         style={{
                             color: "#C8E6C9",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
-                        {postData.date}
-                    </p>
+                        {displayDate}
+                    </time>
 
                     <h1
                         className="mb-8 text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"

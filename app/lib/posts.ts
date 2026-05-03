@@ -14,6 +14,27 @@ export type PostData = {
     coverImage: string
 }
 
+export function parseBlogDate(date: string) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date
+
+    const [day, month, year] = date.split("-")
+    if (!day || !month || !year) return date
+
+    return `${year}-${month}-${day}`
+}
+
+export function formatBlogDate(date: string) {
+    const parsedDate = new Date(`${parseBlogDate(date)}T00:00:00.000Z`)
+
+    if (Number.isNaN(parsedDate.getTime())) return date
+
+    return new Intl.DateTimeFormat("en-IE", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    }).format(parsedDate)
+}
+
 export function getSortedPostsData() {
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map((fileName) => {
@@ -21,17 +42,19 @@ export function getSortedPostsData() {
 
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, "utf8")
+        const fileStats = fs.statSync(fullPath)
 
         const matterResult = matter(fileContents)
 
         return {
             id,
+            modifiedDate: fileStats.mtime.toISOString(),
             ...(matterResult.data as Omit<PostData, "id">),
         }
     })
 
     return allPostsData.sort((a, b) => {
-        if (a.date < b.date) {
+        if (parseBlogDate(a.date) < parseBlogDate(b.date)) {
             return 1
         }
         return -1
@@ -48,6 +71,7 @@ export function getAllPostIds() {
 export async function getPostData(id: string) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, "utf8")
+    const fileStats = fs.statSync(fullPath)
 
     const matterResult = matter(fileContents)
 
@@ -57,6 +81,7 @@ export async function getPostData(id: string) {
     return {
         id,
         contentHtml,
+        modifiedDate: fileStats.mtime.toISOString(),
         ...(matterResult.data as Omit<PostData, "id">),
     }
 }

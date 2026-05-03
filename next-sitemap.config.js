@@ -1,4 +1,18 @@
 /** @type {import('next-sitemap').IConfig} */
+const fs = require("fs")
+const path = require("path")
+
+const staticLastModified = "2026-04-30T00:00:00.000Z"
+
+function getPostLastModified(routePath) {
+    const slug = routePath.replace("/blog/", "")
+    const postPath = path.join(process.cwd(), "content/blog", `${slug}.md`)
+
+    if (!fs.existsSync(postPath)) return staticLastModified
+
+    return fs.statSync(postPath).mtime.toISOString()
+}
+
 module.exports = {
     siteUrl: "https://chronicpainrecovery.ie",
     generateRobotsTxt: true,
@@ -17,7 +31,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 1.0,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -27,7 +41,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.8,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -37,7 +51,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.8,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -46,7 +60,7 @@ module.exports = {
                 loc: path,
                 changefreq: "weekly",
                 priority: 0.9,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -55,7 +69,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.7,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -64,7 +78,7 @@ module.exports = {
                 loc: path,
                 changefreq: "yearly",
                 priority: 0.5,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -74,7 +88,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.6,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -90,7 +104,7 @@ module.exports = {
                 loc: path,
                 changefreq: "yearly",
                 priority: 0.2,
-                lastmod: new Date().toISOString(),
+                lastmod: staticLastModified,
             }
         }
 
@@ -99,7 +113,7 @@ module.exports = {
                 loc: path,
                 changefreq: "monthly",
                 priority: 0.7,
-                lastmod: new Date().toISOString(),
+                lastmod: getPostLastModified(path),
             }
         }
 
@@ -108,7 +122,7 @@ module.exports = {
             loc: path,
             changefreq: "monthly",
             priority: 0.5,
-            lastmod: new Date().toISOString(),
+            lastmod: staticLastModified,
         }
     },
 

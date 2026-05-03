@@ -1,11 +1,9 @@
 ---
 title: "Chronic Pain Management Cork: Your Path to Recovery"
-date: "15-01-2026"
+date: "2026-01-15"
 excerpt: "Living with chronic pain in Cork doesn't mean accepting a life of limitations. Over 20% of Irish adults experience chronic pain, and evidence-informed support may help when serious medical causes have been assessed."
 coverImage: "/images/cork.avif"
 ---
-
-# Chronic Pain Management Cork: Your Path to Recovery
 
 Living with chronic pain in Cork doesn't mean accepting a life of limitations. Over 20% of Irish adults experience chronic pain, and evidence-informed support may help when serious medical causes have been assessed.
 

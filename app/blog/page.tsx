@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getSortedPostsData } from "../lib/posts"
+import { formatBlogDate, getSortedPostsData, parseBlogDate } from "../lib/posts"
 import Image from "next/image"
 import { BreadcrumbJsonLd } from "../lib/seo"
 import Breadcrumbs from "../components/Breadcrumbs"
@@ -133,7 +133,8 @@ export default function Blog() {
                                                 {title}
                                             </h2>
 
-                                            <p
+                                            <time
+                                                dateTime={parseBlogDate(date)}
                                                 className="text-xs uppercase tracking-[0.15em] opacity-35"
                                                 style={{
                                                     color: "#1E3A20",
@@ -142,8 +143,8 @@ export default function Blog() {
                                                     fontWeight: 300,
                                                 }}
                                             >
-                                                {date}
-                                            </p>
+                                                {formatBlogDate(date)}
+                                            </time>
 
                                             <p
                                                 className="mt-1 text-sm leading-relaxed"
