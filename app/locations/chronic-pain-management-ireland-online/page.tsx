@@ -114,7 +114,7 @@ export default function OnlineIrelandPage() {
                         },
                         {
                             title: "Build a recovery plan",
-                            body: "Your plan may include education, nervous system practices, pacing, movement confidence, and emotional processing.",
+                            body: "Your plan may include education, nervous system practices, movement confidence, and emotional processing.",
                         },
                         {
                             title: "Work from your own environment",
@@ -131,10 +131,6 @@ export default function OnlineIrelandPage() {
                     {
                         href: "/locations/chronic-pain-management-dublin-online",
                         label: "Online support for Dublin clients",
-                    },
-                    {
-                        href: "/treatments/pain-rehabilitation",
-                        label: "Pain rehabilitation Ireland",
                     },
                     {
                         href: "/treatments/pain-reprocessing-therapy",

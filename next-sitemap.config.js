@@ -73,15 +73,6 @@ module.exports = {
             }
         }
 
-        if (path === "/treatments/pain-rehabilitation") {
-            return {
-                loc: path,
-                changefreq: "monthly",
-                priority: 0.85,
-                lastmod: staticLastModified,
-            }
-        }
-
         if (path === "/locations/chronic-pain-management-cork") {
             return {
                 loc: path,

@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
     title: "Online Chronic Pain Management Dublin | Chronic Pain Recovery",
     description:
-        "Online chronic pain support for people in Dublin exploring neuroplastic pain, pain rehabilitation, and Pain Reprocessing Therapy.",
+        "Online chronic pain support for people in Dublin exploring neuroplastic pain and Pain Reprocessing Therapy.",
     path: "/locations/chronic-pain-management-dublin-online",
 })
 
@@ -38,7 +38,7 @@ export default function OnlineDublinPage() {
                     },
                     {
                         question: "Can Dublin clients work with you online?",
-                        answer: "Yes. People in Dublin can access online support for persistent pain, neuroplastic pain patterns, pain rehabilitation, and Pain Reprocessing Therapy when medically appropriate.",
+                        answer: "Yes. People in Dublin can access online support for persistent pain, neuroplastic pain patterns, and Pain Reprocessing Therapy when medically appropriate.",
                     },
                     {
                         question: "Is online chronic pain support medical treatment?",
@@ -58,7 +58,7 @@ export default function OnlineDublinPage() {
                         </>
                     ),
                     intro:
-                        "Online chronic pain management for people in Dublin who want evidence-informed support for persistent pain, neuroplastic symptoms, and pain rehabilitation.",
+                        "Online chronic pain management for people in Dublin who want evidence-informed support for persistent pain and neuroplastic symptoms.",
                 }}
                 sections={[
                     {
@@ -87,13 +87,13 @@ export default function OnlineDublinPage() {
                     },
                     {
                         eyebrow: "Treatment options",
-                        heading: "Pain rehabilitation and PRT online",
+                        heading: "Brain-body support and PRT online",
                         image: {
                             src: "/images/study.webp",
-                            alt: "Study materials for online pain rehabilitation",
+                            alt: "Study materials for online chronic pain support",
                         },
                         body: [
-                            "Sessions may draw from pain rehabilitation, pain neuroscience education, pacing, nervous system regulation, emotional awareness, somatic tracking, and Pain Reprocessing Therapy.",
+                            "Sessions may draw from pain neuroscience education, nervous system regulation, emotional awareness, somatic tracking, and Pain Reprocessing Therapy.",
                             "The aim is to help you reduce fear, rebuild trust in your body, and take small steps back toward the parts of life pain has interrupted.",
                         ],
                     },
@@ -114,7 +114,7 @@ export default function OnlineDublinPage() {
                         },
                         {
                             title: "Practise safety cues",
-                            body: "Use somatic tracking, pacing, and nervous system regulation to help the body experience more safety.",
+                            body: "Use somatic tracking and nervous system regulation to help the body experience more safety.",
                         },
                         {
                             title: "Build a next-step plan",
@@ -128,10 +128,6 @@ export default function OnlineDublinPage() {
                         "Please seek medical assessment for new, severe, changing, or unexplained symptoms. Online chronic pain support does not replace diagnosis, emergency care, medication advice, or treatment from your healthcare team.",
                 }}
                 relatedLinks={[
-                    {
-                        href: "/treatments/pain-rehabilitation",
-                        label: "Pain rehabilitation Ireland",
-                    },
                     {
                         href: "/treatments/pain-reprocessing-therapy",
                         label: "Pain Reprocessing Therapy Ireland",

@@ -10,10 +10,6 @@ const SITE_LINKS = [
         name: "Pain Reprocessing Therapy",
         url: "/treatments/pain-reprocessing-therapy",
     },
-    {
-        name: "Pain Rehabilitation",
-        url: "/treatments/pain-rehabilitation",
-    },
     { name: "Pain Types", url: "/conditions" },
     { name: "Long Covid", url: "/conditions/long-covid" },
     {

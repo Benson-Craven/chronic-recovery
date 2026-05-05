@@ -72,7 +72,7 @@ export default function LongCovidPage() {
                         ],
                     },
                     {
-                        eyebrow: "Careful pacing",
+                        eyebrow: "Careful support",
                         heading: "Support without pushing through",
                         image: {
                             src: "/images/forest.avif",
@@ -126,10 +126,6 @@ export default function LongCovidPage() {
                         "Please seek medical assessment for ongoing symptoms after covid, especially breathing, chest pain, fainting, neurological changes, fever, or worsening symptoms. This page is educational and does not replace diagnosis or treatment from a medical professional.",
                 }}
                 relatedLinks={[
-                    {
-                        href: "/treatments/pain-rehabilitation",
-                        label: "Pain rehabilitation Ireland",
-                    },
                     {
                         href: "/treatments/pain-reprocessing-therapy",
                         label: "Pain Reprocessing Therapy",

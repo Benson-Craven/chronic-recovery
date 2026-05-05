@@ -56,11 +56,11 @@ Online PRT-related support may be helpful if you live outside Cork, are based in
 
 The important thing is not where the session happens. It is whether the approach is suitable for your symptoms and medical context.
 
-## PRT and Pain Rehabilitation
+## PRT and Wider Recovery Work
 
-PRT often sits within a wider [pain rehabilitation](/treatments/pain-rehabilitation) plan. Some people need education and reassurance first. Others need pacing, nervous system regulation, emotional awareness, movement confidence, or support returning to daily life.
+PRT often sits within wider recovery work. Some people need education and reassurance first. Others need nervous system regulation, emotional awareness, movement confidence, or support returning to daily life.
 
-Pain rehabilitation asks how the whole person can recover function, confidence, and safety, rather than only asking how to manage symptoms.
+The wider question is how the whole person can recover function, confidence, and safety, rather than only asking how to manage symptoms.
 
 For neuroplastic pain, PRT can be a useful part of that process.
 

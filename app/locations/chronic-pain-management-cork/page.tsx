@@ -38,7 +38,7 @@ export default function ChronicPainManagementCorkPage() {
                     },
                     {
                         question: "Is this a replacement for my doctor or physiotherapist?",
-                        answer: "No. This work does not replace medical diagnosis, urgent care, or appropriate physical rehabilitation. It can complement medical care when disease, infection, acute injury, or surgical causes have been considered.",
+                        answer: "No. This work does not replace medical diagnosis, urgent care, or appropriate physiotherapy. It can complement medical care when disease, infection, acute injury, or surgical causes have been considered.",
                     },
                     {
                         question: "Can I work with you if I live outside Cork city?",
@@ -94,7 +94,7 @@ export default function ChronicPainManagementCorkPage() {
                         },
                         body: [
                             "Sessions begin with your story: what happened, what you have been told, what you fear, and what your symptoms are stopping you from doing. From there, the aim is to understand whether your pain behaves like a protective nervous system pattern.",
-                            "The process may include pain neuroscience education, somatic tracking, reducing fear around symptoms, pacing, emotional processing, and small steps toward meaningful activity. The work is personalised rather than protocol-driven.",
+                            "The process may include pain neuroscience education, somatic tracking, reducing fear around symptoms, emotional processing, and small steps toward meaningful activity. The work is personalised rather than protocol-driven.",
                         ],
                     },
                 ]}
@@ -128,10 +128,6 @@ export default function ChronicPainManagementCorkPage() {
                         "Please consult your GP or relevant medical professional to assess structural abnormalities, disease, infection, acute injury, or urgent symptoms before beginning this approach. Chronic Pain Recovery does not provide medical diagnosis or emergency care.",
                 }}
                 relatedLinks={[
-                    {
-                        href: "/treatments/pain-rehabilitation",
-                        label: "Pain rehabilitation Ireland",
-                    },
                     {
                         href: "/treatments/pain-reprocessing-therapy",
                         label: "Pain Reprocessing Therapy",

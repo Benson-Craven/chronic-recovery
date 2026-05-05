@@ -52,7 +52,7 @@ Movement isn't dangerous—it's therapeutic. We start where you are and graduall
 The exercises are tailored to your current abilities. Whether you're struggling to walk to the shop or you're an athlete who can't return to sport, we meet you where you are.
 
 **Lifestyle and Psychological Support**  
-Living with chronic pain affects sleep, mood, stress levels, and relationships. Recovery means addressing these factors alongside physical rehabilitation. We teach practical pain recovery techniques including stress management, sleep hygiene, and pacing strategies.
+Living with chronic pain affects sleep, mood, stress levels, and relationships. Recovery means addressing these factors alongside movement, confidence, and daily capacity. We teach practical pain recovery techniques including stress management, sleep hygiene, and nervous system regulation.
 
 ## Why Choose Cork-Based Chronic Pain Treatment?
 
@@ -60,7 +60,7 @@ Having access to chronic pain management in Cork means you can receive evidence-
 
 -   **In-person consultations in Cork** for those who prefer face-to-face support
 -   **Online assessments and treatment** for flexibility and accessibility across Ireland, the US, and internationally
--   **Evidence-based approach** grounded in pain neuroscience and modern rehabilitation science
+-   **Evidence-based approach** grounded in pain neuroscience and modern recovery science
 -   **Personalised recovery plans** tailored to your specific pain condition and goals
 
 You don't need to be in Cork city to benefit from our services. We work with people throughout County Cork, from Bantry to Fermoy, Kinsale to Mallow, and everywhere in between.

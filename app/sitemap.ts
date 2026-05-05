@@ -38,12 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.85,
         },
         {
-            url: `${baseUrl}/treatments/pain-rehabilitation`,
-            lastModified: staticLastModified,
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
             url: `${baseUrl}/locations/chronic-pain-management-cork`,
             lastModified: staticLastModified,
             changeFrequency: "monthly",

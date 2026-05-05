@@ -23,13 +23,8 @@ const SCIENCE_LINKS = [
         label: "Pain Reprocessing Therapy",
         number: "04",
     },
-    {
-        href: "/treatments/pain-rehabilitation",
-        label: "Pain Rehabilitation",
-        number: "05",
-    },
-    { href: "/conditions", label: "Conditions", number: "06" },
-    { href: "/self-assessment", label: "Self-Assessment", number: "07" },
+    { href: "/conditions", label: "Conditions", number: "05" },
+    { href: "/self-assessment", label: "Self-Assessment", number: "06" },
 ]
 
 const NAV_LINKS = [
