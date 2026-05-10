@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { modalScale } from "@/app/lib/animations"
+import { trackContactFormSubmission } from "@/app/lib/analytics"
 
 const MAX_CHARS = 500
 
@@ -75,6 +76,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             form.reset()
             setMessageLength(0)
             setStatus("success")
+            trackContactFormSubmission("contact_modal")
 
             setTimeout(() => {
                 onClose()

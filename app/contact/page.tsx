@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { trackContactFormSubmission } from "@/app/lib/analytics"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -35,12 +36,15 @@ const ContactPage = () => {
                 },
             })
 
+            if (!res.ok) throw new Error("Failed to send")
+
             const json = await res.json()
             console.log(json)
 
             form.reset()
             setMessageLength(0)
             setIsFormSubmitted(true)
+            trackContactFormSubmission("contact_page")
         } catch (error) {
             console.log(error)
         }
