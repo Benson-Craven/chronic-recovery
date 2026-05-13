@@ -1,30 +1,73 @@
-import { NextRequest, NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail";
+import { NextRequest, NextResponse } from "next/server"
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email"
+const SENDER_EMAIL =
+    process.env.BREVO_SENDER_EMAIL ?? "noreply@chronicpainrecovery.ie"
+const SENDER_NAME = process.env.BREVO_SENDER_NAME ?? "Chronic Pain Recovery"
+
+function escapeHtml(value: unknown) {
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;")
+}
 
 export async function POST(req: NextRequest) {
-  try {
-    const { name, email, phone, message } = await req.json();
+    try {
+        const { name, email, phone, message } = await req.json()
 
-    const msg = {
-      to: process.env.EMAIL_TO!,
-      from: "noreply@chronicpainrecovery.ie", // This can be verified later
-      subject: `New enquiry from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-      `,
-    };
+        if (!process.env.BREVO_API_KEY || !process.env.EMAIL_TO) {
+            console.error("Brevo Error: missing BREVO_API_KEY or EMAIL_TO")
+            return NextResponse.json({ success: false }, { status: 500 })
+        }
 
-    await sgMail.send(msg);
+        const res = await fetch(BREVO_API_URL, {
+            method: "POST",
+            headers: {
+                accept: "application/json",
+                "api-key": process.env.BREVO_API_KEY,
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({
+                sender: {
+                    name: SENDER_NAME,
+                    email: SENDER_EMAIL,
+                },
+                to: [
+                    {
+                        email: process.env.EMAIL_TO,
+                        name: SENDER_NAME,
+                    },
+                ],
+                replyTo: {
+                    email,
+                    name,
+                },
+                subject: `New enquiry from ${name}`,
+                htmlContent: `
+                    <h2>New Contact Form Submission</h2>
+                    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+                    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+                    <p><strong>Phone:</strong> ${escapeHtml(phone || "Not provided")}</p>
+                    <p><strong>Message:</strong><br>${escapeHtml(message).replaceAll("\n", "<br>")}</p>
+                `,
+            }),
+        })
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("SendGrid Error:", error);
-    return NextResponse.json({ success: false }, { status: 500 });
-  }
+        if (!res.ok) {
+            const errorBody = await res.json().catch(() => null)
+            console.error("Brevo Error:", {
+                status: res.status,
+                body: errorBody,
+            })
+            return NextResponse.json({ success: false }, { status: 500 })
+        }
+
+        return NextResponse.json({ success: true })
+    } catch (error) {
+        console.error("Email Error:", error)
+        return NextResponse.json({ success: false }, { status: 500 })
+    }
 }

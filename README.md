@@ -9,7 +9,7 @@ Next.js website for Chronic Pain Recovery Ireland, focused on chronic pain recov
 -   Tailwind CSS
 -   Framer Motion and Lenis for motion and scrolling
 -   Markdown blog posts via `gray-matter`, `remark`, and `remark-html`
--   SendGrid for contact form email delivery
+-   Brevo for contact form email delivery
 -   `next-sitemap` for sitemap and robots.txt generation
 
 ## Getting Started
@@ -33,11 +33,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 Create a local `.env.local` file with the values needed by the contact form:
 
 ```bash
-SENDGRID_API_KEY=your_sendgrid_api_key
+BREVO_API_KEY=your_brevo_api_key
 EMAIL_TO=recipient@example.com
+# Optional, defaults shown:
+BREVO_SENDER_EMAIL=noreply@chronicpainrecovery.ie
+BREVO_SENDER_NAME="Chronic Pain Recovery"
 ```
 
-The API route sends enquiries from `noreply@chronicpainrecovery.ie`, so that sender domain or address must be verified in SendGrid before production email delivery will work reliably.
+The API route sends enquiries from `noreply@chronicpainrecovery.ie` by default, so that sender domain or address must be registered and authenticated in Brevo before production email delivery will work reliably.
 
 ## Available Scripts
 
@@ -70,7 +73,7 @@ Runs the Next.js lint command.
 -   `app/page.tsx` - homepage composition
 -   `app/layout.tsx` - shared layout, metadata, Google Analytics, and structured data
 -   `app/components/` - shared UI, navigation, footer, CTAs, and homepage sections
--   `app/api/sendEmail/route.ts` - SendGrid-backed contact form endpoint
+-   `app/api/sendEmail/route.ts` - Brevo-backed contact form endpoint
 -   `app/blog/` - blog index and dynamic blog post route
 -   `content/blog/` - markdown blog posts
 -   `public/images/`, `public/logos/`, `public/videos/`, `public/fonts/` - static assets
@@ -121,13 +124,13 @@ The contact page posts to `/api/sendEmail`, which expects:
 -   `phone`
 -   `message`
 
-The server route uses `SENDGRID_API_KEY` and `EMAIL_TO` from the environment. Keep secrets out of source control.
+The server route uses `BREVO_API_KEY` and `EMAIL_TO` from the environment. Keep secrets out of source control.
 
 ## Deployment
 
 The app can be deployed to any platform that supports Next.js. For production:
 
 1. Configure the required environment variables.
-2. Verify the SendGrid sender used by the contact API.
+2. Verify the Brevo sender/domain used by the contact API.
 3. Run `npm run build`.
 4. Serve with `npm run start` or deploy through the chosen hosting provider.
