@@ -26,6 +26,40 @@ All SEO copy, metadata, schema, page content, ads, and blog recommendations must
 -   Make clear that structural abnormalities, disease, infection, and acute injury should be assessed by a doctor before beginning this approach.
 -   It is acceptable to say people with structural or disease-related issues alongside chronic pain may still benefit from this treatment, matching the note on `/conditions`.
 
+### Preferred wording for condition pages and blog copy
+
+Use conservative, defensible wording across condition pages, blog posts, CTAs, metadata, schema, and internal links.
+
+Prefer:
+
+-   "Conditions this approach may support"
+-   "Conditions where this approach may be relevant"
+-   "Recovery may be possible for some people"
+-   "This approach may be worth exploring"
+-   "Persistent post-surgical pain after appropriate medical review"
+-   "Learned pain pathways may be retrained over time"
+
+Avoid:
+
+-   "Conditions we treat"
+-   "Treatable conditions"
+-   "Recovery is possible" as a standalone guarantee-style claim
+-   "This approach may be the answer"
+-   "Post-surgical pain that hasn't resolved" without medical review context
+-   "What's learned can be unlearned" when used as a broad clinical promise
+
+### Blog content rules
+
+Every blog post must follow the clinical claim guardrails above.
+
+-   Include a medical assessment caveat where relevant, especially for new, worsening, unexplained, severe, or changing symptoms.
+-   Use cautious language: "may help", "can support", "may be appropriate", "may benefit", and "recovery may be possible".
+-   Avoid cure, reversal, guaranteed recovery, permanent pain elimination, and "switching off pain signals" claims.
+-   Do not present Pain Reprocessing Therapy, pain neuroscience education, coaching, counselling, or brain-body work as a replacement for medical care.
+-   For fibromyalgia, CRPS, Long Covid, chronic fatigue, post-surgical pain, structural findings, and overlapping medical conditions, write educationally and cautiously.
+-   Prefer titles that match search intent without overstating clinical benefit.
+-   Frontmatter excerpts are metadata and must follow the same claim standard as visible page copy.
+
 ---
 
 ## Priority 1 — Critical (fix immediately)
@@ -60,7 +94,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 | ------------------ | --------------------------------------------------------------- |
 | `/`                | `Chronic Pain Treatment Cork \| Biopsychosocial Approach`       |
 | `/science`         | `The Science of Chronic Pain \| Pain Reprocessing Therapy Cork` |
-| `/conditions`      | `Conditions We Treat \| Chronic Pain Recovery Cork`             |
+| `/conditions`      | `Conditions We May Support \| Chronic Pain Recovery Cork`       |
 | `/info`            | `About \| Chronic Pain Recovery Cork`                           |
 | `/blog`            | `Journal \| Chronic Pain Recovery Insights`                     |
 | `/resources`       | `Chronic Pain Resources \| Chronic Pain Recovery Cork`          |
@@ -174,7 +208,7 @@ Apply the same pattern to every route, pointing to the preferred URL.
 
 **Problem:** No schema markup detected on any page. This is a significant missed opportunity for rich results and E-E-A-T signals on a YMYL health site.
 
-**Fix:** Add a `<Script>` block in the root layout for site-wide `LocalBusiness` schema, and add `Article` schema to blog post pages.
+**Fix:** Add a `<Script>` block in the root layout for site-wide business schema, and add `Article` schema to blog post pages.
 
 ```tsx
 // app/layout.tsx — add inside <head> or as a next/script with strategy="beforeInteractive"
@@ -182,11 +216,11 @@ import Script from 'next/script'
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
+  '@type': 'ProfessionalService',
   name: 'Chronic Pain Recovery',
   url: 'https://chronicpainrecovery.ie',
   telephone: '+353871025108',
-  description: 'Biopsychosocial chronic pain treatment in Cork, Ireland. Specialising in Pain Reprocessing Therapy.',
+  description: 'Biopsychosocial chronic pain support in Cork, Ireland. Pain Reprocessing Therapy may be appropriate for suitable people with neuroplastic pain.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Rochestown',
@@ -200,7 +234,7 @@ const localBusinessSchema = {
   },
   openingHours: 'Mo-Fr 09:00-18:00',
   sameAs: ['https://www.facebook.com/chronicpainrecoveryireland'],
-  medicalSpecialty: 'Pain Management',
+  serviceType: 'Chronic pain recovery support',
 }
 
 // In the layout JSX:
@@ -210,6 +244,8 @@ const localBusinessSchema = {
   dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
 />
 ```
+
+Use `MedicalBusiness` or a more specific healthcare schema type only if it accurately reflects the legal, clinical, and regulatory status of the service. Do not imply a regulated medical clinic if the service is not operating as one.
 
 ```tsx
 // app/blog/[slug]/page.tsx — Article schema per post
@@ -390,35 +426,27 @@ Each page should include: condition overview, how the biopsychosocial approach a
 
 ---
 
-### 3.3 Add testimonial / review markup
+### 3.3 Add testimonials cautiously
 
-**Problem:** No patient testimonials exist on the site. For a YMYL health service, E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signals are weighted heavily by Google.
+**Problem:** No patient testimonials exist on the site. For a YMYL health service, real experience signals can support trust when handled carefully.
 
 **Fix:**
 
--   Add a testimonials section to the homepage with 3–5 anonymised patient quotes.
--   Wrap in `Review` schema so Google can surface star ratings in search.
+-   Add a testimonials section only if the quotes are real, consented, accurate, and not misleading.
+-   Use anonymised quotes only when consent and privacy requirements are satisfied.
+-   Avoid cure claims, guaranteed recovery claims, or statements implying the approach replaces medical care.
+-   Do not add self-serving `Review` or `AggregateRating` schema unless current Google guidelines and the business's review collection process clearly support it.
+-   If testimonials are used, keep them on-page as trust content first; treat review schema as a separate compliance decision.
 
 ```tsx
-const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    name: "Chronic Pain Recovery",
-    aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "12",
+// Example on-page testimonial copy only. Do not use schema by default.
+const testimonials = [
+    {
+        name: "Anonymous client",
+        quote:
+            "This approach helped me understand my pain differently and gradually rebuild confidence with movement.",
     },
-    review: [
-        {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Sarah M." },
-            reviewRating: { "@type": "Rating", ratingValue: "5" },
-            reviewBody:
-                "After 3 years of chronic back pain, this approach gave me my life back. I had tried everything else.",
-        },
-    ],
-}
+]
 ```
 
 ---
@@ -449,6 +477,6 @@ const reviewSchema = {
 These cannot be done in the codebase but are required for SEO success:
 
 -   **Google Search Console:** Verify domain ownership, submit `sitemap.xml`, request indexing for all key pages.
--   **Google Business Profile:** Create and verify a GBP listing for the Cork clinic. Keep NAP (Name, Address, Phone) identical to what is in the `LocalBusiness` schema above.
+-   **Google Business Profile:** Create and verify a GBP listing for the Cork clinic if eligible. Keep NAP (Name, Address, Phone) identical to what is in the business schema above.
 -   **Link building:** Target a handful of quality Irish health/wellbeing directories and blogs for backlinks. Zero live backlinks is the single biggest bottleneck to ranking.
--   **Content calendar:** Publish a minimum of 2 blog posts per month. Priority topics based on keyword research: _"what is pain reprocessing therapy"_, _"fibromyalgia treatment ireland"_, _"can chronic pain improve"_, _"chronic fatigue treatment cork"_.
+-   **Content calendar:** Publish a minimum of 2 blog posts per month. Priority topics based on keyword research, rewritten through the clinical claim guardrails: _"what is pain reprocessing therapy"_, _"fibromyalgia support in Ireland"_, _"can chronic pain improve"_, _"chronic fatigue and chronic pain support in Cork"_.
