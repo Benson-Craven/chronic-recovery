@@ -443,8 +443,7 @@ Each page should include: condition overview, how the biopsychosocial approach a
 const testimonials = [
     {
         name: "Anonymous client",
-        quote:
-            "This approach helped me understand my pain differently and gradually rebuild confidence with movement.",
+        quote: "This approach helped me understand my pain differently and gradually rebuild confidence with movement.",
     },
 ]
 ```

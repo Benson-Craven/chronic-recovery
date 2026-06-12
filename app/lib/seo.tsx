@@ -12,7 +12,7 @@ export const authorProfile = {
     image: "/images/marsha-new.jpg",
     location: "Rochestown, Cork, Ireland",
     atnsUrl:
-        "https://www.symptomatic.me/practitioner-directory#!biz/id/6931943a34afb87d36038b44",
+        "https://www.symptomatic.me/practitioner-directory#!biz/id/6931943a34afb87d36038b44/About",
     credentials:
         "Listed in the ATNS Practitioner & Coach Directory and trained in pain neuroscience, Pain Reprocessing Therapy, and Dr. Howard Schubiner's mind-body methods.",
     bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. Her work draws on pain neuroscience education, Pain Reprocessing Therapy, Dr. Howard Schubiner's mind-body methods, and a biopsychosocial approach to support people with persistent pain when serious medical causes have been assessed.",

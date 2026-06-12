@@ -132,10 +132,10 @@ const AboutPage = () => {
                                 and see fantastic results across all ages and
                                 ailments.
                                 <br />
-                                <br />I recovered from chronic
-                                migraines and neck pain that I suffered for over
-                                10 years. I will work with your body, nervous
-                                system and brain to get you back to good health.
+                                <br />I recovered from chronic migraines and
+                                neck pain that I suffered for over 10 years. I
+                                will work with your body, nervous system and
+                                brain to get you back to good health.
                             </Text>
 
                             <div className="space-y-4">
@@ -162,6 +162,47 @@ const AboutPage = () => {
                                         +353 (0) 87-102-5108
                                     </a>
                                 </p>
+                                <Link
+                                    href={authorProfile.atnsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-6 flex max-w-md items-center gap-4 border-y py-5 transition-opacity hover:opacity-80"
+                                    style={{
+                                        borderColor: "rgba(30,58,32,0.12)",
+                                    }}
+                                >
+                                    <Image
+                                        src="/atns-logo.webp"
+                                        alt="Association for the Treatment of Neuroplastic Symptoms logo"
+                                        width={72}
+                                        height={72}
+                                        className="h-16 w-16 shrink-0 object-contain"
+                                    />
+                                    <span className="min-w-0">
+                                        <span
+                                            className="block text-xs font-medium uppercase tracking-[0.16em]"
+                                            style={{
+                                                color: "#1E3A20",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                            }}
+                                        >
+                                            View my verified ATNS profile
+                                        </span>
+                                        <span
+                                            className="mt-1 block text-sm leading-relaxed"
+                                            style={{
+                                                color: "rgba(30,58,32,0.55)",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            I am listed in the Practitioner &
+                                            Coach Directory.
+                                        </span>
+                                    </span>
+                                </Link>
                             </div>
                         </div>
                     </div>

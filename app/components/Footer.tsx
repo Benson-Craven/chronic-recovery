@@ -1,7 +1,8 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { FaCertificate, FaFacebook, FaWhatsapp } from "react-icons/fa"
+import { FaFacebook, FaWhatsapp } from "react-icons/fa"
 import { authorProfile } from "../lib/seo"
 
 const SITE_LINKS = [
@@ -175,13 +176,12 @@ const Footer = () => {
                                     rel="noreferrer noopener"
                                     className="flex items-center gap-3 transition-opacity hover:opacity-60"
                                 >
-                                    <FaCertificate
-                                        className="shrink-0"
-                                        style={{
-                                            color: "rgba(200,230,201,0.5)",
-                                            width: 16,
-                                            height: 16,
-                                        }}
+                                    <Image
+                                        src="/atns-logo.webp"
+                                        alt="Association for the Treatment of Neuroplastic Symptoms logo"
+                                        width={32}
+                                        height={32}
+                                        className="h-8 w-8 shrink-0 object-contain"
                                     />
                                     <span
                                         className="text-sm"
@@ -191,7 +191,7 @@ const Footer = () => {
                                             fontWeight: 300,
                                         }}
                                     >
-                                        ATNS directory profile
+                                        My ATNS profile
                                     </span>
                                 </Link>
                             </li>

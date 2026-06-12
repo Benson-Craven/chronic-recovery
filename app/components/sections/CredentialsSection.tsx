@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { authorProfile } from "@/app/lib/seo"
 import { Section, Container, Divider } from "../ui/Layout"
@@ -64,13 +65,40 @@ const CredentialsSection = () => {
                             href={authorProfile.atnsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-8 inline-flex text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-65"
+                            className="mt-8 flex max-w-xl items-center gap-4 border-b py-5 transition-opacity hover:opacity-80"
                             style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
+                                borderColor: "rgba(30,58,32,0.12)",
                             }}
                         >
-                            View Marsha's ATNS directory profile
+                            <Image
+                                src="/atns-logo.webp"
+                                alt="Association for the Treatment of Neuroplastic Symptoms logo"
+                                width={72}
+                                height={72}
+                                className="h-16 w-16 shrink-0 object-contain"
+                            />
+                            <span className="min-w-0">
+                                <span
+                                    className="block text-xs font-medium uppercase tracking-[0.16em]"
+                                    style={{
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
+                                >
+                                    View Marsha's verified ATNS profile
+                                </span>
+                                <span
+                                    className="mt-1 block text-sm leading-relaxed"
+                                    style={{
+                                        color: "rgba(30,58,32,0.55)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    Listed in the Practitioner & Coach
+                                    Directory.
+                                </span>
+                            </span>
                         </Link>
                     </div>
                 </div>
