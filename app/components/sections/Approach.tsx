@@ -1,38 +1,47 @@
 import React from "react"
 import { FadeInOnScroll } from "../animations/FadeInOnScroll"
-import { Section, Container, Divider } from "../ui/Layout"
+import { Section, Divider } from "../ui/Layout"
 import { Heading, Text } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
+import { EditorialSplit } from "../ui/EditorialSplit"
 
 const Approach = () => {
     return (
         <Section variant="cream">
-            <Container className="text-center">
-                <FadeInOnScroll threshold={0.5}>
-                    <Heading className="mb-8">
-                        This is not
-                        <br />
-                        <em>pain management.</em>
-                    </Heading>
-                </FadeInOnScroll>
+            <EditorialSplit
+                visual={{
+                    kind: "illustration",
+                    src: "/images/illustrations/mind-body-connection.png",
+                    alt: "",
+                }}
+            >
+                <div>
+                    <FadeInOnScroll threshold={0.5}>
+                        <Heading className="mb-8">
+                            This is not
+                            <br />
+                            <em>pain management.</em>
+                        </Heading>
+                    </FadeInOnScroll>
 
-                <FadeInOnScroll threshold={0.5}>
-                    <Divider className="mx-auto mb-10 w-16" />
-                </FadeInOnScroll>
+                    <FadeInOnScroll threshold={0.5}>
+                        <Divider className="mb-10 w-16" />
+                    </FadeInOnScroll>
 
-                <FadeInOnScroll threshold={0.5}>
-                    <Text className="mx-auto mb-12 max-w-md">
-                        The treatment I provide can support chronic pain
-                        recovery — not just coping with symptoms.
-                    </Text>
-                </FadeInOnScroll>
+                    <FadeInOnScroll threshold={0.5}>
+                        <Text className="mb-12 max-w-md">
+                            The treatment I provide can support chronic pain
+                            recovery — not just coping with symptoms.
+                        </Text>
+                    </FadeInOnScroll>
 
-                <FadeInOnScroll threshold={0.5}>
-                    <CtaButton href="/contact">
-                        Book Your Consultation
-                    </CtaButton>
-                </FadeInOnScroll>
-            </Container>
+                    <FadeInOnScroll threshold={0.5}>
+                        <CtaButton href="/contact">
+                            Book Your Consultation
+                        </CtaButton>
+                    </FadeInOnScroll>
+                </div>
+            </EditorialSplit>
         </Section>
     )
 }

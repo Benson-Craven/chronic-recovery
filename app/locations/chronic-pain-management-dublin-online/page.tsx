@@ -1,11 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import {
-    BreadcrumbJsonLd,
-    FAQJsonLd,
-    createPageMetadata,
-} from "@/app/lib/seo"
+import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Online Chronic Pain Management Dublin | Chronic Pain Recovery",
@@ -33,7 +29,8 @@ export default function OnlineDublinPage() {
                 id="online-dublin-faq-schema"
                 questions={[
                     {
-                        question: "Do you have a chronic pain clinic in Dublin?",
+                        question:
+                            "Do you have a chronic pain clinic in Dublin?",
                         answer: "Chronic Pain Recovery is based in Cork and offers online chronic pain support for people in Dublin. This page does not represent a physical Dublin clinic.",
                     },
                     {
@@ -41,7 +38,8 @@ export default function OnlineDublinPage() {
                         answer: "Yes. People in Dublin can access online support for persistent pain, neuroplastic pain patterns, and Pain Reprocessing Therapy when medically appropriate.",
                     },
                     {
-                        question: "Is online chronic pain support medical treatment?",
+                        question:
+                            "Is online chronic pain support medical treatment?",
                         answer: "No. Online support does not replace medical diagnosis, emergency care, or treatment from your GP, consultant, or physiotherapist.",
                     },
                 ]}
@@ -57,16 +55,16 @@ export default function OnlineDublinPage() {
                             <em>for Dublin clients online</em>
                         </>
                     ),
-                    intro:
-                        "Online chronic pain management for people in Dublin who want evidence-informed support for persistent pain and neuroplastic symptoms.",
+                    intro: "Online chronic pain management for people in Dublin who want evidence-informed support for persistent pain and neuroplastic symptoms.",
                 }}
                 sections={[
                     {
                         eyebrow: "Honest access",
                         heading: "Cork-based, available online in Dublin",
-                        image: {
-                            src: "/images/phone.avif",
-                            alt: "Online chronic pain support for Dublin clients",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/online-support.png",
+                            alt: "",
                         },
                         body: [
                             "Chronic Pain Recovery is not a physical Dublin clinic. Support is offered online for people in Dublin who are exploring whether persistent pain may involve a sensitised nervous system.",
@@ -76,9 +74,10 @@ export default function OnlineDublinPage() {
                     {
                         eyebrow: "Who it may suit",
                         heading: "For pain that has outlasted healing",
-                        image: {
-                            src: "/images/meeting1.avif",
-                            alt: "Online meeting for chronic pain support in Ireland",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/whole-person-health.png",
+                            alt: "",
                         },
                         body: [
                             "Online work may be appropriate when pain has lasted longer than expected, symptoms move or flare with stress, scans do not fully explain the pain, or you have overlapping symptoms such as IBS, migraine, fatigue, or widespread pain.",
@@ -88,9 +87,10 @@ export default function OnlineDublinPage() {
                     {
                         eyebrow: "Treatment options",
                         heading: "Brain-body support and PRT online",
-                        image: {
-                            src: "/images/study.webp",
-                            alt: "Study materials for online chronic pain support",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/pain-neuroscience.png",
+                            alt: "",
                         },
                         body: [
                             "Sessions may draw from pain neuroscience education, nervous system regulation, emotional awareness, somatic tracking, and Pain Reprocessing Therapy.",
@@ -101,8 +101,7 @@ export default function OnlineDublinPage() {
                 listSection={{
                     eyebrow: "Online session focus",
                     heading: "What Dublin clients can work on",
-                    intro:
-                        "Online support is practical, careful, and grounded in your medical context.",
+                    intro: "Online support is practical, careful, and grounded in your medical context.",
                     items: [
                         {
                             title: "Map the pain pattern",
@@ -124,8 +123,7 @@ export default function OnlineDublinPage() {
                 }}
                 safetyNote={{
                     heading: "Medical support remains important",
-                    body:
-                        "Please seek medical assessment for new, severe, changing, or unexplained symptoms. Online chronic pain support does not replace diagnosis, emergency care, medication advice, or treatment from your healthcare team.",
+                    body: "Please seek medical assessment for new, severe, changing, or unexplained symptoms. Online chronic pain support does not replace diagnosis, emergency care, medication advice, or treatment from your healthcare team.",
                 }}
                 relatedLinks={[
                     {

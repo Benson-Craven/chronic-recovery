@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { EditorialSplit } from "../components/ui/EditorialSplit"
 
 const questions = [
     "Has your doctor completed diagnostic testing without finding a definite cause for your pain or illness?",
@@ -153,44 +154,54 @@ export default function SelfAssessment() {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    {/* Progress indicator */}
-                    <div className="mb-14 flex items-center justify-between">
-                        <p
-                            className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
-                            {answeredCount} of {questions.length} answered
-                        </p>
-                        <p
-                            className="text-xs tabular-nums opacity-40"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            {progress}%
-                        </p>
-                    </div>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/self-compassion.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        {/* Progress indicator */}
+                        <div className="mb-14 flex items-center justify-between">
+                            <p
+                                className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                {answeredCount} of {questions.length} answered
+                            </p>
+                            <p
+                                className="text-xs tabular-nums opacity-40"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                {progress}%
+                            </p>
+                        </div>
 
-                    {/* Thin progress track */}
-                    <div
-                        className="mb-14 h-px w-full overflow-hidden"
-                        style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
-                    >
-                        <motion.div
-                            className="h-full"
-                            style={{ backgroundColor: "#1E3A20" }}
-                            initial={{ width: "0%" }}
-                            animate={{ width: `${progress}%` }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                        />
+                        {/* Thin progress track */}
+                        <div
+                            className="mb-14 h-px w-full overflow-hidden"
+                            style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
+                        >
+                            <motion.div
+                                className="h-full"
+                                style={{ backgroundColor: "#1E3A20" }}
+                                initial={{ width: "0%" }}
+                                animate={{ width: `${progress}%` }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                            />
+                        </div>
                     </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-3xl">
                     {/* Questions */}
                     <div
                         className="divide-y"
@@ -298,95 +309,43 @@ export default function SelfAssessment() {
                 style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Your result
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
-                        Assessment
-                        <br />
-                        <em>summary</em>
-                    </h2>
-
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
-
-                    {/* Score row */}
-                    <div
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(200,230,201,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/journaling-reflection.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
                             style={{
                                 color: "#C8E6C9",
                                 fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
                             }}
                         >
-                            01
-                        </span>
-                        <div className="flex flex-col gap-2">
-                            <p
-                                className="text-sm uppercase tracking-[0.15em] opacity-50"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                Score
-                            </p>
-                            <p
-                                className="text-5xl leading-none"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#ffffff",
-                                }}
-                            >
-                                {yesCount}
-                                <span
-                                    className="text-2xl opacity-40"
-                                    style={{
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    /{questions.length}
-                                </span>
-                            </p>
-                            <p
-                                className="text-sm"
-                                style={{
-                                    color: "rgba(200,230,201,0.5)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                "Yes" answers
-                            </p>
-                        </div>
-                    </div>
+                            Your result
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
+                            style={{ fontFamily: "var(--font-dm-serif)" }}
+                        >
+                            Assessment
+                            <br />
+                            <em>summary</em>
+                        </h2>
 
-                    {/* Result label + summary */}
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={yesCount}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.4 }}
+                        <div
+                            className="h-px w-full"
+                            style={{
+                                backgroundColor: "rgba(200,230,201,0.15)",
+                            }}
+                        />
+
+                        {/* Score row */}
+                        <div
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
@@ -398,46 +357,112 @@ export default function SelfAssessment() {
                                     fontWeight: 300,
                                 }}
                             >
-                                02
+                                01
                             </span>
-                            <div className="flex flex-col gap-3">
+                            <div className="flex flex-col gap-2">
                                 <p
-                                    className="text-sm font-medium uppercase tracking-[0.15em]"
+                                    className="text-sm uppercase tracking-[0.15em] opacity-50"
                                     style={{
-                                        color: result.colour,
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
-                                    {result.label}
-                                </p>
-                                <p
-                                    className="text-base leading-relaxed md:text-lg"
-                                    style={{
-                                        color: "rgba(200,230,201,0.7)",
+                                        color: "#C8E6C9",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
                                 >
-                                    {result.summary}
+                                    Score
+                                </p>
+                                <p
+                                    className="text-5xl leading-none"
+                                    style={{
+                                        fontFamily: "var(--font-dm-serif)",
+                                        color: "#ffffff",
+                                    }}
+                                >
+                                    {yesCount}
+                                    <span
+                                        className="text-2xl opacity-40"
+                                        style={{
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        /{questions.length}
+                                    </span>
+                                </p>
+                                <p
+                                    className="text-sm"
+                                    style={{
+                                        color: "rgba(200,230,201,0.5)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    "Yes" answers
                                 </p>
                             </div>
-                        </motion.div>
-                    </AnimatePresence>
+                        </div>
 
-                    {!complete && (
-                        <p
-                            className="mt-8 text-sm opacity-40"
-                            style={{
-                                color: "#C8E6C9",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            Answer all {questions.length} questions above for
-                            your full result.
-                        </p>
-                    )}
-                </div>
+                        {/* Result label + summary */}
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={yesCount}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.4 }}
+                                className="flex items-start gap-6 border-b py-10"
+                                style={{
+                                    borderColor: "rgba(200,230,201,0.12)",
+                                }}
+                            >
+                                <span
+                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                    style={{
+                                        color: "#C8E6C9",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    02
+                                </span>
+                                <div className="flex flex-col gap-3">
+                                    <p
+                                        className="text-sm font-medium uppercase tracking-[0.15em]"
+                                        style={{
+                                            color: result.colour,
+                                            fontFamily: "var(--font-dm-sans)",
+                                        }}
+                                    >
+                                        {result.label}
+                                    </p>
+                                    <p
+                                        className="text-base leading-relaxed md:text-lg"
+                                        style={{
+                                            color: "rgba(200,230,201,0.7)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {result.summary}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {!complete && (
+                            <p
+                                className="mt-8 text-sm opacity-40"
+                                style={{
+                                    color: "#C8E6C9",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                Answer all {questions.length} questions above
+                                for your full result.
+                            </p>
+                        )}
+                    </div>
+                </EditorialSplit>
             </motion.section>
 
             {/* CTA — cream editorial split */}

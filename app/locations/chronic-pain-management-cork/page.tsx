@@ -1,11 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import {
-    BreadcrumbJsonLd,
-    FAQJsonLd,
-    createPageMetadata,
-} from "@/app/lib/seo"
+import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Chronic Pain Management Cork | Chronic Pain Recovery",
@@ -33,15 +29,18 @@ export default function ChronicPainManagementCorkPage() {
                 id="cork-location-faq-schema"
                 questions={[
                     {
-                        question: "Do you offer chronic pain management in Cork?",
+                        question:
+                            "Do you offer chronic pain management in Cork?",
                         answer: "Yes. Chronic Pain Recovery offers support in Cork and online for people with persistent pain that may have a neuroplastic component, once serious medical causes have been assessed.",
                     },
                     {
-                        question: "Is this a replacement for my doctor or physiotherapist?",
+                        question:
+                            "Is this a replacement for my doctor or physiotherapist?",
                         answer: "No. This work does not replace medical diagnosis, urgent care, or appropriate physiotherapy. It can complement medical care when disease, infection, acute injury, or surgical causes have been considered.",
                     },
                     {
-                        question: "Can I work with you if I live outside Cork city?",
+                        question:
+                            "Can I work with you if I live outside Cork city?",
                         answer: "Yes. Support is available for people across County Cork and online for people elsewhere in Ireland or internationally.",
                     },
                 ]}
@@ -57,14 +56,14 @@ export default function ChronicPainManagementCorkPage() {
                             <em>management in Cork</em>
                         </>
                     ),
-                    intro:
-                        "Evidence-informed support for people in Cork living with persistent pain, medically unexplained symptoms, or symptoms that may be maintained by a sensitised nervous system.",
+                    intro: "Evidence-informed support for people in Cork living with persistent pain, medically unexplained symptoms, or symptoms that may be maintained by a sensitised nervous system.",
                 }}
                 sections={[
                     {
                         eyebrow: "Local support",
                         heading: "A brain-body approach for persistent pain",
-                        image: {
+                        visual: {
+                            kind: "photo",
                             src: "/images/cork.avif",
                             alt: "Cork, Ireland for chronic pain management support",
                         },
@@ -76,9 +75,10 @@ export default function ChronicPainManagementCorkPage() {
                     {
                         eyebrow: "Who it may help",
                         heading: "For pain that has not made sense medically",
-                        image: {
-                            src: "/images/therapy.avif",
-                            alt: "Therapy room for chronic pain support in Cork",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/whole-person-health.png",
+                            alt: "",
                         },
                         body: [
                             "Many people arrive after scans, tests, medication, physiotherapy, injections, or specialist appointments have not fully explained why pain is still present. When serious medical causes have been assessed, it may be worth exploring whether neuroplastic pain is part of the picture.",
@@ -88,9 +88,10 @@ export default function ChronicPainManagementCorkPage() {
                     {
                         eyebrow: "How sessions work",
                         heading: "In-person in Cork, with online flexibility",
-                        image: {
-                            src: "/images/office.avif",
-                            alt: "Calm office setting for chronic pain recovery sessions",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/one-to-one-support.png",
+                            alt: "",
                         },
                         body: [
                             "Sessions begin with your story: what happened, what you have been told, what you fear, and what your symptoms are stopping you from doing. From there, the aim is to understand whether your pain behaves like a protective nervous system pattern.",
@@ -101,8 +102,7 @@ export default function ChronicPainManagementCorkPage() {
                 listSection={{
                     eyebrow: "Common search questions",
                     heading: "What people in Cork often ask",
-                    intro:
-                        "These are the questions that usually matter before beginning chronic pain recovery work.",
+                    intro: "These are the questions that usually matter before beginning chronic pain recovery work.",
                     items: [
                         {
                             title: "What if my scans show changes?",
@@ -124,8 +124,7 @@ export default function ChronicPainManagementCorkPage() {
                 }}
                 safetyNote={{
                     heading: "Medical care comes first",
-                    body:
-                        "Please consult your GP or relevant medical professional to assess structural abnormalities, disease, infection, acute injury, or urgent symptoms before beginning this approach. Chronic Pain Recovery does not provide medical diagnosis or emergency care.",
+                    body: "Please consult your GP or relevant medical professional to assess structural abnormalities, disease, infection, acute injury, or urgent symptoms before beginning this approach. Chronic Pain Recovery does not provide medical diagnosis or emergency care.",
                 }}
                 relatedLinks={[
                     {

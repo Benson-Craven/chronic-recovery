@@ -1,18 +1,15 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import type { ReactNode } from "react"
+import { EditorialSplit, type EditorialVisual } from "./ui/EditorialSplit"
 
 type TextBlock = {
     heading: string
     body: string[]
     eyebrow?: string
-    image?: {
-        src: string
-        alt: string
-    }
+    visual?: EditorialVisual
 }
 
 type ListSection = {
@@ -117,6 +114,54 @@ export default function SeoContentPage({
                     ? "rgba(200,230,201,0.68)"
                     : "rgba(30,58,32,0.68)"
 
+                const content = (
+                    <div>
+                        {section.eyebrow && (
+                            <p
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                style={{
+                                    color: foreground,
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                {section.eyebrow}
+                            </p>
+                        )}
+                        <h2
+                            className="mb-8 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                            style={{
+                                color: isGreen ? "#FFFFFF" : "#1E3A20",
+                                fontFamily: "var(--font-dm-serif)",
+                            }}
+                        >
+                            {section.heading}
+                        </h2>
+                        <div
+                            className="mb-8 h-px w-full"
+                            style={{
+                                backgroundColor: isGreen
+                                    ? "rgba(200,230,201,0.15)"
+                                    : "rgba(30,58,32,0.12)",
+                            }}
+                        />
+                        <div className="space-y-5">
+                            {section.body.map((paragraph) => (
+                                <p
+                                    key={paragraph}
+                                    className="text-base leading-relaxed md:text-lg"
+                                    style={{
+                                        color: bodyColor,
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+                )
+
                 return (
                     <motion.section
                         key={section.heading}
@@ -124,69 +169,22 @@ export default function SeoContentPage({
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeInVariants}
-                        style={{ backgroundColor: isGreen ? "#1E3A20" : "#F7F4EF" }}
+                        style={{
+                            backgroundColor: isGreen ? "#1E3A20" : "#F7F4EF",
+                        }}
                         className="w-full px-6 py-20 md:py-28"
                     >
-                        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-14 md:grid-cols-2 md:items-center md:gap-20">
-                            <div className={section.image && index % 2 === 1 ? "md:order-2" : ""}>
-                                {section.eyebrow && (
-                                    <p
-                                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                                        style={{
-                                            color: foreground,
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
-                                        {section.eyebrow}
-                                    </p>
-                                )}
-                                <h2
-                                    className="mb-8 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                                    style={{
-                                        color: isGreen ? "#FFFFFF" : "#1E3A20",
-                                        fontFamily: "var(--font-dm-serif)",
-                                    }}
-                                >
-                                    {section.heading}
-                                </h2>
-                                <div
-                                    className="mb-8 h-px w-full"
-                                    style={{
-                                        backgroundColor: isGreen
-                                            ? "rgba(200,230,201,0.15)"
-                                            : "rgba(30,58,32,0.12)",
-                                    }}
-                                />
-                                <div className="space-y-5">
-                                    {section.body.map((paragraph) => (
-                                        <p
-                                            key={paragraph}
-                                            className="text-base leading-relaxed md:text-lg"
-                                            style={{
-                                                color: bodyColor,
-                                                fontFamily: "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
-                                            {paragraph}
-                                        </p>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {section.image && (
-                                <div className="overflow-hidden">
-                                    <Image
-                                        src={section.image.src}
-                                        alt={section.image.alt}
-                                        width={900}
-                                        height={680}
-                                        className="aspect-[4/3] w-full object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                </div>
-                            )}
-                        </div>
+                        {section.visual ? (
+                            <EditorialSplit
+                                visual={section.visual}
+                                reverse={index % 2 === 1}
+                                surface={isGreen ? "green" : "cream"}
+                            >
+                                {content}
+                            </EditorialSplit>
+                        ) : (
+                            <div className="mx-auto max-w-3xl">{content}</div>
+                        )}
                     </motion.section>
                 )
             })}
@@ -257,7 +255,9 @@ export default function SeoContentPage({
                                 </span>
                                 <h3
                                     className="mb-4 text-lg text-white"
-                                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                                    style={{
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
                                 >
                                     {item.title}
                                 </h3>
@@ -465,7 +465,8 @@ export default function SeoContentPage({
                                 href={link.href}
                                 className="p-6 transition-opacity hover:opacity-70"
                                 style={{
-                                    borderTop: "1px solid rgba(200,230,201,0.12)",
+                                    borderTop:
+                                        "1px solid rgba(200,230,201,0.12)",
                                     color: "rgba(200,230,201,0.72)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,

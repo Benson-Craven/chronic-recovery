@@ -3,6 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { EditorialSplit } from "../components/ui/EditorialSplit"
 
 type Item = {
     title: string
@@ -163,31 +164,41 @@ const UsefulLinks: React.FC = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Listen
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Podcasts
-                    </h2>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/calm-moment.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Listen
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            Podcasts
+                        </h2>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                        <div
+                            className="h-px w-full"
+                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                        />
+                    </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-3xl">
                     {links[0].items.map((item, index) => (
                         <motion.a
                             key={index}
@@ -255,28 +266,42 @@ const UsefulLinks: React.FC = () => {
                 style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Watch
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
-                        Videos
-                    </h2>
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/online-support.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#C8E6C9",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Watch
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl"
+                            style={{ fontFamily: "var(--font-dm-serif)" }}
+                        >
+                            Videos
+                        </h2>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                        <div
+                            className="h-px w-full"
+                            style={{
+                                backgroundColor: "rgba(200,230,201,0.15)",
+                            }}
+                        />
+                    </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-3xl">
                     {links[1].items.map((item, index) => (
                         <motion.a
                             key={index}

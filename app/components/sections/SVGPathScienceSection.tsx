@@ -11,6 +11,7 @@ import {
     Smile,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const SVGPathScienceSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -119,36 +120,39 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative h-64 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
-                        style={{ borderRadius: "20px" }}
+                        className="relative h-80 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
+                        style={{
+                            borderRadius: "20px",
+                            backgroundColor: "#EDE9E0",
+                        }}
                     >
-                        <img
-                            src="/images/meeting1.avif"
-                            alt="Calm therapy room for chronic pain recovery support"
-                            className="h-full w-full object-cover"
-                            loading="lazy"
+                        <Image
+                            src="/images/illustrations/group-education.png"
+                            alt=""
+                            width={1254}
+                            height={1254}
+                            aria-hidden="true"
+                            className="absolute -right-10 -top-10 h-3/5 w-3/5 object-contain opacity-25"
+                            sizes="(max-width: 1023px) 60vw, 30vw"
                         />
-                        <div
-                            className="absolute inset-0 flex flex-col justify-end p-7"
-                            style={{
-                                background:
-                                    "linear-gradient(to top, rgba(10,25,12,0.97) 0%, rgba(10,25,12,0.6) 50%, transparent 100%)",
-                            }}
-                        >
+                        <div className="absolute inset-0 flex flex-col justify-end p-7">
                             <Brain
                                 className="mb-3 h-5 w-5 opacity-50"
-                                style={{ color: "#C8E6C9" }}
+                                style={{ color: "#1E3A20" }}
                             />
                             <h3
-                                className="mb-3 text-2xl leading-snug text-white"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                                className="mb-3 max-w-md text-2xl leading-snug"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-serif)",
+                                }}
                             >
                                 All pain is real — and it starts in the brain
                             </h3>
                             <p
                                 className="mb-5 text-sm leading-relaxed"
                                 style={{
-                                    color: "rgba(200,230,201,0.7)",
+                                    color: "rgba(30,58,32,0.68)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -161,7 +165,7 @@ const SVGPathScienceSection = () => {
                             <BentoLink
                                 href="/contact"
                                 label="Book a Consultation"
-                                dark
+                                dark={false}
                             />
                         </div>
                     </motion.figure>

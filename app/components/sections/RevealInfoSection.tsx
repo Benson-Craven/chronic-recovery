@@ -9,6 +9,7 @@ import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow, ItalicQuote } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
 import { NumberRow } from "../ui/NumberRow"
+import { EditorialSplit } from "../ui/EditorialSplit"
 import { authorProfile } from "@/app/lib/seo"
 
 const trainingItems = [
@@ -211,81 +212,100 @@ const AboutPage = () => {
 
             {/* I Know What It's Like — cream */}
             <Section variant="cream" id="know-what-its-like">
-                <Container>
-                    <Eyebrow>You are not alone</Eyebrow>
-                    <Heading className="mb-14">
-                        I know what it's like
-                        <br />
-                        <em>to be told there's nothing</em>
-                        <br />
-                        more we can do.
-                    </Heading>
-                    <Divider className="mb-0" />
-
-                    <NumberRow number={1}>
-                        If you're reading this, you've probably heard those
-                        words before. You've seen multiple specialists. You've
-                        had the scans, the x-rays, the blood tests. Everything
-                        comes back "normal" or you've even been given a
-                        "diagnosis" — but you're still in pain. Day after day.
-                        Month after month. Maybe even year after year.
-                    </NumberRow>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.15,
-                            ease: "easeOut",
-                        }}
-                    >
-                        <ItalicQuote className="mt-12">
-                            "Your pain is real.
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/compassionate-support.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <Eyebrow>You are not alone</Eyebrow>
+                        <Heading className="mb-14">
+                            I know what it's like
                             <br />
-                            And there is hope."
-                        </ItalicQuote>
-                    </motion.div>
-                </Container>
+                            <em>to be told there's nothing</em>
+                            <br />
+                            more we can do.
+                        </Heading>
+                        <Divider className="mb-0" />
+
+                        <NumberRow number={1}>
+                            If you're reading this, you've probably heard those
+                            words before. You've seen multiple specialists.
+                            You've had the scans, the x-rays, the blood tests.
+                            Everything comes back "normal" or you've even been
+                            given a "diagnosis" — but you're still in pain. Day
+                            after day. Month after month. Maybe even year after
+                            year.
+                        </NumberRow>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.15,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <ItalicQuote className="mt-12">
+                                "Your pain is real.
+                                <br />
+                                And there is hope."
+                            </ItalicQuote>
+                        </motion.div>
+                    </div>
+                </EditorialSplit>
             </Section>
 
             {/* Journey — green */}
             <Section variant="green">
-                <Container>
-                    <Eyebrow style={{ color: "#C8E6C9" }}>
-                        My background
-                    </Eyebrow>
-                    <Heading className="mb-14 text-white">
-                        My journey to
-                        <br />
-                        <em>chronic pain recovery work</em>
-                    </Heading>
-                    <Divider variant="cream" className="mb-0" />
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/walking-together.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <Eyebrow style={{ color: "#C8E6C9" }}>
+                            My background
+                        </Eyebrow>
+                        <Heading className="mb-14 text-white">
+                            My journey to
+                            <br />
+                            <em>chronic pain recovery work</em>
+                        </Heading>
+                        <Divider variant="cream" className="mb-0" />
 
-                    <NumberRow number={1} variant="green">
-                        I didn't start out in this field by chance. Like many
-                        practitioners working with chronic pain, I've walked a
-                        path that's led me to understand something profound
-                        about how pain actually works — and more importantly,
-                        how recovery may be possible.
-                    </NumberRow>
-                    <NumberRow number={2} variant="green" index={1}>
-                        My work centres on the biopsychosocial approach to
-                        chronic pain recovery. I've completed specialised
-                        training in the methods developed by Dr. Howard
-                        Schubiner — one of the world's leading pioneers in
-                        mind-body medicine — whose groundbreaking research has
-                        helped thousands recover from conditions conventional
-                        medicine often labels as incurable.
-                    </NumberRow>
-                    <NumberRow number={3} variant="green" index={2}>
-                        I am listed in the Association for the Treatment of
-                        Neuroplastic Symptoms (ATNS) Practitioner & Coach
-                        Directory, which helps people find practitioners and
-                        coaches working with neuroplastic symptoms.
-                    </NumberRow>
-                </Container>
+                        <NumberRow number={1} variant="green">
+                            I didn't start out in this field by chance. Like
+                            many practitioners working with chronic pain, I've
+                            walked a path that's led me to understand something
+                            profound about how pain actually works — and more
+                            importantly, how recovery may be possible.
+                        </NumberRow>
+                        <NumberRow number={2} variant="green" index={1}>
+                            My work centres on the biopsychosocial approach to
+                            chronic pain recovery. I've completed specialised
+                            training in the methods developed by Dr. Howard
+                            Schubiner — one of the world's leading pioneers in
+                            mind-body medicine — whose groundbreaking research
+                            has helped thousands recover from conditions
+                            conventional medicine often labels as incurable.
+                        </NumberRow>
+                        <NumberRow number={3} variant="green" index={2}>
+                            I am listed in the Association for the Treatment of
+                            Neuroplastic Symptoms (ATNS) Practitioner & Coach
+                            Directory, which helps people find practitioners and
+                            coaches working with neuroplastic symptoms.
+                        </NumberRow>
+                    </div>
+                </EditorialSplit>
             </Section>
 
             {/* Credentials — cream */}
@@ -589,38 +609,50 @@ const AboutPage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        How it works
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        What working
-                        <br />
-                        <em>together looks like</em>
-                    </h2>
-                    <p
-                        className="mb-14 text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "rgba(30, 58, 32, 0.7)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        One-to-one, 60-minute sessions working with your body,
-                        nervous system, and brain to restore your health.
-                    </p>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/one-to-one-support.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            How it works
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            What working
+                            <br />
+                            <em>together looks like</em>
+                        </h2>
+                        <p
+                            className="text-base leading-relaxed md:text-lg"
+                            style={{
+                                color: "rgba(30, 58, 32, 0.7)",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            One-to-one, 60-minute sessions working with your
+                            body, nervous system, and brain to restore your
+                            health.
+                        </p>
+                    </div>
+                </EditorialSplit>
+
+                <div className="mx-auto mt-16 max-w-3xl">
                     <div className="mb-14 divide-y divide-black/10">
                         {[
                             {

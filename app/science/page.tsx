@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
+import { EditorialSplit } from "../components/ui/EditorialSplit"
 
 const SciencePage = () => {
     const fadeInVariants = {
@@ -74,31 +74,42 @@ const SciencePage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        The foundation
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        All pain is real —
-                        <br />
-                        <em>it is not in your head</em>
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/pain-neuroscience.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            The foundation
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            All pain is real —
+                            <br />
+                            <em>it is not in your head</em>
+                        </h2>
+                        <div
+                            className="h-px w-full"
+                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                        />
+                    </div>
+                </EditorialSplit>
+
+                <div className="mx-auto mt-16 max-w-3xl">
                     {[
                         {
                             number: "01",
@@ -164,25 +175,37 @@ const SciencePage = () => {
                 style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Root causes
-                    </p>
-                    <h2
-                        className="mb-16 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
-                        What causes
-                        <br />
-                        <em>chronic pain?</em>
-                    </h2>
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/whole-person-health.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#C8E6C9",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Root causes
+                        </p>
+                        <h2
+                            className="text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
+                            style={{ fontFamily: "var(--font-dm-serif)" }}
+                        >
+                            What causes
+                            <br />
+                            <em>chronic pain?</em>
+                        </h2>
+                    </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-5xl">
                     <div
                         className="grid grid-cols-1 gap-px sm:grid-cols-3"
                         style={{ backgroundColor: "rgba(200,230,201,0.1)" }}
@@ -257,123 +280,136 @@ const SciencePage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        The good news
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Pain is not
-                        <br />
-                        <em>a life sentence</em>
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/mind-body-connection.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
                             style={{
                                 color: "#1E3A20",
                                 fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
                             }}
                         >
-                            01
-                        </span>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
+                            The good news
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
                             style={{
-                                color: "rgba(30, 58, 32, 0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
                             }}
                         >
-                            Just as your brain <em>learned</em> these pain
-                            patterns, it can{" "}
-                            <strong
-                                style={{ fontWeight: 500, color: "#1E3A20" }}
+                            Pain is not
+                            <br />
+                            <em>a life sentence</em>
+                        </h2>
+                        <div
+                            className="h-px w-full"
+                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="flex items-start gap-6 border-b py-10"
+                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                        >
+                            <span
+                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
                             >
-                                unlearn
-                            </strong>{" "}
-                            them. This is called neuroplasticity — your brain's
-                            ability to change and rewire itself at any age.
-                        </p>
-                    </motion.div>
+                                01
+                            </span>
+                            <p
+                                className="text-base leading-relaxed md:text-lg"
+                                style={{
+                                    color: "rgba(30, 58, 32, 0.65)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                Just as your brain <em>learned</em> these pain
+                                patterns, it can{" "}
+                                <strong
+                                    style={{
+                                        fontWeight: 500,
+                                        color: "#1E3A20",
+                                    }}
+                                >
+                                    unlearn
+                                </strong>{" "}
+                                them. This is called neuroplasticity — your
+                                brain's ability to change and rewire itself at
+                                any age.
+                            </p>
+                        </motion.div>
 
-                    {/* Highlighted callout */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.15,
-                            ease: "easeOut",
-                        }}
-                        className="mt-12 rounded-2xl px-8 py-7"
-                        style={{ backgroundColor: "#1E3A20" }}
-                    >
-                        <p
-                            className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
+                        {/* Highlighted callout */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.15,
+                                ease: "easeOut",
+                            }}
+                            className="mt-12 rounded-2xl px-8 py-7"
+                            style={{ backgroundColor: "#1E3A20" }}
+                        >
+                            <p
+                                className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
+                                style={{
+                                    color: "#C8E6C9",
+                                    fontFamily: "var(--font-dm-sans)",
+                                }}
+                            >
+                                How it works
+                            </p>
+                            <p
+                                className="text-xl text-white md:text-2xl"
+                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                            >
+                                Pain Reprocessing Therapy teaches your brain to
+                                turn off false danger signals and reinterpret
+                                sensations as safe, which may help reduce
+                                persistent pain when this approach is
+                                appropriate.
+                            </p>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.2,
+                                ease: "easeOut",
+                            }}
+                            className="mt-12 text-2xl leading-snug md:text-3xl"
                             style={{
-                                color: "#C8E6C9",
-                                fontFamily: "var(--font-dm-sans)",
+                                fontFamily: "var(--font-dm-serif)",
+                                fontStyle: "italic",
+                                color: "#1E3A20",
                             }}
                         >
-                            How it works
-                        </p>
-                        <p
-                            className="text-xl text-white md:text-2xl"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
-                        >
-                            Pain Reprocessing Therapy teaches your brain to turn
-                            off false danger signals and reinterpret sensations
-                            as safe, which may help reduce persistent pain when
-                            this approach is appropriate.
-                        </p>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.2,
-                            ease: "easeOut",
-                        }}
-                        className="mt-12 text-2xl leading-snug md:text-3xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        "Neuroplasticity works both ways —
-                        <br />
-                        what the brain learns, it can unlearn."
-                    </motion.p>
-                </div>
+                            "Neuroplasticity works both ways —
+                            <br />
+                            what the brain learns, it can unlearn."
+                        </motion.p>
+                    </div>
+                </EditorialSplit>
             </motion.section>
 
             {/* Who Can Benefit — green */}

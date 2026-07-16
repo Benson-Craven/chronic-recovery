@@ -1,11 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import {
-    BreadcrumbJsonLd,
-    FAQJsonLd,
-    createPageMetadata,
-} from "@/app/lib/seo"
+import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Long Covid Support Cork & Online | Chronic Pain Recovery",
@@ -55,16 +51,16 @@ export default function LongCovidPage() {
                             fatigue and pain
                         </>
                     ),
-                    intro:
-                        "Support for people with long covid-related pain, fatigue, dizziness, or persistent symptoms where medical assessment has ruled out active disease, infection, or urgent causes.",
+                    intro: "Support for people with long covid-related pain, fatigue, dizziness, or persistent symptoms where medical assessment has ruled out active disease, infection, or urgent causes.",
                 }}
                 sections={[
                     {
                         eyebrow: "Persistent symptoms",
                         heading: "When the body still feels under threat",
-                        image: {
-                            src: "/images/anxiety.avif",
-                            alt: "Quiet indoor setting for long covid symptom support",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/rest-recovery.png",
+                            alt: "",
                         },
                         body: [
                             "Long covid can be complex, and symptoms should be taken seriously. For some people, the nervous system may remain sensitised after illness, continuing to produce fatigue, pain, dizziness, breathlessness sensations, or other protective signals after the immediate infection has passed.",
@@ -74,9 +70,10 @@ export default function LongCovidPage() {
                     {
                         eyebrow: "Careful support",
                         heading: "Support without pushing through",
-                        image: {
-                            src: "/images/forest.avif",
-                            alt: "Gentle path representing paced long covid recovery",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/gradual-recovery.png",
+                            alt: "",
                         },
                         body: [
                             "Long covid support must be paced carefully. The aim is not to force exercise or ignore post-exertional symptom flares. Instead, the work starts with understanding your current limits, triggers, fears, and the ways your nervous system responds to exertion, rest, stress, and sensation.",
@@ -86,9 +83,10 @@ export default function LongCovidPage() {
                     {
                         eyebrow: "Brain-body connection",
                         heading: "A respectful view of real symptoms",
-                        image: {
-                            src: "/images/therapy.avif",
-                            alt: "Therapy space for brain-body long covid support",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/mind-body-connection.png",
+                            alt: "",
                         },
                         body: [
                             "People with long covid are often told either that everything is physical or that everything is anxiety. A biopsychosocial approach is more nuanced. It recognises that physiology, stress, immune activation, sleep, emotion, movement, and learned danger signals can all affect symptoms.",
@@ -99,8 +97,7 @@ export default function LongCovidPage() {
                 listSection={{
                     eyebrow: "Signs to explore",
                     heading: "When neuroplastic patterns may be involved",
-                    intro:
-                        "These signs do not prove anything by themselves, but they can make brain-body support worth considering.",
+                    intro: "These signs do not prove anything by themselves, but they can make brain-body support worth considering.",
                     items: [
                         {
                             title: "Symptoms fluctuate",
@@ -122,8 +119,7 @@ export default function LongCovidPage() {
                 }}
                 safetyNote={{
                     heading: "Long covid needs medical oversight",
-                    body:
-                        "Please seek medical assessment for ongoing symptoms after covid, especially breathing, chest pain, fainting, neurological changes, fever, or worsening symptoms. This page is educational and does not replace diagnosis or treatment from a medical professional.",
+                    body: "Please seek medical assessment for ongoing symptoms after covid, especially breathing, chest pain, fainting, neurological changes, fever, or worsening symptoms. This page is educational and does not replace diagnosis or treatment from a medical professional.",
                 }}
                 relatedLinks={[
                     {
