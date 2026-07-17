@@ -4,6 +4,8 @@ import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
+import { WhatsAppCta } from "../components/WhatsAppLink"
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
 
 type Item = {
     title: string
@@ -445,6 +447,7 @@ const UsefulLinks: React.FC = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
+                                <WhatsAppCta source="resources_closing_cta" />
                                 <Link href="/contact">
                                     {" "}
                                     <motion.button
@@ -457,14 +460,15 @@ const UsefulLinks: React.FC = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(30,58,32,0.3)",
+                                            color: "#1E3A20",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Book Your Consultation
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <Link href="/self-assessment">
@@ -497,16 +501,16 @@ const UsefulLinks: React.FC = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "#1E3A20",
                                             opacity: 0.6,
                                         }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

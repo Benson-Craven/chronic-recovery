@@ -3,6 +3,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { modalScale } from "@/app/lib/animations"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
 
 const MAX_CHARS = 500
 
@@ -282,7 +283,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 Phone
                                             </p>
                                             <a
-                                                href="tel:+353871025108"
+                                                href={PHONE_HREF}
                                                 className="text-sm underline underline-offset-2 transition-opacity hover:opacity-60"
                                                 style={{
                                                     color: "#C8E6C9",
@@ -291,7 +292,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     fontWeight: 300,
                                                 }}
                                             >
-                                                +353 (0) 87-102-5108
+                                                {PHONE_DISPLAY}
                                             </a>
                                         </div>
                                     </div>

@@ -9,6 +9,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Breadcrumbs from "../../components/Breadcrumbs"
+import { WhatsAppCta } from "../../components/WhatsAppLink"
 import {
     BreadcrumbJsonLd,
     JsonLd,
@@ -389,18 +390,24 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         </div>
 
                         <div className="flex flex-col gap-3">
+                            <WhatsAppCta
+                                source="blog_closing_cta"
+                                surface="green"
+                            />
                             <Link href="/contact">
                                 <button
                                     className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-opacity hover:opacity-90 md:w-auto md:px-10"
                                     style={{
                                         backgroundColor: "#F0EBE1",
+                                        border: "1px solid rgba(30,58,32,0.3)",
                                         color: "#1E3A20",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 500,
                                         letterSpacing: "0.04em",
+                                        opacity: 0.68,
                                     }}
                                 >
-                                    Book Your Consultation
+                                    Book Consultation
                                 </button>
                             </Link>
                             <Link

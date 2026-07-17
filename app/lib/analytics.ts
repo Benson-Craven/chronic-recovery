@@ -1,3 +1,5 @@
+import type { WhatsAppSource } from "@/app/lib/contact"
+
 type GtagEventParams = {
     event_category?: string
     event_label?: string
@@ -26,7 +28,7 @@ export function trackContactFormSubmission(formLocation: string) {
     })
 }
 
-export function trackWhatsAppClick(contactLocation: string) {
+export function trackWhatsAppClick(contactLocation: WhatsAppSource) {
     if (typeof window === "undefined" || !window.gtag) return
 
     window.gtag("event", "whatsapp_click", {

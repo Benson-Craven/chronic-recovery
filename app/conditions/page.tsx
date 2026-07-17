@@ -6,6 +6,8 @@ import { motion } from "framer-motion"
 import Breadcrumbs from "../components/Breadcrumbs"
 import { BreadcrumbJsonLd } from "../lib/seo"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
+import { WhatsAppCta } from "../components/WhatsAppLink"
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
 
 const treatable = [
     "Fibromyalgia",
@@ -491,6 +493,10 @@ const ConditionsPage = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
+                                <WhatsAppCta
+                                    source="conditions_closing_cta"
+                                    surface="green"
+                                />
                                 <Link href="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
@@ -502,14 +508,15 @@ const ConditionsPage = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#F0EBE1",
-                                            color: "#1E3A20",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(240,235,225,0.75)",
+                                            color: "#F0EBE1",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Book Your Consultation
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <Link href="/self-assessment">
@@ -542,15 +549,15 @@ const ConditionsPage = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "rgba(200,230,201,0.6)",
                                         }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

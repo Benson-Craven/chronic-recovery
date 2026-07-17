@@ -11,6 +11,8 @@ import { CtaButton } from "../ui/CtaButton"
 import { NumberRow } from "../ui/NumberRow"
 import { EditorialSplit } from "../ui/EditorialSplit"
 import { authorProfile } from "@/app/lib/seo"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { WhatsAppCta } from "../WhatsAppLink"
 
 const trainingItems = [
     "Listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
@@ -1305,6 +1307,7 @@ const AboutPage = () => {
                             </div>
 
                             <div className="space-y-4">
+                                <WhatsAppCta source="info_closing_cta" />
                                 <Link href="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
@@ -1316,14 +1319,15 @@ const AboutPage = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(30,58,32,0.3)",
+                                            color: "#1E3A20",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Start Your Healing Journey Today
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <p
@@ -1334,13 +1338,13 @@ const AboutPage = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{ color: "rgba(30,58,32,0.65)" }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

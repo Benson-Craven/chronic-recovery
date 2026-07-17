@@ -108,7 +108,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                                 letterSpacing: "0.04em",
                             }}
                         >
-                            Book Your Consultation
+                            Book Consultation
                         </Link>
                     </div>
 

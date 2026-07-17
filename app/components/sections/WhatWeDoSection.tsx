@@ -89,7 +89,7 @@ const WeDoSection = () => {
                                 WhatsApp Marsha
                             </WhatsAppLink>
                             <CtaButton href="/contact" variant="outline">
-                                Book Your Consultation
+                                Book Consultation
                             </CtaButton>
                             <p
                                 className="text-sm"

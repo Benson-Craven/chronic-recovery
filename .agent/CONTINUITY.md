@@ -21,7 +21,7 @@
 
 [PROGRESS]
 
--   2026-07-17: Implemented the shared direct WhatsApp link and anonymous source tracking across the responsive header, mobile drawer, footer, contact page, contact modal labelling, homepage approach, and main consultation CTA.
+-   2026-07-17: Implemented the shared direct WhatsApp link and anonymous source tracking across the responsive header, mobile drawer, footer, contact page, contact modal labelling, homepage approach, and all main closing consultation CTAs.
 -   2026-07-16: Converted all 22 supplied `cprie-icon-*.png` files to true-alpha PNGs at their original 1254 by 1254 dimensions.
 -   2026-07-17: Added semantic aliases for the selected illustrations and applied the shared split layout across the homepage Approach section, About, Science, Conditions, Research, Resources, Self-assessment, and five shared SEO/location pages.
 -   2026-07-17: Replaced the homepage science bento stock image with the group-education illustration while retaining the protected homepage photography.
