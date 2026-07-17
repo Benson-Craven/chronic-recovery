@@ -2,7 +2,10 @@
 
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import { FaWhatsapp } from "react-icons/fa"
 import { slideInMenu, fadeOverlay } from "@/app/lib/animations"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import WhatsAppLink from "./WhatsAppLink"
 
 type NavLink = {
     href: string
@@ -47,7 +50,7 @@ type MobileMenuProps = {
 
 export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
     return (
-        <div className="md:hidden">
+        <div>
             {/* Animated hamburger toggle */}
             <button
                 onClick={onToggle}
@@ -157,23 +160,40 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                     borderTop: "1px solid rgba(30,58,32,0.1)",
                                 }}
                             >
-                                <Link href="/contact" onClick={onToggle}>
-                                    <motion.button
-                                        whileTap={{ scale: 0.98 }}
-                                        className="w-full rounded-full py-4 text-xs font-medium uppercase tracking-wide"
-                                        style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.08em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
+                                <WhatsAppLink
+                                    source="mobile_menu"
+                                    onClick={onToggle}
+                                    className="flex w-full items-center justify-center gap-2 rounded-full py-4 text-xs font-medium uppercase tracking-wide transition-transform active:scale-[0.98]"
+                                    style={{
+                                        backgroundColor: "#1E3A20",
+                                        color: "#F7F4EF",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.08em",
+                                    }}
+                                >
+                                    <FaWhatsapp
+                                        aria-hidden="true"
+                                        className="h-4 w-4"
+                                    />
+                                    WhatsApp Marsha
+                                </WhatsAppLink>
+                                <Link
+                                    href="/contact"
+                                    onClick={onToggle}
+                                    className="mt-3 flex w-full items-center justify-center rounded-full border py-4 text-xs font-medium uppercase tracking-wide transition-transform active:scale-[0.98]"
+                                    style={{
+                                        borderColor: "#1E3A20",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.08em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <a
-                                    href="tel:+353871025108"
+                                    href={PHONE_HREF}
                                     className="mt-4 block text-center text-xs transition-opacity hover:opacity-60"
                                     style={{
                                         color: "rgba(30,58,32,0.4)",
@@ -181,7 +201,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    +353 (0) 87-102-5108
+                                    Call {PHONE_DISPLAY}
                                 </a>
                             </div>
                         </motion.nav>

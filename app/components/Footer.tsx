@@ -2,8 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { FaFacebook, FaWhatsapp } from "react-icons/fa"
+import { FaFacebook, FaPhone, FaWhatsapp } from "react-icons/fa"
 import { authorProfile } from "../lib/seo"
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import WhatsAppLink from "./WhatsAppLink"
 
 const SITE_LINKS = [
     { name: "Treatment Options", url: "/#treatment" },
@@ -145,11 +147,12 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="tel:+353871025108"
+                                <WhatsAppLink
+                                    source="footer_connect"
                                     className="flex items-center gap-3 transition-opacity hover:opacity-60"
                                 >
                                     <FaWhatsapp
+                                        aria-hidden="true"
                                         className="shrink-0"
                                         style={{
                                             color: "rgba(200,230,201,0.5)",
@@ -165,7 +168,33 @@ const Footer = () => {
                                             fontWeight: 300,
                                         }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        WhatsApp Marsha
+                                    </span>
+                                </WhatsAppLink>
+                            </li>
+                            <li>
+                                <a
+                                    href={PHONE_HREF}
+                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                >
+                                    <FaPhone
+                                        aria-hidden="true"
+                                        className="shrink-0"
+                                        style={{
+                                            color: "rgba(200,230,201,0.5)",
+                                            width: 14,
+                                            height: 14,
+                                        }}
+                                    />
+                                    <span
+                                        className="text-sm"
+                                        style={{
+                                            color: "rgba(200,230,201,0.65)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {PHONE_DISPLAY}
                                     </span>
                                 </a>
                             </li>
@@ -198,9 +227,10 @@ const Footer = () => {
                         </ul>
 
                         {/* CTA */}
-                        <Link href="/contact" className="mt-8 block">
-                            <button
-                                className="w-full rounded-full py-3 text-xs font-medium uppercase tracking-wide transition-opacity hover:opacity-90"
+                        <div className="mt-8 space-y-3">
+                            <WhatsAppLink
+                                source="footer_cta"
+                                className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-xs font-medium uppercase tracking-wide transition-opacity hover:opacity-90"
                                 style={{
                                     backgroundColor: "#F0EBE1",
                                     color: "#1E3A20",
@@ -209,9 +239,26 @@ const Footer = () => {
                                     letterSpacing: "0.08em",
                                 }}
                             >
+                                <FaWhatsapp
+                                    aria-hidden="true"
+                                    className="h-4 w-4"
+                                />
+                                WhatsApp Marsha
+                            </WhatsAppLink>
+                            <Link
+                                href="/contact"
+                                className="flex w-full items-center justify-center rounded-full border py-3 text-xs font-medium uppercase tracking-wide transition-opacity hover:opacity-90"
+                                style={{
+                                    borderColor: "rgba(240,235,225,0.65)",
+                                    color: "#F0EBE1",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 500,
+                                    letterSpacing: "0.08em",
+                                }}
+                            >
                                 Book Consultation
-                            </button>
-                        </Link>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 

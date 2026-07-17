@@ -3,7 +3,10 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { FaWhatsapp } from "react-icons/fa"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import WhatsAppLink from "@/app/components/WhatsAppLink"
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -119,8 +122,9 @@ const ContactPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Fill out the form and I'll get back to you as quickly as
-                        possible — usually within 24 hours.
+                        Message me on WhatsApp or fill out the form. I'll get
+                        back to you as quickly as possible — usually within 24
+                        hours.
                     </p>
                 </motion.div>
             </section>
@@ -162,6 +166,21 @@ const ContactPage = () => {
                                 }}
                             />
 
+                            <WhatsAppLink
+                                source="contact_page"
+                                className="mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF] transition-transform hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+                                style={{
+                                    fontFamily: "var(--font-dm-sans)",
+                                    letterSpacing: "0.04em",
+                                }}
+                            >
+                                <FaWhatsapp
+                                    aria-hidden="true"
+                                    className="h-5 w-5"
+                                />
+                                WhatsApp Marsha
+                            </WhatsAppLink>
+
                             <div className="space-y-8">
                                 {[
                                     {
@@ -173,9 +192,9 @@ const ContactPage = () => {
                                         value: "In-person in Rochestown, Cork — or online via video call.",
                                     },
                                     {
-                                        label: "Tel / WhatsApp",
-                                        value: "+353 (0) 87-102-5108",
-                                        href: "tel:+353871025108",
+                                        label: "Phone",
+                                        value: PHONE_DISPLAY,
+                                        href: PHONE_HREF,
                                     },
                                 ].map((item, index) => (
                                     <div

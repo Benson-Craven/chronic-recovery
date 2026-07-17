@@ -279,7 +279,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     fontWeight: 500,
                                                 }}
                                             >
-                                                Tel / WhatsApp
+                                                Phone
                                             </p>
                                             <a
                                                 href="tel:+353871025108"
