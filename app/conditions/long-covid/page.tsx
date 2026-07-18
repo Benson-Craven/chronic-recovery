@@ -42,6 +42,7 @@ export default function LongCovidPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="long_covid_closing_cta"
                 hero={{
                     eyebrow: "Long covid support",
                     title: (

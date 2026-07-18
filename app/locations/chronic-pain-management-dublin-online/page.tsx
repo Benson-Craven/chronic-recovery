@@ -46,6 +46,7 @@ export default function OnlineDublinPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="dublin_location_closing_cta"
                 hero={{
                     eyebrow: "Dublin online support",
                     title: (

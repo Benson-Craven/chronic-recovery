@@ -43,6 +43,7 @@ export default function PainReprocessingTherapyPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="prt_closing_cta"
                 hero={{
                     eyebrow: "Pain Reprocessing Therapy",
                     title: (

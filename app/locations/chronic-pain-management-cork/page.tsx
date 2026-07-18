@@ -47,6 +47,7 @@ export default function ChronicPainManagementCorkPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="cork_location_closing_cta"
                 hero={{
                     eyebrow: "Cork chronic pain support",
                     title: (

@@ -18,3 +18,8 @@ export type WhatsAppSource =
     | "self_assessment_closing_cta"
     | "blog_closing_cta"
     | "info_closing_cta"
+    | "long_covid_closing_cta"
+    | "cork_location_closing_cta"
+    | "dublin_location_closing_cta"
+    | "ireland_location_closing_cta"
+    | "prt_closing_cta"

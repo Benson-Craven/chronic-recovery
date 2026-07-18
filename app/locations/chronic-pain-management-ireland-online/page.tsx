@@ -46,6 +46,7 @@ export default function OnlineIrelandPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="ireland_location_closing_cta"
                 hero={{
                     eyebrow: "Online support across Ireland",
                     title: (

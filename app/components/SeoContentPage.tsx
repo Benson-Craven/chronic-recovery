@@ -4,6 +4,8 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import type { ReactNode } from "react"
 import { EditorialSplit, type EditorialVisual } from "./ui/EditorialSplit"
+import { WhatsAppCta } from "./WhatsAppLink"
+import type { WhatsAppSource } from "@/app/lib/contact"
 
 type TextBlock = {
     heading: string
@@ -35,6 +37,7 @@ type ResearchLink = {
 }
 
 type SeoContentPageProps = {
+    whatsAppSource: WhatsAppSource
     hero: {
         eyebrow: string
         title: ReactNode
@@ -56,6 +59,7 @@ const fadeInVariants = {
 }
 
 export default function SeoContentPage({
+    whatsAppSource,
     hero,
     sections,
     listSection,
@@ -415,22 +419,23 @@ export default function SeoContentPage({
                     >
                         {safetyNote.body}
                     </p>
-                    <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                    <div className="mt-10 flex flex-col gap-4 md:flex-row md:flex-wrap">
+                        <WhatsAppCta source={whatsAppSource} />
                         <Link href="/contact">
                             <button
-                                className="w-full rounded-full px-8 py-4 text-sm font-medium tracking-wide sm:w-auto"
+                                className="w-full rounded-full border px-8 py-4 text-sm font-medium tracking-wide md:w-auto"
                                 style={{
-                                    backgroundColor: "#1E3A20",
-                                    color: "#F7F4EF",
+                                    borderColor: "rgba(30,58,32,0.22)",
+                                    color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Book a Consultation
+                                Book Consultation
                             </button>
                         </Link>
                         <Link href="/self-assessment">
                             <button
-                                className="w-full rounded-full border px-8 py-4 text-sm font-medium tracking-wide sm:w-auto"
+                                className="w-full rounded-full border px-8 py-4 text-sm font-medium tracking-wide md:w-auto"
                                 style={{
                                     borderColor: "rgba(30,58,32,0.22)",
                                     color: "#1E3A20",
