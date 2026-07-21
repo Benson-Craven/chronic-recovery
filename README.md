@@ -35,12 +35,34 @@ Create a local `.env.local` file with the values needed by the contact form:
 ```bash
 BREVO_API_KEY=your_brevo_api_key
 EMAIL_TO=recipient@example.com
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key
+TURNSTILE_SECRET_KEY=your_turnstile_secret_key
 # Optional, defaults shown:
 BREVO_SENDER_EMAIL=noreply@chronicpainrecovery.ie
 BREVO_SENDER_NAME="Chronic Pain Recovery"
 ```
 
 The API route sends enquiries from `noreply@chronicpainrecovery.ie` by default, so that sender domain or address must be registered and authenticated in Brevo before production email delivery will work reliably.
+
+### Turnstile setup
+
+In the Cloudflare dashboard, create one production Turnstile widget with:
+
+-   Name: `Chronic Pain Recovery Contact Forms`
+-   Widget mode: Managed
+-   Allowed hostname: `chronicpainrecovery.ie`
+
+Use the resulting site key for `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and the secret key for `TURNSTILE_SECRET_KEY`. The app renders the widget explicitly with interaction-only appearance and uses the `contact_modal` and `contact_page` actions. Production keys must not be committed or reused as test fixtures.
+
+For local testing, use Cloudflare's official dummy key pairs:
+
+| Scenario            | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | `TURNSTILE_SECRET_KEY`                |
+| ------------------- | -------------------------------- | ------------------------------------- |
+| Always passes       | `1x00000000000000000000AA`       | `1x0000000000000000000000000000000AA` |
+| Always fails        | `2x00000000000000000000AB`       | `2x0000000000000000000000000000000AA` |
+| Token already spent | `1x00000000000000000000AA`       | `3x0000000000000000000000000000000AA` |
+
+Dummy keys work on localhost and must be paired together; production secrets reject dummy tokens. See [Cloudflare's Turnstile testing guidance](https://developers.cloudflare.com/turnstile/troubleshooting/testing/).
 
 ## Available Scripts
 
@@ -67,6 +89,12 @@ npm run lint
 ```
 
 Runs the Next.js lint command.
+
+```bash
+npm test
+```
+
+Runs the contact endpoint contract tests with Node's built-in test runner.
 
 ## Project Structure
 
@@ -123,8 +151,11 @@ The contact page posts to `/api/sendEmail`, which expects:
 -   `email`
 -   `phone`
 -   `message`
+-   `website` (the honeypot; legitimate submissions leave it empty)
+-   `turnstileToken`
+-   `source` (`contact_modal` or `contact_page`)
 
-The server route uses `BREVO_API_KEY` and `EMAIL_TO` from the environment. Keep secrets out of source control.
+The server validates field bounds and the Turnstile token before making any Brevo request. It uses `BREVO_API_KEY`, `EMAIL_TO`, and `TURNSTILE_SECRET_KEY` only on the server. Keep all secrets out of source control.
 
 ## Deployment
 

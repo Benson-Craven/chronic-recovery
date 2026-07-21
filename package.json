@@ -7,7 +7,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node --test app/api/sendEmail/contact-handler.test.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

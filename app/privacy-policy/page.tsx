@@ -21,6 +21,21 @@ const sections = [
     },
     {
         number: "05",
+        heading: "Contact form service providers",
+        body: "When you use a contact form, Cloudflare Turnstile processes technical signals about your browser and device to distinguish people from automated abuse. Brevo processes the name, email address, phone number, message, and any health details you choose to submit so that your enquiry can be delivered to us. This is a focused description of the providers used by the contact forms, not a complete review of every privacy or data-protection issue on this website.",
+        links: [
+            {
+                href: "https://www.cloudflare.com/turnstile-privacy-policy/",
+                label: "Cloudflare Turnstile Privacy Addendum",
+            },
+            {
+                href: "https://www.brevo.com/legal/privacypolicy/",
+                label: "Brevo Privacy Policy",
+            },
+        ],
+    },
+    {
+        number: "06",
         heading: "Changes to our privacy policy",
         body: "Chronic Pain Recovery Project reserves the right to update this Disclosures and Privacy Policy from time to time.",
     },
@@ -130,6 +145,27 @@ const PrivacyPolicyPage = () => {
                                 >
                                     {section.body}
                                 </p>
+                                {"links" in section && section.links && (
+                                    <div className="flex flex-col gap-2 text-sm md:flex-row md:gap-5">
+                                        {section.links.map((link) => (
+                                            <a
+                                                key={link.href}
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="underline underline-offset-4 transition-opacity hover:opacity-60"
+                                                style={{
+                                                    color: "#1E3A20",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 400,
+                                                }}
+                                            >
+                                                {link.label}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))}

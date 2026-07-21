@@ -4,6 +4,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { modalScale } from "@/app/lib/animations"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { useContactForm } from "@/app/hooks/useContactForm"
+import {
+    ContactFormFeedback,
+    ContactFormHoneypot,
+} from "./ContactFormProtection"
+import Turnstile from "./Turnstile"
 
 const MAX_CHARS = 500
 
@@ -11,8 +17,6 @@ type ContactModalProps = {
     isOpen: boolean
     onClose: () => void
 }
-
-type FormStatus = "idle" | "submitting" | "success" | "error"
 
 const inputStyles: React.CSSProperties = {
     width: "100%",
@@ -43,7 +47,26 @@ const labelStyles: React.CSSProperties = {
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [messageLength, setMessageLength] = useState(0)
-    const [status, setStatus] = useState<FormStatus>("idle")
+    const [isSuccess, setIsSuccess] = useState(false)
+    const {
+        canSubmit,
+        formError,
+        handleSubmit,
+        handleTokenChange,
+        isSubmitting,
+        setTurnstileState,
+        turnstileRef,
+        turnstileState,
+    } = useContactForm("contact_modal", () => {
+        setMessageLength(0)
+        setIsSuccess(true)
+        trackContactFormSubmission("contact_modal")
+
+        setTimeout(() => {
+            onClose()
+            setTimeout(() => setIsSuccess(false), 300)
+        }, 2500)
+    })
 
     const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const text = e.target.value
@@ -51,41 +74,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             e.target.value = text.slice(0, MAX_CHARS)
         }
         setMessageLength(Math.min(text.length, MAX_CHARS))
-    }
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setStatus("submitting")
-
-        const form = e.currentTarget
-        const formData = new FormData(form)
-
-        try {
-            const res = await fetch("/api/sendEmail", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: formData.get("name"),
-                    email: formData.get("email"),
-                    phone: formData.get("phone"),
-                    message: formData.get("message"),
-                }),
-            })
-
-            if (!res.ok) throw new Error("Failed to send")
-
-            form.reset()
-            setMessageLength(0)
-            setStatus("success")
-            trackContactFormSubmission("contact_modal")
-
-            setTimeout(() => {
-                onClose()
-                setTimeout(() => setStatus("idle"), 300)
-            }, 2500)
-        } catch {
-            setStatus("error")
-        }
     }
 
     return (
@@ -112,7 +100,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                     {/* Modal */}
                     <motion.div
-                        className="relative z-10 w-full max-w-4xl overflow-hidden"
+                        className="relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-4xl overflow-y-auto"
                         style={{ borderRadius: "24px" }}
                         variants={modalScale}
                         initial="hidden"
@@ -120,7 +108,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         exit="exit"
                     >
                         <AnimatePresence mode="wait">
-                            {status === "success" ? (
+                            {isSuccess ? (
                                 <motion.div
                                     key="success"
                                     initial={{ opacity: 0, y: 16 }}
@@ -341,6 +329,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                                         <form
                                             onSubmit={handleSubmit}
+                                            aria-busy={isSubmitting}
                                             className="space-y-7"
                                         >
                                             {/* Name */}
@@ -356,6 +345,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     id="modal-name"
                                                     name="name"
                                                     required
+                                                    minLength={2}
+                                                    maxLength={100}
+                                                    autoComplete="name"
                                                     placeholder="Your full name"
                                                     style={inputStyles}
                                                 />
@@ -374,6 +366,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     id="modal-email"
                                                     name="email"
                                                     required
+                                                    maxLength={254}
+                                                    autoComplete="email"
                                                     placeholder="your@email.com"
                                                     style={inputStyles}
                                                 />
@@ -392,6 +386,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     id="modal-phone"
                                                     name="phone"
                                                     required
+                                                    minLength={7}
+                                                    maxLength={50}
+                                                    autoComplete="tel"
                                                     placeholder="+353..."
                                                     style={inputStyles}
                                                 />
@@ -403,12 +400,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     htmlFor="modal-message"
                                                     style={labelStyles}
                                                 >
-                                                    Message
+                                                    Message *
                                                 </label>
                                                 <textarea
                                                     id="modal-message"
                                                     name="message"
                                                     rows={3}
+                                                    required
+                                                    minLength={10}
                                                     maxLength={MAX_CHARS}
                                                     onChange={
                                                         handleMessageChange
@@ -432,35 +431,41 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 </p>
                                             </div>
 
-                                            {/* Error state */}
-                                            {status === "error" && (
-                                                <p
-                                                    className="text-xs"
-                                                    style={{
-                                                        color: "rgba(180,60,60,0.8)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
-                                                    Something went wrong. Please
-                                                    try again.
-                                                </p>
-                                            )}
+                                            <ContactFormHoneypot id="modal-website" />
+
+                                            <Turnstile
+                                                ref={turnstileRef}
+                                                action="contact_modal"
+                                                onTokenChange={
+                                                    handleTokenChange
+                                                }
+                                                onStateChange={
+                                                    setTurnstileState
+                                                }
+                                            />
+
+                                            <ContactFormFeedback
+                                                error={formError}
+                                                errorId="modal-contact-form-error"
+                                                errorClassName="text-xs leading-relaxed"
+                                                errorColor="rgba(180,60,60,0.8)"
+                                                turnstileState={turnstileState}
+                                            />
 
                                             {/* Submit */}
                                             <div className="flex flex-col gap-3 pt-1">
                                                 <motion.button
                                                     type="submit"
-                                                    disabled={
-                                                        status === "submitting"
+                                                    disabled={!canSubmit}
+                                                    aria-describedby={
+                                                        formError
+                                                            ? "modal-contact-form-error"
+                                                            : undefined
                                                     }
                                                     whileHover={{
-                                                        scale:
-                                                            status ===
-                                                            "submitting"
-                                                                ? 1
-                                                                : 1.03,
+                                                        scale: canSubmit
+                                                            ? 1.03
+                                                            : 1,
                                                     }}
                                                     whileTap={{ scale: 0.98 }}
                                                     transition={{
@@ -468,7 +473,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         stiffness: 300,
                                                         damping: 20,
                                                     }}
-                                                    className="w-full rounded-full py-3.5 text-sm font-medium tracking-wide transition-shadow disabled:opacity-50"
+                                                    className="w-full rounded-full py-3.5 text-sm font-medium tracking-wide transition-shadow disabled:cursor-not-allowed disabled:opacity-50"
                                                     style={{
                                                         backgroundColor:
                                                             "#1E3A20",
@@ -479,7 +484,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         letterSpacing: "0.04em",
                                                     }}
                                                 >
-                                                    {status === "submitting"
+                                                    {isSubmitting
                                                         ? "Sending..."
                                                         : "Send Message"}
                                                 </motion.button>
