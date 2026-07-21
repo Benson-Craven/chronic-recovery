@@ -11,7 +11,7 @@ Living with chronic pain in Cork doesn't mean accepting a life of limitations. O
 
 -   **Chronic pain management Cork services** offer evidence-based recovery programmes that retrain your nervous system
 -   Treatment combines pain neuroscience education, movement therapy, and lifestyle modifications
--   Recovery is possible—your pain isn't "all in your head," but your brain does play a crucial role
+-   Recovery is possible. Your pain isn't "all in your head," but your brain does play a crucial role
 -   Cork-based support available in-person and online for anywhere in Ireland and internationally
 -   Consultations help determine if you're suitable for our chronic pain treatment approach
 
@@ -31,13 +31,13 @@ Common types of chronic pain we work with in Cork include:
 -   Post-surgical pain that hasn't resolved
 -   Widespread body pain
 
-Many people we see in Cork have been told their scans are "normal" or that they'll just have to "live with it." This is frustrating because your pain is real—but the good news is that pain science has evolved significantly in recent years.
+Many people we see in Cork have been told their scans are "normal" or that they'll just have to "live with it." This is frustrating because your pain is real, but the good news is that pain science has evolved significantly in recent years.
 
 ## How Chronic Pain Management Cork Services Differ
 
 Traditional pain management often focuses solely on the injury site. You might get painkillers, injections, or surgery. While these have their place, they don't address why your nervous system continues sending pain signals long after healing should have occurred.
 
-Effective chronic pain treatment works differently. It's based on understanding that chronic pain is a learned response by your nervous system—and what's learned can be unlearned.
+Effective chronic pain treatment works differently. It's based on understanding that chronic pain is a learned response by your nervous system, and what's learned can be unlearned.
 
 Our approach in Cork combines three evidence-based elements:
 
@@ -47,7 +47,7 @@ Understanding why you hurt is the first step to recovery. We explain the science
 Many Cork residents we work with describe this education as "life-changing." One client said, "I spent three years avoiding movement because I thought I was making things worse. Learning about pain recovery techniques changed everything."
 
 **Graded Movement and Exercise**  
-Movement isn't dangerous—it's therapeutic. We start where you are and gradually build your capacity. This isn't about pushing through pain, but about smart, progressive exposure that helps your nervous system recalibrate.
+Movement isn't dangerous; it's therapeutic. We start where you are and gradually build your capacity. This isn't about pushing through pain, but about smart, progressive exposure that helps your nervous system recalibrate.
 
 The exercises are tailored to your current abilities. Whether you're struggling to walk to the shop or you're an athlete who can't return to sport, we meet you where you are.
 
@@ -82,7 +82,7 @@ Recovery doesn't always mean zero pain. For many, it means returning to activiti
 ## Common Questions About Living With Chronic Pain
 
 **Can chronic pain really improve after years of suffering?**  
-Yes. Your nervous system has remarkable plasticity—the ability to change. We've worked with Cork residents who've had pain for 5, 10, even 20 years who've made significant improvements. The key is the right approach, not just more of what hasn't worked.
+Yes. Your nervous system has remarkable plasticity, meaning it has the ability to change. We've worked with Cork residents who've had pain for 5, 10, even 20 years who've made significant improvements. The key is the right approach, not just more of what hasn't worked.
 
 **Will I need to take medication forever?**  
 Not necessarily. Some people reduce their reliance on pain medication as they progress through recovery. However, medication decisions should always be made with your GP's guidance. Our chronic pain support complements medical care, not replaces it.
@@ -95,11 +95,11 @@ We work with a wide range of chronic pain conditions. The best way to find out i
 
 ## Taking the First Step in Cork
 
-Recovery from chronic pain starts with understanding that change is possible. You've likely tried multiple treatments—physiotherapy, medications, injections, maybe even surgery. If those haven't provided lasting relief, it's time to try an approach that addresses how chronic pain really works.
+Recovery from chronic pain starts with understanding that change is possible. You've likely tried multiple treatments, including physiotherapy, medications, injections, and maybe even surgery. If those haven't provided lasting relief, it's time to try an approach that addresses how chronic pain really works.
 
 Whether you're in Cork city, the surrounding suburbs, or anywhere in County Cork, help is available. Our combination of in-person Cork consultations and online support means geography doesn't have to be a barrier to recovery.
 
-[Book your consultation](/contact) or call us to speak with someone who understands what you're going through. You don't have to navigate chronic pain treatment alone—we're here to help you find your path to recovery.
+[Book your consultation](/contact) or call us to speak with someone who understands what you're going through. You don't have to navigate chronic pain treatment alone. We're here to help you find your path to recovery.
 
 ## Resources for Cork Residents
 

@@ -17,7 +17,7 @@ const projects: Project[] = [
     {
         title: "Structured approach to resolving the causes",
         description:
-            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments — with fantastic results.",
+            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments, with fantastic results.",
         src: "phone.avif",
         url: "",
         color: "#1E3A20",
@@ -33,7 +33,7 @@ const projects: Project[] = [
     {
         title: "In-person in Cork or online",
         description:
-            "€70 per session at my home clinic in Rochestown, Cork — or online anywhere. Package of 6 sessions available for €360.",
+            "€70 per session at my home clinic in Rochestown, Cork, or online anywhere. Package of 6 sessions available for €360.",
         src: "cork.avif",
         url: "",
         color: "#1E3A20",
