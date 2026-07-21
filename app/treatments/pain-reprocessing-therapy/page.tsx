@@ -1,11 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import {
-    BreadcrumbJsonLd,
-    FAQJsonLd,
-    createPageMetadata,
-} from "@/app/lib/seo"
+import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Pain Reprocessing Therapy Ireland | Chronic Pain Recovery",
@@ -25,10 +21,7 @@ export default function PainReprocessingTherapyPage() {
 
     return (
         <>
-            <BreadcrumbJsonLd
-                id="prt-breadcrumb-schema"
-                items={breadcrumbs}
-            />
+            <BreadcrumbJsonLd id="prt-breadcrumb-schema" items={breadcrumbs} />
             <FAQJsonLd
                 id="prt-faq-schema"
                 questions={[
@@ -37,17 +30,20 @@ export default function PainReprocessingTherapyPage() {
                         answer: "Pain Reprocessing Therapy is an evidence-informed approach that helps suitable clients reinterpret safe body sensations as non-dangerous, which may reduce neuroplastic pain signals over time.",
                     },
                     {
-                        question: "Is Pain Reprocessing Therapy suitable for all pain?",
+                        question:
+                            "Is Pain Reprocessing Therapy suitable for all pain?",
                         answer: "No. Structural abnormalities, disease, infection, acute injury, and urgent medical causes should be assessed first. PRT is most relevant when pain appears to be maintained by learned nervous system danger signals.",
                     },
                     {
-                        question: "Can Pain Reprocessing Therapy be done online?",
+                        question:
+                            "Can Pain Reprocessing Therapy be done online?",
                         answer: "Yes. Many parts of PRT, including education, somatic tracking, and reducing fear around symptoms, can be supported online when clinically appropriate.",
                     },
                 ]}
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="prt_closing_cta"
                 hero={{
                     eyebrow: "Pain Reprocessing Therapy",
                     title: (
@@ -57,16 +53,16 @@ export default function PainReprocessingTherapyPage() {
                             <em>pain signals</em>
                         </>
                     ),
-                    intro:
-                        "Pain Reprocessing Therapy may help people with neuroplastic chronic pain by teaching the brain to interpret safe body sensations with less danger.",
+                    intro: "Pain Reprocessing Therapy may help people with neuroplastic chronic pain by teaching the brain to interpret safe body sensations with less danger.",
                 }}
                 sections={[
                     {
                         eyebrow: "The method",
                         heading: "What Pain Reprocessing Therapy does",
-                        image: {
-                            src: "/images/study.webp",
-                            alt: "Pain science books and study materials",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/pain-neuroscience.png",
+                            alt: "",
                         },
                         body: [
                             "Pain Reprocessing Therapy, often called PRT, is based on the idea that some chronic pain is maintained by learned neural pathways rather than ongoing tissue damage. The pain is real, but the danger signal may be inaccurate.",
@@ -76,9 +72,10 @@ export default function PainReprocessingTherapyPage() {
                     {
                         eyebrow: "What it involves",
                         heading: "Education, safety and somatic tracking",
-                        image: {
-                            src: "/images/therapy.avif",
-                            alt: "Therapy setting for Pain Reprocessing Therapy",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/mind-body-connection.png",
+                            alt: "",
                         },
                         body: [
                             "A central part of PRT is learning why pain can persist after healing and how the brain can misinterpret normal sensations as dangerous. This education can reduce fear and create a foundation for change.",
@@ -88,9 +85,10 @@ export default function PainReprocessingTherapyPage() {
                     {
                         eyebrow: "Who it is for",
                         heading: "When pain may be neuroplastic",
-                        image: {
-                            src: "/images/headache.avif",
-                            alt: "Person experiencing persistent headache symptoms",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/gradual-recovery.png",
+                            alt: "",
                         },
                         body: [
                             "PRT may be relevant when pain began without clear injury, persists beyond expected healing, moves around, varies with stress, improves with distraction, or has not been explained by medical tests.",
@@ -101,8 +99,7 @@ export default function PainReprocessingTherapyPage() {
                 listSection={{
                     eyebrow: "Core principles",
                     heading: "How the work supports change",
-                    intro:
-                        "PRT is not positive thinking. It is a structured way of helping the nervous system update its prediction of danger.",
+                    intro: "PRT is not positive thinking. It is a structured way of helping the nervous system update its prediction of danger.",
                     items: [
                         {
                             title: "Pain is real",
@@ -124,8 +121,7 @@ export default function PainReprocessingTherapyPage() {
                 }}
                 safetyNote={{
                     heading: "PRT is not for every pain condition",
-                    body:
-                        "Pain Reprocessing Therapy should only be considered after appropriate medical assessment. It is not a replacement for treatment of active disease, infection, acute injury, cancer, urgent symptoms, or structural problems requiring surgical intervention.",
+                    body: "Pain Reprocessing Therapy should only be considered after appropriate medical assessment. It is not a replacement for treatment of active disease, infection, acute injury, cancer, urgent symptoms, or structural problems requiring surgical intervention.",
                 }}
                 researchLinks={[
                     {

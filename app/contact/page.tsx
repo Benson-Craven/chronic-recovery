@@ -3,52 +3,36 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { FaWhatsapp } from "react-icons/fa"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import WhatsAppLink from "@/app/components/WhatsAppLink"
+import {
+    ContactFormFeedback,
+    ContactFormHoneypot,
+} from "@/app/components/ContactFormProtection"
+import Turnstile from "@/app/components/Turnstile"
+import { useContactForm } from "@/app/hooks/useContactForm"
+
+const MAX_MESSAGE_LENGTH = 500
 
 const ContactPage = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
     const [messageLength, setMessageLength] = useState(0)
-    const maxMessageLength = 500
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-
-        const form = e.target as HTMLFormElement
-        const formData = new FormData(form)
-
-        const message = formData.get("message") as string
-        if (message.length > maxMessageLength) {
-            alert(`Message must be less than ${maxMessageLength} characters.`)
-            return
-        }
-
-        try {
-            const res = await fetch("/api/sendEmail", {
-                method: "POST",
-                body: JSON.stringify({
-                    name: formData.get("name"),
-                    email: formData.get("email"),
-                    phone: formData.get("phone"),
-                    message: formData.get("message"),
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-
-            if (!res.ok) throw new Error("Failed to send")
-
-            const json = await res.json()
-            console.log(json)
-
-            form.reset()
-            setMessageLength(0)
-            setIsFormSubmitted(true)
-            trackContactFormSubmission("contact_page")
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const {
+        canSubmit,
+        formError,
+        handleSubmit,
+        handleTokenChange,
+        isSubmitting,
+        setTurnstileState,
+        turnstileRef,
+        turnstileState,
+    } = useContactForm("contact_page", () => {
+        setMessageLength(0)
+        setIsFormSubmitted(true)
+        trackContactFormSubmission("contact_page")
+    })
 
     const inputStyles: React.CSSProperties = {
         width: "100%",
@@ -119,8 +103,9 @@ const ContactPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Fill out the form and I'll get back to you as quickly as
-                        possible — usually within 24 hours.
+                        Message me on WhatsApp or fill out the form. I'll get
+                        back to you as quickly as possible, usually within 24
+                        hours.
                     </p>
                 </motion.div>
             </section>
@@ -162,6 +147,21 @@ const ContactPage = () => {
                                 }}
                             />
 
+                            <WhatsAppLink
+                                source="contact_page"
+                                className="mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF] transition-transform hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+                                style={{
+                                    fontFamily: "var(--font-dm-sans)",
+                                    letterSpacing: "0.04em",
+                                }}
+                            >
+                                <FaWhatsapp
+                                    aria-hidden="true"
+                                    className="h-5 w-5"
+                                />
+                                WhatsApp Marsha
+                            </WhatsAppLink>
+
                             <div className="space-y-8">
                                 {[
                                     {
@@ -170,12 +170,12 @@ const ContactPage = () => {
                                     },
                                     {
                                         label: "Sessions",
-                                        value: "In-person in Rochestown, Cork — or online via video call.",
+                                        value: "In-person in Rochestown, Cork, or online via video call.",
                                     },
                                     {
-                                        label: "Tel / WhatsApp",
-                                        value: "+353 (0) 87-102-5108",
-                                        href: "tel:+353871025108",
+                                        label: "Phone",
+                                        value: PHONE_DISPLAY,
+                                        href: PHONE_HREF,
                                     },
                                 ].map((item, index) => (
                                     <div
@@ -244,6 +244,7 @@ const ContactPage = () => {
                                     <motion.form
                                         key="form"
                                         onSubmit={handleSubmit}
+                                        aria-busy={isSubmitting}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
@@ -263,6 +264,9 @@ const ContactPage = () => {
                                                 id="name"
                                                 name="name"
                                                 required
+                                                minLength={2}
+                                                maxLength={100}
+                                                autoComplete="name"
                                                 placeholder="Your full name"
                                                 style={inputStyles}
                                             />
@@ -281,6 +285,8 @@ const ContactPage = () => {
                                                 id="email"
                                                 name="email"
                                                 required
+                                                maxLength={254}
+                                                autoComplete="email"
                                                 placeholder="your@email.com"
                                                 style={inputStyles}
                                             />
@@ -299,6 +305,9 @@ const ContactPage = () => {
                                                 id="phone"
                                                 name="phone"
                                                 required
+                                                minLength={7}
+                                                maxLength={50}
+                                                autoComplete="tel"
                                                 placeholder="+353..."
                                                 style={inputStyles}
                                             />
@@ -317,7 +326,8 @@ const ContactPage = () => {
                                                 name="message"
                                                 rows={5}
                                                 required
-                                                maxLength={maxMessageLength}
+                                                minLength={10}
+                                                maxLength={MAX_MESSAGE_LENGTH}
                                                 placeholder="Tell me a little about what you're experiencing..."
                                                 onChange={(e) =>
                                                     setMessageLength(
@@ -341,22 +351,47 @@ const ContactPage = () => {
                                                 }}
                                             >
                                                 {messageLength}/
-                                                {maxMessageLength}
+                                                {MAX_MESSAGE_LENGTH}
                                             </p>
                                         </div>
+
+                                        <ContactFormHoneypot id="website" />
+
+                                        <Turnstile
+                                            ref={turnstileRef}
+                                            action="contact_page"
+                                            onTokenChange={handleTokenChange}
+                                            onStateChange={setTurnstileState}
+                                        />
+
+                                        <ContactFormFeedback
+                                            error={formError}
+                                            errorId="contact-form-error"
+                                            errorClassName="text-sm leading-relaxed"
+                                            errorColor="rgba(150,45,45,0.9)"
+                                            turnstileState={turnstileState}
+                                        />
 
                                         {/* Submit */}
                                         <div className="flex flex-col gap-4 pt-2">
                                             <motion.button
                                                 type="submit"
-                                                whileHover={{ scale: 1.03 }}
+                                                disabled={!canSubmit}
+                                                aria-describedby={
+                                                    formError
+                                                        ? "contact-form-error"
+                                                        : undefined
+                                                }
+                                                whileHover={{
+                                                    scale: canSubmit ? 1.03 : 1,
+                                                }}
                                                 whileTap={{ scale: 0.98 }}
                                                 transition={{
                                                     type: "spring",
                                                     stiffness: 300,
                                                     damping: 20,
                                                 }}
-                                                className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
+                                                className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:px-10"
                                                 style={{
                                                     backgroundColor: "#1E3A20",
                                                     color: "#F7F4EF",
@@ -366,7 +401,9 @@ const ContactPage = () => {
                                                     letterSpacing: "0.04em",
                                                 }}
                                             >
-                                                Send Message
+                                                {isSubmitting
+                                                    ? "Sending..."
+                                                    : "Send Message"}
                                             </motion.button>
 
                                             {/* Legal */}
@@ -453,7 +490,7 @@ const ContactPage = () => {
                                             }}
                                         >
                                             I'll get back to you as soon as
-                                            possible — usually within 24 hours.
+                                            possible, usually within 24 hours.
                                         </p>
                                     </motion.div>
                                 )}

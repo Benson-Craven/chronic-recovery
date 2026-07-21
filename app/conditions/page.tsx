@@ -5,6 +5,9 @@ import React from "react"
 import { motion } from "framer-motion"
 import Breadcrumbs from "../components/Breadcrumbs"
 import { BreadcrumbJsonLd } from "../lib/seo"
+import { EditorialSplit } from "../components/ui/EditorialSplit"
+import { WhatsAppCta } from "../components/WhatsAppLink"
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
 
 const treatable = [
     "Fibromyalgia",
@@ -40,10 +43,10 @@ const treatable = [
 const nonTreatable = [
     "Structural abnormalities requiring surgical intervention",
     "Acute injuries",
-    "Oncology — cancer",
-    "Infections — HIV, Lyme disease, and other active infections",
-    "CNS conditions — Parkinson's disease, dementia, ALS",
-    "ENT conditions — hearing loss, Ménière's disease",
+    "Oncology: cancer",
+    "Infections: HIV, Lyme disease, and other active infections",
+    "CNS conditions: Parkinson's disease, dementia, ALS",
+    "ENT conditions: hearing loss, Ménière's disease",
 ]
 
 const fadeInVariants = {
@@ -105,7 +108,7 @@ const ConditionsPage = () => {
                         }}
                     >
                         Many conditions once considered permanent have been
-                        shown to have a neuroplastic component — meaning
+                        shown to have a neuroplastic component, meaning
                         recovery is possible. This is not an exhaustive list.
                     </p>
                 </motion.div>
@@ -120,39 +123,49 @@ const ConditionsPage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        {treatable.length} conditions
-                    </p>
-                    <h2
-                        className="mb-4 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Conditions that
-                        <br />
-                        <em>are treatable</em>
-                    </h2>
-                    <p
-                        className="mb-14 text-sm opacity-40"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        This is not an exhaustive list of all treatable
-                        conditions.
-                    </p>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/whole-person-health.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            {treatable.length} conditions
+                        </p>
+                        <h2
+                            className="mb-4 text-4xl leading-[1.1] md:text-5xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            Conditions that
+                            <br />
+                            <em>are treatable</em>
+                        </h2>
+                        <p
+                            className="text-sm opacity-40"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            This is not an exhaustive list of all treatable
+                            conditions.
+                        </p>
+                    </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-5xl">
                     <div
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
@@ -295,108 +308,117 @@ const ConditionsPage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Before we begin
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Please rule out
-                        <br />
-                        <em>structural issues first</em>
-                    </h2>
-
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                <EditorialSplit
+                    reverse
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/pain-neuroscience.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
                             style={{
                                 color: "#1E3A20",
                                 fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
                             }}
                         >
-                            01
-                        </span>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "rgba(30,58,32,0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            Please consult your doctor to rule out a structural
-                            abnormality, disease, or infection before beginning
-                            this approach.
+                            Before we begin
                         </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.1,
-                            ease: "easeOut",
-                        }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl"
                             style={{
+                                fontFamily: "var(--font-dm-serif)",
                                 color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
                             }}
                         >
-                            02
-                        </span>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "rgba(30,58,32,0.65)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
+                            Please rule out
+                            <br />
+                            <em>structural issues first</em>
+                        </h2>
+
+                        <div
+                            className="h-px w-full"
+                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                        />
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="flex items-start gap-6 border-b py-10"
+                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            Not sure if this is right for you?{" "}
-                            <Link
-                                href="/self-assessment"
-                                className="underline underline-offset-2 transition-opacity hover:opacity-60"
-                                style={{ color: "#1E3A20" }}
+                            <span
+                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
                             >
-                                Take the self-assessment questionnaire
-                            </Link>{" "}
-                            to help determine whether this approach is a good
-                            fit.
-                        </p>
-                    </motion.div>
-                </div>
+                                01
+                            </span>
+                            <p
+                                className="text-base leading-relaxed md:text-lg"
+                                style={{
+                                    color: "rgba(30,58,32,0.65)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                Please consult your doctor to rule out a
+                                structural abnormality, disease, or infection
+                                before beginning this approach.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.1,
+                                ease: "easeOut",
+                            }}
+                            className="flex items-start gap-6 border-b py-10"
+                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                        >
+                            <span
+                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                02
+                            </span>
+                            <p
+                                className="text-base leading-relaxed md:text-lg"
+                                style={{
+                                    color: "rgba(30,58,32,0.65)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                Not sure if this is right for you?{" "}
+                                <Link
+                                    href="/self-assessment"
+                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                    style={{ color: "#1E3A20" }}
+                                >
+                                    Take the self-assessment questionnaire
+                                </Link>{" "}
+                                to help determine whether this approach is a
+                                good fit.
+                            </p>
+                        </motion.div>
+                    </div>
+                </EditorialSplit>
             </motion.section>
 
             {/* Final CTA — green */}
@@ -452,10 +474,10 @@ const ConditionsPage = () => {
                                 }}
                             >
                                 <p>
-                                    If your condition appears above — or if
+                                    If your condition appears above, or if
                                     you've been living with unexplained pain
                                     that hasn't responded to conventional
-                                    treatment — this approach may be the answer
+                                    treatment, this approach may be the answer
                                     you've been looking for.
                                 </p>
                                 <p
@@ -471,6 +493,10 @@ const ConditionsPage = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
+                                <WhatsAppCta
+                                    source="conditions_closing_cta"
+                                    surface="green"
+                                />
                                 <Link href="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
@@ -482,14 +508,15 @@ const ConditionsPage = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#F0EBE1",
-                                            color: "#1E3A20",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(240,235,225,0.75)",
+                                            color: "#F0EBE1",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Book Your Consultation
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <Link href="/self-assessment">
@@ -522,15 +549,15 @@ const ConditionsPage = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "rgba(200,230,201,0.6)",
                                         }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

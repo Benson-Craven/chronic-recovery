@@ -11,6 +11,7 @@ import {
     Smile,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const SVGPathScienceSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -98,7 +99,7 @@ const SVGPathScienceSection = () => {
                     >
                         Chronic pain isn't always caused by ongoing injury. Many
                         long-lasting pain conditions come from learned neural
-                        pathways in the brain — patterns that continue to fire
+                        pathways in the brain, patterns that continue to fire
                         even after the body has healed.
                     </motion.p>
                 </div>
@@ -119,41 +120,44 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative h-64 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
-                        style={{ borderRadius: "20px" }}
+                        className="relative h-80 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
+                        style={{
+                            borderRadius: "20px",
+                            backgroundColor: "#EDE9E0",
+                        }}
                     >
-                        <img
-                            src="/images/meeting1.avif"
-                            alt="Calm therapy room for chronic pain recovery support"
-                            className="h-full w-full object-cover"
-                            loading="lazy"
+                        <Image
+                            src="/images/illustrations/group-education.png"
+                            alt=""
+                            width={1254}
+                            height={1254}
+                            aria-hidden="true"
+                            className="absolute -right-10 -top-10 h-3/5 w-3/5 object-contain opacity-25"
+                            sizes="(max-width: 1023px) 60vw, 30vw"
                         />
-                        <div
-                            className="absolute inset-0 flex flex-col justify-end p-7"
-                            style={{
-                                background:
-                                    "linear-gradient(to top, rgba(10,25,12,0.97) 0%, rgba(10,25,12,0.6) 50%, transparent 100%)",
-                            }}
-                        >
+                        <div className="absolute inset-0 flex flex-col justify-end p-7">
                             <Brain
                                 className="mb-3 h-5 w-5 opacity-50"
-                                style={{ color: "#C8E6C9" }}
+                                style={{ color: "#1E3A20" }}
                             />
                             <h3
-                                className="mb-3 text-2xl leading-snug text-white"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                                className="mb-3 max-w-md text-2xl leading-snug"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-serif)",
+                                }}
                             >
-                                All pain is real — and it starts in the brain
+                                All pain is real, and it starts in the brain
                             </h3>
                             <p
                                 className="mb-5 text-sm leading-relaxed"
                                 style={{
-                                    color: "rgba(200,230,201,0.7)",
+                                    color: "rgba(30,58,32,0.68)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
                             >
-                                95% of brain function is unconscious —
+                                95% of brain function is unconscious,
                                 constantly interpreting signals to determine
                                 safety or danger. Pain originates here, not in
                                 imagined injury.
@@ -161,7 +165,7 @@ const SVGPathScienceSection = () => {
                             <BentoLink
                                 href="/contact"
                                 label="Book a Consultation"
-                                dark
+                                dark={false}
                             />
                         </div>
                     </motion.figure>
@@ -171,7 +175,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<AlertTriangle className="h-4 w-4" />}
                         title="Signals that won't switch off"
-                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain — and that language can be retrained."
+                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain, and that language can be retrained."
                         href="/self-assessment"
                         linkLabel="Take the Self-Assessment"
                         bg="cream"
@@ -231,7 +235,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<ThumbsUp className="h-4 w-4" />}
                         title="The good news"
-                        body="Turning off these signals is safe — and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
+                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
                         href="/contact"
                         linkLabel="Start Your Healing"
                         bg="cream"
@@ -244,7 +248,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<Smile className="h-4 w-4" />}
                         title="Pain Reprocessing Therapy"
-                        body="PRT helps retrain the brain to turn off misfiring pain signals — especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
+                        body="PRT helps retrain the brain to turn off misfiring pain signals, especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
                         href="/science"
                         linkLabel="Learn More"
                         bg="green"
@@ -257,7 +261,7 @@ const SVGPathScienceSection = () => {
                         delay={0.15}
                         icon={<Shield className="h-4 w-4" />}
                         title="Biopsychosocial method"
-                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner — one of the world's foremost pioneers in mind-body medicine."
+                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner, one of the world's foremost pioneers in mind-body medicine."
                         href="/science"
                         linkLabel="Explore the Science"
                         bg="cream"

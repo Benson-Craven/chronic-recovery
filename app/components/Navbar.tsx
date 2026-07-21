@@ -4,11 +4,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { FaWhatsapp } from "react-icons/fa"
 import { useBodyScrollLock } from "@/app/hooks/useBodyScrollLock"
 import ShineUnderlineEffect from "./UnderlineEffect"
 import Button from "./Button"
 import MobileMenu from "./MobileMenu"
 import ContactModal from "./ContactModal"
+import WhatsAppLink from "./WhatsAppLink"
 
 type NavbarProps = {
     className?: string
@@ -62,8 +64,8 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden flex-1 justify-center md:flex">
-                    <ul className="flex items-center gap-10">
+                <div className="hidden flex-1 justify-center lg:flex">
+                    <ul className="flex items-center gap-6 xl:gap-10">
                         {/* Science Dropdown */}
                         <li
                             className="relative"
@@ -191,7 +193,19 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden md:block">
+                <div className="hidden items-center gap-3 lg:flex">
+                    <WhatsAppLink
+                        source="navbar_desktop"
+                        className="flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium uppercase tracking-[0.08em] transition-transform hover:scale-[1.03] hover:shadow-md active:scale-[0.98] xl:px-6"
+                        style={{
+                            backgroundColor: "#1E3A20",
+                            color: "#F7F4EF",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
+                        <span>WhatsApp Marsha</span>
+                    </WhatsAppLink>
                     <motion.button
                         onClick={() => setIsContactOpen(!isContactOpen)}
                         whileHover={{ scale: 1.03 }}
@@ -201,10 +215,11 @@ export default function Navbar({ className = "" }: NavbarProps) {
                             stiffness: 300,
                             damping: 20,
                         }}
-                        className="rounded-full px-6 py-2.5 text-xs font-medium tracking-wide transition-shadow hover:shadow-md"
+                        className="rounded-full border px-5 py-2.5 text-xs font-medium tracking-wide transition-shadow hover:shadow-md xl:px-6"
                         style={{
-                            backgroundColor: "#1E3A20",
-                            color: "#F7F4EF",
+                            backgroundColor: "transparent",
+                            borderColor: "#1E3A20",
+                            color: "#1E3A20",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 500,
                             letterSpacing: "0.08em",
@@ -215,11 +230,35 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     </motion.button>
                 </div>
 
-                {/* Mobile Menu */}
-                <MobileMenu
-                    isOpen={isMobileMenuOpen}
-                    onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                />
+                {/* Mobile actions */}
+                <div className="ml-auto flex items-center gap-2 lg:hidden">
+                    <Link
+                        href="/contact"
+                        className="hidden items-center justify-center rounded-full border px-4 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] min-[460px]:inline-flex"
+                        style={{
+                            borderColor: "#1E3A20",
+                            color: "#1E3A20",
+                            fontFamily: "var(--font-dm-sans)",
+                        }}
+                    >
+                        Book Consultation
+                    </Link>
+                    <WhatsAppLink
+                        source="navbar_mobile"
+                        aria-label="WhatsApp Marsha"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-[1.03] active:scale-[0.98]"
+                        style={{
+                            backgroundColor: "#1E3A20",
+                            color: "#F7F4EF",
+                        }}
+                    >
+                        <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
+                    </WhatsAppLink>
+                    <MobileMenu
+                        isOpen={isMobileMenuOpen}
+                        onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    />
+                </div>
 
                 {/* Contact Modal */}
                 <ContactModal

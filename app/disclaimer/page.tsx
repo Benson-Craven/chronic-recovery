@@ -33,7 +33,7 @@ const sections = [
     {
         number: "06",
         heading: "Disclaimer of liability",
-        body: "The user assumes all responsibility and risk for the use of this website. Under no circumstances shall Chronic Pain Recovery Project or anyone else involved in creating or maintaining this website be liable for any direct, indirect, incidental, special, or consequential damages, or lost profits that result directly or indirectly from the use or inability to use the website and/or any other websites linked to this site — or that result directly or indirectly from mistakes, omissions, interruptions, deletion of files, viruses, errors, defects, or any failure of performance, communications failure, theft, destruction, or unauthorised access.",
+        body: "The user assumes all responsibility and risk for the use of this website. Under no circumstances shall Chronic Pain Recovery Project or anyone else involved in creating or maintaining this website be liable for any direct, indirect, incidental, special, or consequential damages, or lost profits that result directly or indirectly from the use or inability to use the website and/or any other websites linked to this site, or that result directly or indirectly from mistakes, omissions, interruptions, deletion of files, viruses, errors, defects, or any failure of performance, communications failure, theft, destruction, or unauthorised access.",
     },
 ]
 

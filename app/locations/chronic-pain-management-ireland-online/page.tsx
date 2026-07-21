@@ -1,11 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import {
-    BreadcrumbJsonLd,
-    FAQJsonLd,
-    createPageMetadata,
-} from "@/app/lib/seo"
+import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Online Chronic Pain Management Ireland | Chronic Pain Recovery",
@@ -33,11 +29,13 @@ export default function OnlineIrelandPage() {
                 id="online-ireland-faq-schema"
                 questions={[
                     {
-                        question: "Can chronic pain recovery work happen online?",
+                        question:
+                            "Can chronic pain recovery work happen online?",
                         answer: "Yes. Education, nervous system work, symptom tracking, and recovery planning can often be done online when the person is medically suitable for this approach.",
                     },
                     {
-                        question: "Who is online chronic pain management suitable for?",
+                        question:
+                            "Who is online chronic pain management suitable for?",
                         answer: "It may be suitable for people with persistent pain or medically unexplained symptoms after medical assessment has ruled out urgent or active medical causes.",
                     },
                     {
@@ -48,6 +46,7 @@ export default function OnlineIrelandPage() {
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
+                whatsAppSource="ireland_location_closing_cta"
                 hero={{
                     eyebrow: "Online support across Ireland",
                     title: (
@@ -57,16 +56,16 @@ export default function OnlineIrelandPage() {
                             <em>wherever you are</em>
                         </>
                     ),
-                    intro:
-                        "Online chronic pain management for people across Ireland who want to explore whether persistent pain may be linked to learned danger signals in the nervous system.",
+                    intro: "Online chronic pain management for people across Ireland who want to explore whether persistent pain may be linked to learned danger signals in the nervous system.",
                 }}
                 sections={[
                     {
                         eyebrow: "Online care",
                         heading: "A flexible way to begin recovery work",
-                        image: {
-                            src: "/images/phone.avif",
-                            alt: "Online chronic pain support by phone or video",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/online-support.png",
+                            alt: "",
                         },
                         body: [
                             "You do not need to live near Cork to begin exploring chronic pain recovery. Many parts of this work happen through conversation, education, tracking symptom patterns, and learning to respond to sensations with more safety.",
@@ -75,10 +74,12 @@ export default function OnlineIrelandPage() {
                     },
                     {
                         eyebrow: "Ireland-wide",
-                        heading: "Support for persistent symptoms after assessment",
-                        image: {
-                            src: "/images/forest.avif",
-                            alt: "Path through forest representing chronic pain recovery online",
+                        heading:
+                            "Support for persistent symptoms after assessment",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/whole-person-health.png",
+                            alt: "",
                         },
                         body: [
                             "This approach may be relevant when pain has lasted more than three months, symptoms move or fluctuate, medical tests have not fully explained the pain, or stress and fear seem to amplify symptoms.",
@@ -88,9 +89,10 @@ export default function OnlineIrelandPage() {
                     {
                         eyebrow: "What to expect",
                         heading: "Practical, personal and paced",
-                        image: {
-                            src: "/images/study.webp",
-                            alt: "Books and notes for online chronic pain education",
+                        visual: {
+                            kind: "illustration",
+                            src: "/images/illustrations/one-to-one-support.png",
+                            alt: "",
                         },
                         body: [
                             "Online sessions may include pain neuroscience education, somatic tracking, emotional awareness, fear reduction, goal-setting, and gradual re-engagement with everyday activities.",
@@ -101,8 +103,7 @@ export default function OnlineIrelandPage() {
                 listSection={{
                     eyebrow: "Why online works",
                     heading: "What can be done remotely",
-                    intro:
-                        "For many people, the most important recovery work is learning how the brain and body are interpreting threat.",
+                    intro: "For many people, the most important recovery work is learning how the brain and body are interpreting threat.",
                     items: [
                         {
                             title: "Understand your pain patterns",
@@ -124,8 +125,7 @@ export default function OnlineIrelandPage() {
                 }}
                 safetyNote={{
                     heading: "Start with medical assessment",
-                    body:
-                        "Before beginning online chronic pain recovery work, please make sure structural abnormalities, disease, infection, acute injury, and urgent symptoms have been assessed by an appropriate medical professional.",
+                    body: "Before beginning online chronic pain recovery work, please make sure structural abnormalities, disease, infection, acute injury, and urgent symptoms have been assessed by an appropriate medical professional.",
                 }}
                 relatedLinks={[
                     {

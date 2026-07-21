@@ -9,7 +9,10 @@ import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow, ItalicQuote } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
 import { NumberRow } from "../ui/NumberRow"
+import { EditorialSplit } from "../ui/EditorialSplit"
 import { authorProfile } from "@/app/lib/seo"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { WhatsAppCta } from "../WhatsAppLink"
 
 const trainingItems = [
     "Listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
@@ -211,81 +214,100 @@ const AboutPage = () => {
 
             {/* I Know What It's Like — cream */}
             <Section variant="cream" id="know-what-its-like">
-                <Container>
-                    <Eyebrow>You are not alone</Eyebrow>
-                    <Heading className="mb-14">
-                        I know what it's like
-                        <br />
-                        <em>to be told there's nothing</em>
-                        <br />
-                        more we can do.
-                    </Heading>
-                    <Divider className="mb-0" />
-
-                    <NumberRow number={1}>
-                        If you're reading this, you've probably heard those
-                        words before. You've seen multiple specialists. You've
-                        had the scans, the x-rays, the blood tests. Everything
-                        comes back "normal" or you've even been given a
-                        "diagnosis" — but you're still in pain. Day after day.
-                        Month after month. Maybe even year after year.
-                    </NumberRow>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.15,
-                            ease: "easeOut",
-                        }}
-                    >
-                        <ItalicQuote className="mt-12">
-                            "Your pain is real.
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/compassionate-support.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <Eyebrow>You are not alone</Eyebrow>
+                        <Heading className="mb-14">
+                            I know what it's like
                             <br />
-                            And there is hope."
-                        </ItalicQuote>
-                    </motion.div>
-                </Container>
+                            <em>to be told there's nothing</em>
+                            <br />
+                            more we can do.
+                        </Heading>
+                        <Divider className="mb-0" />
+
+                        <NumberRow number={1}>
+                            If you're reading this, you've probably heard those
+                            words before. You've seen multiple specialists.
+                            You've had the scans, the x-rays, the blood tests.
+                            Everything comes back "normal" or you've even been
+                            given a "diagnosis", but you're still in pain. Day
+                            after day. Month after month. Maybe even year after
+                            year.
+                        </NumberRow>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.15,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <ItalicQuote className="mt-12">
+                                "Your pain is real.
+                                <br />
+                                And there is hope."
+                            </ItalicQuote>
+                        </motion.div>
+                    </div>
+                </EditorialSplit>
             </Section>
 
             {/* Journey — green */}
             <Section variant="green">
-                <Container>
-                    <Eyebrow style={{ color: "#C8E6C9" }}>
-                        My background
-                    </Eyebrow>
-                    <Heading className="mb-14 text-white">
-                        My journey to
-                        <br />
-                        <em>chronic pain recovery work</em>
-                    </Heading>
-                    <Divider variant="cream" className="mb-0" />
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/walking-together.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <Eyebrow style={{ color: "#C8E6C9" }}>
+                            My background
+                        </Eyebrow>
+                        <Heading className="mb-14 text-white">
+                            My journey to
+                            <br />
+                            <em>chronic pain recovery work</em>
+                        </Heading>
+                        <Divider variant="cream" className="mb-0" />
 
-                    <NumberRow number={1} variant="green">
-                        I didn't start out in this field by chance. Like many
-                        practitioners working with chronic pain, I've walked a
-                        path that's led me to understand something profound
-                        about how pain actually works — and more importantly,
-                        how recovery may be possible.
-                    </NumberRow>
-                    <NumberRow number={2} variant="green" index={1}>
-                        My work centres on the biopsychosocial approach to
-                        chronic pain recovery. I've completed specialised
-                        training in the methods developed by Dr. Howard
-                        Schubiner — one of the world's leading pioneers in
-                        mind-body medicine — whose groundbreaking research has
-                        helped thousands recover from conditions conventional
-                        medicine often labels as incurable.
-                    </NumberRow>
-                    <NumberRow number={3} variant="green" index={2}>
-                        I am listed in the Association for the Treatment of
-                        Neuroplastic Symptoms (ATNS) Practitioner & Coach
-                        Directory, which helps people find practitioners and
-                        coaches working with neuroplastic symptoms.
-                    </NumberRow>
-                </Container>
+                        <NumberRow number={1} variant="green">
+                            I didn't start out in this field by chance. Like
+                            many practitioners working with chronic pain, I've
+                            walked a path that's led me to understand something
+                            profound about how pain actually works, and more
+                            importantly, how recovery may be possible.
+                        </NumberRow>
+                        <NumberRow number={2} variant="green" index={1}>
+                            My work centres on the biopsychosocial approach to
+                            chronic pain recovery. I've completed specialised
+                            training in the methods developed by Dr. Howard
+                            Schubiner, one of the world's leading pioneers in
+                            mind-body medicine, whose groundbreaking research
+                            has helped thousands recover from conditions
+                            conventional medicine often labels as incurable.
+                        </NumberRow>
+                        <NumberRow number={3} variant="green" index={2}>
+                            I am listed in the Association for the Treatment of
+                            Neuroplastic Symptoms (ATNS) Practitioner & Coach
+                            Directory, which helps people find practitioners and
+                            coaches working with neuroplastic symptoms.
+                        </NumberRow>
+                    </div>
+                </EditorialSplit>
             </Section>
 
             {/* Credentials — cream */}
@@ -360,12 +382,12 @@ const AboutPage = () => {
                         {
                             number: "01",
                             heading: "The root cause, not the symptom",
-                            body: "Most chronic pain isn't caused by ongoing structural damage. Recent neuroscience research has shown that many persistent pain conditions are the result of learned neural pathways — patterns in your brain that continue firing long after your body has healed. Think of it like a faulty alarm system that keeps going off even when there's no danger.",
+                            body: "Most chronic pain isn't caused by ongoing structural damage. Recent neuroscience research has shown that many persistent pain conditions are the result of learned neural pathways, patterns in your brain that continue firing long after your body has healed. Think of it like a faulty alarm system that keeps going off even when there's no danger.",
                         },
                         {
                             number: "02",
                             heading:
-                                "I don't only manage pain — I support recovery",
+                                "I don't only manage pain; I support recovery",
                             body: "Many approaches focus mainly on coping tools. My approach works at the level of the nervous system to retrain learned danger signals, giving your brain a new pattern to practise.",
                         },
                     ].map((item, index) => (
@@ -431,7 +453,7 @@ const AboutPage = () => {
                             color: "#1E3A20",
                         }}
                     >
-                        "Pain is not a life sentence —
+                        "Pain is not a life sentence,
                         <br />
                         it's a signal that can be unlearned."
                     </motion.p>
@@ -509,7 +531,7 @@ const AboutPage = () => {
                             {
                                 title: "And many more",
                                 conditions:
-                                    "If you've been living with unexplained or persistent pain, reach out — this approach may be right for you.",
+                                    "If you've been living with unexplained or persistent pain, reach out. This approach may be right for you.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -572,7 +594,7 @@ const AboutPage = () => {
                             color: "rgba(200, 230, 201, 0.8)",
                         }}
                     >
-                        "If you've been told it's all in your head — you're
+                        "If you've been told it's all in your head, you're
                         partially right. Your pain lives in your brain's neural
                         circuits, but that makes it no less real. Understanding
                         this is the first step toward healing."
@@ -589,38 +611,50 @@ const AboutPage = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        How it works
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        What working
-                        <br />
-                        <em>together looks like</em>
-                    </h2>
-                    <p
-                        className="mb-14 text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "rgba(30, 58, 32, 0.7)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        One-to-one, 60-minute sessions working with your body,
-                        nervous system, and brain to restore your health.
-                    </p>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/one-to-one-support.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            How it works
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            What working
+                            <br />
+                            <em>together looks like</em>
+                        </h2>
+                        <p
+                            className="text-base leading-relaxed md:text-lg"
+                            style={{
+                                color: "rgba(30, 58, 32, 0.7)",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            One-to-one, 60-minute sessions working with your
+                            body, nervous system, and brain to restore your
+                            health.
+                        </p>
+                    </div>
+                </EditorialSplit>
+
+                <div className="mx-auto mt-16 max-w-3xl">
                     <div className="mb-14 divide-y divide-black/10">
                         {[
                             {
@@ -629,7 +663,7 @@ const AboutPage = () => {
                             },
                             {
                                 label: "Online",
-                                detail: "Via video call — perfect if you're anywhere in Ireland or beyond",
+                                detail: "Via video call, perfect if you're anywhere in Ireland or beyond",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -801,11 +835,11 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            body: "I work with people of all ages and backgrounds — from teenagers with amplified pain syndromes to adults who've lived with fibromyalgia for decades. The common thread? They'd all seen multiple medical professionals without finding lasting relief.",
+                            body: "I work with people of all ages and backgrounds, from teenagers with amplified pain syndromes to adults who've lived with fibromyalgia for decades. The common thread? They'd all seen multiple medical professionals without finding lasting relief.",
                         },
                         {
                             number: "02",
-                            body: "What makes me incredibly excited to come to work every day is seeing the transformations that happen when people finally understand what's actually causing their pain — and that they have the power to heal it.",
+                            body: "What makes me incredibly excited to come to work every day is seeing the transformations that happen when people finally understand what's actually causing their pain, and that they have the power to heal it.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -903,7 +937,7 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            text: "Understanding your unique story — every person's pain journey is different",
+                            text: "Understanding your unique story, because every person's pain journey is different",
                         },
                         {
                             number: "02",
@@ -919,7 +953,7 @@ const AboutPage = () => {
                         },
                         {
                             number: "05",
-                            text: "Being honest about what's possible — this approach works for many conditions, but not all",
+                            text: "Being honest about what's possible, since this approach works for many conditions, but not all",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -1263,7 +1297,7 @@ const AboutPage = () => {
                                     }}
                                 >
                                     Now it's time to try something backed by
-                                    science — something that treats the root
+                                    science, something that treats the root
                                     cause, not just the symptoms.
                                 </p>
                                 <p>
@@ -1273,6 +1307,7 @@ const AboutPage = () => {
                             </div>
 
                             <div className="space-y-4">
+                                <WhatsAppCta source="info_closing_cta" />
                                 <Link href="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
@@ -1284,14 +1319,15 @@ const AboutPage = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(30,58,32,0.3)",
+                                            color: "#1E3A20",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Start Your Healing Journey Today
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <p
@@ -1302,13 +1338,13 @@ const AboutPage = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{ color: "rgba(30,58,32,0.65)" }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

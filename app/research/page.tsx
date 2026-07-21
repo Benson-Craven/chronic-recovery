@@ -3,6 +3,9 @@
 import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { EditorialSplit } from "../components/ui/EditorialSplit"
+import { WhatsAppCta } from "../components/WhatsAppLink"
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
 
 const studies = [
     {
@@ -93,7 +96,7 @@ const ResearchStudies = () => {
                     >
                         These peer-reviewed studies demonstrate the
                         effectiveness of mind-body approaches for chronic pain.
-                        The evidence is clear — the brain can be retrained.
+                        The evidence is clear: the brain can be retrained.
                     </p>
                 </motion.div>
             </section>
@@ -107,34 +110,44 @@ const ResearchStudies = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-4xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        {studies.length} studies
-                    </p>
+                <EditorialSplit
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/group-education.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            {studies.length} studies
+                        </p>
 
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
-                        Peer-reviewed
-                        <br />
-                        <em>research archive</em>
-                    </h2>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] md:text-5xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                color: "#1E3A20",
+                            }}
+                        >
+                            Peer-reviewed
+                            <br />
+                            <em>research archive</em>
+                        </h2>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                        <div
+                            className="h-px w-full"
+                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
+                        />
+                    </div>
+                </EditorialSplit>
 
+                <div className="mx-auto mt-16 max-w-4xl">
                     {studies.map((study, index) => (
                         <motion.div
                             key={index}
@@ -244,95 +257,109 @@ const ResearchStudies = () => {
                 style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Why it matters
-                    </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
-                        Science is catching up
-                        <br />
-                        <em>to what patients know</em>
-                    </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
-                    {[
-                        {
-                            number: "01",
-                            body: "The biopsychosocial method is now taught to medical practitioners worldwide — including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
-                        },
-                        {
-                            number: "02",
-                            body: "These studies represent a new understanding of pain: that the brain can both create and resolve it. If your pain hasn't responded to structural treatments, there is likely a neuroplastic component.",
-                        },
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 16 }}
+                <EditorialSplit
+                    reverse
+                    surface="green"
+                    visual={{
+                        kind: "illustration",
+                        src: "/images/illustrations/journaling-reflection.png",
+                        alt: "",
+                    }}
+                >
+                    <div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#C8E6C9",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Why it matters
+                        </p>
+                        <h2
+                            className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
+                            style={{ fontFamily: "var(--font-dm-serif)" }}
+                        >
+                            Science is catching up
+                            <br />
+                            <em>to what patients know</em>
+                        </h2>
+                        <div
+                            className="h-px w-full"
+                            style={{
+                                backgroundColor: "rgba(200,230,201,0.15)",
+                            }}
+                        />
+                        {[
+                            {
+                                number: "01",
+                                body: "The biopsychosocial method is now taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
+                            },
+                            {
+                                number: "02",
+                                body: "These studies represent a new understanding of pain: that the brain can both create and resolve it. If your pain hasn't responded to structural treatments, there is likely a neuroplastic component.",
+                            },
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.1,
+                                    ease: "easeOut",
+                                }}
+                                className="flex items-start gap-6 border-b py-10"
+                                style={{
+                                    borderColor: "rgba(200,230,201,0.12)",
+                                }}
+                            >
+                                <span
+                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                    style={{
+                                        color: "#C8E6C9",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    {item.number}
+                                </span>
+                                <p
+                                    className="text-base leading-relaxed md:text-lg"
+                                    style={{
+                                        color: "rgba(200, 230, 201, 0.7)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    {item.body}
+                                </p>
+                            </motion.div>
+                        ))}
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 14 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{
                                 duration: 0.5,
-                                delay: index * 0.1,
+                                delay: 0.2,
                                 ease: "easeOut",
                             }}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(200,230,201,0.12)" }}
+                            className="mt-12 text-2xl leading-snug md:text-3xl"
+                            style={{
+                                fontFamily: "var(--font-dm-serif)",
+                                fontStyle: "italic",
+                                color: "rgba(200,230,201,0.8)",
+                            }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {item.number}
-                            </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "rgba(200, 230, 201, 0.7)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {item.body}
-                            </p>
-                        </motion.div>
-                    ))}
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.2,
-                            ease: "easeOut",
-                        }}
-                        className="mt-12 text-2xl leading-snug md:text-3xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "rgba(200,230,201,0.8)",
-                        }}
-                    >
-                        "What the brain has learned,
-                        <br />
-                        it can unlearn."
-                    </motion.p>
-                </div>
+                            "What the brain has learned,
+                            <br />
+                            it can unlearn."
+                        </motion.p>
+                    </div>
+                </EditorialSplit>
             </motion.section>
 
             {/* Final CTA — cream editorial split */}
@@ -393,7 +420,7 @@ const ResearchStudies = () => {
                                 <p>
                                     The research shows it's possible. Thousands
                                     of people have recovered from conditions
-                                    conventional medicine couldn't resolve —
+                                    conventional medicine couldn't resolve,
                                     using exactly this approach.
                                 </p>
                                 <p
@@ -409,6 +436,7 @@ const ResearchStudies = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
+                                <WhatsAppCta source="research_closing_cta" />
                                 <Link href="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
@@ -420,14 +448,15 @@ const ResearchStudies = () => {
                                         }}
                                         className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
                                         style={{
-                                            backgroundColor: "#1E3A20",
-                                            color: "#F7F4EF",
+                                            backgroundColor: "transparent",
+                                            border: "1px solid rgba(30,58,32,0.3)",
+                                            color: "#1E3A20",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 500,
                                             letterSpacing: "0.04em",
                                         }}
                                     >
-                                        Book Your Consultation
+                                        Book Consultation
                                     </motion.button>
                                 </Link>
                                 <Link href="/self-assessment">
@@ -460,16 +489,16 @@ const ResearchStudies = () => {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    or call / WhatsApp{" "}
+                                    Call{" "}
                                     <a
-                                        href="tel:+353871025108"
+                                        href={PHONE_HREF}
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "#1E3A20",
                                             opacity: 0.6,
                                         }}
                                     >
-                                        +353 (0) 87-102-5108
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </p>
                             </div>

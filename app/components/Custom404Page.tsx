@@ -107,7 +107,7 @@ const Custom404Page = () => {
                         }}
                     >
                         Just like chronic pain, sometimes things don't end up
-                        where they should. Unlike chronic pain — this one is
+                        where they should. Unlike chronic pain, this one is
                         easy to fix.
                     </p>
                 </motion.div>
@@ -334,7 +334,7 @@ const Custom404Page = () => {
                     >
                         "Still experiencing chronic pain?
                         <br />
-                        Unlike this error — that has a solution."
+                        Unlike this error, it has a solution."
                     </p>
                     <Link
                         href="/contact"

@@ -3,9 +3,12 @@ import { motion } from "framer-motion"
 import animationData from "../../../public/assets/women-health.json"
 import dynamic from "next/dynamic"
 import type { InteractivityProps, LottieRefCurrentProps } from "lottie-react"
+import { FaWhatsapp } from "react-icons/fa"
 import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import WhatsAppLink from "../WhatsAppLink"
 
 const LottieClientWrapper = dynamic(() => import("../LottieWrapper"), {
     ssr: false,
@@ -60,7 +63,7 @@ const WeDoSection = () => {
                         <Divider className="mb-8 w-12" />
 
                         <Text className="mb-10">
-                            There is new help for chronic pain sufferers — and
+                            There is new help for chronic pain sufferers, and
                             for people with medically unexplained diagnoses such
                             as IBS, long covid, chronic fatigue, migraines,
                             anxiety, and depression. If you've seen several
@@ -71,8 +74,22 @@ const WeDoSection = () => {
                         </Text>
 
                         <div className="flex flex-col gap-4">
-                            <CtaButton href="/contact">
-                                Book Your Consultation
+                            <WhatsAppLink
+                                source="homepage_approach"
+                                className="flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF] transition-transform hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+                                style={{
+                                    fontFamily: "var(--font-dm-sans)",
+                                    letterSpacing: "0.04em",
+                                }}
+                            >
+                                <FaWhatsapp
+                                    aria-hidden="true"
+                                    className="h-5 w-5"
+                                />
+                                WhatsApp Marsha
+                            </WhatsAppLink>
+                            <CtaButton href="/contact" variant="outline">
+                                Book Consultation
                             </CtaButton>
                             <p
                                 className="text-sm"
@@ -82,13 +99,13 @@ const WeDoSection = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                or call / WhatsApp{" "}
+                                Call{" "}
                                 <a
-                                    href="tel:+353871025108"
+                                    href={PHONE_HREF}
                                     className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                     style={{ color: "rgba(30,58,32,0.65)" }}
                                 >
-                                    +353 (0) 87-102-5108
+                                    {PHONE_DISPLAY}
                                 </a>
                             </p>
                         </div>
