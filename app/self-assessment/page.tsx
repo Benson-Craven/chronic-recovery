@@ -25,7 +25,7 @@ const questions = [
     "Do your symptoms occur after, but not during, activity or exercise?",
     "Are your symptoms less severe or less frequent when you are engaged in enjoyable or distracting activities, such as vacation?",
     "Are your symptoms triggered by foods, smells, sounds, light, computer screens, menses, changes in the weather, or specific movements?",
-    "Are your symptoms triggered by the anticipation of stress — prior to school, work, a doctor's visit, a medical test, or a social gathering?",
+    "Are your symptoms triggered by the anticipation of stress, prior to school, work, a doctor's visit, a medical test, or a social gathering?",
     "Are your symptoms triggered by light touch or gentle stimuli, such as wind or cold?",
     "Are you often more critical of yourself than others are of you?",
     "Over the course of your life, have you had other physical symptoms that your physician struggled to diagnose?",
@@ -62,7 +62,7 @@ const getResult = (count: number) => {
     return {
         label: "High likelihood",
         summary:
-            "Your responses suggest a high likelihood of a brain-to-body disorder. You are a strong candidate for this approach — recovery is possible.",
+            "Your responses suggest a high likelihood of a brain-to-body disorder. You are a strong candidate for this approach, and recovery is possible.",
         colour: "#C8E6C9",
     }
 }

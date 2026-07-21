@@ -63,7 +63,7 @@ const WeDoSection = () => {
                         <Divider className="mb-8 w-12" />
 
                         <Text className="mb-10">
-                            There is new help for chronic pain sufferers — and
+                            There is new help for chronic pain sufferers, and
                             for people with medically unexplained diagnoses such
                             as IBS, long covid, chronic fatigue, migraines,
                             anxiety, and depression. If you've seen several

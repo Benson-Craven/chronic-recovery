@@ -237,7 +237,7 @@ const AboutPage = () => {
                             words before. You've seen multiple specialists.
                             You've had the scans, the x-rays, the blood tests.
                             Everything comes back "normal" or you've even been
-                            given a "diagnosis" — but you're still in pain. Day
+                            given a "diagnosis", but you're still in pain. Day
                             after day. Month after month. Maybe even year after
                             year.
                         </NumberRow>
@@ -288,15 +288,15 @@ const AboutPage = () => {
                             I didn't start out in this field by chance. Like
                             many practitioners working with chronic pain, I've
                             walked a path that's led me to understand something
-                            profound about how pain actually works — and more
+                            profound about how pain actually works, and more
                             importantly, how recovery may be possible.
                         </NumberRow>
                         <NumberRow number={2} variant="green" index={1}>
                             My work centres on the biopsychosocial approach to
                             chronic pain recovery. I've completed specialised
                             training in the methods developed by Dr. Howard
-                            Schubiner — one of the world's leading pioneers in
-                            mind-body medicine — whose groundbreaking research
+                            Schubiner, one of the world's leading pioneers in
+                            mind-body medicine, whose groundbreaking research
                             has helped thousands recover from conditions
                             conventional medicine often labels as incurable.
                         </NumberRow>
@@ -382,12 +382,12 @@ const AboutPage = () => {
                         {
                             number: "01",
                             heading: "The root cause, not the symptom",
-                            body: "Most chronic pain isn't caused by ongoing structural damage. Recent neuroscience research has shown that many persistent pain conditions are the result of learned neural pathways — patterns in your brain that continue firing long after your body has healed. Think of it like a faulty alarm system that keeps going off even when there's no danger.",
+                            body: "Most chronic pain isn't caused by ongoing structural damage. Recent neuroscience research has shown that many persistent pain conditions are the result of learned neural pathways, patterns in your brain that continue firing long after your body has healed. Think of it like a faulty alarm system that keeps going off even when there's no danger.",
                         },
                         {
                             number: "02",
                             heading:
-                                "I don't only manage pain — I support recovery",
+                                "I don't only manage pain; I support recovery",
                             body: "Many approaches focus mainly on coping tools. My approach works at the level of the nervous system to retrain learned danger signals, giving your brain a new pattern to practise.",
                         },
                     ].map((item, index) => (
@@ -453,7 +453,7 @@ const AboutPage = () => {
                             color: "#1E3A20",
                         }}
                     >
-                        "Pain is not a life sentence —
+                        "Pain is not a life sentence,
                         <br />
                         it's a signal that can be unlearned."
                     </motion.p>
@@ -531,7 +531,7 @@ const AboutPage = () => {
                             {
                                 title: "And many more",
                                 conditions:
-                                    "If you've been living with unexplained or persistent pain, reach out — this approach may be right for you.",
+                                    "If you've been living with unexplained or persistent pain, reach out. This approach may be right for you.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -594,7 +594,7 @@ const AboutPage = () => {
                             color: "rgba(200, 230, 201, 0.8)",
                         }}
                     >
-                        "If you've been told it's all in your head — you're
+                        "If you've been told it's all in your head, you're
                         partially right. Your pain lives in your brain's neural
                         circuits, but that makes it no less real. Understanding
                         this is the first step toward healing."
@@ -663,7 +663,7 @@ const AboutPage = () => {
                             },
                             {
                                 label: "Online",
-                                detail: "Via video call — perfect if you're anywhere in Ireland or beyond",
+                                detail: "Via video call, perfect if you're anywhere in Ireland or beyond",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -835,11 +835,11 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            body: "I work with people of all ages and backgrounds — from teenagers with amplified pain syndromes to adults who've lived with fibromyalgia for decades. The common thread? They'd all seen multiple medical professionals without finding lasting relief.",
+                            body: "I work with people of all ages and backgrounds, from teenagers with amplified pain syndromes to adults who've lived with fibromyalgia for decades. The common thread? They'd all seen multiple medical professionals without finding lasting relief.",
                         },
                         {
                             number: "02",
-                            body: "What makes me incredibly excited to come to work every day is seeing the transformations that happen when people finally understand what's actually causing their pain — and that they have the power to heal it.",
+                            body: "What makes me incredibly excited to come to work every day is seeing the transformations that happen when people finally understand what's actually causing their pain, and that they have the power to heal it.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -937,7 +937,7 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            text: "Understanding your unique story — every person's pain journey is different",
+                            text: "Understanding your unique story, because every person's pain journey is different",
                         },
                         {
                             number: "02",
@@ -953,7 +953,7 @@ const AboutPage = () => {
                         },
                         {
                             number: "05",
-                            text: "Being honest about what's possible — this approach works for many conditions, but not all",
+                            text: "Being honest about what's possible, since this approach works for many conditions, but not all",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -1297,7 +1297,7 @@ const AboutPage = () => {
                                     }}
                                 >
                                     Now it's time to try something backed by
-                                    science — something that treats the root
+                                    science, something that treats the root
                                     cause, not just the symptoms.
                                 </p>
                                 <p>

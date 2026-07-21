@@ -123,7 +123,7 @@ const ContactPage = () => {
                         }}
                     >
                         Message me on WhatsApp or fill out the form. I'll get
-                        back to you as quickly as possible — usually within 24
+                        back to you as quickly as possible, usually within 24
                         hours.
                     </p>
                 </motion.div>
@@ -189,7 +189,7 @@ const ContactPage = () => {
                                     },
                                     {
                                         label: "Sessions",
-                                        value: "In-person in Rochestown, Cork — or online via video call.",
+                                        value: "In-person in Rochestown, Cork, or online via video call.",
                                     },
                                     {
                                         label: "Phone",
@@ -472,7 +472,7 @@ const ContactPage = () => {
                                             }}
                                         >
                                             I'll get back to you as soon as
-                                            possible — usually within 24 hours.
+                                            possible, usually within 24 hours.
                                         </p>
                                     </motion.div>
                                 )}

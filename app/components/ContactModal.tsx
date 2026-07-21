@@ -164,7 +164,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             fontWeight: 300,
                                         }}
                                     >
-                                        I'll be in touch as soon as possible —
+                                        I'll be in touch as soon as possible,
                                         usually within 24 hours.
                                     </p>
                                 </motion.div>

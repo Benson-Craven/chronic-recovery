@@ -45,7 +45,7 @@ const SciencePage = () => {
                             Understanding how
                             <br />
                             <em>your brain creates pain</em>
-                            <br />— and how to turn it off
+                            <br />and how to turn it off
                         </h1>
                         <div
                             className="h-px w-full"
@@ -60,7 +60,7 @@ const SciencePage = () => {
                             }}
                         >
                             The most recent science shows that many chronic pain
-                            conditions originate in the brain — and that gives
+                            conditions originate in the brain, and that gives
                             us a powerful new path to healing.
                         </p>
                     </motion.div>
@@ -100,7 +100,7 @@ const SciencePage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            All pain is real —
+                            All pain is real,
                             <br />
                             <em>it is not in your head</em>
                         </h2>
@@ -119,7 +119,7 @@ const SciencePage = () => {
                         },
                         {
                             number: "02",
-                            body: "There is new help for chronic pain sufferers — and for people with medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraine, anxiety, back pain, and fibromyalgia. If you've seen several medical professionals and are still not getting better, you may benefit from this approach.",
+                            body: "There is new help for chronic pain sufferers, and for people with medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraine, anxiety, back pain, and fibromyalgia. If you've seen several medical professionals and are still not getting better, you may benefit from this approach.",
                         },
                         {
                             number: "03",
@@ -127,7 +127,7 @@ const SciencePage = () => {
                         },
                         {
                             number: "04",
-                            body: "The biopsychosocial method is an evidence-informed approach to supporting chronic pain recovery and is now being taught to medical practitioners worldwide — including in Australia, the US, and the NHS in the UK. I'm a graduate of Dr. Howard Schubiner, a pioneer in mind-body medicine.",
+                            body: "The biopsychosocial method is an evidence-informed approach to supporting chronic pain recovery and is now being taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. I'm a graduate of Dr. Howard Schubiner, a pioneer in mind-body medicine.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -350,7 +350,7 @@ const SciencePage = () => {
                                 >
                                     unlearn
                                 </strong>{" "}
-                                them. This is called neuroplasticity — your
+                                them. This is called neuroplasticity, your
                                 brain's ability to change and rewire itself at
                                 any age.
                             </p>
@@ -406,7 +406,7 @@ const SciencePage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            "Neuroplasticity works both ways —
+                            "Neuroplasticity works both ways,
                             <br />
                             what the brain learns, it can unlearn."
                         </motion.p>

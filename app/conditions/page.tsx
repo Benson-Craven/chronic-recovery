@@ -43,10 +43,10 @@ const treatable = [
 const nonTreatable = [
     "Structural abnormalities requiring surgical intervention",
     "Acute injuries",
-    "Oncology — cancer",
-    "Infections — HIV, Lyme disease, and other active infections",
-    "CNS conditions — Parkinson's disease, dementia, ALS",
-    "ENT conditions — hearing loss, Ménière's disease",
+    "Oncology: cancer",
+    "Infections: HIV, Lyme disease, and other active infections",
+    "CNS conditions: Parkinson's disease, dementia, ALS",
+    "ENT conditions: hearing loss, Ménière's disease",
 ]
 
 const fadeInVariants = {
@@ -108,7 +108,7 @@ const ConditionsPage = () => {
                         }}
                     >
                         Many conditions once considered permanent have been
-                        shown to have a neuroplastic component — meaning
+                        shown to have a neuroplastic component, meaning
                         recovery is possible. This is not an exhaustive list.
                     </p>
                 </motion.div>
@@ -474,10 +474,10 @@ const ConditionsPage = () => {
                                 }}
                             >
                                 <p>
-                                    If your condition appears above — or if
+                                    If your condition appears above, or if
                                     you've been living with unexplained pain
                                     that hasn't responded to conventional
-                                    treatment — this approach may be the answer
+                                    treatment, this approach may be the answer
                                     you've been looking for.
                                 </p>
                                 <p

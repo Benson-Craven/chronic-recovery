@@ -36,7 +36,7 @@ const links: LinkSection[] = [
         eyebrow: "Watch",
         items: [
             {
-                title: "TEDxAdelaide — Lorimer Moseley — Why Things Hurt",
+                title: "TEDxAdelaide: Lorimer Moseley, Why Things Hurt",
                 url: "https://youtu.be/gwd-wLdIHjs?si=UdLKtB6KXBQbjMnV",
             },
             {
@@ -56,7 +56,7 @@ const links: LinkSection[] = [
                 url: "https://youtu.be/r5V4hRm39RI",
             },
             {
-                title: "In Search of a Unified Theory for Pain Relief — Howard Schubiner, MD",
+                title: "In Search of a Unified Theory for Pain Relief: Howard Schubiner, MD",
                 url: "https://youtu.be/ukrgiyoKfB8?si=GRxeoSRDK7Gszqbw",
             },
             {
@@ -72,7 +72,7 @@ const links: LinkSection[] = [
                 url: "https://www.youtube.com/watch?v=wAZn9dF3XTo",
             },
             {
-                title: "Chronic Pain: A New Perspective — Georgie Oldfield — TEDxUniversityofManchester",
+                title: "Chronic Pain: A New Perspective, Georgie Oldfield at TEDxUniversityofManchester",
                 url: "https://www.youtube.com/watch?v=BxsBJgMKHrw",
             },
         ],
@@ -431,7 +431,7 @@ const UsefulLinks: React.FC = () => {
                                 <p>
                                     These resources can help you understand
                                     what's happening in your nervous system. But
-                                    understanding alone isn't always enough —
+                                    understanding alone isn't always enough,
                                     sometimes you need a guide.
                                 </p>
                                 <p

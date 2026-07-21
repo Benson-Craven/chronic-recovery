@@ -99,7 +99,7 @@ const SVGPathScienceSection = () => {
                     >
                         Chronic pain isn't always caused by ongoing injury. Many
                         long-lasting pain conditions come from learned neural
-                        pathways in the brain — patterns that continue to fire
+                        pathways in the brain, patterns that continue to fire
                         even after the body has healed.
                     </motion.p>
                 </div>
@@ -147,7 +147,7 @@ const SVGPathScienceSection = () => {
                                     fontFamily: "var(--font-dm-serif)",
                                 }}
                             >
-                                All pain is real — and it starts in the brain
+                                All pain is real, and it starts in the brain
                             </h3>
                             <p
                                 className="mb-5 text-sm leading-relaxed"
@@ -157,7 +157,7 @@ const SVGPathScienceSection = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                95% of brain function is unconscious —
+                                95% of brain function is unconscious,
                                 constantly interpreting signals to determine
                                 safety or danger. Pain originates here, not in
                                 imagined injury.
@@ -175,7 +175,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<AlertTriangle className="h-4 w-4" />}
                         title="Signals that won't switch off"
-                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain — and that language can be retrained."
+                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain, and that language can be retrained."
                         href="/self-assessment"
                         linkLabel="Take the Self-Assessment"
                         bg="cream"
@@ -235,7 +235,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<ThumbsUp className="h-4 w-4" />}
                         title="The good news"
-                        body="Turning off these signals is safe — and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
+                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
                         href="/contact"
                         linkLabel="Start Your Healing"
                         bg="cream"
@@ -248,7 +248,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<Smile className="h-4 w-4" />}
                         title="Pain Reprocessing Therapy"
-                        body="PRT helps retrain the brain to turn off misfiring pain signals — especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
+                        body="PRT helps retrain the brain to turn off misfiring pain signals, especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
                         href="/science"
                         linkLabel="Learn More"
                         bg="green"
@@ -261,7 +261,7 @@ const SVGPathScienceSection = () => {
                         delay={0.15}
                         icon={<Shield className="h-4 w-4" />}
                         title="Biopsychosocial method"
-                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner — one of the world's foremost pioneers in mind-body medicine."
+                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner, one of the world's foremost pioneers in mind-body medicine."
                         href="/science"
                         linkLabel="Explore the Science"
                         bg="cream"

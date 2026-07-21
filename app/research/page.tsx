@@ -96,7 +96,7 @@ const ResearchStudies = () => {
                     >
                         These peer-reviewed studies demonstrate the
                         effectiveness of mind-body approaches for chronic pain.
-                        The evidence is clear — the brain can be retrained.
+                        The evidence is clear: the brain can be retrained.
                     </p>
                 </motion.div>
             </section>
@@ -293,7 +293,7 @@ const ResearchStudies = () => {
                         {[
                             {
                                 number: "01",
-                                body: "The biopsychosocial method is now taught to medical practitioners worldwide — including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
+                                body: "The biopsychosocial method is now taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
                             },
                             {
                                 number: "02",
@@ -420,7 +420,7 @@ const ResearchStudies = () => {
                                 <p>
                                     The research shows it's possible. Thousands
                                     of people have recovered from conditions
-                                    conventional medicine couldn't resolve —
+                                    conventional medicine couldn't resolve,
                                     using exactly this approach.
                                 </p>
                                 <p
