@@ -35,6 +35,9 @@ Create a local `.env.local` file with the values needed by the contact form:
 ```bash
 BREVO_API_KEY=your_brevo_api_key
 EMAIL_TO=recipient@example.com
+# Turnstile is disabled unless this is exactly "true":
+NEXT_PUBLIC_TURNSTILE_ENABLED=false
+# Required only when Turnstile is enabled:
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key
 TURNSTILE_SECRET_KEY=your_turnstile_secret_key
 # Optional, defaults shown:
@@ -45,6 +48,8 @@ BREVO_SENDER_NAME="Chronic Pain Recovery"
 The API route sends enquiries from `noreply@chronicpainrecovery.ie` by default, so that sender domain or address must be registered and authenticated in Brevo before production email delivery will work reliably.
 
 ### Turnstile setup
+
+Turnstile is disabled by default. To enable it after confirming the implementation, set `NEXT_PUBLIC_TURNSTILE_ENABLED=true`, provide both Turnstile keys, and rebuild the app. Leaving the flag unset or setting it to any other value prevents the browser script from loading and skips server-side Turnstile verification.
 
 In the Cloudflare dashboard, create one production Turnstile widget with:
 
@@ -94,7 +99,8 @@ Runs the Next.js lint command.
 npm test
 ```
 
-Runs the contact endpoint contract tests with Node's built-in test runner.
+Runs the contact endpoint and SEO/content contract tests with Node's built-in
+test runner.
 
 ## Project Structure
 
@@ -152,10 +158,10 @@ The contact page posts to `/api/sendEmail`, which expects:
 -   `phone`
 -   `message`
 -   `website` (the honeypot; legitimate submissions leave it empty)
--   `turnstileToken`
+-   `turnstileToken` (required only while Turnstile is enabled)
 -   `source` (`contact_modal` or `contact_page`)
 
-The server validates field bounds and the Turnstile token before making any Brevo request. It uses `BREVO_API_KEY`, `EMAIL_TO`, and `TURNSTILE_SECRET_KEY` only on the server. Keep all secrets out of source control.
+The server always validates field bounds and the honeypot before making a Brevo request. When `NEXT_PUBLIC_TURNSTILE_ENABLED=true`, it also requires and verifies the Turnstile token before delivery. It uses `BREVO_API_KEY`, `EMAIL_TO`, and `TURNSTILE_SECRET_KEY` only on the server. Keep all secrets out of source control.
 
 ## Deployment
 

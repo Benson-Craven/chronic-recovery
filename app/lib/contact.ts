@@ -10,6 +10,7 @@ export type WhatsAppSource =
     | "footer_cta"
     | "main_consultation_cta"
     | "homepage_approach"
+    | "homepage_conditions"
     | "contact_page"
     | "conditions_closing_cta"
     | "research_closing_cta"
@@ -23,3 +24,9 @@ export type WhatsAppSource =
     | "dublin_location_closing_cta"
     | "ireland_location_closing_cta"
     | "prt_closing_cta"
+
+export type PhoneSource =
+    | WhatsAppSource
+    | "contact_form_error"
+    | "contact_modal"
+    | "info_intro"

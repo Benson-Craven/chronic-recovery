@@ -9,7 +9,9 @@ const postsDirectory = path.join(process.cwd(), "content/blog")
 export type PostData = {
     id: string
     date: string
+    modifiedDate?: string
     title: string
+    seoTitle?: string
     excerpt: string
     coverImage: string
 }
@@ -42,13 +44,10 @@ export function getSortedPostsData() {
 
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, "utf8")
-        const fileStats = fs.statSync(fullPath)
-
         const matterResult = matter(fileContents)
 
         return {
             id,
-            modifiedDate: fileStats.mtime.toISOString(),
             ...(matterResult.data as Omit<PostData, "id">),
         }
     })
@@ -71,17 +70,16 @@ export function getAllPostIds() {
 export async function getPostData(id: string) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, "utf8")
-    const fileStats = fs.statSync(fullPath)
-
     const matterResult = matter(fileContents)
 
-    const processedContent = await remark().use(html).process(matterResult.content)
+    const processedContent = await remark()
+        .use(html)
+        .process(matterResult.content)
     const contentHtml = processedContent.toString()
 
     return {
         id,
         contentHtml,
-        modifiedDate: fileStats.mtime.toISOString(),
         ...(matterResult.data as Omit<PostData, "id">),
     }
 }

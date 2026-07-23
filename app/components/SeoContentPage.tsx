@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import type { ReactNode } from "react"
+import CtaActionRow from "./CtaActionRow"
 import { EditorialSplit, type EditorialVisual } from "./ui/EditorialSplit"
 import { WhatsAppCta } from "./WhatsAppLink"
 import type { WhatsAppSource } from "@/app/lib/contact"
@@ -388,63 +389,61 @@ export default function SeoContentPage({
 
             <section
                 style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full px-6 py-20 md:py-28 lg:py-36"
             >
-                <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Before you begin
-                    </p>
-                    <h2
-                        className="mb-8 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-serif)",
-                        }}
-                    >
-                        {safetyNote.heading}
-                    </h2>
-                    <p
-                        className="text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "rgba(30,58,32,0.68)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        {safetyNote.body}
-                    </p>
-                    <div className="mt-10 flex flex-col gap-4 md:flex-row md:flex-wrap">
-                        <WhatsAppCta source={whatsAppSource} />
-                        <Link href="/contact">
-                            <button
-                                className="w-full rounded-full border px-8 py-4 text-sm font-medium tracking-wide md:w-auto"
+                <div className="mx-auto max-w-5xl">
+                    <div
+                        className="mb-12 h-px w-full"
+                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
+                    />
+                    <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
+                        <div>
+                            <p
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
                                 style={{
-                                    borderColor: "rgba(30,58,32,0.22)",
                                     color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Book Consultation
-                            </button>
-                        </Link>
-                        <Link href="/self-assessment">
-                            <button
-                                className="w-full rounded-full border px-8 py-4 text-sm font-medium tracking-wide md:w-auto"
+                                Before you begin
+                            </p>
+                            <h2
+                                className="text-4xl leading-[1.1] md:text-5xl"
                                 style={{
-                                    borderColor: "rgba(30,58,32,0.22)",
                                     color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
+                                    fontFamily: "var(--font-dm-serif)",
                                 }}
                             >
-                                Take the Self-Assessment
-                            </button>
-                        </Link>
+                                {safetyNote.heading}
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col justify-between gap-10">
+                            <p
+                                className="text-base leading-relaxed md:text-lg"
+                                style={{
+                                    color: "rgba(30,58,32,0.68)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                {safetyNote.body}
+                            </p>
+                            <CtaActionRow>
+                                <WhatsAppCta source={whatsAppSource} />
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border px-8 py-4 text-center text-sm font-medium tracking-wide sm:w-auto"
+                                    style={{
+                                        borderColor: "rgba(30,58,32,0.22)",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
+                                >
+                                    Book Consultation
+                                </Link>
+                            </CtaActionRow>
+                        </div>
                     </div>
                 </div>
             </section>

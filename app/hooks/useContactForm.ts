@@ -1,10 +1,11 @@
 "use client"
 
 import { useRef, useState, type FormEvent } from "react"
-import type {
-    TurnstileAction,
-    TurnstileHandle,
-    TurnstileState,
+import {
+    TURNSTILE_ENABLED,
+    type TurnstileAction,
+    type TurnstileHandle,
+    type TurnstileState,
 } from "@/app/components/Turnstile"
 
 export type ContactFormError =
@@ -41,8 +42,9 @@ export function useContactForm(source: TurnstileAction, onSuccess: () => void) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [formError, setFormError] = useState<ContactFormError | null>(null)
     const [turnstileToken, setTurnstileToken] = useState("")
-    const [turnstileState, setTurnstileState] =
-        useState<TurnstileState>("loading")
+    const [turnstileState, setTurnstileState] = useState<TurnstileState>(
+        TURNSTILE_ENABLED ? "loading" : "ready",
+    )
     const turnstileRef = useRef<TurnstileHandle>(null)
     const submissionInFlight = useRef(false)
 
@@ -51,7 +53,10 @@ export function useContactForm(source: TurnstileAction, onSuccess: () => void) {
 
         if (submissionInFlight.current) return
 
-        if (turnstileState !== "ready" || !turnstileToken) {
+        if (
+            TURNSTILE_ENABLED &&
+            (turnstileState !== "ready" || !turnstileToken)
+        ) {
             setFormError(
                 turnstileState === "unavailable"
                     ? "unavailable"
@@ -116,11 +121,13 @@ export function useContactForm(source: TurnstileAction, onSuccess: () => void) {
     return {
         canSubmit:
             !isSubmitting &&
-            turnstileState === "ready" &&
-            Boolean(turnstileToken),
+            (!TURNSTILE_ENABLED ||
+                (turnstileState === "ready" && Boolean(turnstileToken))),
         formError:
             formError ??
-            (turnstileState === "unavailable" ? "unavailable" : null),
+            (TURNSTILE_ENABLED && turnstileState === "unavailable"
+                ? "unavailable"
+                : null),
         handleSubmit,
         handleTokenChange,
         isSubmitting,

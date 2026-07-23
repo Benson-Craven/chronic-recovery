@@ -4,20 +4,21 @@ import React, { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import CallToActionSection from "../CallToActionSection"
 import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow, ItalicQuote } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
 import { NumberRow } from "../ui/NumberRow"
 import { EditorialSplit } from "../ui/EditorialSplit"
 import { authorProfile } from "@/app/lib/seo"
-import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { PHONE_DISPLAY } from "@/app/lib/contact"
+import CtaActionRow from "../CtaActionRow"
 import { WhatsAppCta } from "../WhatsAppLink"
+import TrackedPhoneLink from "../TrackedPhoneLink"
 
 const trainingItems = [
-    "Listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
-    "Specialised training in Pain Reprocessing Therapy and Dr. Howard Schubiner's mind-body methods.",
-    "Ongoing study in pain neuroscience education, neuroplastic symptoms, and biopsychosocial chronic pain support.",
+    "I am listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
+    "I work as a chronic pain therapist, with online sessions across Ireland and limited in-person availability in Rochestown, Cork.",
+    "Please ask me directly to confirm the training and scope relevant to your needs before deciding whether to work with me.",
 ]
 
 const AboutPage = () => {
@@ -121,10 +122,12 @@ const AboutPage = () => {
                             <Heading className="mb-6">Marsha Canny</Heading>
                             <Text className="mb-8">
                                 I am a chronic pain therapist based in
-                                Rochestown, Cork, Ireland. I use a
-                                multi-disciplinary approach to support chronic
-                                pain recovery, not just pain management. I
-                                specialise in helping people with{" "}
+                                Rochestown, Cork, Ireland. I provide
+                                educational, recovery-oriented support online
+                                across Ireland, with limited in-person
+                                availability in Rochestown. My work explores a
+                                biopsychosocial perspective with people living
+                                with{" "}
                                 <Link
                                     href="/#illness"
                                     className="underline underline-offset-2 transition-opacity hover:opacity-70"
@@ -132,13 +135,9 @@ const AboutPage = () => {
                                 >
                                     persistent pain conditions
                                 </Link>{" "}
-                                and see fantastic results across all ages and
-                                ailments.
-                                <br />
-                                <br />I recovered from chronic migraines and
-                                neck pain that I suffered for over 10 years. I
-                                will work with your body, nervous system and
-                                brain to get you back to good health.
+                                after appropriate medical assessment. Ask me
+                                directly about my training and scope so you can
+                                decide whether working with me fits your needs.
                             </Text>
 
                             <div className="space-y-4">
@@ -154,8 +153,8 @@ const AboutPage = () => {
                                     }}
                                 >
                                     or call / WhatsApp{" "}
-                                    <a
-                                        href="tel:+353871025108"
+                                    <TrackedPhoneLink
+                                        source="info_intro"
                                         className="underline underline-offset-2"
                                         style={{
                                             color: "#1E3A20",
@@ -163,7 +162,7 @@ const AboutPage = () => {
                                         }}
                                     >
                                         +353 (0) 87-102-5108
-                                    </a>
+                                    </TrackedPhoneLink>
                                 </p>
                                 <Link
                                     href={authorProfile.atnsUrl}
@@ -190,7 +189,7 @@ const AboutPage = () => {
                                                     "var(--font-dm-sans)",
                                             }}
                                         >
-                                            View my verified ATNS profile
+                                            View my ATNS directory profile
                                         </span>
                                         <span
                                             className="mt-1 block text-sm leading-relaxed"
@@ -215,6 +214,7 @@ const AboutPage = () => {
             {/* I Know What It's Like — cream */}
             <Section variant="cream" id="know-what-its-like">
                 <EditorialSplit
+                    stickyVisual
                     visual={{
                         kind: "illustration",
                         src: "/images/illustrations/compassionate-support.png",
@@ -222,25 +222,36 @@ const AboutPage = () => {
                     }}
                 >
                     <div>
-                        <Eyebrow>You are not alone</Eyebrow>
+                        <Eyebrow>When questions remain</Eyebrow>
                         <Heading className="mb-14">
-                            I know what it's like
+                            After tests and treatment,
                             <br />
-                            <em>to be told there's nothing</em>
-                            <br />
-                            more we can do.
+                            <em>you may still have questions.</em>
                         </Heading>
                         <Divider className="mb-0" />
 
-                        <NumberRow number={1}>
-                            If you're reading this, you've probably heard those
-                            words before. You've seen multiple specialists.
-                            You've had the scans, the x-rays, the blood tests.
-                            Everything comes back "normal" or you've even been
-                            given a "diagnosis", but you're still in pain. Day
-                            after day. Month after month. Maybe even year after
-                            year.
-                        </NumberRow>
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                            className="border-b py-10"
+                            style={{
+                                borderColor: "rgba(30,58,32,0.12)",
+                            }}
+                        >
+                            <Text>
+                                Some people enquire after previous appointments,
+                                tests, or treatment have not fully explained
+                                their persistent pain. A session can offer
+                                education and space to discuss those questions
+                                without dismissing symptoms or replacing medical
+                                care.
+                            </Text>
+                        </motion.div>
 
                         <motion.div
                             initial={{ opacity: 0, y: 14 }}
@@ -253,9 +264,9 @@ const AboutPage = () => {
                             }}
                         >
                             <ItalicQuote className="mt-12">
-                                "Your pain is real.
+                                "Pain is real.
                                 <br />
-                                And there is hope."
+                                Careful questions matter."
                             </ItalicQuote>
                         </motion.div>
                     </div>
@@ -267,6 +278,7 @@ const AboutPage = () => {
                 <EditorialSplit
                     reverse
                     surface="green"
+                    stickyVisual
                     visual={{
                         kind: "illustration",
                         src: "/images/illustrations/walking-together.png",
@@ -292,13 +304,11 @@ const AboutPage = () => {
                             importantly, how recovery may be possible.
                         </NumberRow>
                         <NumberRow number={2} variant="green" index={1}>
-                            My work centres on the biopsychosocial approach to
-                            chronic pain recovery. I've completed specialised
-                            training in the methods developed by Dr. Howard
-                            Schubiner, one of the world's leading pioneers in
-                            mind-body medicine, whose groundbreaking research
-                            has helped thousands recover from conditions
-                            conventional medicine often labels as incurable.
+                            My work centres on a biopsychosocial perspective,
+                            pain education, and Pain Reprocessing Therapy where
+                            appropriate. I discuss these ideas as possible parts
+                            of a person's wider pain context, not as a diagnosis
+                            or guaranteed explanation.
                         </NumberRow>
                         <NumberRow number={3} variant="green" index={2}>
                             I am listed in the Association for the Treatment of
@@ -313,11 +323,11 @@ const AboutPage = () => {
             {/* Credentials — cream */}
             <Section variant="cream" id="credentials-training">
                 <Container>
-                    <Eyebrow>Credentials & training</Eyebrow>
+                    <Eyebrow>Practitioner information</Eyebrow>
                     <Heading className="mb-14">
-                        Training that supports
+                        Details to review
                         <br />
-                        <em>safe, evidence-informed care.</em>
+                        <em>before booking.</em>
                     </Heading>
                     <Divider className="mb-0" />
 
@@ -337,7 +347,7 @@ const AboutPage = () => {
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
-                        View Marsha's ATNS directory profile
+                        View my ATNS directory profile
                     </Link>
                 </Container>
             </Section>
@@ -368,11 +378,9 @@ const AboutPage = () => {
                             color: "#1E3A20",
                         }}
                     >
-                        Why I'm different
+                        How this approach differs
                         <br />
-                        <em>from practitioners</em>
-                        <br />
-                        you've seen before
+                        <em>from symptom-only support</em>
                     </h2>
                     <div
                         className="h-px w-full"
@@ -381,14 +389,14 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            heading: "The root cause, not the symptom",
-                            body: "Most chronic pain isn't caused by ongoing structural damage. Recent neuroscience research has shown that many persistent pain conditions are the result of learned neural pathways, patterns in your brain that continue firing long after your body has healed. Think of it like a faulty alarm system that keeps going off even when there's no danger.",
+                            heading: "The whole context, not one explanation",
+                            body: "Persistent pain can involve biological, psychological, and social influences. A brain-body perspective may be worth exploring after appropriate assessment, but it should not be used to assume that tissue, disease, or another medical factor is irrelevant.",
                         },
                         {
                             number: "02",
                             heading:
-                                "I don't only manage pain; I support recovery",
-                            body: "Many approaches focus mainly on coping tools. My approach works at the level of the nervous system to retrain learned danger signals, giving your brain a new pattern to practise.",
+                                "Education and reflection, with clear boundaries",
+                            body: "Sessions can explore relevant pain science, symptom patterns, and possible next steps. They do not provide a medical diagnosis, medication advice, emergency care, or a promised outcome.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -453,9 +461,9 @@ const AboutPage = () => {
                             color: "#1E3A20",
                         }}
                     >
-                        "Pain is not a life sentence,
+                        "For some persistent pain,
                         <br />
-                        it's a signal that can be unlearned."
+                        nervous-system patterns may change over time."
                     </motion.p>
                 </div>
             </motion.section>
@@ -483,9 +491,9 @@ const AboutPage = () => {
                         className="mb-6 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        You don't have to keep
+                        Who may find
                         <br />
-                        <em>living like this.</em>
+                        <em>this useful</em>
                     </h2>
                     <p
                         className="mb-16 max-w-xl text-base leading-relaxed md:text-lg"
@@ -495,8 +503,9 @@ const AboutPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        I specialise in helping people whose pain has persisted
-                        long after conventional medicine ran out of answers.
+                        My service may be relevant to people exploring
+                        persistent symptoms after appropriate medical
+                        assessment. I discuss suitability individually.
                     </p>
                     <div
                         className="mb-16 grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3"
@@ -504,34 +513,34 @@ const AboutPage = () => {
                     >
                         {[
                             {
-                                title: "Chronic Pain Syndromes",
+                                title: "Persistent pain",
                                 conditions:
-                                    "Fibromyalgia, Complex Regional Pain Syndrome (CRPS), chronic fatigue syndrome",
+                                    "Symptoms that have continued and are being assessed or managed with a healthcare team.",
                             },
                             {
-                                title: "Musculoskeletal Pain",
+                                title: "Fluctuating symptoms",
                                 conditions:
-                                    "Back pain, neck pain, knee pain, repetitive strain injury",
+                                    "Pain or related symptoms that change with context, stress, attention, or daily demands.",
                             },
                             {
-                                title: "Head & Facial Conditions",
+                                title: "Incomplete explanations",
                                 conditions:
-                                    "Migraines, tension headaches, TMJ syndrome, tinnitus",
+                                    "People who still have questions after tests or treatment, without assuming that a test rules out every medical cause.",
                             },
                             {
-                                title: "Gastrointestinal Issues",
+                                title: "Pain education",
                                 conditions:
-                                    "IBS, chronic abdominal pain, gastric problems",
+                                    "People who want to understand relevant pain science in plain language.",
                             },
                             {
-                                title: "Post-Viral Syndromes",
+                                title: "Care alongside treatment",
                                 conditions:
-                                    "Long Covid, chronic fatigue, brain fog",
+                                    "Support intended to complement, not replace, care from regulated healthcare professionals.",
                             },
                             {
-                                title: "And many more",
+                                title: "Online access",
                                 conditions:
-                                    "If you've been living with unexplained or persistent pain, reach out. This approach may be right for you.",
+                                    "Online-first sessions across Ireland, with limited in-person availability in Rochestown, Cork.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -594,10 +603,9 @@ const AboutPage = () => {
                             color: "rgba(200, 230, 201, 0.8)",
                         }}
                     >
-                        "If you've been told it's all in your head, you're
-                        partially right. Your pain lives in your brain's neural
-                        circuits, but that makes it no less real. Understanding
-                        this is the first step toward healing."
+                        "Pain is real. A nervous-system contribution may be one
+                        part of the picture for some people, but it cannot be
+                        established from a checklist or assumption."
                     </motion.p>
                 </div>
             </motion.section>
@@ -612,6 +620,7 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <EditorialSplit
+                    stickyVisual
                     visual={{
                         kind: "illustration",
                         src: "/images/illustrations/one-to-one-support.png",
@@ -647,158 +656,156 @@ const AboutPage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            One-to-one, 60-minute sessions working with your
-                            body, nervous system, and brain to restore your
-                            health.
+                            One-to-one, 60-minute sessions to understand your
+                            context, discuss relevant pain science, and agree a
+                            careful next step.
                         </p>
-                    </div>
-                </EditorialSplit>
-
-                <div className="mx-auto mt-16 max-w-3xl">
-                    <div className="mb-14 divide-y divide-black/10">
-                        {[
-                            {
-                                label: "In-person",
-                                detail: "At my home clinic in Rochestown, Cork, Ireland",
-                            },
-                            {
-                                label: "Online",
-                                detail: "Via video call, perfect if you're anywhere in Ireland or beyond",
-                            },
-                        ].map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 14 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.45,
-                                    delay: index * 0.08,
-                                    ease: "easeOut",
-                                }}
-                                className="flex items-start gap-6 py-5"
-                            >
-                                <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums opacity-40"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
+                        <div className="mb-14 mt-14 divide-y divide-black/10">
+                            {[
+                                {
+                                    label: "In-person",
+                                    detail: "Limited availability in Rochestown, Cork. The private address is shared after an appointment is confirmed.",
+                                },
+                                {
+                                    label: "Online",
+                                    detail: "I offer video sessions across Ireland as my primary service format.",
+                                },
+                            ].map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 14 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.45,
+                                        delay: index * 0.08,
+                                        ease: "easeOut",
                                     }}
+                                    className="flex items-start gap-6 py-5"
                                 >
-                                    0{index + 1}
-                                </span>
-                                <div>
-                                    <p
-                                        className="mb-1 text-sm font-medium"
+                                    <span
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-40"
                                         style={{
                                             color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
-                                        {item.label}
-                                    </p>
-                                    <p
-                                        className="text-base leading-relaxed"
-                                        style={{
-                                            color: "rgba(30, 58, 32, 0.65)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
                                     >
-                                        {item.detail}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="mb-14 rounded-2xl px-8 py-7"
-                        style={{ backgroundColor: "#1E3A20" }}
-                    >
-                        <p
-                            className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
-                            style={{
-                                color: "#C8E6C9",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
+                                        0{index + 1}
+                                    </span>
+                                    <div>
+                                        <p
+                                            className="mb-1 text-sm font-medium"
+                                            style={{
+                                                color: "#1E3A20",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                            }}
+                                        >
+                                            {item.label}
+                                        </p>
+                                        <p
+                                            className="text-base leading-relaxed"
+                                            style={{
+                                                color: "rgba(30, 58, 32, 0.65)",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            {item.detail}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="mb-14 rounded-2xl px-8 py-7"
+                            style={{ backgroundColor: "#1E3A20" }}
                         >
-                            Investment
-                        </p>
-                        <p
-                            className="text-2xl text-white md:text-3xl"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
-                        >
-                            €70 per session
-                        </p>
-                        <p
-                            className="mt-1 text-base"
-                            style={{
-                                color: "rgba(200, 230, 201, 0.7)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            or a package of 6 sessions for €360
-                        </p>
-                    </motion.div>
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                        style={{
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
-                        Evidence-based approaches
-                    </p>
-                    <div className="divide-y divide-black/10">
-                        {[
-                            "Pain Reprocessing Therapy (PRT)",
-                            "Somatic Tracking Techniques",
-                            "Graded Exposure Therapy",
-                            "Emotional Awareness & Expression Therapy (EAET)",
-                            "And other transformative mind-body approaches",
-                        ].map((approach, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 14 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.45,
-                                    delay: index * 0.07,
-                                    ease: "easeOut",
+                            <p
+                                className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
+                                style={{
+                                    color: "#C8E6C9",
+                                    fontFamily: "var(--font-dm-sans)",
                                 }}
-                                className="flex items-start gap-6 py-5"
                             >
-                                <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
+                                Investment
+                            </p>
+                            <p
+                                className="text-2xl text-white md:text-3xl"
+                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                            >
+                                €70 per session
+                            </p>
+                            <p
+                                className="mt-1 text-base"
+                                style={{
+                                    color: "rgba(200, 230, 201, 0.7)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                or a package of 6 sessions for €360
+                            </p>
+                        </motion.div>
+                        <p
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            What sessions may include
+                        </p>
+                        <div className="divide-y divide-black/10">
+                            {[
+                                "Pain Reprocessing Therapy (PRT)",
+                                "Pain science education",
+                                "Guided reflection on symptom patterns",
+                                "Clear medical-care boundaries and next steps",
+                            ].map((approach, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 14 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.45,
+                                        delay: index * 0.07,
+                                        ease: "easeOut",
                                     }}
+                                    className="flex items-start gap-6 py-5"
                                 >
-                                    {String(index + 1).padStart(2, "0")}
-                                </span>
-                                <p
-                                    className="text-base leading-relaxed"
-                                    style={{
-                                        color: "rgba(30, 58, 32, 0.75)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    {approach}
-                                </p>
-                            </motion.div>
-                        ))}
+                                    <span
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                        style={{
+                                            color: "#1E3A20",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <p
+                                        className="text-base leading-relaxed"
+                                        style={{
+                                            color: "rgba(30, 58, 32, 0.75)",
+                                            fontFamily: "var(--font-dm-sans)",
+                                            fontWeight: 300,
+                                        }}
+                                    >
+                                        {approach}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </EditorialSplit>
             </motion.section>
 
             {/* Real Results — green */}
@@ -818,15 +825,15 @@ const AboutPage = () => {
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
-                        Real results
+                        A careful fit
                     </p>
                     <h2
                         className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Real results
+                        Clear expectations
                         <br />
-                        <em>for real people</em>
+                        <em>before you begin</em>
                     </h2>
                     <div
                         className="h-px w-full"
@@ -835,11 +842,11 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            body: "I work with people of all ages and backgrounds, from teenagers with amplified pain syndromes to adults who've lived with fibromyalgia for decades. The common thread? They'd all seen multiple medical professionals without finding lasting relief.",
+                            body: "A first conversation is used to understand why you are enquiring, what assessment has taken place, and what you want to explore.",
                         },
                         {
                             number: "02",
-                            body: "What makes me incredibly excited to come to work every day is seeing the transformations that happen when people finally understand what's actually causing their pain, and that they have the power to heal it.",
+                            body: "If my service is not appropriate, medical follow-up or another form of support may be a better next step. I do not promise an outcome or recovery timeline.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -941,7 +948,7 @@ const AboutPage = () => {
                         },
                         {
                             number: "02",
-                            text: "Providing evidence-based treatment rooted in the latest neuroscience research",
+                            text: "Providing evidence-informed education while being clear about the limits of the research",
                         },
                         {
                             number: "03",
@@ -949,11 +956,11 @@ const AboutPage = () => {
                         },
                         {
                             number: "04",
-                            text: "Empowering you with tools you can use long after our sessions end",
+                            text: "Empowering you with tools you can use long after your sessions with me end",
                         },
                         {
                             number: "05",
-                            text: "Being honest about what's possible, since this approach works for many conditions, but not all",
+                            text: "Being honest about scope, uncertainty, and when another form of support may be more appropriate",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -1040,16 +1047,6 @@ const AboutPage = () => {
                         className="flex items-start gap-6 border-b py-10"
                         style={{ borderColor: "rgba(30,58,32,0.12)" }}
                     >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            01
-                        </span>
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
@@ -1068,8 +1065,9 @@ const AboutPage = () => {
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
-                            to help determine whether this approach is right for
-                            you.
+                            as an educational reflection. It is not diagnostic
+                            and does not determine whether this approach is
+                            right for you.
                         </p>
                     </motion.div>
                 </div>
@@ -1092,15 +1090,15 @@ const AboutPage = () => {
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
-                        Don't wait
+                        When to enquire
                     </p>
                     <h2
                         className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Why now is
+                        Choose a time
                         <br />
-                        <em>the time to act</em>
+                        <em>that works for you</em>
                     </h2>
                     <div
                         className="h-px w-full"
@@ -1109,11 +1107,11 @@ const AboutPage = () => {
                     {[
                         {
                             number: "01",
-                            body: "Chronic pain doesn't usually get better on its own. Left untreated, pain conditions often develop and accelerate over time through neurophysiological processes. The learned pain pathways become more entrenched. The nervous system becomes more sensitised.",
+                            body: "An enquiry can be useful when you have questions about persistent pain, want to understand my service, and have considered the medical assessment relevant to your symptoms.",
                         },
                         {
                             number: "02",
-                            body: "But here's the good news: neuroplasticity works both ways. Just as your brain learned these pain patterns, it can unlearn them. The sooner you start, the faster you can begin your recovery journey.",
+                            body: "There is no need to decide under pressure. Ask about the approach, scope, session format, and fees before choosing whether to book.",
                         },
                     ].map((item, index) => (
                         <motion.div
@@ -1179,9 +1177,9 @@ const AboutPage = () => {
                             color: "#1E3A20",
                         }}
                     >
-                        Located in Cork,
+                        Based in Cork,
                         <br />
-                        <em>serving globally</em>
+                        <em>online across Ireland</em>
                     </h2>
                     <div
                         className="h-px w-full"
@@ -1195,16 +1193,6 @@ const AboutPage = () => {
                         className="flex items-start gap-6 border-b py-10"
                         style={{ borderColor: "rgba(30,58,32,0.12)" }}
                     >
-                        <span
-                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
-                            01
-                        </span>
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
@@ -1213,18 +1201,14 @@ const AboutPage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            While my home clinic is based in Rochestown, Cork, I
-                            work with clients throughout Ireland and worldwide
-                            via online video sessions. Location doesn't need to
-                            be a barrier to accessing this life-changing
-                            treatment approach.
+                            Online video sessions across Ireland are my primary
+                            service. I offer limited in-person sessions in
+                            Rochestown, Cork and share the private address only
+                            after an appointment is confirmed.
                         </p>
                     </motion.div>
                 </div>
             </motion.section>
-            {/* CTA Section — component */}
-            <CallToActionSection fadeInVariants={fadeInVariants} />
-
             {/* Final CTA — cream editorial split */}
             <motion.section
                 initial="hidden"
@@ -1258,18 +1242,10 @@ const AboutPage = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                Something
+                                Explore your
                                 <br />
-                                <em>different</em>
-                                <br />
-                                awaits you.
+                                <em>next step</em>
                             </h2>
-                            <div
-                                className="mt-12 hidden h-px md:block"
-                                style={{
-                                    backgroundColor: "rgba(30,58,32,0.12)",
-                                }}
-                            />
                         </div>
 
                         {/* Right — body + CTA */}
@@ -1283,10 +1259,10 @@ const AboutPage = () => {
                                 }}
                             >
                                 <p>
-                                    You've spent long enough suffering. You've
-                                    tried enough treatments that didn't work.
-                                    You've been patient enough with a healthcare
-                                    system that couldn't give you answers.
+                                    If you have questions about persistent pain
+                                    and my service, you can start with a
+                                    conversation with me about your
+                                    circumstances.
                                 </p>
                                 <p
                                     style={{
@@ -1296,9 +1272,9 @@ const AboutPage = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    Now it's time to try something backed by
-                                    science, something that treats the root
-                                    cause, not just the symptoms.
+                                    Ask me about my scope, the session format,
+                                    the evidence, and the limits of the approach
+                                    before deciding whether it fits.
                                 </p>
                                 <p>
                                     I'm here when you're ready to take that
@@ -1306,32 +1282,24 @@ const AboutPage = () => {
                                 </p>
                             </div>
 
-                            <div className="space-y-4">
+                            <CtaActionRow>
                                 <WhatsAppCta source="info_closing_cta" />
-                                <Link href="/contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        border: "1px solid rgba(30,58,32,0.3)",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <p
-                                    className="text-sm"
+                                    className="text-sm sm:basis-full"
                                     style={{
                                         color: "rgba(30,58,32,0.4)",
                                         fontFamily: "var(--font-dm-sans)",
@@ -1339,21 +1307,17 @@ const AboutPage = () => {
                                     }}
                                 >
                                     Call{" "}
-                                    <a
-                                        href={PHONE_HREF}
+                                    <TrackedPhoneLink
+                                        source="info_closing_cta"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{ color: "rgba(30,58,32,0.65)" }}
                                     >
                                         {PHONE_DISPLAY}
-                                    </a>
+                                    </TrackedPhoneLink>
                                 </p>
-                            </div>
+                            </CtaActionRow>
                         </div>
                     </div>
-                    <div
-                        className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
                 </div>
             </motion.section>
         </div>

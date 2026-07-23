@@ -3,42 +3,44 @@
 import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import CtaActionRow from "../components/CtaActionRow"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
-import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import TrackedPhoneLink from "../components/TrackedPhoneLink"
+import { PHONE_DISPLAY } from "../lib/contact"
 
 const studies = [
     {
         title: "The Boulder Chronic Back Pain Study",
         link: "https://pubmed.ncbi.nlm.nih.gov/34586357/",
         description:
-            "66% became pain or nearly pain-free with pain reprocessing therapy, maintained at one year.",
+            "In a randomised trial of 151 adults with primary chronic back pain, 33 of 50 people assigned to PRT reported being pain-free or nearly pain-free immediately after treatment. Group differences were maintained at one year.",
         stat: "66%",
-        statLabel: "pain-free",
+        statLabel: "33 of 50 in the PRT group",
     },
     {
         title: "Harvard Psychophysiologic Symptom Relief Therapy (PSRT)",
         link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8476063/",
         description:
-            "For chronic back pain, 64% of patients reported being pain-free in the PSRT arm versus 25% in MBSR and 17% in usual care.",
+            "In this 35-person pilot study of adults with nonspecific chronic back pain, 7 of 11 people in the PSRT group reported being pain-free at 26 weeks, compared with 3 of 12 in MBSR and 2 of 12 in usual care.",
         stat: "64%",
-        statLabel: "pain-free vs 17% usual care",
+        statLabel: "7 of 11 in a pilot study",
     },
     {
-        title: "Harvard PSRT for Post-Acute Sequelae of COVID-19",
+        title: "PSRT for Post-Acute Sequelae of COVID-19 (preprint)",
         link: "https://www.medrxiv.org/content/10.1101/2022.10.07.22280732v1.full-text",
         description:
-            "Up to a 55% decrease in symptoms over 13 weeks. Mean symptom duration prior to the study was 267 days.",
+            "This small preprint reported a median 55% reduction in symptom scores over 13 weeks. It had not completed peer review and should not be treated as settled evidence.",
         stat: "55%",
-        statLabel: "symptom reduction",
+        statLabel: "median change in a preprint",
     },
     {
         title: "Emotional Awareness and Expression Therapy, CBT, and Education for Fibromyalgia",
         link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5680092/",
         description:
-            "A randomised controlled trial showing significant benefit from EAET versus CBT and FM education.",
-        stat: "RCT",
-        statLabel: "randomised controlled trial",
+            "In a 230-person fibromyalgia trial, EAET did not differ from education on the primary pain-severity outcome. It performed better on several secondary outcomes and had some advantages over CBT.",
+        stat: "230",
+        statLabel: "participants in the trial",
     },
 ]
 
@@ -78,9 +80,9 @@ const ResearchStudies = () => {
                         className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        The research
+                        Selected research
                         <br />
-                        <em>behind the results</em>
+                        <em>and its limits</em>
                     </h1>
                     <div
                         className="h-px w-full"
@@ -94,9 +96,10 @@ const ResearchStudies = () => {
                             fontWeight: 300,
                         }}
                     >
-                        These peer-reviewed studies demonstrate the
-                        effectiveness of mind-body approaches for chronic pain.
-                        The evidence is clear: the brain can be retrained.
+                        These studies examine different approaches in specific
+                        populations. Their designs, comparison groups, and
+                        limitations matter, and no study can predict an
+                        individual's outcome.
                     </p>
                 </motion.div>
             </section>
@@ -135,9 +138,9 @@ const ResearchStudies = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Peer-reviewed
+                            Research
                             <br />
-                            <em>research archive</em>
+                            <em>with study context</em>
                         </h2>
 
                         <div
@@ -280,9 +283,9 @@ const ResearchStudies = () => {
                             className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                             style={{ fontFamily: "var(--font-dm-serif)" }}
                         >
-                            Science is catching up
+                            Read the findings
                             <br />
-                            <em>to what patients know</em>
+                            <em>in context</em>
                         </h2>
                         <div
                             className="h-px w-full"
@@ -293,11 +296,11 @@ const ResearchStudies = () => {
                         {[
                             {
                                 number: "01",
-                                body: "The biopsychosocial method is now taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
+                                body: "These studies cover different interventions and populations. Two are relatively small back-pain studies, one is a fibromyalgia trial, and the Long COVID item is a preprint.",
                             },
                             {
                                 number: "02",
-                                body: "These studies represent a new understanding of pain: that the brain can both create and resolve it. If your pain hasn't responded to structural treatments, there is likely a neuroplastic component.",
+                                body: "The results support further investigation of brain-body approaches for some people. They do not establish that an individual's pain is neuroplastic or replace medical assessment.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -354,9 +357,9 @@ const ResearchStudies = () => {
                                 color: "rgba(200,230,201,0.8)",
                             }}
                         >
-                            "What the brain has learned,
+                            "Research can inform a conversation,
                             <br />
-                            it can unlearn."
+                            but it cannot promise an outcome."
                         </motion.p>
                     </div>
                 </EditorialSplit>
@@ -394,18 +397,10 @@ const ResearchStudies = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                The evidence
+                                Want to discuss
                                 <br />
-                                <em>is there.</em>
-                                <br />
-                                Are you?
+                                <em>whether it fits?</em>
                             </h2>
-                            <div
-                                className="mt-12 hidden md:block"
-                                style={{
-                                    backgroundColor: "rgba(30,58,32,0.15)",
-                                }}
-                            />
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
@@ -418,10 +413,9 @@ const ResearchStudies = () => {
                                 }}
                             >
                                 <p>
-                                    The research shows it's possible. Thousands
-                                    of people have recovered from conditions
-                                    conventional medicine couldn't resolve,
-                                    using exactly this approach.
+                                    A consultation can help you ask how this
+                                    research relates to your history, medical
+                                    assessment, and goals.
                                 </p>
                                 <p
                                     style={{
@@ -431,58 +425,29 @@ const ResearchStudies = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    You could be next.
+                                    Ask questions before deciding your next
+                                    step.
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-4">
+                            <CtaActionRow>
                                 <WhatsAppCta source="research_closing_cta" />
-                                <Link href="/contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
-                                </Link>
-                                <Link href="/self-assessment">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            color: "#1E3A20",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 400,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Take the Self-Assessment
-                                    </motion.button>
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        border: "1px solid rgba(30,58,32,0.3)",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <p
-                                    className="text-sm"
+                                    className="text-sm sm:basis-full"
                                     style={{
                                         color: "rgba(30, 58, 32, 0.4)",
                                         fontFamily: "var(--font-dm-sans)",
@@ -490,8 +455,8 @@ const ResearchStudies = () => {
                                     }}
                                 >
                                     Call{" "}
-                                    <a
-                                        href={PHONE_HREF}
+                                    <TrackedPhoneLink
+                                        source="research_closing_cta"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "#1E3A20",
@@ -499,15 +464,11 @@ const ResearchStudies = () => {
                                         }}
                                     >
                                         {PHONE_DISPLAY}
-                                    </a>
+                                    </TrackedPhoneLink>
                                 </p>
-                            </div>
+                            </CtaActionRow>
                         </div>
                     </div>
-                    <div
-                        className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
                 </div>
             </motion.section>
         </div>

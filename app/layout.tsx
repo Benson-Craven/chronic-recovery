@@ -7,7 +7,8 @@ import {
     JsonLd,
     authorProfile,
     createPageMetadata,
-    localBusinessSchema,
+    organizationSchema,
+    personSchema,
     siteUrl,
 } from "./lib/seo"
 
@@ -60,7 +61,8 @@ export default function RootLayout({
                     }}
                 />
 
-                <JsonLd id="local-business-schema" data={localBusinessSchema} />
+                <JsonLd id="organization-schema" data={organizationSchema} />
+                <JsonLd id="person-schema" data={personSchema} />
 
                 <Navbar />
                 {children}

@@ -15,6 +15,38 @@ body {
     color: rgb(var(--foreground-rgb));
 }
 
+@layer components {
+    .cta-interactive {
+        transition:
+            transform 180ms ease-out,
+            box-shadow 180ms ease-out;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .cta-interactive:hover:not(:disabled) {
+            transform: scale(1.03);
+            box-shadow:
+                0 10px 15px -3px rgba(30, 58, 32, 0.16),
+                0 4px 6px -4px rgba(30, 58, 32, 0.12);
+        }
+    }
+
+    .cta-interactive:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cta-interactive {
+            transition: box-shadow 180ms ease-out;
+        }
+
+        .cta-interactive:hover:not(:disabled),
+        .cta-interactive:active:not(:disabled) {
+            transform: none;
+        }
+    }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;

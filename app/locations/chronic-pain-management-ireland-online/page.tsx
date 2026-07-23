@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
+import { BreadcrumbJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Online Chronic Pain Management Ireland | Chronic Pain Recovery",
+    title: "Online Chronic Pain Support Ireland | Chronic Pain Recovery",
     description:
-        "Online chronic pain support across Ireland for persistent pain and neuroplastic symptoms, using evidence-informed brain-body approaches.",
+        "Online chronic pain support across Ireland with Marsha Canny, including 60-minute video sessions, fees, suitability boundaries, and next steps.",
     path: "/locations/chronic-pain-management-ireland-online",
 })
 
@@ -25,25 +25,6 @@ export default function OnlineIrelandPage() {
                 id="online-ireland-breadcrumb-schema"
                 items={breadcrumbs}
             />
-            <FAQJsonLd
-                id="online-ireland-faq-schema"
-                questions={[
-                    {
-                        question:
-                            "Can chronic pain recovery work happen online?",
-                        answer: "Yes. Education, nervous system work, symptom tracking, and recovery planning can often be done online when the person is medically suitable for this approach.",
-                    },
-                    {
-                        question:
-                            "Who is online chronic pain management suitable for?",
-                        answer: "It may be suitable for people with persistent pain or medically unexplained symptoms after medical assessment has ruled out urgent or active medical causes.",
-                    },
-                    {
-                        question: "Do online sessions replace medical care?",
-                        answer: "No. Online sessions do not replace medical diagnosis, emergency care, or advice from your GP or specialist.",
-                    },
-                ]}
-            />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
                 whatsAppSource="ireland_location_closing_cta"
@@ -56,20 +37,20 @@ export default function OnlineIrelandPage() {
                             <em>wherever you are</em>
                         </>
                     ),
-                    intro: "Online chronic pain management for people across Ireland who want to explore whether persistent pain may be linked to learned danger signals in the nervous system.",
+                    intro: "I'm Marsha Canny, a chronic pain therapist. Through my primary Ireland-wide service, I offer educational, recovery-oriented support by video to people exploring persistent pain after appropriate medical assessment.",
                 }}
                 sections={[
                     {
                         eyebrow: "Online care",
-                        heading: "A flexible way to begin recovery work",
+                        heading: "A flexible way to explore persistent pain",
                         visual: {
                             kind: "illustration",
                             src: "/images/illustrations/online-support.png",
                             alt: "",
                         },
                         body: [
-                            "You do not need to live near Cork to begin exploring chronic pain recovery. Many parts of this work happen through conversation, education, tracking symptom patterns, and learning to respond to sensations with more safety.",
-                            "Online sessions can support people who are managing fatigue, limited mobility, travel anxiety, busy family life, or symptoms that make regular travel difficult.",
+                            "You do not need to live near Cork to ask me questions about persistent pain and a possible brain-body perspective. My sessions use conversation, education, and careful reflection on your symptom and medical context.",
+                            "I work online first, which may be practical when travel is difficult or you prefer to join from home. This does not change the need for appropriate medical assessment or urgent care when symptoms require it.",
                         ],
                     },
                     {
@@ -83,43 +64,43 @@ export default function OnlineIrelandPage() {
                         },
                         body: [
                             "This approach may be relevant when pain has lasted more than three months, symptoms move or fluctuate, medical tests have not fully explained the pain, or stress and fear seem to amplify symptoms.",
-                            "The work is careful and grounded. It does not ask you to ignore pain or push through. Instead, it helps you understand why the nervous system may still be protecting you and how to gently teach it new safety cues.",
+                            "These patterns are discussion points, not a diagnosis. My work does not ask you to ignore pain or push through symptoms, and it does not replace advice from the healthcare professionals responsible for your care.",
                         ],
                     },
                     {
                         eyebrow: "What to expect",
-                        heading: "Practical, personal and paced",
+                        heading: "A clear 60-minute video session",
                         visual: {
                             kind: "illustration",
                             src: "/images/illustrations/one-to-one-support.png",
                             alt: "",
                         },
                         body: [
-                            "Online sessions may include pain neuroscience education, somatic tracking, emotional awareness, fear reduction, goal-setting, and gradual re-engagement with everyday activities.",
-                            "Every plan depends on your history and medical context. The aim is to support recovery without making sweeping claims or overlooking medical care that may still be needed.",
+                            "I begin a session by asking why you are enquiring, what medical assessment has taken place, what changes the symptoms, and what you want to understand. I then explain relevant pain science in plain language.",
+                            "I use the final part to focus on your questions and an appropriate next step. That may be another session, medical follow-up, or a different form of support.",
                         ],
                     },
                 ]}
                 listSection={{
-                    eyebrow: "Why online works",
-                    heading: "What can be done remotely",
-                    intro: "For many people, the most important recovery work is learning how the brain and body are interpreting threat.",
+                    eyebrow: "About me, sessions and fees",
+                    heading: "Practical details before you enquire",
+                    intro: "This is the main service page for online access across Ireland.",
                     items: [
                         {
-                            title: "Understand your pain patterns",
-                            body: "We look at when symptoms began, what changes them, what has been ruled out, and whether the pattern points toward a sensitised nervous system.",
+                            title: "About me",
+                            body: "I'm a chronic pain therapist based in Rochestown, Cork. My public ATNS Practitioner & Coach Directory profile is linked from the About page.",
                         },
                         {
-                            title: "Reduce fear around symptoms",
-                            body: "Fear can intensify pain signals. Online work can help you build a calmer, more accurate response to sensations.",
+                            title: "Session format",
+                            body: "I offer 60-minute one-to-one video sessions shaped around your history, medical context, current concerns, and questions.",
                         },
                         {
-                            title: "Build a recovery plan",
-                            body: "Your plan may include education, nervous system practices, movement confidence, and emotional processing.",
+                            title: "Pricing",
+                            body: "I charge €70 for a 60-minute session. A package of 6 sessions costs €360.",
                         },
                         {
-                            title: "Work from your own environment",
-                            body: "Practising safety cues at home can help make the work directly relevant to the places where symptoms usually happen.",
+                            title: "How to begin",
+                            body: "Use WhatsApp or the contact form to tell me briefly what you want to explore. In the first conversation, you can ask me questions and discuss whether an appointment is an appropriate next step.",
                         },
                     ],
                 }}
@@ -134,7 +115,7 @@ export default function OnlineIrelandPage() {
                     },
                     {
                         href: "/treatments/pain-reprocessing-therapy",
-                        label: "Pain Reprocessing Therapy Ireland",
+                        label: "Pain Reprocessing Therapy in Ireland",
                     },
                     {
                         href: "/locations/chronic-pain-management-cork",

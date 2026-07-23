@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Script from "next/script"
 
 export const siteUrl = "https://chronicpainrecovery.ie"
 export const siteName = "Chronic Pain Recovery"
@@ -14,10 +13,8 @@ export const authorProfile = {
     atnsUrl:
         "https://www.symptomatic.me/practitioner-directory#!biz/id/6931943a34afb87d36038b44/About",
     credentials:
-        "Listed in the ATNS Practitioner & Coach Directory and trained in pain neuroscience, Pain Reprocessing Therapy, and Dr. Howard Schubiner's mind-body methods.",
-    bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. Her work draws on pain neuroscience education, Pain Reprocessing Therapy, Dr. Howard Schubiner's mind-body methods, and a biopsychosocial approach to support people with persistent pain when serious medical causes have been assessed.",
-    personalExperience:
-        "Marsha also brings lived experience of recovering from long-term migraines and neck pain, which informs her compassionate, practical approach to chronic pain recovery work.",
+        "Marsha has a public profile in the ATNS Practitioner & Coach Directory. Please use that directory profile and ask Marsha directly to verify the training and scope relevant to your needs.",
+    bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork. She provides educational, recovery-oriented support for people exploring persistent pain and possible neuroplastic symptoms after appropriate medical assessment.",
 }
 
 type PageMetadata = {
@@ -86,12 +83,13 @@ export function JsonLd({
     id: string
     data: Record<string, unknown>
 }) {
+    const json = JSON.stringify(data).replace(/</g, "\\u003c")
+
     return (
-        <Script
+        <script
             id={id}
             type="application/ld+json"
-            strategy="beforeInteractive"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+            dangerouslySetInnerHTML={{ __html: json }}
         />
     )
 }
@@ -119,82 +117,89 @@ export function BreadcrumbJsonLd({
     return <JsonLd id={id} data={breadcrumbSchema(items)} />
 }
 
-export function faqSchema(
-    questions: { question: string; answer: string }[],
-) {
-    return {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: questions.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: item.answer,
-            },
-        })),
-    }
-}
+const organizationId = `${siteUrl}/#organization`
+const personId = `${siteUrl}/#marsha-canny`
 
-export function FAQJsonLd({
-    id,
-    questions,
-}: {
-    id: string
-    questions: { question: string; answer: string }[]
-}) {
-    return <JsonLd id={id} data={faqSchema(questions)} />
-}
-
-export const localBusinessSchema = {
+export const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": "Organization",
+    "@id": organizationId,
     name: siteName,
     url: siteUrl,
     telephone: "+353871025108",
     image: absoluteUrl(defaultOgImage),
     logo: absoluteUrl("/logos/logo-removebg-preview.png"),
     description:
-        "Biopsychosocial chronic pain support in Cork, Ireland. Pain Reprocessing Therapy and related approaches may help people with persistent pain when serious medical causes have been assessed.",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Rochestown",
-        addressRegion: "Cork",
-        addressCountry: "IE",
+        "Online-first educational and recovery-oriented support for people in Ireland exploring persistent pain and possible neuroplastic symptoms after appropriate medical assessment, with limited in-person availability in Rochestown, Cork.",
+    sameAs: ["https://www.facebook.com/chronicpainrecoveryireland"],
+    areaServed: {
+        "@type": "Country",
+        name: "Ireland",
     },
-    geo: {
-        "@type": "GeoCoordinates",
-        latitude: 51.8695,
-        longitude: -8.4047,
+}
+
+export const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": personId,
+    name: authorProfile.name,
+    jobTitle: authorProfile.role,
+    image: absoluteUrl(authorProfile.image),
+    url: absoluteUrl(authorProfile.url),
+    sameAs: [authorProfile.atnsUrl],
+    worksFor: {
+        "@id": organizationId,
     },
-    openingHours: "Mo-Fr 09:00-18:00",
-    sameAs: [
-        "https://www.facebook.com/chronicpainrecoveryireland",
-        authorProfile.atnsUrl,
-    ],
-    medicalSpecialty: "Pain Management",
-    founder: {
-        "@type": "Person",
-        name: authorProfile.name,
-        jobTitle: authorProfile.role,
-        image: absoluteUrl(authorProfile.image),
-        url: absoluteUrl(authorProfile.url),
-        sameAs: [authorProfile.atnsUrl],
-        knowsAbout: [
-            "Pain neuroscience education",
-            "Pain Reprocessing Therapy",
-            "Neuroplastic symptoms",
-            "Biopsychosocial chronic pain support",
-        ],
-    },
-    areaServed: [
-        {
-            "@type": "AdministrativeArea",
-            name: "Cork",
+}
+
+type ArticleSchema = {
+    headline: string
+    description: string
+    path: string
+    datePublished: string
+    dateModified?: string
+    image?: string
+}
+
+export function articleSchema({
+    headline,
+    description,
+    path,
+    datePublished,
+    dateModified,
+    image,
+}: ArticleSchema) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline,
+        description,
+        image: image ? absoluteUrl(image) : undefined,
+        datePublished,
+        dateModified: dateModified || datePublished,
+        inLanguage: "en-IE",
+        author: {
+            "@type": "Person",
+            "@id": personId,
+            name: authorProfile.name,
+            url: absoluteUrl(authorProfile.url),
+            image: absoluteUrl(authorProfile.image),
+            jobTitle: authorProfile.role,
+            sameAs: [authorProfile.atnsUrl],
         },
-        {
-            "@type": "Country",
-            name: "Ireland",
+        publisher: {
+            "@type": "Organization",
+            "@id": organizationId,
+            name: siteName,
+            url: siteUrl,
+            logo: {
+                "@type": "ImageObject",
+                url: absoluteUrl("/logos/logo-removebg-preview.png"),
+            },
         },
-    ],
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": absoluteUrl(path),
+        },
+    }
 }

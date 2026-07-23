@@ -4,8 +4,9 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaWhatsapp } from "react-icons/fa"
 import { slideInMenu, fadeOverlay } from "@/app/lib/animations"
-import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { PHONE_DISPLAY } from "@/app/lib/contact"
 import WhatsAppLink from "./WhatsAppLink"
+import TrackedPhoneLink from "./TrackedPhoneLink"
 
 type NavLink = {
     href: string
@@ -163,7 +164,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 <WhatsAppLink
                                     source="mobile_menu"
                                     onClick={onToggle}
-                                    className="flex w-full items-center justify-center gap-2 rounded-full py-4 text-xs font-medium uppercase tracking-wide transition-transform active:scale-[0.98]"
+                                    className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-4 text-xs font-medium uppercase tracking-wide"
                                     style={{
                                         backgroundColor: "#1E3A20",
                                         color: "#F7F4EF",
@@ -181,7 +182,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 <Link
                                     href="/contact"
                                     onClick={onToggle}
-                                    className="mt-3 flex w-full items-center justify-center rounded-full border py-4 text-xs font-medium uppercase tracking-wide transition-transform active:scale-[0.98]"
+                                    className="cta-interactive mt-3 flex w-full items-center justify-center rounded-full border py-4 text-xs font-medium uppercase tracking-wide"
                                     style={{
                                         borderColor: "#1E3A20",
                                         color: "#1E3A20",
@@ -192,8 +193,8 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 >
                                     Book Consultation
                                 </Link>
-                                <a
-                                    href={PHONE_HREF}
+                                <TrackedPhoneLink
+                                    source="mobile_menu"
                                     className="mt-4 block text-center text-xs transition-opacity hover:opacity-60"
                                     style={{
                                         color: "rgba(30,58,32,0.4)",
@@ -202,7 +203,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                     }}
                                 >
                                     Call {PHONE_DISPLAY}
-                                </a>
+                                </TrackedPhoneLink>
                             </div>
                         </motion.nav>
                     </>

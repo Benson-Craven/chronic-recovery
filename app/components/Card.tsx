@@ -131,20 +131,13 @@ const Card: React.FC<CardProps> = ({
                     {i === totalCards - 1 && (
                         <Link href="/contact" className="mt-8 inline-block">
                             <motion.span
-                                className="inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide"
+                                className="cta-interactive inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide"
                                 style={{
                                     backgroundColor: "#F0EBE1",
                                     color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 500,
                                     letterSpacing: "0.04em",
-                                }}
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 300,
-                                    damping: 20,
                                 }}
                             >
                                 Enquire About a Consultation

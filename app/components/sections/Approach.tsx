@@ -18,9 +18,9 @@ const Approach = () => {
                 <div>
                     <FadeInOnScroll threshold={0.5}>
                         <Heading className="mb-8">
-                            This is not
+                            More than
                             <br />
-                            <em>pain management.</em>
+                            <em>coping tools.</em>
                         </Heading>
                     </FadeInOnScroll>
 
@@ -30,8 +30,9 @@ const Approach = () => {
 
                     <FadeInOnScroll threshold={0.5}>
                         <Text className="mb-12 max-w-md">
-                            The treatment I provide can support chronic pain
-                            recovery, not just coping with symptoms.
+                            Sessions can explore relevant pain science, symptom
+                            patterns, and careful next steps alongside
+                            appropriate medical care.
                         </Text>
                     </FadeInOnScroll>
 

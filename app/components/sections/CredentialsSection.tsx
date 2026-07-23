@@ -5,9 +5,8 @@ import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow } from "../ui/Typography"
 
 const credentials = [
-    "Listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
-    "Specialised training in Pain Reprocessing Therapy and Dr. Howard Schubiner's mind-body methods.",
-    "Lived experience of recovery from long-term migraines and neck pain, alongside professional chronic pain recovery work.",
+    "I am listed in the Association for the Treatment of Neuroplastic Symptoms (ATNS) Practitioner & Coach Directory.",
+    "I work as a chronic pain therapist, with online sessions across Ireland and limited in-person availability in Rochestown, Cork.",
 ]
 
 const CredentialsSection = () => {
@@ -16,17 +15,17 @@ const CredentialsSection = () => {
             <Container size="wide">
                 <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:items-start">
                     <div>
-                        <Eyebrow>Credentials & training</Eyebrow>
+                        <Eyebrow>Practitioner information</Eyebrow>
                         <Heading className="mb-6">
-                            Practitioner support
+                            Chronic pain support
                             <br />
-                            <em>with recognised training.</em>
+                            <em>with a public directory profile.</em>
                         </Heading>
                         <Text className="max-w-md">
-                            Marsha Canny's work is grounded in pain
-                            neuroscience education, Pain Reprocessing Therapy,
-                            and a biopsychosocial approach to persistent pain
-                            and neuroplastic symptoms.
+                            I describe my work as educational and
+                            recovery-oriented. Please ask me directly to confirm
+                            the training and scope relevant to your needs before
+                            deciding whether to work with me.
                         </Text>
                     </div>
 
@@ -85,7 +84,7 @@ const CredentialsSection = () => {
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
-                                    View Marsha's verified ATNS profile
+                                    View my ATNS directory profile
                                 </span>
                                 <span
                                     className="mt-1 block text-sm leading-relaxed"

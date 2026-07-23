@@ -9,15 +9,14 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Breadcrumbs from "../../components/Breadcrumbs"
+import CtaActionRow from "../../components/CtaActionRow"
 import { WhatsAppCta } from "../../components/WhatsAppLink"
 import {
     BreadcrumbJsonLd,
     JsonLd,
-    absoluteUrl,
+    articleSchema,
     authorProfile,
     createPageMetadata,
-    siteName,
-    siteUrl,
 } from "../../lib/seo"
 
 export async function generateStaticParams() {
@@ -34,7 +33,9 @@ export async function generateMetadata({
         const postData = await getPostData(params.slug)
 
         return createPageMetadata({
-            title: `${postData.title} | Chronic Pain Recovery`,
+            title:
+                postData.seoTitle ??
+                `${postData.title} | Chronic Pain Recovery`,
             description: postData.excerpt,
             path: `/blog/${params.slug}`,
             type: "article",
@@ -59,7 +60,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
         notFound()
     }
 
-    const articleUrl = absoluteUrl(`/blog/${params.slug}`)
     const publishedDate = parseBlogDate(postData.date)
     const displayDate = formatBlogDate(postData.date)
     const breadcrumbs = [
@@ -67,52 +67,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
         { name: "Journal", path: "/blog" },
         { name: postData.title, path: `/blog/${params.slug}` },
     ]
-    const articleSchema = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
+    const articleData = articleSchema({
         headline: postData.title,
         description: postData.excerpt,
-        image: postData.coverImage ? absoluteUrl(postData.coverImage) : undefined,
+        path: `/blog/${params.slug}`,
+        image: postData.coverImage || undefined,
         datePublished: publishedDate,
         dateModified: postData.modifiedDate || publishedDate,
-        inLanguage: "en-IE",
-        author: {
-            "@type": "Person",
-            name: authorProfile.name,
-            url: absoluteUrl(authorProfile.url),
-            image: absoluteUrl(authorProfile.image),
-            jobTitle: authorProfile.role,
-            sameAs: [authorProfile.atnsUrl],
-            knowsAbout: [
-                "Pain neuroscience education",
-                "Pain Reprocessing Therapy",
-                "Neuroplastic symptoms",
-                "Biopsychosocial chronic pain support",
-            ],
-            worksFor: {
-                "@type": "Organization",
-                name: siteName,
-                url: siteUrl,
-            },
-            workLocation: {
-                "@type": "Place",
-                name: authorProfile.location,
-            },
-        },
-        publisher: {
-            "@type": "Organization",
-            name: siteName,
-            url: siteUrl,
-            logo: {
-                "@type": "ImageObject",
-                url: absoluteUrl("/logos/logo-removebg-preview.png"),
-            },
-        },
-        mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": articleUrl,
-        },
-    }
+    })
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
@@ -120,7 +82,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 id="blog-post-breadcrumb-schema"
                 items={breadcrumbs}
             />
-            <JsonLd id="article-schema" data={articleSchema} />
+            <JsonLd id="article-schema" data={articleData} />
             <Breadcrumbs items={breadcrumbs} />
             {/* Hero — green */}
             <section
@@ -210,7 +172,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
             >
                 <div className="mx-auto max-w-2xl">
                     <article
-                        className="prose prose-lg max-w-none"
+                        className="prose prose-lg max-w-none prose-headings:font-normal"
                         style={
                             {
                                 "--tw-prose-body": "rgba(30,58,32,0.7)",
@@ -319,7 +281,12 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    {authorProfile.bio}
+                                    I'm a chronic pain therapist based in
+                                    Rochestown, Cork. I provide educational,
+                                    recovery-oriented support for people
+                                    exploring persistent pain and possible
+                                    neuroplastic symptoms after appropriate
+                                    medical assessment.
                                 </p>
                                 <p
                                     className="mb-4 text-base leading-relaxed"
@@ -329,17 +296,11 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    {authorProfile.credentials}
-                                </p>
-                                <p
-                                    className="mb-5 text-base leading-relaxed"
-                                    style={{
-                                        color: "rgba(30,58,32,0.68)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    {authorProfile.personalExperience}
+                                    My public profile is listed in the ATNS
+                                    Practitioner & Coach Directory. Please use
+                                    that directory profile and ask me directly
+                                    to verify the training and scope relevant to
+                                    your needs.
                                 </p>
                                 <Link
                                     href={authorProfile.url}
@@ -349,7 +310,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
-                                    About Marsha
+                                    About me
                                 </Link>
                             </div>
                         </div>
@@ -357,71 +318,58 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 </div>
             </section>
 
-            {/* Footer CTA — green */}
+            {/* Closing CTA — cream */}
             <section
-                style={{ backgroundColor: "#1E3A20" }}
+                style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <div className="mx-auto max-w-3xl">
+                <div className="mx-auto max-w-5xl">
                     <div
                         className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
+                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
                     />
 
-                    <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+                    <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "rgba(30,58,32,0.72)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Ready to begin?
+                                Have questions?
                             </p>
-                            <p
-                                className="text-3xl leading-snug text-white md:text-4xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
+                            <h2
+                                className="text-5xl leading-[1.05] md:text-6xl"
+                                style={{
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-serif)",
+                                }}
                             >
-                                Recovery is possible.
+                                Explore your next step.
                                 <br />
-                                <em>Let's talk.</em>
-                            </p>
+                                <em>Ask before you decide.</em>
+                            </h2>
                         </div>
 
-                        <div className="flex flex-col gap-3">
-                            <WhatsAppCta
-                                source="blog_closing_cta"
-                                surface="green"
-                            />
-                            <Link href="/contact">
-                                <button
-                                    className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-opacity hover:opacity-90 md:w-auto md:px-10"
-                                    style={{
-                                        backgroundColor: "#F0EBE1",
-                                        border: "1px solid rgba(30,58,32,0.3)",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
-                                        opacity: 0.68,
-                                    }}
-                                >
-                                    Book Consultation
-                                </button>
-                            </Link>
+                        <CtaActionRow className="gap-3">
+                            <WhatsAppCta source="blog_closing_cta" />
                             <Link
-                                href="/blog"
-                                className="text-center text-xs uppercase tracking-[0.15em] transition-opacity hover:opacity-60"
+                                href="/contact"
+                                className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
                                 style={{
-                                    color: "rgba(200,230,201,0.45)",
+                                    backgroundColor: "transparent",
+                                    border: "1px solid rgba(30,58,32,0.3)",
+                                    color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
+                                    fontWeight: 500,
+                                    letterSpacing: "0.04em",
                                 }}
                             >
-                                Back to Journal
+                                Book Consultation
                             </Link>
-                        </div>
+                        </CtaActionRow>
                     </div>
                 </div>
             </section>

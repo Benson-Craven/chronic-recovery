@@ -3,9 +3,10 @@
 import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { EditorialSplit } from "../components/ui/EditorialSplit"
+import CtaActionRow from "../components/CtaActionRow"
 import { WhatsAppCta } from "../components/WhatsAppLink"
-import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import TrackedPhoneLink from "../components/TrackedPhoneLink"
+import { PHONE_DISPLAY } from "../lib/contact"
 
 type Item = {
     title: string
@@ -166,13 +167,7 @@ const UsefulLinks: React.FC = () => {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <EditorialSplit
-                    visual={{
-                        kind: "illustration",
-                        src: "/images/illustrations/calm-moment.png",
-                        alt: "",
-                    }}
-                >
+                <div className="mx-auto max-w-3xl">
                     <div>
                         <p
                             className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
@@ -198,9 +193,6 @@ const UsefulLinks: React.FC = () => {
                             style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
                         />
                     </div>
-                </EditorialSplit>
-
-                <div className="mx-auto mt-16 max-w-3xl">
                     {links[0].items.map((item, index) => (
                         <motion.a
                             key={index}
@@ -218,16 +210,18 @@ const UsefulLinks: React.FC = () => {
                             className="group flex items-start gap-6 border-b py-10 transition-opacity hover:opacity-70"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {String(index + 1).padStart(2, "0")}
-                            </span>
+                            {links[0].items.length > 1 && (
+                                <span
+                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                    style={{
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+                            )}
                             <div className="flex flex-1 flex-col gap-2">
                                 <div className="flex items-center gap-2">
                                     <p
@@ -268,15 +262,7 @@ const UsefulLinks: React.FC = () => {
                 style={{ backgroundColor: "#1E3A20" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <EditorialSplit
-                    reverse
-                    surface="green"
-                    visual={{
-                        kind: "illustration",
-                        src: "/images/illustrations/online-support.png",
-                        alt: "",
-                    }}
-                >
+                <div className="mx-auto max-w-3xl">
                     <div>
                         <p
                             className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
@@ -301,9 +287,6 @@ const UsefulLinks: React.FC = () => {
                             }}
                         />
                     </div>
-                </EditorialSplit>
-
-                <div className="mx-auto mt-16 max-w-3xl">
                     {links[1].items.map((item, index) => (
                         <motion.a
                             key={index}
@@ -411,12 +394,6 @@ const UsefulLinks: React.FC = () => {
                                 <br />
                                 the start.
                             </h2>
-                            <div
-                                className="mt-12 hidden h-px md:block"
-                                style={{
-                                    backgroundColor: "rgba(30,58,32,0.15)",
-                                }}
-                            />
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
@@ -446,55 +423,24 @@ const UsefulLinks: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-4">
+                            <CtaActionRow>
                                 <WhatsAppCta source="resources_closing_cta" />
-                                <Link href="/contact">
-                                    {" "}
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
-                                </Link>
-                                <Link href="/self-assessment">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            color: "#1E3A20",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 400,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Take the Self-Assessment
-                                    </motion.button>
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        border: "1px solid rgba(30,58,32,0.3)",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <p
-                                    className="text-sm"
+                                    className="text-sm sm:basis-full"
                                     style={{
                                         color: "rgba(30, 58, 32, 0.4)",
                                         fontFamily: "var(--font-dm-sans)",
@@ -502,8 +448,8 @@ const UsefulLinks: React.FC = () => {
                                     }}
                                 >
                                     Call{" "}
-                                    <a
-                                        href={PHONE_HREF}
+                                    <TrackedPhoneLink
+                                        source="resources_closing_cta"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "#1E3A20",
@@ -511,15 +457,11 @@ const UsefulLinks: React.FC = () => {
                                         }}
                                     >
                                         {PHONE_DISPLAY}
-                                    </a>
+                                    </TrackedPhoneLink>
                                 </p>
-                            </div>
+                            </CtaActionRow>
                         </div>
                     </div>
-                    <div
-                        className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
                 </div>
             </motion.section>
         </div>

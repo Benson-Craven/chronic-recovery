@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next"
-import { getSortedPostsData } from "./lib/posts"
+import { getSortedPostsData, parseBlogDate } from "./lib/posts"
 import { siteUrl } from "./lib/seo"
 
 const staticLastModified = new Date("2026-04-30")
@@ -114,9 +114,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const postRoutes: MetadataRoute.Sitemap = getSortedPostsData().map(
         (post) => ({
             url: `${baseUrl}/blog/${post.id}`,
-            lastModified: post.modifiedDate
-                ? new Date(post.modifiedDate)
-                : staticLastModified,
+            lastModified: new Date(
+                post.modifiedDate || parseBlogDate(post.date),
+            ),
             changeFrequency: "monthly",
             priority: 0.7,
         }),

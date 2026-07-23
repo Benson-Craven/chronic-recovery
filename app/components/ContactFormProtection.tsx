@@ -1,5 +1,6 @@
 import type { ContactFormError } from "@/app/hooks/useContactForm"
 import type { TurnstileState } from "./Turnstile"
+import TrackedPhoneLink from "./TrackedPhoneLink"
 
 const ERROR_MESSAGES: Record<ContactFormError, string> = {
     invalid:
@@ -54,18 +55,18 @@ export function ContactFormFeedback({
                     }}
                 >
                     {ERROR_MESSAGES[error]}
-                    <a
-                        href="tel:+353871025108"
+                    <TrackedPhoneLink
+                        source="contact_form_error"
                         className="underline underline-offset-2"
                     >
-                        call
-                    </a>{" "}
+                        call me
+                    </TrackedPhoneLink>{" "}
                     or{" "}
                     <a
                         href="https://wa.me/353871025108"
                         className="underline underline-offset-2"
                     >
-                        WhatsApp
+                        WhatsApp me
                     </a>{" "}
                     +353 (0) 87-102-5108.
                 </p>

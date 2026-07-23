@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
+import { BreadcrumbJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Pain Reprocessing Therapy Ireland | Chronic Pain Recovery",
+    title: "Pain Reprocessing Therapy in Ireland | Chronic Pain Recovery",
     description:
-        "Learn how Pain Reprocessing Therapy may help neuroplastic chronic pain by changing the brain's interpretation of safe body signals.",
+        "Explore Pain Reprocessing Therapy with Marsha Canny, a chronic pain therapist offering 60-minute online sessions across Ireland and limited in-person sessions in Rochestown, Cork.",
     path: "/treatments/pain-reprocessing-therapy",
 })
 
@@ -22,38 +22,13 @@ export default function PainReprocessingTherapyPage() {
     return (
         <>
             <BreadcrumbJsonLd id="prt-breadcrumb-schema" items={breadcrumbs} />
-            <FAQJsonLd
-                id="prt-faq-schema"
-                questions={[
-                    {
-                        question: "What is Pain Reprocessing Therapy?",
-                        answer: "Pain Reprocessing Therapy is an evidence-informed approach that helps suitable clients reinterpret safe body sensations as non-dangerous, which may reduce neuroplastic pain signals over time.",
-                    },
-                    {
-                        question:
-                            "Is Pain Reprocessing Therapy suitable for all pain?",
-                        answer: "No. Structural abnormalities, disease, infection, acute injury, and urgent medical causes should be assessed first. PRT is most relevant when pain appears to be maintained by learned nervous system danger signals.",
-                    },
-                    {
-                        question:
-                            "Can Pain Reprocessing Therapy be done online?",
-                        answer: "Yes. Many parts of PRT, including education, somatic tracking, and reducing fear around symptoms, can be supported online when clinically appropriate.",
-                    },
-                ]}
-            />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
                 whatsAppSource="prt_closing_cta"
                 hero={{
-                    eyebrow: "Pain Reprocessing Therapy",
-                    title: (
-                        <>
-                            Retraining
-                            <br />
-                            <em>pain signals</em>
-                        </>
-                    ),
-                    intro: "Pain Reprocessing Therapy may help people with neuroplastic chronic pain by teaching the brain to interpret safe body sensations with less danger.",
+                    eyebrow: "Retraining pain signals",
+                    title: "Pain Reprocessing Therapy in Ireland",
+                    intro: "I'm Marsha Canny, a chronic pain therapist. I offer one-to-one Pain Reprocessing Therapy support for suitable adults online across Ireland, with limited in-person sessions in Rochestown, Cork.",
                 }}
                 sections={[
                     {
@@ -92,30 +67,30 @@ export default function PainReprocessingTherapyPage() {
                         },
                         body: [
                             "PRT may be relevant when pain began without clear injury, persists beyond expected healing, moves around, varies with stress, improves with distraction, or has not been explained by medical tests.",
-                            "It may also be explored alongside symptoms such as fibromyalgia, migraine, back pain, neck pain, IBS, pelvic pain, long covid-related symptoms, and chronic fatigue, as long as medical causes have been assessed.",
+                            "These patterns are not a diagnosis. Suitability depends on your symptoms, history, and medical context, and new, severe, changing, or unexplained symptoms should be assessed by an appropriate medical professional first.",
                         ],
                     },
                 ]}
                 listSection={{
-                    eyebrow: "Core principles",
-                    heading: "How the work supports change",
-                    intro: "PRT is not positive thinking. It is a structured way of helping the nervous system update its prediction of danger.",
+                    eyebrow: "About me, sessions and fees",
+                    heading: "Practical details before you enquire",
+                    intro: "The first conversation is an opportunity to ask questions and discuss whether this educational, recovery-oriented approach may fit your needs.",
                     items: [
                         {
-                            title: "Pain is real",
-                            body: "The starting point is validation. Neuroplastic pain is generated by the brain and nervous system, but it is still a real bodily experience.",
+                            title: "About me",
+                            body: "I'm a chronic pain therapist based in Rochestown, Cork. My public ATNS Practitioner & Coach Directory profile is linked from the About page.",
                         },
                         {
-                            title: "Pain does not always mean damage",
-                            body: "For some chronic pain, the alarm system keeps firing even when tissues are not in ongoing danger.",
+                            title: "Session format",
+                            body: "I offer 60-minute one-to-one sessions shaped around your pain history, medical context, goals, and questions.",
                         },
                         {
-                            title: "Fear amplifies signals",
-                            body: "Fear, avoidance, scanning, and protective tension can reinforce the brain's danger prediction.",
+                            title: "Cork and online access",
+                            body: "I offer online sessions across Ireland and limited in-person sessions in Rochestown, Cork. I share the private address only when an appointment is confirmed.",
                         },
                         {
-                            title: "Safety can be learned",
-                            body: "With the right conditions, the brain can learn that certain sensations and movements are safe again.",
+                            title: "Pricing",
+                            body: "I charge €70 for a 60-minute session. A package of 6 sessions costs €360.",
                         },
                     ],
                 }}
@@ -146,7 +121,7 @@ export default function PainReprocessingTherapyPage() {
                     },
                     {
                         href: "/blog/pain-reprocessing-therapy-ireland",
-                        label: "Pain Reprocessing Therapy in Ireland",
+                        label: "What is Pain Reprocessing Therapy?",
                     },
                     {
                         href: "/blog/why-pain-persists-after-healing",

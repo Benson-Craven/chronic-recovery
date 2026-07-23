@@ -44,7 +44,7 @@ const ScienceSection = () => {
                     <Link
                         href=""
                         style={{ position: "absolute", bottom: "10%" }}
-                        className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white transition duration-300 hover:bg-white hover:text-gray-900"
+                        className="cta-interactive inline-flex items-center rounded-full border border-white px-6 py-3 text-white hover:bg-white hover:text-gray-900"
                     >
                         <span className="mr-2">Explore more</span>
                         <svg

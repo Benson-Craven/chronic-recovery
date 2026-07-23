@@ -52,7 +52,7 @@ export function WhatsAppCta({ source, surface = "cream" }: WhatsAppCtaProps) {
     return (
         <WhatsAppLink
             source={source}
-            className="flex w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-medium tracking-wide transition-transform hover:scale-[1.03] hover:shadow-lg active:scale-[0.98] md:w-auto md:px-10"
+            className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full py-4 text-sm font-medium tracking-wide sm:w-auto sm:px-10"
             style={{
                 backgroundColor: isGreenSurface ? "#F0EBE1" : "#1E3A20",
                 border: isGreenSurface

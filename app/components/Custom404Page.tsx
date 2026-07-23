@@ -35,7 +35,11 @@ const Custom404Page = () => {
             label: "The science",
             description: "Understanding chronic pain",
         },
-        { href: "/contact", label: "Contact", description: "Get in touch" },
+        {
+            href: "/contact",
+            label: "Contact",
+            description: "Get in touch with me",
+        },
     ]
 
     return (
@@ -107,8 +111,8 @@ const Custom404Page = () => {
                         }}
                     >
                         Just like chronic pain, sometimes things don't end up
-                        where they should. Unlike chronic pain, this one is
-                        easy to fix.
+                        where they should. Unlike chronic pain, this one is easy
+                        to fix.
                     </p>
                 </motion.div>
             </section>
@@ -278,26 +282,18 @@ const Custom404Page = () => {
 
                         {/* CTA buttons */}
                         <div className="flex flex-col gap-3">
-                            <Link href="/">
-                                <motion.button
-                                    whileHover={{ scale: 1.03 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 20,
-                                    }}
-                                    className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                    style={{
-                                        backgroundColor: "#F0EBE1",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
-                                    }}
-                                >
-                                    Go to Homepage
-                                </motion.button>
+                            <Link
+                                href="/"
+                                className="cta-interactive w-full rounded-full py-4 text-center text-sm font-medium tracking-wide md:w-auto md:px-10"
+                                style={{
+                                    backgroundColor: "#F0EBE1",
+                                    color: "#1E3A20",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 500,
+                                    letterSpacing: "0.04em",
+                                }}
+                            >
+                                Go to Homepage
                             </Link>
                             <p
                                 className="text-sm"
@@ -307,7 +303,7 @@ const Custom404Page = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                or call / WhatsApp{" "}
+                                or call / WhatsApp me on{" "}
                                 <a
                                     href="tel:+353871025108"
                                     className="underline underline-offset-2 transition-opacity hover:opacity-100"
@@ -334,7 +330,7 @@ const Custom404Page = () => {
                     >
                         "Still experiencing chronic pain?
                         <br />
-                        Unlike this error, it has a solution."
+                        You can explore a careful next step with me."
                     </p>
                     <Link
                         href="/contact"

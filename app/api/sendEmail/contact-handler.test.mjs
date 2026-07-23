@@ -42,6 +42,22 @@ function handlerWith({
     },
 } = {}) {
     return createContactHandler({
+        env: {
+            NEXT_PUBLIC_TURNSTILE_ENABLED: "true",
+            ...env,
+        },
+        fetch,
+        logRejection: () => {},
+    })
+}
+
+function handlerWithTurnstileUnset({
+    env = {},
+    fetch = async () => {
+        throw new Error("unexpected fetch")
+    },
+} = {}) {
+    return createContactHandler({
         env,
         fetch,
         logRejection: () => {},
@@ -66,12 +82,49 @@ test("malformed JSON is rejected before external services are called", async () 
 })
 
 test("a filled honeypot receives fake success without external calls", async () => {
-    const response = await handlerWith()(
+    const response = await handlerWithTurnstileUnset()(
         contactRequest({ website: "https://spam.example" }),
     )
 
     assert.equal(response.status, 200)
     assert.deepEqual(await response.json(), { success: true })
+})
+
+test("Turnstile defaults off and a valid enquiry is delivered without verification", async () => {
+    const fetchCalls = []
+    const handler = handlerWithTurnstileUnset({
+        env: {
+            BREVO_API_KEY: "test-brevo-key",
+            EMAIL_TO: "practice@example.com",
+        },
+        fetch: async (...args) => {
+            fetchCalls.push(args)
+            return new Response(null, { status: 201 })
+        },
+    })
+    const response = await handler(
+        contactRequest({ turnstileToken: undefined }),
+    )
+
+    assert.equal(response.status, 200)
+    assert.deepEqual(await response.json(), { success: true })
+    assert.equal(fetchCalls.length, 1)
+    assert.equal(fetchCalls[0][0], "https://api.brevo.com/v3/smtp/email")
+})
+
+test("invalid contact fields remain rejected while Turnstile is off", async () => {
+    const response = await handlerWithTurnstileUnset()(
+        contactRequest({
+            name: "J",
+            turnstileToken: undefined,
+        }),
+    )
+
+    assert.equal(response.status, 400)
+    assert.deepEqual(await response.json(), {
+        success: false,
+        error: "INVALID_SUBMISSION",
+    })
 })
 
 test("a valid enquiry without a Turnstile token is rejected as unverified", async () => {

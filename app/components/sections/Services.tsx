@@ -17,7 +17,7 @@ const projects: Project[] = [
     {
         title: "Structured approach to resolving the causes",
         description:
-            "I specialise in helping people with persistent pain conditions and work with many people of all ages and ailments, with fantastic results.",
+            "I support people exploring persistent pain and possible neuroplastic symptoms after appropriate medical assessment.",
         src: "phone.avif",
         url: "",
         color: "#1E3A20",
@@ -25,7 +25,7 @@ const projects: Project[] = [
     {
         title: "1-to-1, 60-minute sessions",
         description:
-            "I will work with your body, nervous system, and brain to get you back to good health.",
+            "Sessions provide space to understand your pain context, learn relevant pain science, and discuss careful next steps.",
         src: "meeting1.avif",
         url: "",
         color: "#F7F4EF",
@@ -33,7 +33,7 @@ const projects: Project[] = [
     {
         title: "In-person in Cork or online",
         description:
-            "€70 per session at my home clinic in Rochestown, Cork, or online anywhere. Package of 6 sessions available for €360.",
+            "€70 per session, with limited in-person availability in Rochestown, Cork, and online sessions across Ireland. A package of 6 sessions is available for €360.",
         src: "cork.avif",
         url: "",
         color: "#1E3A20",
@@ -121,7 +121,8 @@ export default function Services() {
                     >
                         self-assessment questionnaire
                     </Link>{" "}
-                    to help determine whether this approach is right for you.
+                    as an educational reflection before deciding what questions
+                    to discuss with a healthcare professional or with me.
                 </p>
             </div>
 

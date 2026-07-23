@@ -4,7 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaFacebook, FaPhone, FaWhatsapp } from "react-icons/fa"
 import { authorProfile } from "../lib/seo"
-import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import { PHONE_DISPLAY } from "../lib/contact"
+import TrackedPhoneLink from "./TrackedPhoneLink"
 import WhatsAppLink from "./WhatsAppLink"
 
 const SITE_LINKS = [
@@ -64,7 +65,7 @@ const Footer = () => {
                         className="max-w-md text-3xl leading-snug text-white md:text-4xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Helping you recover,
+                        I help you explore recovery,
                         <br />
                         <em>not just cope.</em>
                     </p>
@@ -173,8 +174,8 @@ const Footer = () => {
                                 </WhatsAppLink>
                             </li>
                             <li>
-                                <a
-                                    href={PHONE_HREF}
+                                <TrackedPhoneLink
+                                    source="footer_connect"
                                     className="flex items-center gap-3 transition-opacity hover:opacity-60"
                                 >
                                     <FaPhone
@@ -196,7 +197,7 @@ const Footer = () => {
                                     >
                                         {PHONE_DISPLAY}
                                     </span>
-                                </a>
+                                </TrackedPhoneLink>
                             </li>
                             <li>
                                 <Link
@@ -230,7 +231,7 @@ const Footer = () => {
                         <div className="mt-8 space-y-3">
                             <WhatsAppLink
                                 source="footer_cta"
-                                className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-xs font-medium uppercase tracking-wide transition-opacity hover:opacity-90"
+                                className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-3 text-xs font-medium uppercase tracking-wide"
                                 style={{
                                     backgroundColor: "#F0EBE1",
                                     color: "#1E3A20",
@@ -247,7 +248,7 @@ const Footer = () => {
                             </WhatsAppLink>
                             <Link
                                 href="/contact"
-                                className="flex w-full items-center justify-center rounded-full border py-3 text-xs font-medium uppercase tracking-wide transition-opacity hover:opacity-90"
+                                className="cta-interactive flex w-full items-center justify-center rounded-full border py-3 text-xs font-medium uppercase tracking-wide"
                                 style={{
                                     borderColor: "rgba(240,235,225,0.65)",
                                     color: "#F0EBE1",

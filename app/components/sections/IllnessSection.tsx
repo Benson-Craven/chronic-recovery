@@ -6,40 +6,48 @@ import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 import Image from "next/image"
 import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow } from "../ui/Typography"
+import { WhatsAppCta } from "../WhatsAppLink"
 
 const IllnessSection = () => {
     return (
         <div id="illness">
-            <Section variant="green" className="relative pb-0 pt-6">
-                {/* Scroll indicator */}
-                <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
-                    <p
-                        className="mb-2 text-xs uppercase tracking-[0.2em] opacity-30"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        Scroll
-                    </p>
-                    <svg
-                        className="mx-auto h-4 w-4 animate-bounce"
-                        style={{ color: "rgba(200,230,201,0.3)" }}
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
+            <Section
+                variant="green"
+                className="relative pb-0 pt-20 md:pt-28 lg:pt-6"
+            >
+                <div className="hidden lg:block">
+                    {/* Scroll indicator */}
+                    <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
+                        <p
+                            className="mb-2 text-xs uppercase tracking-[0.2em] opacity-30"
+                            style={{
+                                color: "#C8E6C9",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            Scroll
+                        </p>
+                        <svg
+                            className="mx-auto h-4 w-4 animate-bounce"
+                            style={{ color: "rgba(200,230,201,0.3)" }}
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </div>
+
+                    <div className="h-[20vh]" />
+
+                    <IllnessSectionCarousel />
                 </div>
 
-                <div className="h-[20vh]" />
-
-                <IllnessSectionCarousel />
+                <IllnessSectionList />
             </Section>
 
             {/* Closing question block */}
@@ -52,12 +60,9 @@ const IllnessSection = () => {
                             Still unsure?
                         </Eyebrow>
 
-                        <Heading
-                            as="h3"
-                            className="mb-10 text-white"
-                        >
-                            Have you seen <em>multiple</em> professionals
-                            without finding <em>lasting relief?</em>
+                        <Heading as="h3" className="mb-10 text-white">
+                            Have questions about <em>persistent</em> symptoms
+                            and whether my service <em>may fit?</em>
                         </Heading>
 
                         <div
@@ -74,23 +79,129 @@ const IllnessSection = () => {
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Not listed above?
+                                Not seeing your symptoms here?
                             </p>
                             <Text
                                 className="text-base"
                                 style={{ color: "rgba(200,230,201,0.65)" }}
                             >
-                                I&apos;m here to help with any illness or
-                                concern, even if it&apos;s not listed. Reach
-                                out to learn more and find the relief you
-                                deserve.
+                                These examples do not establish a diagnosis or
+                                promise that my service is appropriate. You can
+                                ask me about my scope and suitability before
+                                booking.
                             </Text>
+                            <div className="mt-6 max-w-sm">
+                                <WhatsAppCta
+                                    source="homepage_conditions"
+                                    surface="green"
+                                />
+                            </div>
                         </div>
                     </Container>
                 </FadeInOnScroll>
                 <div className="h-[10vh]" />
             </Section>
         </div>
+    )
+}
+
+const IllnessSectionList = () => {
+    return (
+        <section aria-labelledby="illness-list-heading" className="lg:hidden">
+            <Container size="wide">
+                <div className="mb-10 md:mb-14">
+                    <Eyebrow style={{ color: "#C8E6C9" }}>Conditions</Eyebrow>
+                    <div id="illness-list-heading">
+                        <Heading className="text-white">
+                            Are you <em>experiencing</em> any of the following?
+                        </Heading>
+                    </div>
+                </div>
+
+                <div className="space-y-6 md:space-y-8">
+                    {cards.map((card, index) => (
+                        <MobileCard key={card.id} card={card} index={index} />
+                    ))}
+                </div>
+            </Container>
+        </section>
+    )
+}
+
+const MobileCard: React.FC<{ card: CardType; index: number }> = ({
+    card,
+    index,
+}) => {
+    return (
+        <article className="overflow-hidden rounded-[20px] border border-[rgba(200,230,201,0.12)]">
+            <div className="relative h-40 sm:h-48 md:h-56">
+                <Image
+                    src={card.url}
+                    alt={card.title}
+                    fill
+                    sizes="(max-width: 1023px) calc(100vw - 48px), 300px"
+                    loading="lazy"
+                    className="object-cover"
+                />
+
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "linear-gradient(to top, rgba(10,25,12,0.88) 0%, rgba(10,25,12,0.12) 75%)",
+                    }}
+                />
+
+                <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
+                    <span
+                        className="text-xs tabular-nums"
+                        style={{
+                            color: "#C8E6C9",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
+                    >
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <Heading
+                        as="h3"
+                        className="text-2xl leading-snug text-white md:text-3xl"
+                    >
+                        {card.title}
+                    </Heading>
+                </div>
+            </div>
+
+            <div
+                className="px-6 py-7 md:px-8 md:py-9"
+                style={{ backgroundColor: "#0A190C" }}
+            >
+                <ul className="space-y-3">
+                    {card.symptoms?.map((symptom) => (
+                        <li key={symptom} className="flex items-start gap-3">
+                            <span
+                                aria-hidden="true"
+                                className="mt-2 h-1 w-1 shrink-0 rounded-full"
+                                style={{
+                                    backgroundColor: "rgba(200,230,201,0.6)",
+                                }}
+                            />
+                            <span
+                                className="text-sm leading-relaxed md:text-base"
+                                style={{
+                                    color: "rgba(200,230,201,0.9)",
+                                    fontFamily: "var(--font-dm-sans)",
+                                    fontWeight: 300,
+                                }}
+                            >
+                                {symptom}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </article>
     )
 }
 
@@ -120,7 +231,7 @@ const IllnessSectionCarousel = () => {
             {/* Section header */}
             <motion.div
                 style={{ opacity }}
-                className="sticky top-[130px] z-10 md:top-16"
+                className="sticky top-[130px] z-10 pb-20 md:top-16"
             >
                 <Eyebrow style={{ color: "#C8E6C9" }}>Conditions</Eyebrow>
                 <Heading className="text-white">
@@ -128,8 +239,7 @@ const IllnessSectionCarousel = () => {
                 </Heading>
             </motion.div>
 
-            {/* Horizontal scroll container — mechanics unchanged */}
-            <div className="sticky top-1/3 mt-8 flex flex-col items-start justify-center overflow-hidden md:top-44">
+            <div className="sticky top-1/3 flex flex-col items-start justify-center overflow-hidden md:top-72">
                 <motion.div
                     style={{ x }}
                     variants={containerVariants}
@@ -153,7 +263,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
             className="group relative shrink-0 overflow-hidden"
             style={{
                 borderRadius: "20px",
-                width: "300px",
+                width: "360px",
                 height: "440px",
             }}
         >
@@ -162,7 +272,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                     src={card.url}
                     alt={card.title}
                     fill
-                    sizes="(max-width: 768px) 300px, 480px"
+                    sizes="360px"
                     loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />

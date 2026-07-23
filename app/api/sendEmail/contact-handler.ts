@@ -263,10 +263,13 @@ export function createContactHandler({
             return errorResponse("INVALID_SUBMISSION", 400)
         }
 
+        const turnstileEnabled = env.NEXT_PUBLIC_TURNSTILE_ENABLED === "true"
+        const turnstileToken =
+            typeof body.turnstileToken === "string" ? body.turnstileToken : ""
+
         if (
-            typeof body.turnstileToken !== "string" ||
-            body.turnstileToken.trim().length === 0 ||
-            body.turnstileToken.length > 2048
+            turnstileEnabled &&
+            (turnstileToken.trim().length === 0 || turnstileToken.length > 2048)
         ) {
             logRejection("VERIFICATION_FAILED", fields.source)
             return errorResponse("VERIFICATION_FAILED", 403)
@@ -274,28 +277,30 @@ export function createContactHandler({
 
         const submission: ContactSubmission = {
             ...fields,
-            turnstileToken: body.turnstileToken,
+            turnstileToken,
         }
 
-        if (!env.TURNSTILE_SECRET_KEY) {
-            logRejection("VERIFICATION_UNAVAILABLE", submission.source)
-            return errorResponse("VERIFICATION_UNAVAILABLE", 503)
-        }
+        if (turnstileEnabled) {
+            if (!env.TURNSTILE_SECRET_KEY) {
+                logRejection("VERIFICATION_UNAVAILABLE", submission.source)
+                return errorResponse("VERIFICATION_UNAVAILABLE", 503)
+            }
 
-        const verification = await verifyTurnstile(
-            submission,
-            env.TURNSTILE_SECRET_KEY,
-            fetcher,
-        )
+            const verification = await verifyTurnstile(
+                submission,
+                env.TURNSTILE_SECRET_KEY,
+                fetcher,
+            )
 
-        if (verification.status === "unavailable") {
-            logRejection("VERIFICATION_UNAVAILABLE", submission.source)
-            return errorResponse("VERIFICATION_UNAVAILABLE", 503)
-        }
+            if (verification.status === "unavailable") {
+                logRejection("VERIFICATION_UNAVAILABLE", submission.source)
+                return errorResponse("VERIFICATION_UNAVAILABLE", 503)
+            }
 
-        if (verification.status === "failed") {
-            logRejection("VERIFICATION_FAILED", submission.source)
-            return errorResponse("VERIFICATION_FAILED", 403)
+            if (verification.status === "failed") {
+                logRejection("VERIFICATION_FAILED", submission.source)
+                return errorResponse("VERIFICATION_FAILED", 403)
+            }
         }
 
         const delivered = await deliverEmail(submission, env, fetcher)

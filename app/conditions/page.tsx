@@ -4,10 +4,12 @@ import Link from "next/link"
 import React from "react"
 import { motion } from "framer-motion"
 import Breadcrumbs from "../components/Breadcrumbs"
+import CtaActionRow from "../components/CtaActionRow"
 import { BreadcrumbJsonLd } from "../lib/seo"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
-import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import TrackedPhoneLink from "../components/TrackedPhoneLink"
+import { PHONE_DISPLAY } from "../lib/contact"
 
 const treatable = [
     "Fibromyalgia",
@@ -91,9 +93,9 @@ const ConditionsPage = () => {
                         className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Chronic pain
+                        Persistent pain
                         <br />
-                        <em>conditions I treat</em>
+                        <em>topics people ask about</em>
                     </h1>
                     <div
                         className="h-px w-full"
@@ -107,9 +109,10 @@ const ConditionsPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Many conditions once considered permanent have been
-                        shown to have a neuroplastic component, meaning
-                        recovery is possible. This is not an exhaustive list.
+                        The examples below are not diagnoses and do not mean
+                        that I treat every named condition. Suitability depends
+                        on the person's symptoms, medical context, and the scope
+                        of my service.
                     </p>
                 </motion.div>
             </section>
@@ -138,7 +141,7 @@ const ConditionsPage = () => {
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
-                            {treatable.length} conditions
+                            {treatable.length} examples
                         </p>
                         <h2
                             className="mb-4 text-4xl leading-[1.1] md:text-5xl"
@@ -147,9 +150,9 @@ const ConditionsPage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Conditions that
+                            Topics that
                             <br />
-                            <em>are treatable</em>
+                            <em>may be discussed</em>
                         </h2>
                         <p
                             className="text-sm opacity-40"
@@ -159,8 +162,8 @@ const ConditionsPage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            This is not an exhaustive list of all treatable
-                            conditions.
+                            Inclusion here is not a treatment claim or a
+                            substitute for medical assessment.
                         </p>
                     </div>
                 </EditorialSplit>
@@ -238,9 +241,9 @@ const ConditionsPage = () => {
                         className="mb-4 text-4xl leading-[1.1] text-white md:text-5xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Conditions that are
+                        Conditions and situations
                         <br />
-                        <em>not treatable here</em>
+                        <em>outside my service</em>
                     </h2>
                     <p
                         className="mb-14 max-w-xl text-sm leading-relaxed opacity-50"
@@ -250,9 +253,9 @@ const ConditionsPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Note: people with structural or disease-related issues
-                        alongside chronic pain can still benefit from this
-                        treatment.
+                        These require assessment and care from appropriately
+                        qualified medical professionals. This service does not
+                        treat them.
                     </p>
 
                     <div
@@ -413,8 +416,9 @@ const ConditionsPage = () => {
                                 >
                                     Take the self-assessment questionnaire
                                 </Link>{" "}
-                                to help determine whether this approach is a
-                                good fit.
+                                as an educational reflection. It is not
+                                diagnostic and does not determine whether my
+                                service is a good fit.
                             </p>
                         </motion.div>
                     </div>
@@ -456,12 +460,6 @@ const ConditionsPage = () => {
                                 <br />
                                 in this list?
                             </h2>
-                            <div
-                                className="mt-12 hidden h-px md:block"
-                                style={{
-                                    backgroundColor: "rgba(200,230,201,0.15)",
-                                }}
-                            />
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
@@ -474,11 +472,10 @@ const ConditionsPage = () => {
                                 }}
                             >
                                 <p>
-                                    If your condition appears above, or if
-                                    you've been living with unexplained pain
-                                    that hasn't responded to conventional
-                                    treatment, this approach may be the answer
-                                    you've been looking for.
+                                    If a symptom or condition above is relevant
+                                    to you, ask me what falls within my scope
+                                    and what medical assessment should happen
+                                    before considering a session.
                                 </p>
                                 <p
                                     style={{
@@ -488,61 +485,32 @@ const ConditionsPage = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    Recovery is possible. Let's talk.
+                                    A conversation can clarify fit and
+                                    boundaries.
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-4">
+                            <CtaActionRow>
                                 <WhatsAppCta
                                     source="conditions_closing_cta"
                                     surface="green"
                                 />
-                                <Link href="/contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            border: "1px solid rgba(240,235,225,0.75)",
-                                            color: "#F0EBE1",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
-                                </Link>
-                                <Link href="/self-assessment">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            color: "rgba(200,230,201,0.7)",
-                                            border: "1px solid rgba(200,230,201,0.25)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 400,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Take the Self-Assessment
-                                    </motion.button>
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        border: "1px solid rgba(240,235,225,0.75)",
+                                        color: "#F0EBE1",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <p
-                                    className="text-sm"
+                                    className="text-sm sm:basis-full"
                                     style={{
                                         color: "rgba(200,230,201,0.35)",
                                         fontFamily: "var(--font-dm-sans)",
@@ -550,23 +518,19 @@ const ConditionsPage = () => {
                                     }}
                                 >
                                     Call{" "}
-                                    <a
-                                        href={PHONE_HREF}
+                                    <TrackedPhoneLink
+                                        source="conditions_closing_cta"
                                         className="underline underline-offset-2 transition-opacity hover:opacity-100"
                                         style={{
                                             color: "rgba(200,230,201,0.6)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}
-                                    </a>
+                                    </TrackedPhoneLink>
                                 </p>
-                            </div>
+                            </CtaActionRow>
                         </div>
                     </div>
-                    <div
-                        className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
                 </div>
             </motion.section>
         </div>

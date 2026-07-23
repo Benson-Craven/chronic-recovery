@@ -3,13 +3,14 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { modalScale } from "@/app/lib/animations"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
-import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
+import { PHONE_DISPLAY } from "@/app/lib/contact"
 import { useContactForm } from "@/app/hooks/useContactForm"
 import {
     ContactFormFeedback,
     ContactFormHoneypot,
 } from "./ContactFormProtection"
 import Turnstile from "./Turnstile"
+import TrackedPhoneLink from "./TrackedPhoneLink"
 
 const MAX_CHARS = 500
 
@@ -270,8 +271,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             >
                                                 Phone
                                             </p>
-                                            <a
-                                                href={PHONE_HREF}
+                                            <TrackedPhoneLink
+                                                source="contact_modal"
                                                 className="text-sm underline underline-offset-2 transition-opacity hover:opacity-60"
                                                 style={{
                                                     color: "#C8E6C9",
@@ -281,7 +282,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 }}
                                             >
                                                 {PHONE_DISPLAY}
-                                            </a>
+                                            </TrackedPhoneLink>
                                         </div>
                                     </div>
 
@@ -462,18 +463,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             ? "modal-contact-form-error"
                                                             : undefined
                                                     }
-                                                    whileHover={{
-                                                        scale: canSubmit
-                                                            ? 1.03
-                                                            : 1,
-                                                    }}
-                                                    whileTap={{ scale: 0.98 }}
-                                                    transition={{
-                                                        type: "spring",
-                                                        stiffness: 300,
-                                                        damping: 20,
-                                                    }}
-                                                    className="w-full rounded-full py-3.5 text-sm font-medium tracking-wide transition-shadow disabled:cursor-not-allowed disabled:opacity-50"
+                                                    className="cta-interactive w-full rounded-full py-3.5 text-sm font-medium tracking-wide disabled:cursor-not-allowed disabled:opacity-50"
                                                     style={{
                                                         backgroundColor:
                                                             "#1E3A20",
@@ -499,7 +489,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     }}
                                                 >
                                                     By continuing, you agree to
-                                                    our{" "}
+                                                    the{" "}
                                                     <Link
                                                         href="/terms-and-conditions"
                                                         className="underline underline-offset-2 transition-opacity hover:opacity-60"

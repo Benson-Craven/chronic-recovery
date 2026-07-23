@@ -3,6 +3,7 @@
 import React, { useCallback, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import CtaActionRow from "../components/CtaActionRow"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
@@ -165,54 +166,60 @@ export default function SelfAssessment() {
                 style={{ backgroundColor: "#F7F4EF" }}
                 className="w-full px-6 py-20 md:py-28"
             >
-                <EditorialSplit
-                    visual={{
-                        kind: "illustration",
-                        src: "/images/illustrations/self-compassion.png",
-                        alt: "",
-                    }}
-                >
-                    <div>
-                        {/* Progress indicator */}
-                        <div className="mb-14 flex items-center justify-between">
-                            <p
-                                className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
-                                {answeredCount} of {questions.length} answered
-                            </p>
-                            <p
-                                className="text-xs tabular-nums opacity-40"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                {progress}%
-                            </p>
-                        </div>
-
-                        {/* Thin progress track */}
-                        <div
-                            className="mb-14 h-px w-full overflow-hidden"
-                            style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
+                <div className="mx-auto max-w-3xl">
+                    {/* Progress indicator */}
+                    <div className="mb-14 flex items-center justify-between">
+                        <p
+                            className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
                         >
-                            <motion.div
-                                className="h-full"
-                                style={{ backgroundColor: "#1E3A20" }}
-                                initial={{ width: "0%" }}
-                                animate={{ width: `${progress}%` }}
-                                transition={{ duration: 0.4, ease: "easeOut" }}
-                            />
-                        </div>
+                            {answeredCount} of {questions.length} answered
+                        </p>
+                        <p
+                            className="text-xs tabular-nums opacity-40"
+                            style={{
+                                color: "#1E3A20",
+                                fontFamily: "var(--font-dm-sans)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            {progress}%
+                        </p>
                     </div>
-                </EditorialSplit>
+
+                    {/* Thin progress track */}
+                    <div
+                        className="mb-14 h-px w-full overflow-hidden"
+                        style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
+                    >
+                        <motion.div
+                            className="h-full"
+                            style={{ backgroundColor: "#1E3A20" }}
+                            initial={{ width: "0%" }}
+                            animate={{ width: `${progress}%` }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        />
+                    </div>
+                </div>
 
                 <div className="mx-auto mt-16 max-w-3xl">
+                    <aside
+                        className="mb-10 border-l-2 px-5 py-1 text-sm leading-relaxed md:text-base"
+                        style={{
+                            borderColor: "rgba(30,58,32,0.35)",
+                            color: "rgba(30,58,32,0.65)",
+                            fontFamily: "var(--font-dm-sans)",
+                            fontWeight: 300,
+                        }}
+                    >
+                        This questionnaire is for educational purposes and is
+                        not diagnostic. It does not replace medical assessment
+                        or advice from a qualified healthcare professional.
+                    </aside>
+
                     {/* Questions */}
                     <div
                         className="divide-y"
@@ -368,16 +375,6 @@ export default function SelfAssessment() {
                                         borderColor: "rgba(200,230,201,0.12)",
                                     }}
                                 >
-                                    <span
-                                        className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                                        style={{
-                                            color: "#C8E6C9",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
-                                        01
-                                    </span>
                                     <div className="flex flex-col items-start gap-4">
                                         <div className="flex flex-col gap-2">
                                             <p
@@ -417,14 +414,7 @@ export default function SelfAssessment() {
                                                 onClick={() =>
                                                     setResultRevealed(true)
                                                 }
-                                                whileHover={{ scale: 1.03 }}
-                                                whileTap={{ scale: 0.98 }}
-                                                transition={{
-                                                    type: "spring",
-                                                    stiffness: 300,
-                                                    damping: 20,
-                                                }}
-                                                className="rounded-full px-8 py-3 text-sm font-medium tracking-wide"
+                                                className="cta-interactive rounded-full px-8 py-3 text-sm font-medium tracking-wide"
                                                 style={{
                                                     backgroundColor: "#C8E6C9",
                                                     color: "#1E3A20",
@@ -604,12 +594,6 @@ export default function SelfAssessment() {
                                 <br />
                                 of healing.
                             </h2>
-                            <div
-                                className="mt-12 hidden h-px md:block"
-                                style={{
-                                    backgroundColor: "rgba(30,58,32,0.15)",
-                                }}
-                            />
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
@@ -639,54 +623,24 @@ export default function SelfAssessment() {
                                 </p>
                             </div>
 
-                            <div className="flex flex-col gap-4">
+                            <CtaActionRow>
                                 <WhatsAppCta source="self_assessment_closing_cta" />
-                                <Link href="/contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 500,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Book Consultation
-                                    </motion.button>
-                                </Link>
-                                <Link href="/">
-                                    <motion.button
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                        }}
-                                        className="w-full rounded-full py-4 text-sm font-medium tracking-wide md:w-auto md:px-10"
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            color: "#1E3A20",
-                                            border: "1px solid rgba(30,58,32,0.3)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 400,
-                                            letterSpacing: "0.04em",
-                                        }}
-                                    >
-                                        Back to Home
-                                    </motion.button>
+                                <Link
+                                    href="/contact"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        border: "1px solid rgba(30,58,32,0.3)",
+                                        color: "#1E3A20",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 500,
+                                        letterSpacing: "0.04em",
+                                    }}
+                                >
+                                    Book Consultation
                                 </Link>
                                 <p
-                                    className="text-sm"
+                                    className="text-sm sm:basis-full"
                                     style={{
                                         color: "rgba(30, 58, 32, 0.4)",
                                         fontFamily: "var(--font-dm-sans)",
@@ -705,13 +659,9 @@ export default function SelfAssessment() {
                                         {PHONE_DISPLAY}
                                     </a>
                                 </p>
-                            </div>
+                            </CtaActionRow>
                         </div>
                     </div>
-                    <div
-                        className="mt-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
                 </div>
             </motion.section>
         </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
+import { BreadcrumbJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Chronic Pain Management Cork | Chronic Pain Recovery",
@@ -25,26 +25,6 @@ export default function ChronicPainManagementCorkPage() {
                 id="cork-location-breadcrumb-schema"
                 items={breadcrumbs}
             />
-            <FAQJsonLd
-                id="cork-location-faq-schema"
-                questions={[
-                    {
-                        question:
-                            "Do you offer chronic pain management in Cork?",
-                        answer: "Yes. Chronic Pain Recovery offers support in Cork and online for people with persistent pain that may have a neuroplastic component, once serious medical causes have been assessed.",
-                    },
-                    {
-                        question:
-                            "Is this a replacement for my doctor or physiotherapist?",
-                        answer: "No. This work does not replace medical diagnosis, urgent care, or appropriate physiotherapy. It can complement medical care when disease, infection, acute injury, or surgical causes have been considered.",
-                    },
-                    {
-                        question:
-                            "Can I work with you if I live outside Cork city?",
-                        answer: "Yes. Support is available for people across County Cork and online for people elsewhere in Ireland or internationally.",
-                    },
-                ]}
-            />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage
                 whatsAppSource="cork_location_closing_cta"
@@ -57,7 +37,7 @@ export default function ChronicPainManagementCorkPage() {
                             <em>management in Cork</em>
                         </>
                     ),
-                    intro: "Evidence-informed support for people in Cork living with persistent pain, medically unexplained symptoms, or symptoms that may be maintained by a sensitised nervous system.",
+                    intro: "I'm Marsha Canny, a chronic pain therapist based in Rochestown, Cork. I offer one-to-one support online throughout Ireland, with limited in-person sessions in Rochestown.",
                 }}
                 sections={[
                     {
@@ -69,13 +49,14 @@ export default function ChronicPainManagementCorkPage() {
                             alt: "Cork, Ireland for chronic pain management support",
                         },
                         body: [
-                            "Chronic pain can continue long after tissues have healed, especially when the nervous system has learned to stay on high alert. This does not mean the pain is imagined. It means the brain and body may be interpreting normal sensations as danger.",
-                            "At Chronic Pain Recovery in Cork, the work focuses on education, nervous system regulation, emotional awareness, and gradual safety-building. For suitable clients, this approach may help reduce fear, rebuild confidence, and support a different relationship with pain.",
+                            "Persistent pain can involve biological, psychological, and social influences. For some people, nervous-system sensitisation may be one part of the picture after appropriate medical assessment. This does not mean the pain is imagined.",
+                            "In sessions, I offer education and guided reflection on your pain context. The aim is to explore relevant pain science carefully without assuming a diagnosis, overlooking medical care, or promising a result.",
                         ],
                     },
                     {
                         eyebrow: "Who it may help",
-                        heading: "For pain that has not made sense medically",
+                        heading:
+                            "When a brain-body perspective may be worth discussing",
                         visual: {
                             kind: "illustration",
                             src: "/images/illustrations/whole-person-health.png",
@@ -83,7 +64,7 @@ export default function ChronicPainManagementCorkPage() {
                         },
                         body: [
                             "Many people arrive after scans, tests, medication, physiotherapy, injections, or specialist appointments have not fully explained why pain is still present. When serious medical causes have been assessed, it may be worth exploring whether neuroplastic pain is part of the picture.",
-                            "This work can be appropriate for back pain, neck pain, fibromyalgia, headaches, IBS, chronic fatigue, long covid-related symptoms, pelvic pain, and other persistent symptom patterns listed on the conditions page.",
+                            "No symptom pattern or normal test result can establish that conclusion on its own. Suitability depends on your history, symptoms, medical context, and the questions you want to explore.",
                         ],
                     },
                     {
@@ -95,31 +76,31 @@ export default function ChronicPainManagementCorkPage() {
                             alt: "",
                         },
                         body: [
-                            "Sessions begin with your story: what happened, what you have been told, what you fear, and what your symptoms are stopping you from doing. From there, the aim is to understand whether your pain behaves like a protective nervous system pattern.",
-                            "The process may include pain neuroscience education, somatic tracking, reducing fear around symptoms, emotional processing, and small steps toward meaningful activity. The work is personalised rather than protocol-driven.",
+                            "One-to-one sessions last 60 minutes. I begin by asking about your history, medical context, current concerns, symptom patterns, and the questions you want to explore. I then discuss relevant pain science and a possible next step.",
+                            "I offer limited in-person appointments in Rochestown, Cork and share the private address only after an appointment is confirmed. I offer the same support online across Ireland by video call.",
                         ],
                     },
                 ]}
                 listSection={{
-                    eyebrow: "Common search questions",
-                    heading: "What people in Cork often ask",
-                    intro: "These are the questions that usually matter before beginning chronic pain recovery work.",
+                    eyebrow: "Before you enquire",
+                    heading: "About me, pricing and first steps",
+                    intro: "Clear practical information can help you decide whether to start a conversation.",
                     items: [
                         {
-                            title: "What if my scans show changes?",
-                            body: "Many people have disc changes, arthritis, or other findings that do not fully explain pain intensity. A medical professional should assess these first, and neuroplastic pain work may still be helpful when ongoing danger is not the main driver.",
+                            title: "About me",
+                            body: "I'm a chronic pain therapist based in Rochestown. My public ATNS Practitioner & Coach Directory profile is linked from the About page.",
                         },
                         {
-                            title: "Do I need a diagnosis?",
-                            body: "A diagnosis can be useful, but the pattern of symptoms often matters too. The first priority is making sure serious structural, disease, infection, or acute injury causes have been checked.",
+                            title: "Where are sessions available?",
+                            body: "I offer sessions online throughout Ireland and in person on a limited basis in Rochestown, Cork.",
                         },
                         {
-                            title: "Is this pain psychology?",
-                            body: "It is a nervous system approach. Thoughts, emotions, stress, movement, sleep, and bodily sensations all interact with pain signals, but the pain itself is real.",
+                            title: "What does a session cost?",
+                            body: "I charge €70 for a 60-minute session. A package of 6 sessions costs €360.",
                         },
                         {
-                            title: "How quickly can things change?",
-                            body: "Timelines vary. Some people notice early shifts in fear or symptom intensity, while others need more time to build safety and confidence.",
+                            title: "How do I begin?",
+                            body: "Use WhatsApp or the contact form to tell me briefly what support you are looking for. You can then discuss your medical context with me, ask questions, and decide whether an appointment is an appropriate next step.",
                         },
                     ],
                 }}
@@ -138,7 +119,7 @@ export default function ChronicPainManagementCorkPage() {
                     },
                     {
                         href: "/self-assessment",
-                        label: "Neuroplastic pain self-assessment",
+                        label: "Educational neuroplastic pain self-assessment",
                     },
                 ]}
             />

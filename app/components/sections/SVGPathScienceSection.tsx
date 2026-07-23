@@ -97,10 +97,10 @@ const SVGPathScienceSection = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Chronic pain isn't always caused by ongoing injury. Many
-                        long-lasting pain conditions come from learned neural
-                        pathways in the brain, patterns that continue to fire
-                        even after the body has healed.
+                        Persistent pain can have different and overlapping
+                        causes. For some people, nervous-system sensitisation
+                        may be one part of the picture after appropriate medical
+                        assessment.
                     </motion.p>
                 </div>
 
@@ -147,7 +147,7 @@ const SVGPathScienceSection = () => {
                                     fontFamily: "var(--font-dm-serif)",
                                 }}
                             >
-                                All pain is real, and it starts in the brain
+                                Pain is real and shaped by brain-body processing
                             </h3>
                             <p
                                 className="mb-5 text-sm leading-relaxed"
@@ -157,10 +157,10 @@ const SVGPathScienceSection = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                95% of brain function is unconscious,
-                                constantly interpreting signals to determine
-                                safety or danger. Pain originates here, not in
-                                imagined injury.
+                                Pain is a protective experience shaped by the
+                                nervous system, signals from the body, past
+                                experience, and context. A brain-body
+                                perspective does not make pain imagined.
                             </p>
                             <BentoLink
                                 href="/contact"
@@ -174,8 +174,8 @@ const SVGPathScienceSection = () => {
                     <BentoCard
                         delay={0.1}
                         icon={<AlertTriangle className="h-4 w-4" />}
-                        title="Signals that won't switch off"
-                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain, and that language can be retrained."
+                        title="Signals that remain sensitive"
+                        body="For some people, protective warning responses may stay more sensitive after the original trigger has changed. That possibility needs to be considered alongside medical assessment."
                         href="/self-assessment"
                         linkLabel="Take the Self-Assessment"
                         bg="cream"
@@ -197,10 +197,10 @@ const SVGPathScienceSection = () => {
                         extra={
                             <ul className="mt-3 space-y-2">
                                 {[
-                                    "Pain Reprocessing Therapy",
-                                    "Somatic Tracking Techniques",
-                                    "Graded Exposure Therapy",
-                                    "Emotional Awareness & Expression Therapy",
+                                    "Pain science education",
+                                    "Pain Reprocessing Therapy where appropriate",
+                                    "Guided symptom reflection",
+                                    "Clear medical-care boundaries",
                                 ].map((t, i) => (
                                     <li
                                         key={i}
@@ -234,10 +234,10 @@ const SVGPathScienceSection = () => {
                     <BentoCard
                         delay={0.1}
                         icon={<ThumbsUp className="h-4 w-4" />}
-                        title="The good news"
-                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
+                        title="Why context matters"
+                        body="The nervous system can change over time. For some people, understanding pain and responding to sensations with less threat may be helpful alongside appropriate medical care."
                         href="/contact"
-                        linkLabel="Start Your Healing"
+                        linkLabel="Ask a Question"
                         bg="cream"
                         colSpan={4}
                         rowSpan={1}
@@ -248,7 +248,7 @@ const SVGPathScienceSection = () => {
                         delay={0.1}
                         icon={<Smile className="h-4 w-4" />}
                         title="Pain Reprocessing Therapy"
-                        body="PRT helps retrain the brain to turn off misfiring pain signals, especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
+                        body="PRT uses education and guided attention to help suitable participants consider sensations with less threat. It does not diagnose the cause of pain or replace medical assessment."
                         href="/science"
                         linkLabel="Learn More"
                         bg="green"
@@ -261,7 +261,7 @@ const SVGPathScienceSection = () => {
                         delay={0.15}
                         icon={<Shield className="h-4 w-4" />}
                         title="Biopsychosocial method"
-                        body="A leading approach taught worldwide, including the NHS and US medical programmes. I'm a graduate of Dr. Howard Schubiner, one of the world's foremost pioneers in mind-body medicine."
+                        body="A whole-person perspective considers biological, psychological, and social influences without assuming that any one factor explains a person's pain."
                         href="/science"
                         linkLabel="Explore the Science"
                         bg="cream"
@@ -381,7 +381,7 @@ function BentoLink({
     return (
         <Link href={href} className="mt-4 inline-block">
             <motion.span
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium"
+                className="cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium"
                 style={{
                     backgroundColor: dark ? "#F0EBE1" : "#1E3A20",
                     color: dark ? "#1E3A20" : "#F7F4EF",
@@ -389,9 +389,6 @@ function BentoLink({
                     fontWeight: 500,
                     letterSpacing: "0.04em",
                 }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
                 {label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none">

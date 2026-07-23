@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 const fs = require("fs")
 const path = require("path")
+const matter = require("gray-matter")
 
 const staticLastModified = "2026-04-30T00:00:00.000Z"
 
@@ -10,7 +11,16 @@ function getPostLastModified(routePath) {
 
     if (!fs.existsSync(postPath)) return staticLastModified
 
-    return fs.statSync(postPath).mtime.toISOString()
+    const frontmatter = matter(fs.readFileSync(postPath, "utf8")).data
+    const contentDate = frontmatter.modifiedDate || frontmatter.date
+
+    if (!contentDate) return staticLastModified
+
+    const isoDate = /^\d{4}-\d{2}-\d{2}$/.test(contentDate)
+        ? `${contentDate}T00:00:00.000Z`
+        : contentDate
+
+    return new Date(isoDate).toISOString()
 }
 
 module.exports = {

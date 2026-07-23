@@ -7,6 +7,7 @@ import { FaWhatsapp } from "react-icons/fa"
 import { trackContactFormSubmission } from "@/app/lib/analytics"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/app/lib/contact"
 import WhatsAppLink from "@/app/components/WhatsAppLink"
+import TrackedPhoneLink from "@/app/components/TrackedPhoneLink"
 import {
     ContactFormFeedback,
     ContactFormHoneypot,
@@ -135,7 +136,7 @@ const ContactPage = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                Contact us
+                                Contact me
                                 <br />
                                 <em>today</em>
                             </h2>
@@ -149,7 +150,7 @@ const ContactPage = () => {
 
                             <WhatsAppLink
                                 source="contact_page"
-                                className="mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF] transition-transform hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+                                className="cta-interactive mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF]"
                                 style={{
                                     fontFamily: "var(--font-dm-sans)",
                                     letterSpacing: "0.04em",
@@ -206,8 +207,8 @@ const ContactPage = () => {
                                                 {item.label}
                                             </p>
                                             {item.href ? (
-                                                <a
-                                                    href={item.href}
+                                                <TrackedPhoneLink
+                                                    source="contact_page"
                                                     className="text-base underline underline-offset-2 transition-opacity hover:opacity-60"
                                                     style={{
                                                         color: "#1E3A20",
@@ -217,7 +218,7 @@ const ContactPage = () => {
                                                     }}
                                                 >
                                                     {item.value}
-                                                </a>
+                                                </TrackedPhoneLink>
                                             ) : (
                                                 <p
                                                     className="text-base leading-relaxed"
@@ -382,16 +383,7 @@ const ContactPage = () => {
                                                         ? "contact-form-error"
                                                         : undefined
                                                 }
-                                                whileHover={{
-                                                    scale: canSubmit ? 1.03 : 1,
-                                                }}
-                                                whileTap={{ scale: 0.98 }}
-                                                transition={{
-                                                    type: "spring",
-                                                    stiffness: 300,
-                                                    damping: 20,
-                                                }}
-                                                className="w-full rounded-full py-4 text-sm font-medium tracking-wide transition-shadow hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:px-10"
+                                                className="cta-interactive w-full rounded-full py-4 text-sm font-medium tracking-wide disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:px-10"
                                                 style={{
                                                     backgroundColor: "#1E3A20",
                                                     color: "#F7F4EF",
@@ -416,7 +408,7 @@ const ContactPage = () => {
                                                     fontWeight: 300,
                                                 }}
                                             >
-                                                By continuing, you agree to our{" "}
+                                                By continuing, you agree to the{" "}
                                                 <Link
                                                     href="/terms-and-conditions"
                                                     className="underline underline-offset-2 transition-opacity hover:opacity-60"

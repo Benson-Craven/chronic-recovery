@@ -46,6 +46,9 @@ declare global {
 const TURNSTILE_SCRIPT_URL =
     "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
 
+export const TURNSTILE_ENABLED =
+    process.env.NEXT_PUBLIC_TURNSTILE_ENABLED === "true"
+
 let turnstileLoadPromise: Promise<TurnstileApi> | null = null
 
 function loadTurnstile() {
@@ -107,13 +110,19 @@ const Turnstile = forwardRef<TurnstileHandle, TurnstileProps>(
         const widgetIdRef = useRef<string | null>(null)
         const callbacksRef = useRef({ onStateChange, onTokenChange })
         const [announcement, setAnnouncement] = useState(
-            "Security verification is loading.",
+            TURNSTILE_ENABLED ? "Security verification is loading." : "",
         )
 
         callbacksRef.current = { onStateChange, onTokenChange }
 
         useImperativeHandle(ref, () => ({
             reset() {
+                if (!TURNSTILE_ENABLED) {
+                    callbacksRef.current.onTokenChange("")
+                    callbacksRef.current.onStateChange("ready")
+                    return
+                }
+
                 callbacksRef.current.onTokenChange("")
                 callbacksRef.current.onStateChange("loading")
                 setAnnouncement("Security verification is loading.")
@@ -125,6 +134,12 @@ const Turnstile = forwardRef<TurnstileHandle, TurnstileProps>(
         }))
 
         useEffect(() => {
+            if (!TURNSTILE_ENABLED) {
+                callbacksRef.current.onTokenChange("")
+                callbacksRef.current.onStateChange("ready")
+                return
+            }
+
             const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
             let active = true
 
@@ -207,6 +222,10 @@ const Turnstile = forwardRef<TurnstileHandle, TurnstileProps>(
                 callbacksRef.current.onStateChange("loading")
             }
         }, [action])
+
+        if (!TURNSTILE_ENABLED) {
+            return null
+        }
 
         return (
             <div className="w-full">

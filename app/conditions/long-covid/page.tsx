@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import SeoContentPage from "@/app/components/SeoContentPage"
-import { BreadcrumbJsonLd, FAQJsonLd, createPageMetadata } from "@/app/lib/seo"
+import { BreadcrumbJsonLd, createPageMetadata } from "@/app/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
     title: "Long Covid Support Cork & Online | Chronic Pain Recovery",
@@ -22,23 +22,6 @@ export default function LongCovidPage() {
             <BreadcrumbJsonLd
                 id="long-covid-breadcrumb-schema"
                 items={breadcrumbs}
-            />
-            <FAQJsonLd
-                id="long-covid-faq-schema"
-                questions={[
-                    {
-                        question: "Can this approach help long covid symptoms?",
-                        answer: "For some people, long covid-related pain, fatigue, dizziness, breathlessness sensations, or other persistent symptoms may involve nervous system sensitisation. This approach may support recovery when active infection and medical causes have been assessed.",
-                    },
-                    {
-                        question: "Does this mean long covid is psychological?",
-                        answer: "No. Symptoms are real. A brain-body approach looks at how the nervous system, immune stress, fear, exertion, and safety signals may interact after illness.",
-                    },
-                    {
-                        question: "Should I see a doctor first?",
-                        answer: "Yes. Ongoing symptoms after covid should be assessed by a medical professional before beginning this work, especially if symptoms are new, severe, changing, or affecting breathing or heart function.",
-                    },
-                ]}
             />
             <Breadcrumbs items={breadcrumbs} />
             <SeoContentPage

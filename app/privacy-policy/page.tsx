@@ -22,7 +22,7 @@ const sections = [
     {
         number: "05",
         heading: "Contact form service providers",
-        body: "When you use a contact form, Cloudflare Turnstile processes technical signals about your browser and device to distinguish people from automated abuse. Brevo processes the name, email address, phone number, message, and any health details you choose to submit so that your enquiry can be delivered to us. This is a focused description of the providers used by the contact forms, not a complete review of every privacy or data-protection issue on this website.",
+        body: "When Turnstile protection is enabled on a contact form, Cloudflare Turnstile processes technical signals about your browser and device to distinguish people from automated abuse. Brevo processes the name, email address, phone number, message, and any health details you choose to submit so that your enquiry can be delivered to us. This is a focused description of the providers used by the contact forms, not a complete review of every privacy or data-protection issue on this website.",
         links: [
             {
                 href: "https://www.cloudflare.com/turnstile-privacy-policy/",

@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { createPageMetadata } from "../lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Conditions We Treat | Chronic Pain Recovery Cork",
+    title: "Persistent Pain Topics and Service Scope | Chronic Pain Recovery",
     description:
-        "See chronic pain and neuroplastic symptom patterns that may benefit from a biopsychosocial approach, plus conditions that need medical care first.",
+        "Review persistent pain topics people ask about, the limits of this educational service, and when medical care is required.",
     path: "/conditions",
 })
 

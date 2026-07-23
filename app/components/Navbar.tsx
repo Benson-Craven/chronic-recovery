@@ -196,7 +196,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="hidden items-center gap-3 lg:flex">
                     <WhatsAppLink
                         source="navbar_desktop"
-                        className="flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium uppercase tracking-[0.08em] transition-transform hover:scale-[1.03] hover:shadow-md active:scale-[0.98] xl:px-6"
+                        className="cta-interactive flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium uppercase tracking-[0.08em] xl:px-6"
                         style={{
                             backgroundColor: "#1E3A20",
                             color: "#F7F4EF",
@@ -208,14 +208,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     </WhatsAppLink>
                     <motion.button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.98 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 20,
-                        }}
-                        className="rounded-full border px-5 py-2.5 text-xs font-medium tracking-wide transition-shadow hover:shadow-md xl:px-6"
+                        className="cta-interactive rounded-full border px-5 py-2.5 text-xs font-medium tracking-wide xl:px-6"
                         style={{
                             backgroundColor: "transparent",
                             borderColor: "#1E3A20",
@@ -234,7 +227,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="ml-auto flex items-center gap-2 lg:hidden">
                     <Link
                         href="/contact"
-                        className="hidden items-center justify-center rounded-full border px-4 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] min-[460px]:inline-flex"
+                        className="cta-interactive hidden items-center justify-center rounded-full border px-4 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] min-[460px]:inline-flex"
                         style={{
                             borderColor: "#1E3A20",
                             color: "#1E3A20",
@@ -246,7 +239,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     <WhatsAppLink
                         source="navbar_mobile"
                         aria-label="WhatsApp Marsha"
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-[1.03] active:scale-[0.98]"
+                        className="cta-interactive flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
                         style={{
                             backgroundColor: "#1E3A20",
                             color: "#F7F4EF",

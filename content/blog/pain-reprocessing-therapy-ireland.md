@@ -1,5 +1,6 @@
 ---
-title: "Pain Reprocessing Therapy Ireland"
+title: "What Is Pain Reprocessing Therapy?"
+seoTitle: "What Is Pain Reprocessing Therapy? Evidence, Safety and Access"
 date: "2026-05-03"
 excerpt: "Pain Reprocessing Therapy may help suitable people with neuroplastic chronic pain by changing how the brain interprets safe body sensations."
 coverImage: "/images/therapy.avif"
@@ -11,18 +12,20 @@ For people in Ireland living with persistent pain, PRT may be worth exploring wh
 
 This does not mean the pain is imagined. It means the brain and nervous system may have learned to produce pain as a protective signal.
 
-## What Is Pain Reprocessing Therapy?
+If you are looking for sessions rather than an overview, see the [Pain Reprocessing Therapy in Ireland](/treatments/pain-reprocessing-therapy) service page for suitability, session format, Cork and online access, fees, and next steps.
+
+## How Pain Reprocessing Therapy Works
 
 Pain Reprocessing Therapy helps suitable clients reinterpret safe body sensations as non-dangerous. It is used most often with neuroplastic pain: pain that is maintained by learned neural pathways and nervous system sensitisation.
 
 The approach usually includes:
 
-- Understanding how pain is produced by the brain and nervous system
-- Identifying signs that pain may be neuroplastic
-- Reducing fear around safe sensations
-- Somatic tracking, where appropriate
-- Building evidence that the body is safe
-- Returning gradually to meaningful activity
+-   Understanding how pain is produced by the brain and nervous system
+-   Identifying signs that pain may be neuroplastic
+-   Reducing fear around safe sensations
+-   Somatic tracking, where appropriate
+-   Building evidence that the body is safe
+-   Returning gradually to meaningful activity
 
 PRT is not positive thinking. It is not telling yourself pain is fake. It is a structured way of helping the nervous system update its prediction of danger.
 
@@ -38,13 +41,13 @@ When this happens, normal sensations can be interpreted as dangerous. Movement m
 
 PRT may be relevant when:
 
-- Pain has lasted longer than expected after healing
-- Symptoms began without a clear injury
-- Pain moves, spreads, or changes
-- Symptoms vary with stress, attention, or perceived safety
-- Scans or tests do not fully explain the pain
-- Pain improves when distracted, relaxed, or away from usual stressors
-- There are overlapping symptoms such as IBS, migraine, fatigue, dizziness, pelvic pain, or widespread pain
+-   Pain has lasted longer than expected after healing
+-   Symptoms began without a clear injury
+-   Pain moves, spreads, or changes
+-   Symptoms vary with stress, attention, or perceived safety
+-   Scans or tests do not fully explain the pain
+-   Pain improves when distracted, relaxed, or away from usual stressors
+-   There are overlapping symptoms such as IBS, migraine, fatigue, dizziness, pelvic pain, or widespread pain
 
 These signs are clues, not a diagnosis. A medical professional should assess structural abnormalities, disease, infection, acute injury, and urgent symptoms first.
 
@@ -76,8 +79,8 @@ PRT may still sit alongside medical care for some people, but it should not be u
 
 If you are in Ireland and wondering whether PRT might be relevant, begin with three questions:
 
-- Have serious medical causes been assessed?
-- Does the pain pattern suggest the nervous system may be sensitised?
-- Would reducing fear and building safety around symptoms be a useful next step?
+-   Have serious medical causes been assessed?
+-   Does the pain pattern suggest the nervous system may be sensitised?
+-   Would reducing fear and building safety around symptoms be a useful next step?
 
-You can learn more on the [Pain Reprocessing Therapy Ireland](/treatments/pain-reprocessing-therapy) page, read about [why pain persists after healing](/blog/why-pain-persists-after-healing), or explore the [self-assessment](/self-assessment).
+You can review practical details and enquire on the [Pain Reprocessing Therapy in Ireland](/treatments/pain-reprocessing-therapy) service page, read about [why pain persists after healing](/blog/why-pain-persists-after-healing), or explore the [self-assessment](/self-assessment).
