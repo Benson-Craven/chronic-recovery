@@ -71,6 +71,7 @@ export default function SelfAssessment() {
     const [answers, setAnswers] = useState<string[]>(
         Array(questions.length).fill(""),
     )
+    const [resultRevealed, setResultRevealed] = useState(false)
 
     const handleAnswer = (index: number, value: string) => {
         const updated = [...answers]
@@ -81,6 +82,8 @@ export default function SelfAssessment() {
     const yesCount = answers.filter((a) => a === "yes").length
     const answeredCount = answers.filter((a) => a !== "").length
     const complete = answeredCount === questions.length
+    const remainingCount = questions.length - answeredCount
+    const showResult = complete && resultRevealed
     const result = getResult(yesCount)
     const progress = Math.round((answeredCount / questions.length) * 100)
 
@@ -346,123 +349,209 @@ export default function SelfAssessment() {
                             }}
                         />
 
-                        {/* Score row */}
-                        <div
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(200,230,201,0.12)" }}
-                        >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                01
-                            </span>
-                            <div className="flex flex-col gap-2">
-                                <p
-                                    className="text-sm uppercase tracking-[0.15em] opacity-50"
-                                    style={{
-                                        color: "#C8E6C9",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    Score
-                                </p>
-                                <p
-                                    className="text-5xl leading-none"
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                        color: "#ffffff",
-                                    }}
-                                >
-                                    {yesCount}
-                                    <span
-                                        className="text-2xl opacity-40"
-                                        style={{
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
-                                        /{questions.length}
-                                    </span>
-                                </p>
-                                <p
-                                    className="text-sm"
-                                    style={{
-                                        color: "rgba(200,230,201,0.5)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
-                                    "Yes" answers
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Result label + summary */}
                         <AnimatePresence mode="wait">
-                            <motion.div
-                                key={yesCount}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.4 }}
-                                className="flex items-start gap-6 border-b py-10"
-                                style={{
-                                    borderColor: "rgba(200,230,201,0.12)",
-                                }}
-                            >
-                                <span
-                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                            {!showResult ? (
+                                <motion.div
+                                    key={complete ? "ready" : "locked"}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="flex items-start gap-6 border-b py-10"
                                     style={{
-                                        color: "#C8E6C9",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
+                                        borderColor: "rgba(200,230,201,0.12)",
                                     }}
                                 >
-                                    02
-                                </span>
-                                <div className="flex flex-col gap-3">
-                                    <p
-                                        className="text-sm font-medium uppercase tracking-[0.15em]"
+                                    <span
+                                        className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
                                         style={{
-                                            color: result.colour,
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
-                                        {result.label}
-                                    </p>
-                                    <p
-                                        className="text-base leading-relaxed md:text-lg"
-                                        style={{
-                                            color: "rgba(200,230,201,0.7)",
+                                            color: "#C8E6C9",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
                                     >
-                                        {result.summary}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
+                                        01
+                                    </span>
+                                    <div className="flex flex-col items-start gap-4">
+                                        <div className="flex flex-col gap-2">
+                                            <p
+                                                className="text-sm font-medium uppercase tracking-[0.15em]"
+                                                style={{
+                                                    color: "#C8E6C9",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                }}
+                                            >
+                                                {complete
+                                                    ? "Assessment complete"
+                                                    : "Result locked"}
+                                            </p>
+                                            <p
+                                                className="text-base leading-relaxed md:text-lg"
+                                                style={{
+                                                    color: "rgba(200,230,201,0.7)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                {complete
+                                                    ? "Your result is ready when you are."
+                                                    : `Answer the remaining ${remainingCount} ${
+                                                          remainingCount === 1
+                                                              ? "question"
+                                                              : "questions"
+                                                      } to unlock your result.`}
+                                            </p>
+                                        </div>
 
-                        {!complete && (
-                            <p
-                                className="mt-8 text-sm opacity-40"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
-                                Answer all {questions.length} questions above
-                                for your full result.
-                            </p>
-                        )}
+                                        {complete && (
+                                            <motion.button
+                                                type="button"
+                                                onClick={() =>
+                                                    setResultRevealed(true)
+                                                }
+                                                whileHover={{ scale: 1.03 }}
+                                                whileTap={{ scale: 0.98 }}
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 300,
+                                                    damping: 20,
+                                                }}
+                                                className="rounded-full px-8 py-3 text-sm font-medium tracking-wide"
+                                                style={{
+                                                    backgroundColor: "#C8E6C9",
+                                                    color: "#1E3A20",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    letterSpacing: "0.04em",
+                                                }}
+                                            >
+                                                See my result
+                                            </motion.button>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="revealed"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.4 }}
+                                    aria-live="polite"
+                                >
+                                    {/* Score row */}
+                                    <div
+                                        className="flex items-start gap-6 border-b py-10"
+                                        style={{
+                                            borderColor:
+                                                "rgba(200,230,201,0.12)",
+                                        }}
+                                    >
+                                        <span
+                                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                            style={{
+                                                color: "#C8E6C9",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            01
+                                        </span>
+                                        <div className="flex flex-col gap-2">
+                                            <p
+                                                className="text-sm uppercase tracking-[0.15em] opacity-50"
+                                                style={{
+                                                    color: "#C8E6C9",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                Score
+                                            </p>
+                                            <p
+                                                className="text-5xl leading-none"
+                                                style={{
+                                                    fontFamily:
+                                                        "var(--font-dm-serif)",
+                                                    color: "#ffffff",
+                                                }}
+                                            >
+                                                {yesCount}
+                                                <span
+                                                    className="text-2xl opacity-40"
+                                                    style={{
+                                                        fontFamily:
+                                                            "var(--font-dm-sans)",
+                                                        fontWeight: 300,
+                                                    }}
+                                                >
+                                                    /{questions.length}
+                                                </span>
+                                            </p>
+                                            <p
+                                                className="text-sm"
+                                                style={{
+                                                    color: "rgba(200,230,201,0.5)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                "Yes" answers
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Result label + summary */}
+                                    <div
+                                        className="flex items-start gap-6 border-b py-10"
+                                        style={{
+                                            borderColor:
+                                                "rgba(200,230,201,0.12)",
+                                        }}
+                                    >
+                                        <span
+                                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                            style={{
+                                                color: "#C8E6C9",
+                                                fontFamily:
+                                                    "var(--font-dm-sans)",
+                                                fontWeight: 300,
+                                            }}
+                                        >
+                                            02
+                                        </span>
+                                        <div className="flex flex-col gap-3">
+                                            <p
+                                                className="text-sm font-medium uppercase tracking-[0.15em]"
+                                                style={{
+                                                    color: result.colour,
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                }}
+                                            >
+                                                {result.label}
+                                            </p>
+                                            <p
+                                                className="text-base leading-relaxed md:text-lg"
+                                                style={{
+                                                    color: "rgba(200,230,201,0.7)",
+                                                    fontFamily:
+                                                        "var(--font-dm-sans)",
+                                                    fontWeight: 300,
+                                                }}
+                                            >
+                                                {result.summary}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 </EditorialSplit>
             </motion.section>
