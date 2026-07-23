@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useCallback, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
@@ -72,7 +72,6 @@ export default function SelfAssessment() {
         Array(questions.length).fill(""),
     )
     const [resultRevealed, setResultRevealed] = useState(false)
-    const resultRef = useRef<HTMLDivElement>(null)
 
     const handleAnswer = (index: number, value: string) => {
         const updated = [...answers]
@@ -88,11 +87,11 @@ export default function SelfAssessment() {
     const result = getResult(yesCount)
     const progress = Math.round((answeredCount / questions.length) * 100)
 
-    useEffect(() => {
-        if (showResult) {
-            resultRef.current?.focus({ preventScroll: true })
+    const focusResult = useCallback((node: HTMLDivElement | null) => {
+        if (node) {
+            node.focus({ preventScroll: true })
         }
-    }, [showResult])
+    }, [])
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
@@ -442,7 +441,7 @@ export default function SelfAssessment() {
                             ) : (
                                 <motion.div
                                     key="revealed"
-                                    ref={resultRef}
+                                    ref={focusResult}
                                     role="region"
                                     aria-label="Assessment result"
                                     tabIndex={-1}
