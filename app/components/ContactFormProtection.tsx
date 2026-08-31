@@ -34,7 +34,7 @@ export function ContactFormFeedback({
                     role="status"
                     className="text-xs"
                     style={{
-                        color: "rgba(30,58,32,0.45)",
+                        color: "var(--text-light-supporting)",
                         fontFamily: "var(--font-dm-sans)",
                         fontWeight: 300,
                     }}

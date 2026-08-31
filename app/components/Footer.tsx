@@ -53,9 +53,9 @@ const Footer = () => {
                 {/* Top — brand statement */}
                 <div className="mb-16">
                     <p
-                        className="mb-4 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -81,9 +81,9 @@ const Footer = () => {
                     {/* Site links */}
                     <div className="md:col-span-2">
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-40"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -94,9 +94,9 @@ const Footer = () => {
                                 <li key={name}>
                                     <Link
                                         href={url}
-                                        className="text-sm transition-opacity hover:opacity-60"
+                                        className="text-sm"
                                         style={{
-                                            color: "rgba(200,230,201,0.65)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -111,9 +111,9 @@ const Footer = () => {
                     {/* Connect */}
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-40"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -125,12 +125,12 @@ const Footer = () => {
                                     href="https://www.facebook.com/chronicpainrecoveryireland"
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                    className="flex items-center gap-3"
                                 >
                                     <FaFacebook
                                         className="shrink-0"
                                         style={{
-                                            color: "rgba(200,230,201,0.5)",
+                                            color: "var(--text-dark-supporting)",
                                             width: 16,
                                             height: 16,
                                         }}
@@ -138,7 +138,7 @@ const Footer = () => {
                                     <span
                                         className="text-sm"
                                         style={{
-                                            color: "rgba(200,230,201,0.65)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -150,13 +150,13 @@ const Footer = () => {
                             <li>
                                 <WhatsAppLink
                                     source="footer_connect"
-                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                    className="flex items-center gap-3"
                                 >
                                     <FaWhatsapp
                                         aria-hidden="true"
                                         className="shrink-0"
                                         style={{
-                                            color: "rgba(200,230,201,0.5)",
+                                            color: "var(--text-dark-supporting)",
                                             width: 16,
                                             height: 16,
                                         }}
@@ -164,7 +164,7 @@ const Footer = () => {
                                     <span
                                         className="text-sm"
                                         style={{
-                                            color: "rgba(200,230,201,0.65)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -176,13 +176,13 @@ const Footer = () => {
                             <li>
                                 <TrackedPhoneLink
                                     source="footer_connect"
-                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                    className="flex items-center gap-3"
                                 >
                                     <FaPhone
                                         aria-hidden="true"
                                         className="shrink-0"
                                         style={{
-                                            color: "rgba(200,230,201,0.5)",
+                                            color: "var(--text-dark-supporting)",
                                             width: 14,
                                             height: 14,
                                         }}
@@ -190,7 +190,7 @@ const Footer = () => {
                                     <span
                                         className="text-sm"
                                         style={{
-                                            color: "rgba(200,230,201,0.65)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -204,7 +204,7 @@ const Footer = () => {
                                     href={authorProfile.atnsUrl}
                                     target="_blank"
                                     rel="noreferrer noopener"
-                                    className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                                    className="flex items-center gap-3"
                                 >
                                     <Image
                                         src="/atns-logo.webp"
@@ -216,7 +216,7 @@ const Footer = () => {
                                     <span
                                         className="text-sm"
                                         style={{
-                                            color: "rgba(200,230,201,0.65)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -274,7 +274,7 @@ const Footer = () => {
                     <p
                         className="text-xs"
                         style={{
-                            color: "rgba(200,230,201,0.35)",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -282,8 +282,8 @@ const Footer = () => {
                         © {new Date().getFullYear()}{" "}
                         <Link
                             href="/"
-                            className="transition-opacity hover:opacity-60"
-                            style={{ color: "rgba(200,230,201,0.5)" }}
+                            className="transition-opacity"
+                            style={{ color: "var(--text-dark-supporting)" }}
                         >
                             Chronic Pain Recovery
                         </Link>
@@ -296,9 +296,9 @@ const Footer = () => {
                                 <li key={name}>
                                     <Link
                                         href={url}
-                                        className="text-xs transition-opacity hover:opacity-60"
+                                        className="text-xs"
                                         style={{
-                                            color: "rgba(200,230,201,0.35)",
+                                            color: "var(--text-dark-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -314,7 +314,7 @@ const Footer = () => {
                     <p
                         className="text-xs"
                         style={{
-                            color: "rgba(200,230,201,0.25)",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -322,8 +322,8 @@ const Footer = () => {
                         Made by{" "}
                         <Link
                             href="https://benson.codes"
-                            className="transition-opacity hover:opacity-60"
-                            style={{ color: "rgba(200,230,201,0.4)" }}
+                            className="transition-opacity"
+                            style={{ color: "var(--text-dark-supporting)" }}
                         >
                             Code by Benson
                         </Link>

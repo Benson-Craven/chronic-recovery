@@ -44,27 +44,27 @@ const getResult = (count: number) => {
             label: "Low likelihood",
             summary:
                 "Your responses do not strongly indicate a brain-to-body disorder. That said, if you're still experiencing pain, it's worth speaking with a professional.",
-            colour: "rgba(200,230,201,0.6)",
+            colour: "var(--text-dark-body)",
         }
     if (count <= 7)
         return {
             label: "Mild likelihood",
             summary:
                 "Your responses suggest there may be a mild brain-to-body component to your condition. This approach may be worth exploring.",
-            colour: "rgba(200,230,201,0.7)",
+            colour: "var(--text-dark-body)",
         }
     if (count <= 12)
         return {
             label: "Moderate likelihood",
             summary:
                 "Your responses suggest a moderate likelihood of a brain-to-body disorder. Many people in this range respond very well to this approach.",
-            colour: "#C8E6C9",
+            colour: "var(--text-dark-body)",
         }
     return {
         label: "High likelihood",
         summary:
             "Your responses suggest a high likelihood of a brain-to-body disorder. You are a strong candidate for this approach, and recovery is possible.",
-        colour: "#C8E6C9",
+        colour: "var(--text-dark-body)",
     }
 }
 
@@ -121,9 +121,9 @@ export default function SelfAssessment() {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -144,7 +144,7 @@ export default function SelfAssessment() {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -170,18 +170,18 @@ export default function SelfAssessment() {
                     {/* Progress indicator */}
                     <div className="mb-14 flex items-center justify-between">
                         <p
-                            className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
                             {answeredCount} of {questions.length} answered
                         </p>
                         <p
-                            className="text-xs tabular-nums opacity-40"
+                            className="text-xs tabular-nums"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -226,9 +226,9 @@ export default function SelfAssessment() {
                             >
                                 {/* Index */}
                                 <span
-                                    className="mt-0.5 text-xs tabular-nums opacity-30"
+                                    className="mt-0.5 text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -241,7 +241,7 @@ export default function SelfAssessment() {
                                     <p
                                         className="text-base leading-relaxed md:text-lg"
                                         style={{
-                                            color: "rgba(30,58,32,0.8)",
+                                            color: "var(--text-light-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -277,7 +277,7 @@ export default function SelfAssessment() {
                                                                 : "transparent",
                                                         color: selected
                                                             ? "#F7F4EF"
-                                                            : "rgba(30,58,32,0.45)",
+                                                            : "var(--text-light-body)",
                                                         border: selected
                                                             ? "1px solid #1E3A20"
                                                             : "1px solid rgba(30,58,32,0.2)",
@@ -324,9 +324,9 @@ export default function SelfAssessment() {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -378,7 +378,7 @@ export default function SelfAssessment() {
                                             <p
                                                 className="text-base leading-relaxed md:text-lg"
                                                 style={{
-                                                    color: "rgba(200,230,201,0.7)",
+                                                    color: "var(--text-dark-body)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -436,9 +436,9 @@ export default function SelfAssessment() {
                                         }}
                                     >
                                         <span
-                                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                            className="mt-1 shrink-0 text-xs tabular-nums"
                                             style={{
-                                                color: "#C8E6C9",
+                                                color: "var(--text-dark-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -448,9 +448,9 @@ export default function SelfAssessment() {
                                         </span>
                                         <div className="flex flex-col gap-2">
                                             <p
-                                                className="text-sm uppercase tracking-[0.15em] opacity-50"
+                                                className="text-sm uppercase tracking-[0.15em]"
                                                 style={{
-                                                    color: "#C8E6C9",
+                                                    color: "var(--text-dark-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -468,8 +468,9 @@ export default function SelfAssessment() {
                                             >
                                                 {yesCount}
                                                 <span
-                                                    className="text-2xl opacity-40"
+                                                    className="text-2xl"
                                                     style={{
+                                                        color: "var(--text-dark-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -481,7 +482,7 @@ export default function SelfAssessment() {
                                             <p
                                                 className="text-sm"
                                                 style={{
-                                                    color: "rgba(200,230,201,0.5)",
+                                                    color: "var(--text-dark-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -501,9 +502,9 @@ export default function SelfAssessment() {
                                         }}
                                     >
                                         <span
-                                            className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                            className="mt-1 shrink-0 text-xs tabular-nums"
                                             style={{
-                                                color: "#C8E6C9",
+                                                color: "var(--text-dark-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -525,7 +526,7 @@ export default function SelfAssessment() {
                                             <p
                                                 className="text-base leading-relaxed md:text-lg"
                                                 style={{
-                                                    color: "rgba(200,230,201,0.7)",
+                                                    color: "var(--text-dark-body)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -559,9 +560,9 @@ export default function SelfAssessment() {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -586,7 +587,7 @@ export default function SelfAssessment() {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -628,7 +629,7 @@ export default function SelfAssessment() {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(30, 58, 32, 0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -636,10 +637,9 @@ export default function SelfAssessment() {
                                     Call{" "}
                                     <a
                                         href={PHONE_HREF}
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                        className="underline underline-offset-2"
                                         style={{
-                                            color: "#1E3A20",
-                                            opacity: 0.6,
+                                            color: "var(--text-light-body)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}
@@ -654,7 +654,7 @@ export default function SelfAssessment() {
             <aside
                 className="mx-auto max-w-3xl px-6 pb-12 text-xs leading-relaxed"
                 style={{
-                    color: "rgba(30,58,32,0.5)",
+                    color: "var(--text-light-supporting)",
                     fontFamily: "var(--font-dm-sans)",
                     fontWeight: 300,
                 }}

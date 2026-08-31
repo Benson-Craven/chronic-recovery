@@ -43,7 +43,7 @@ const labelStyles: React.CSSProperties = {
     fontWeight: 500,
     letterSpacing: "0.2em",
     textTransform: "uppercase" as const,
-    color: "rgba(30,58,32,0.4)",
+    color: "var(--text-light-supporting)",
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
@@ -120,9 +120,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     style={{ backgroundColor: "#1E3A20" }}
                                 >
                                     <p
-                                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                         style={{
-                                            color: "#C8E6C9",
+                                            color: "var(--text-dark-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                         }}
                                     >
@@ -148,7 +148,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     <p
                                         className="mt-6 text-base"
                                         style={{
-                                            color: "rgba(200,230,201,0.6)",
+                                            color: "var(--text-dark-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -172,9 +172,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     >
                                         <div>
                                             <p
-                                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                                 style={{
-                                                    color: "#C8E6C9",
+                                                    color: "var(--text-dark-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                 }}
@@ -217,9 +217,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         className="flex items-start gap-4"
                                                     >
                                                         <span
-                                                            className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                                            className="mt-0.5 shrink-0 text-xs tabular-nums"
                                                             style={{
-                                                                color: "#C8E6C9",
+                                                                color: "var(--text-dark-supporting)",
                                                                 fontFamily:
                                                                     "var(--font-dm-sans)",
                                                                 fontWeight: 300,
@@ -231,9 +231,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         </span>
                                                         <div>
                                                             <p
-                                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
                                                                 style={{
-                                                                    color: "#C8E6C9",
+                                                                    color: "var(--text-dark-supporting)",
                                                                     fontFamily:
                                                                         "var(--font-dm-sans)",
                                                                     fontWeight: 500,
@@ -244,7 +244,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             <p
                                                                 className="text-sm leading-relaxed"
                                                                 style={{
-                                                                    color: "rgba(200,230,201,0.65)",
+                                                                    color: "var(--text-dark-body)",
                                                                     fontFamily:
                                                                         "var(--font-dm-sans)",
                                                                     fontWeight: 300,
@@ -261,9 +261,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         {/* Phone */}
                                         <div className="mt-10">
                                             <p
-                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
                                                 style={{
-                                                    color: "#C8E6C9",
+                                                    color: "var(--text-dark-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 500,
@@ -273,7 +273,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             </p>
                                             <TrackedPhoneLink
                                                 source="contact_modal"
-                                                className="text-sm underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                className="text-sm underline underline-offset-2"
                                                 style={{
                                                     color: "#C8E6C9",
                                                     fontFamily:
@@ -294,9 +294,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         {/* Close button */}
                                         <div className="mb-8 flex items-center justify-between">
                                             <p
-                                                className="text-xs font-medium uppercase tracking-[0.25em] opacity-40 md:hidden"
+                                                className="text-xs font-medium uppercase tracking-[0.25em] md:hidden"
                                                 style={{
-                                                    color: "#1E3A20",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                 }}
@@ -422,7 +422,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <p
                                                     className="mt-1 text-right text-xs tabular-nums"
                                                     style={{
-                                                        color: "rgba(30,58,32,0.3)",
+                                                        color: "var(--text-light-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -449,7 +449,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 error={formError}
                                                 errorId="modal-contact-form-error"
                                                 errorClassName="text-xs leading-relaxed"
-                                                errorColor="rgba(180,60,60,0.8)"
+                                                errorColor="rgba(150,45,45,0.9)"
                                                 turnstileState={turnstileState}
                                             />
 
@@ -463,10 +463,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             ? "modal-contact-form-error"
                                                             : undefined
                                                     }
-                                                    className="cta-interactive w-full rounded-full py-3.5 text-sm font-medium tracking-wide disabled:cursor-not-allowed disabled:opacity-50"
+                                                    className="cta-interactive w-full rounded-full py-3.5 text-sm font-medium tracking-wide disabled:cursor-not-allowed"
                                                     style={{
                                                         backgroundColor:
-                                                            "#1E3A20",
+                                                            canSubmit
+                                                                ? "#1E3A20"
+                                                                : "#5B6E5A",
                                                         color: "#F7F4EF",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
@@ -482,7 +484,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <p
                                                     className="text-center text-xs leading-relaxed"
                                                     style={{
-                                                        color: "rgba(30,58,32,0.3)",
+                                                        color: "var(--text-light-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -492,7 +494,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     our{" "}
                                                     <Link
                                                         href="/terms-and-conditions"
-                                                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                        className="underline underline-offset-2"
                                                         style={{
                                                             color: "#1E3A20",
                                                         }}
@@ -502,7 +504,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     and{" "}
                                                     <Link
                                                         href="/privacy-policy"
-                                                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                        className="underline underline-offset-2"
                                                         style={{
                                                             color: "#1E3A20",
                                                         }}

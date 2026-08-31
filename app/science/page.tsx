@@ -32,9 +32,9 @@ const SciencePage = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -57,7 +57,7 @@ const SciencePage = () => {
                         <p
                             className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(200,230,201,0.65)",
+                                color: "var(--text-dark-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -89,9 +89,9 @@ const SciencePage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -147,9 +147,9 @@ const SciencePage = () => {
                                     }}
                                 >
                                     <span
-                                        className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                        className="mt-1 shrink-0 text-xs tabular-nums"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -159,7 +159,7 @@ const SciencePage = () => {
                                     <p
                                         className="text-base leading-relaxed md:text-lg"
                                         style={{
-                                            color: "rgba(30, 58, 32, 0.65)",
+                                            color: "var(--text-light-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -194,9 +194,9 @@ const SciencePage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -245,9 +245,9 @@ const SciencePage = () => {
                                         style={{ backgroundColor: "#1E3A20" }}
                                     >
                                         <span
-                                            className="text-xs tabular-nums opacity-30"
+                                            className="text-xs tabular-nums"
                                             style={{
-                                                color: "#C8E6C9",
+                                                color: "var(--text-dark-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -267,7 +267,7 @@ const SciencePage = () => {
                                         <p
                                             className="text-sm leading-relaxed"
                                             style={{
-                                                color: "rgba(200, 230, 201, 0.55)",
+                                                color: "var(--text-dark-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -302,9 +302,9 @@ const SciencePage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -336,7 +336,7 @@ const SciencePage = () => {
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -362,9 +362,9 @@ const SciencePage = () => {
                             style={{ backgroundColor: "#1E3A20" }}
                         >
                             <p
-                                className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
+                                className="mb-1 text-xs uppercase tracking-[0.2em]"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -417,9 +417,9 @@ const SciencePage = () => {
             >
                 <div className="mx-auto max-w-5xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -436,7 +436,7 @@ const SciencePage = () => {
                     <p
                         className="mb-16 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200, 230, 201, 0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -474,9 +474,9 @@ const SciencePage = () => {
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
                                 <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                    className="mt-0.5 shrink-0 text-xs tabular-nums"
                                     style={{
-                                        color: "#C8E6C9",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -486,7 +486,7 @@ const SciencePage = () => {
                                 <p
                                     className="text-sm leading-relaxed md:text-base"
                                     style={{
-                                        color: "rgba(200, 230, 201, 0.7)",
+                                        color: "var(--text-dark-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -514,7 +514,7 @@ const SciencePage = () => {
                         style={{
                             fontFamily: "var(--font-dm-serif)",
                             fontStyle: "italic",
-                            color: "rgba(200, 230, 201, 0.8)",
+                            color: "var(--text-dark-body)",
                         }}
                     >
                         "If you have a diagnosis but your pain hasn&apos;t
@@ -534,9 +534,9 @@ const SciencePage = () => {
             >
                 <div className="mx-auto max-w-5xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -557,7 +557,7 @@ const SciencePage = () => {
                         <p
                             className="max-w-xs text-sm leading-relaxed md:text-right"
                             style={{
-                                color: "rgba(30,58,32,0.45)",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -633,9 +633,9 @@ const SciencePage = () => {
                                 }}
                             >
                                 <span
-                                    className="text-xs tabular-nums opacity-30"
+                                    className="text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -654,7 +654,7 @@ const SciencePage = () => {
                                 <p
                                     className="text-sm leading-relaxed"
                                     style={{
-                                        color: "rgba(30,58,32,0.55)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -678,9 +678,9 @@ const SciencePage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -709,7 +709,7 @@ const SciencePage = () => {
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(200, 230, 201, 0.7)",
+                                color: "var(--text-dark-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -719,7 +719,7 @@ const SciencePage = () => {
                             or infection. Once you've done that, take the{" "}
                             <Link
                                 href="/self-assessment"
-                                className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                className="underline underline-offset-2"
                                 style={{ color: "#C8E6C9" }}
                             >
                                 self-assessment questionnaire
@@ -749,9 +749,9 @@ const SciencePage = () => {
                         {/* Left — headline */}
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -775,7 +775,7 @@ const SciencePage = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -817,7 +817,7 @@ const SciencePage = () => {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(30, 58, 32, 0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -825,10 +825,9 @@ const SciencePage = () => {
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="science_closing_cta"
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                        className="underline underline-offset-2"
                                         style={{
-                                            color: "#1E3A20",
-                                            opacity: 0.6,
+                                            color: "var(--text-light-body)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}

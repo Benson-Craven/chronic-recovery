@@ -24,7 +24,7 @@ const SVGPathScienceSection = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="pointer-events-none absolute -left-0 top-32 h-full w-full md:-left-[10%] lg:-left-[15%]"
-                style={{ zIndex: 0 }}
+                style={{ zIndex: 1 }}
                 preserveAspectRatio="xMidYMid slice"
             >
                 <motion.path
@@ -51,9 +51,9 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -85,7 +85,7 @@ const SVGPathScienceSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(30,58,32,0.65)",
+                            color: "var(--text-light-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -143,9 +143,9 @@ const SVGPathScienceSection = () => {
                                 All pain is real, and it starts in the brain
                             </h3>
                             <p
-                                className="mb-5 text-sm leading-relaxed"
+                                className="mb-5 text-base leading-relaxed"
                                 style={{
-                                    color: "rgba(30,58,32,0.68)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -207,9 +207,9 @@ const SVGPathScienceSection = () => {
                                             }}
                                         />
                                         <span
-                                            className="text-xs leading-snug"
+                                            className="text-sm leading-relaxed"
                                             style={{
-                                                color: "rgba(200,230,201,0.75)",
+                                                color: "var(--text-dark-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -300,7 +300,7 @@ function BentoCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay }}
-            className={`relative flex h-64 flex-col justify-between overflow-hidden p-7 ${colSpanClass[colSpan]} ${rowSpanClass[rowSpan]} lg:h-auto`}
+            className={`relative flex min-h-64 flex-col justify-between overflow-hidden p-7 ${colSpanClass[colSpan]} ${rowSpanClass[rowSpan]}`}
             style={{
                 borderRadius: "20px",
                 backgroundColor: isGreen ? "#1E3A20" : "#EDE9E0",
@@ -311,8 +311,8 @@ function BentoCard({
                     <span
                         style={{
                             color: isGreen
-                                ? "rgba(200,230,201,0.5)"
-                                : "rgba(30,58,32,0.35)",
+                                ? "var(--text-dark-supporting)"
+                                : "var(--text-light-supporting)",
                         }}
                     >
                         {icon}
@@ -329,11 +329,11 @@ function BentoCard({
                 </div>
                 {body && (
                     <p
-                        className="text-sm leading-relaxed"
+                        className="text-base leading-relaxed"
                         style={{
                             color: isGreen
-                                ? "rgba(200,230,201,0.65)"
-                                : "rgba(30,58,32,0.6)",
+                                ? "var(--text-dark-body)"
+                                : "var(--text-light-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -361,7 +361,7 @@ function BentoLink({
     return (
         <Link href={href} className="mt-4 inline-block">
             <motion.span
-                className="cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium"
+                className="cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
                 style={{
                     backgroundColor: dark ? "#F0EBE1" : "#1E3A20",
                     color: dark ? "#1E3A20" : "#F7F4EF",

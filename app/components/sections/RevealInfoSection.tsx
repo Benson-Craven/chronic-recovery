@@ -122,7 +122,7 @@ const AboutPage = () => {
                                 specialise in helping people with{" "}
                                 <Link
                                     href="/#illness"
-                                    className="underline underline-offset-2 transition-opacity hover:opacity-70"
+                                    className="underline underline-offset-2"
                                     style={{ color: "#1E3A20" }}
                                 >
                                     persistent pain conditions
@@ -141,7 +141,7 @@ const AboutPage = () => {
                                 <p
                                     className="text-sm"
                                     style={{
-                                        color: "rgba(30,58,32,0.45)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -151,8 +151,7 @@ const AboutPage = () => {
                                         source="info_intro"
                                         className="underline underline-offset-2"
                                         style={{
-                                            color: "#1E3A20",
-                                            opacity: 0.7,
+                                            color: "var(--text-light-body)",
                                         }}
                                     >
                                         +353 (0) 87-102-5108
@@ -162,7 +161,7 @@ const AboutPage = () => {
                                     href={authorProfile.atnsUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-6 flex max-w-md items-center gap-4 border-y py-5 transition-opacity hover:opacity-80"
+                                    className="mt-6 flex max-w-md items-center gap-4 border-y py-5"
                                     style={{
                                         borderColor: "rgba(30,58,32,0.12)",
                                     }}
@@ -188,7 +187,7 @@ const AboutPage = () => {
                                         <span
                                             className="mt-1 block text-sm leading-relaxed"
                                             style={{
-                                                color: "rgba(30,58,32,0.55)",
+                                                color: "var(--text-light-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -284,7 +283,9 @@ const AboutPage = () => {
                     }}
                 >
                     <div>
-                        <Eyebrow style={{ color: "#C8E6C9" }}>
+                        <Eyebrow
+                            style={{ color: "var(--text-dark-supporting)" }}
+                        >
                             My background
                         </Eyebrow>
                         <Heading className="mb-14 text-white">
@@ -332,9 +333,9 @@ const AboutPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -384,9 +385,9 @@ const AboutPage = () => {
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -406,7 +407,7 @@ const AboutPage = () => {
                                 <p
                                     className="text-base leading-relaxed md:text-lg"
                                     style={{
-                                        color: "rgba(30, 58, 32, 0.65)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -450,9 +451,9 @@ const AboutPage = () => {
             >
                 <div className="mx-auto max-w-5xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -469,7 +470,7 @@ const AboutPage = () => {
                     <p
                         className="mb-16 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200, 230, 201, 0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -527,9 +528,9 @@ const AboutPage = () => {
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
                                 <span
-                                    className="text-xs tabular-nums opacity-30"
+                                    className="text-xs tabular-nums"
                                     style={{
-                                        color: "#C8E6C9",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -547,7 +548,7 @@ const AboutPage = () => {
                                 <p
                                     className="text-sm leading-relaxed"
                                     style={{
-                                        color: "rgba(200, 230, 201, 0.55)",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -570,7 +571,7 @@ const AboutPage = () => {
                         style={{
                             fontFamily: "var(--font-dm-serif)",
                             fontStyle: "italic",
-                            color: "rgba(200, 230, 201, 0.8)",
+                            color: "var(--text-dark-body)",
                         }}
                     >
                         "If you&apos;ve been told it&apos;s all in your head,
@@ -601,9 +602,9 @@ const AboutPage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -623,7 +624,7 @@ const AboutPage = () => {
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(30, 58, 32, 0.7)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -656,9 +657,9 @@ const AboutPage = () => {
                                     className="flex items-start gap-6 py-5"
                                 >
                                     <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-40"
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -679,7 +680,7 @@ const AboutPage = () => {
                                         <p
                                             className="text-base leading-relaxed"
                                             style={{
-                                                color: "rgba(30, 58, 32, 0.65)",
+                                                color: "var(--text-light-body)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -700,9 +701,9 @@ const AboutPage = () => {
                             style={{ backgroundColor: "#1E3A20" }}
                         >
                             <p
-                                className="mb-1 text-xs uppercase tracking-[0.2em] opacity-50"
+                                className="mb-1 text-xs uppercase tracking-[0.2em]"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -716,9 +717,9 @@ const AboutPage = () => {
                             </p>
                         </motion.div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -745,9 +746,9 @@ const AboutPage = () => {
                                     className="flex items-start gap-6 py-5"
                                 >
                                     <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -757,7 +758,7 @@ const AboutPage = () => {
                                     <p
                                         className="text-base leading-relaxed"
                                         style={{
-                                            color: "rgba(30, 58, 32, 0.75)",
+                                            color: "var(--text-light-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -785,9 +786,9 @@ const AboutPage = () => {
                     <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                         <div>
                             <p
-                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -808,7 +809,7 @@ const AboutPage = () => {
                         <p
                             className="max-w-xs text-sm leading-relaxed md:text-right"
                             style={{
-                                color: "rgba(30,58,32,0.45)",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -862,6 +863,7 @@ const AboutPage = () => {
                         >
                             {/* Large decorative number */}
                             <span
+                                aria-hidden="true"
                                 className="text-5xl leading-none md:text-7xl"
                                 style={{
                                     fontFamily: "var(--font-dm-serif)",
@@ -877,7 +879,7 @@ const AboutPage = () => {
                             <p
                                 className="pt-2 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.7)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -900,9 +902,9 @@ const AboutPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -934,7 +936,7 @@ const AboutPage = () => {
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(30, 58, 32, 0.65)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -944,7 +946,7 @@ const AboutPage = () => {
                             or infection. Once you've done that, take my{" "}
                             <Link
                                 href="/self-assessment"
-                                className="underline underline-offset-2 transition-opacity hover:opacity-70"
+                                className="underline underline-offset-2"
                                 style={{ color: "#1E3A20" }}
                             >
                                 self-assessment questionnaire
@@ -967,9 +969,9 @@ const AboutPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -1011,9 +1013,9 @@ const AboutPage = () => {
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -1023,7 +1025,7 @@ const AboutPage = () => {
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(200, 230, 201, 0.7)",
+                                    color: "var(--text-dark-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -1045,9 +1047,9 @@ const AboutPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -1079,7 +1081,7 @@ const AboutPage = () => {
                         <p
                             className="text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(30, 58, 32, 0.65)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -1111,9 +1113,9 @@ const AboutPage = () => {
                         {/* Left — headline */}
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -1139,7 +1141,7 @@ const AboutPage = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30,58,32,0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -1188,7 +1190,7 @@ const AboutPage = () => {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(30,58,32,0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -1196,8 +1198,10 @@ const AboutPage = () => {
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="info_closing_cta"
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
-                                        style={{ color: "rgba(30,58,32,0.65)" }}
+                                        className="underline underline-offset-2"
+                                        style={{
+                                            color: "var(--text-light-body)",
+                                        }}
                                     >
                                         {PHONE_DISPLAY}
                                     </TrackedPhoneLink>

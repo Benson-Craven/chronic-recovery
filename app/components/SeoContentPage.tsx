@@ -81,9 +81,9 @@ export default function SeoContentPage({
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -102,7 +102,7 @@ export default function SeoContentPage({
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -114,16 +114,18 @@ export default function SeoContentPage({
 
             {sections.map((section, index) => {
                 const isGreen = index % 2 === 1
-                const foreground = isGreen ? "#C8E6C9" : "#1E3A20"
+                const foreground = isGreen
+                    ? "var(--text-dark-supporting)"
+                    : "var(--text-light-supporting)"
                 const bodyColor = isGreen
-                    ? "rgba(200,230,201,0.68)"
-                    : "rgba(30,58,32,0.68)"
+                    ? "var(--text-dark-body)"
+                    : "var(--text-light-body)"
 
                 const content = (
                     <div>
                         {section.eyebrow && (
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
                                     color: foreground,
                                     fontFamily: "var(--font-dm-sans)",
@@ -204,9 +206,9 @@ export default function SeoContentPage({
             >
                 <div className="mx-auto max-w-5xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -222,7 +224,7 @@ export default function SeoContentPage({
                         <p
                             className="mb-14 max-w-2xl text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(200,230,201,0.65)",
+                                color: "var(--text-dark-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -249,9 +251,9 @@ export default function SeoContentPage({
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
                                 <span
-                                    className="mb-5 block text-xs tabular-nums opacity-30"
+                                    className="mb-5 block text-xs tabular-nums"
                                     style={{
-                                        color: "#C8E6C9",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -269,7 +271,7 @@ export default function SeoContentPage({
                                 <p
                                     className="text-sm leading-relaxed md:text-base"
                                     style={{
-                                        color: "rgba(200,230,201,0.62)",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -289,9 +291,9 @@ export default function SeoContentPage({
                 >
                     <div className="mx-auto max-w-5xl">
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -311,7 +313,7 @@ export default function SeoContentPage({
                         <p
                             className="mb-12 max-w-2xl text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(30,58,32,0.68)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -334,9 +336,9 @@ export default function SeoContentPage({
                                     style={{ backgroundColor: "#F7F4EF" }}
                                 >
                                     <span
-                                        className="mb-5 block text-xs tabular-nums opacity-35"
+                                        className="mb-5 block text-xs tabular-nums"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -344,16 +346,16 @@ export default function SeoContentPage({
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
                                     <span
-                                        className="mb-3 text-xs font-medium uppercase tracking-[0.16em] opacity-45"
+                                        className="mb-3 text-xs font-medium uppercase tracking-[0.16em]"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                         }}
                                     >
                                         {link.source}
                                     </span>
                                     <h3
-                                        className="mb-5 text-xl leading-snug transition-opacity group-hover:opacity-70 md:text-2xl"
+                                        className="mb-5 text-xl leading-snug md:text-2xl"
                                         style={{
                                             color: "#1E3A20",
                                             fontFamily: "var(--font-dm-serif)",
@@ -364,7 +366,7 @@ export default function SeoContentPage({
                                     <p
                                         className="text-sm leading-relaxed md:text-base"
                                         style={{
-                                            color: "rgba(30,58,32,0.65)",
+                                            color: "var(--text-light-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -372,9 +374,9 @@ export default function SeoContentPage({
                                         {link.summary}
                                     </p>
                                     <span
-                                        className="mt-auto pt-8 text-xs font-medium uppercase tracking-[0.16em] opacity-55 transition-opacity group-hover:opacity-100"
+                                        className="mt-auto pt-8 text-xs font-medium uppercase tracking-[0.16em]"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                         }}
                                     >
@@ -399,9 +401,9 @@ export default function SeoContentPage({
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -422,7 +424,7 @@ export default function SeoContentPage({
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30,58,32,0.68)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -454,9 +456,9 @@ export default function SeoContentPage({
             >
                 <div className="mx-auto max-w-5xl">
                     <p
-                        className="mb-8 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-8 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -467,11 +469,11 @@ export default function SeoContentPage({
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="p-6 transition-opacity hover:opacity-70"
+                                className="p-6"
                                 style={{
                                     borderTop:
                                         "1px solid rgba(200,230,201,0.12)",
-                                    color: "rgba(200,230,201,0.72)",
+                                    color: "var(--text-dark-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}

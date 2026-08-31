@@ -80,9 +80,11 @@ const Card: React.FC<CardProps> = ({
                     <div>
                         {/* Index */}
                         <span
-                            className="mb-6 block text-xs tabular-nums opacity-30"
+                            className="mb-6 block text-xs tabular-nums"
                             style={{
-                                color: isEven ? "#C8E6C9" : "#1E3A20",
+                                color: isEven
+                                    ? "var(--text-dark-supporting)"
+                                    : "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -117,8 +119,8 @@ const Card: React.FC<CardProps> = ({
                             className="text-base leading-relaxed md:text-lg"
                             style={{
                                 color: isEven
-                                    ? "rgba(200,230,201,0.75)"
-                                    : "rgba(30,58,32,0.65)",
+                                    ? "var(--text-dark-body)"
+                                    : "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}

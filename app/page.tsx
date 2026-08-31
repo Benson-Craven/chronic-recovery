@@ -52,21 +52,21 @@ export default function Home() {
                         }}
                     >
                         <span className="h-px w-16 bg-secondary-text/40" />
-                        <p className="text-balance font-satoshi text-base font-light leading-8 text-primary-text/80 md:text-lg md:leading-9">
+                        <p className="text-balance font-satoshi text-base font-light leading-8 text-light-body md:text-lg md:leading-9">
                             For{" "}
-                            <span className="text-secondary-text">
+                            <span className="text-light-body">
                                 chronic pain
                             </span>
                             ,{" "}
-                            <span className="text-secondary-text">
+                            <span className="text-light-body">
                                 chronic symptoms
                             </span>
                             , and{" "}
-                            <span className="text-secondary-text">
+                            <span className="text-light-body">
                                 chronic fatigue
                             </span>
                         </p>
-                        <p className="text-balance font-satoshi text-sm font-light leading-7 text-primary-text/65 md:text-base">
+                        <p className="text-balance font-satoshi text-sm font-light leading-7 text-light-supporting md:text-base">
                             Based in Ireland, supporting clients online
                             worldwide.
                         </p>
@@ -80,8 +80,8 @@ export default function Home() {
                     <CredentialsSection />
                     <Approach />
                     <Services />
-                    <CallToActionSection fadeInVariants={fadeInVariants} />
                     <SVGPathScienceSection />
+                    <CallToActionSection fadeInVariants={fadeInVariants} />
                 </section>
             </main>
         </>

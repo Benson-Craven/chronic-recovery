@@ -26,7 +26,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                             style={{
                                 color: isCurrent
                                     ? "#1E3A20"
-                                    : "rgba(30,58,32,0.52)",
+                                    : "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 400,
                             }}
@@ -36,7 +36,9 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                                     aria-hidden="true"
                                     className="h-3 w-3"
                                     strokeWidth={1.5}
-                                    style={{ color: "rgba(30,58,32,0.28)" }}
+                                    style={{
+                                        color: "var(--text-light-supporting)",
+                                    }}
                                 />
                             )}
                             {isCurrent ? (
@@ -44,7 +46,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                             ) : (
                                 <Link
                                     href={item.path}
-                                    className="transition-opacity hover:opacity-70"
+                                    className="underline-offset-4 hover:underline focus-visible:underline"
                                 >
                                     {item.name}
                                 </Link>

@@ -93,9 +93,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     {/* Back link */}
                     <Link
                         href="/blog"
-                        className="mb-10 inline-flex items-center gap-2 transition-opacity hover:opacity-60"
+                        className="mb-10 inline-flex items-center gap-2"
                         style={{
-                            color: "rgba(200,230,201,0.5)",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                             fontSize: "0.75rem",
@@ -121,9 +121,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     </Link>
 
                     <div
-                        className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium uppercase tracking-[0.2em] opacity-50"
+                        className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium uppercase tracking-[0.2em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -175,17 +175,20 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         className="prose prose-lg max-w-none prose-headings:font-normal"
                         style={
                             {
-                                "--tw-prose-body": "rgba(30,58,32,0.7)",
+                                "--tw-prose-body": "var(--text-light-body)",
                                 "--tw-prose-headings": "#1E3A20",
                                 "--tw-prose-links": "#1E3A20",
                                 "--tw-prose-bold": "#1E3A20",
-                                "--tw-prose-counters": "rgba(30,58,32,0.4)",
-                                "--tw-prose-bullets": "rgba(30,58,32,0.3)",
+                                "--tw-prose-counters":
+                                    "var(--text-light-supporting)",
+                                "--tw-prose-bullets":
+                                    "var(--text-light-supporting)",
                                 "--tw-prose-hr": "rgba(30,58,32,0.12)",
                                 "--tw-prose-quotes": "#1E3A20",
                                 "--tw-prose-quote-borders":
                                     "rgba(30,58,32,0.2)",
-                                "--tw-prose-captions": "rgba(30,58,32,0.4)",
+                                "--tw-prose-captions":
+                                    "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             } as React.CSSProperties
@@ -216,7 +219,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         <p
                             className="text-sm leading-relaxed md:text-base"
                             style={{
-                                color: "rgba(30,58,32,0.68)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -245,9 +248,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
                             />
                             <div>
                                 <p
-                                    className="mb-3 text-xs font-medium uppercase tracking-[0.22em] opacity-45"
+                                    className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
@@ -266,7 +269,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 <p
                                     className="mb-4 text-sm font-medium"
                                     style={{
-                                        color: "rgba(30,58,32,0.65)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
@@ -276,7 +279,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 <p
                                     className="mb-4 text-base leading-relaxed"
                                     style={{
-                                        color: "rgba(30,58,32,0.68)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -293,7 +296,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 <p
                                     className="mb-4 text-base leading-relaxed"
                                     style={{
-                                        color: "rgba(30,58,32,0.68)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -306,7 +309,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 <p
                                     className="mb-5 text-base leading-relaxed"
                                     style={{
-                                        color: "rgba(30,58,32,0.68)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -319,7 +322,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 </p>
                                 <Link
                                     href={authorProfile.url}
-                                    className="inline-flex text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-65"
+                                    className="inline-flex text-xs font-medium uppercase tracking-[0.16em]"
                                     style={{
                                         color: "#1E3A20",
                                         fontFamily: "var(--font-dm-sans)",
@@ -349,7 +352,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                             <p
                                 className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "rgba(30,58,32,0.72)",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >

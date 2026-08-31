@@ -9,10 +9,20 @@
     --foreground-rgb: 250, 250, 250;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    --text-light-body: rgba(30, 58, 32, 0.78);
+    --text-light-supporting: rgba(30, 58, 32, 0.72);
+    --text-dark-body: rgba(200, 230, 201, 0.8);
+    --text-dark-supporting: rgba(200, 230, 201, 0.75);
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
+    color: var(--text-light-body);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-light-supporting);
+    opacity: 1;
 }
 
 @layer components {

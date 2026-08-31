@@ -56,9 +56,9 @@ export default function Services() {
             {/* Section header */}
             <div id="services" className="mx-auto max-w-5xl px-6 pb-16">
                 <p
-                    className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                    className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                     style={{
-                        color: "#1E3A20",
+                        color: "var(--text-light-supporting)",
                         fontFamily: "var(--font-dm-sans)",
                     }}
                 >
@@ -107,7 +107,7 @@ export default function Services() {
                 <p
                     className="text-center text-sm leading-relaxed md:text-base"
                     style={{
-                        color: "rgba(30,58,32,0.5)",
+                        color: "var(--text-light-supporting)",
                         fontFamily: "var(--font-dm-sans)",
                         fontWeight: 300,
                     }}
@@ -116,7 +116,7 @@ export default function Services() {
                     abnormality, disease, or infection. Take the{" "}
                     <Link
                         href="/self-assessment"
-                        className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                        className="underline underline-offset-2"
                         style={{ color: "#1E3A20" }}
                     >
                         self-assessment questionnaire

@@ -56,9 +56,9 @@ const Custom404Page = () => {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -68,6 +68,7 @@ const Custom404Page = () => {
                     {/* Ghost 404 number */}
                     <div className="relative mb-4 select-none">
                         <motion.p
+                            aria-hidden="true"
                             animate={{ y: [0, -10, 0] }}
                             transition={{
                                 duration: 4,
@@ -105,7 +106,7 @@ const Custom404Page = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -127,9 +128,9 @@ const Custom404Page = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -165,15 +166,15 @@ const Custom404Page = () => {
                         >
                             <Link href={link.href}>
                                 <div
-                                    className="group flex items-start gap-6 border-b py-8 transition-opacity hover:opacity-70"
+                                    className="group flex items-start gap-6 border-b py-8"
                                     style={{
                                         borderColor: "rgba(30,58,32,0.12)",
                                     }}
                                 >
                                     <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
                                         style={{
-                                            color: "#1E3A20",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -195,7 +196,7 @@ const Custom404Page = () => {
                                             <p
                                                 className="text-sm"
                                                 style={{
-                                                    color: "rgba(30,58,32,0.5)",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -246,9 +247,9 @@ const Custom404Page = () => {
                         {/* Countdown */}
                         <div>
                             <p
-                                className="mb-3 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-3 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -268,9 +269,9 @@ const Custom404Page = () => {
                                     {countdown}
                                 </motion.span>
                                 <span
-                                    className="text-base opacity-40"
+                                    className="text-base"
                                     style={{
-                                        color: "#C8E6C9",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -298,7 +299,7 @@ const Custom404Page = () => {
                             <p
                                 className="text-sm"
                                 style={{
-                                    color: "rgba(200,230,201,0.35)",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -306,8 +307,10 @@ const Custom404Page = () => {
                                 or call / WhatsApp{" "}
                                 <a
                                     href="tel:+353871025108"
-                                    className="underline underline-offset-2 transition-opacity hover:opacity-100"
-                                    style={{ color: "rgba(200,230,201,0.6)" }}
+                                    className="underline underline-offset-2"
+                                    style={{
+                                        color: "var(--text-dark-supporting)",
+                                    }}
                                 >
                                     +353 (0) 87-102-5108
                                 </a>
@@ -325,7 +328,7 @@ const Custom404Page = () => {
                         style={{
                             fontFamily: "var(--font-dm-serif)",
                             fontStyle: "italic",
-                            color: "rgba(200,230,201,0.7)",
+                            color: "var(--text-dark-body)",
                         }}
                     >
                         "Still experiencing chronic pain?
@@ -334,9 +337,9 @@ const Custom404Page = () => {
                     </p>
                     <Link
                         href="/contact"
-                        className="mt-6 inline-flex items-center gap-2 transition-opacity hover:opacity-60"
+                        className="mt-6 inline-flex items-center gap-2"
                         style={{
-                            color: "rgba(200,230,201,0.5)",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                             fontSize: "0.75rem",

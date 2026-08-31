@@ -73,7 +73,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                             onMouseLeave={() => setIsScienceDropdownOpen(false)}
                         >
                             <button
-                                className="flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                                className="flex items-center gap-1.5"
                                 style={{
                                     color: "#1E3A20",
                                     fontFamily: "var(--font-dm-sans)",
@@ -132,7 +132,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className="group flex items-center gap-4 px-5 py-3.5 transition-opacity hover:opacity-60"
+                                                className="group flex items-center gap-4 px-5 py-3.5"
                                                 style={{
                                                     borderBottom:
                                                         index <
@@ -142,9 +142,9 @@ export default function Navbar({ className = "" }: NavbarProps) {
                                                 }}
                                             >
                                                 <span
-                                                    className="shrink-0 text-xs tabular-nums opacity-30"
+                                                    className="shrink-0 text-xs tabular-nums"
                                                     style={{
-                                                        color: "#1E3A20",
+                                                        color: "var(--text-light-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -175,7 +175,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className="transition-opacity hover:opacity-60"
+                                    className="transition-opacity"
                                     style={{
                                         color: "#1E3A20",
                                         fontFamily: "var(--font-dm-sans)",

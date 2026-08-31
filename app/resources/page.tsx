@@ -123,9 +123,9 @@ const UsefulLinks: React.FC = () => {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -146,7 +146,7 @@ const UsefulLinks: React.FC = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -170,9 +170,9 @@ const UsefulLinks: React.FC = () => {
                 <div className="mx-auto max-w-3xl">
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -207,14 +207,14 @@ const UsefulLinks: React.FC = () => {
                                 delay: index * 0.08,
                                 ease: "easeOut",
                             }}
-                            className="group flex items-start gap-6 border-b py-10 transition-opacity hover:opacity-70"
+                            className="group flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
                             {links[0].items.length > 1 && (
                                 <span
-                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                    className="mt-1 shrink-0 text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -239,7 +239,7 @@ const UsefulLinks: React.FC = () => {
                                     <p
                                         className="text-xs"
                                         style={{
-                                            color: "rgba(30,58,32,0.4)",
+                                            color: "var(--text-light-supporting)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -265,9 +265,9 @@ const UsefulLinks: React.FC = () => {
                 <div className="mx-auto max-w-3xl">
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -301,13 +301,13 @@ const UsefulLinks: React.FC = () => {
                                 delay: index * 0.06,
                                 ease: "easeOut",
                             }}
-                            className="group flex items-start gap-6 border-b py-8 transition-opacity hover:opacity-70"
+                            className="group flex items-start gap-6 border-b py-8"
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -318,7 +318,7 @@ const UsefulLinks: React.FC = () => {
                                 <p
                                     className="text-base leading-snug md:text-lg"
                                     style={{
-                                        color: "rgba(200,230,201,0.8)",
+                                        color: "var(--text-dark-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -346,7 +346,7 @@ const UsefulLinks: React.FC = () => {
                         style={{
                             fontFamily: "var(--font-dm-serif)",
                             fontStyle: "italic",
-                            color: "rgba(200,230,201,0.8)",
+                            color: "var(--text-dark-body)",
                         }}
                     >
                         "Understanding your pain
@@ -373,9 +373,9 @@ const UsefulLinks: React.FC = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -400,7 +400,7 @@ const UsefulLinks: React.FC = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -442,7 +442,7 @@ const UsefulLinks: React.FC = () => {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(30, 58, 32, 0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -450,10 +450,9 @@ const UsefulLinks: React.FC = () => {
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="resources_closing_cta"
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                        className="underline underline-offset-2"
                                         style={{
-                                            color: "#1E3A20",
-                                            opacity: 0.6,
+                                            color: "var(--text-light-body)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}

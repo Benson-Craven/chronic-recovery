@@ -14,10 +14,11 @@ export const Eyebrow: React.FC<TypographyProps> = ({
 }) => (
     <p
         className={cn(
-            "mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50",
+            "mb-6 text-xs font-medium uppercase tracking-[0.25em]",
             className,
         )}
         style={{
+            color: "var(--text-light-supporting)",
             fontFamily: "var(--font-dm-sans)",
             ...style,
         }}
@@ -61,6 +62,7 @@ export const Text: React.FC<TypographyProps> = ({
     <p
         className={cn("text-base leading-relaxed md:text-lg", className)}
         style={{
+            color: "var(--text-light-body)",
             fontFamily: "var(--font-dm-sans)",
             fontWeight: 300,
             ...style,
@@ -77,7 +79,7 @@ export const ItalicQuote: React.FC<TypographyProps> = ({
 }) => (
     <p
         className={cn(
-            "text-xl leading-relaxed italic md:text-2xl lg:text-3xl",
+            "text-xl italic leading-relaxed md:text-2xl lg:text-3xl",
             className,
         )}
         style={{

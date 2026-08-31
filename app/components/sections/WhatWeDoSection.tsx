@@ -96,7 +96,7 @@ const WeDoSection = () => {
                             <p
                                 className="text-sm sm:basis-full"
                                 style={{
-                                    color: "rgba(30,58,32,0.4)",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -104,8 +104,8 @@ const WeDoSection = () => {
                                 Call{" "}
                                 <TrackedPhoneLink
                                     source="homepage_approach"
-                                    className="underline underline-offset-2 transition-opacity hover:opacity-100"
-                                    style={{ color: "rgba(30,58,32,0.65)" }}
+                                    className="underline underline-offset-2"
+                                    style={{ color: "var(--text-light-body)" }}
                                 >
                                     {PHONE_DISPLAY}
                                 </TrackedPhoneLink>

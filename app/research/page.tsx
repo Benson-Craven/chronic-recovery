@@ -68,9 +68,9 @@ const ResearchStudies = () => {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -91,7 +91,7 @@ const ResearchStudies = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -121,9 +121,9 @@ const ResearchStudies = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -166,9 +166,9 @@ const ResearchStudies = () => {
                         >
                             {/* Index number */}
                             <span
-                                className="mt-1 text-xs tabular-nums opacity-30"
+                                className="mt-1 text-xs tabular-nums"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -182,7 +182,7 @@ const ResearchStudies = () => {
                                     href={study.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-2 transition-opacity hover:opacity-70"
+                                    className="group inline-flex items-center gap-2"
                                 >
                                     <span
                                         className="text-base font-medium md:text-lg"
@@ -214,7 +214,7 @@ const ResearchStudies = () => {
                                 <p
                                     className="text-sm leading-relaxed md:text-base"
                                     style={{
-                                        color: "rgba(30,58,32,0.6)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -235,9 +235,9 @@ const ResearchStudies = () => {
                                     {study.stat}
                                 </span>
                                 <span
-                                    className="text-right text-xs leading-snug opacity-40"
+                                    className="text-right text-xs leading-snug"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -270,9 +270,9 @@ const ResearchStudies = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -318,9 +318,9 @@ const ResearchStudies = () => {
                                 }}
                             >
                                 <span
-                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                    className="mt-1 shrink-0 text-xs tabular-nums"
                                     style={{
-                                        color: "#C8E6C9",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -330,7 +330,7 @@ const ResearchStudies = () => {
                                 <p
                                     className="text-base leading-relaxed md:text-lg"
                                     style={{
-                                        color: "rgba(200, 230, 201, 0.7)",
+                                        color: "var(--text-dark-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -353,7 +353,7 @@ const ResearchStudies = () => {
                             style={{
                                 fontFamily: "var(--font-dm-serif)",
                                 fontStyle: "italic",
-                                color: "rgba(200,230,201,0.8)",
+                                color: "var(--text-dark-body)",
                             }}
                         >
                             "What the brain has learned,
@@ -381,9 +381,9 @@ const ResearchStudies = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -408,7 +408,7 @@ const ResearchStudies = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30, 58, 32, 0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -451,7 +451,7 @@ const ResearchStudies = () => {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(30, 58, 32, 0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -459,10 +459,9 @@ const ResearchStudies = () => {
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="research_closing_cta"
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                        className="underline underline-offset-2"
                                         style={{
-                                            color: "#1E3A20",
-                                            opacity: 0.6,
+                                            color: "var(--text-light-body)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}

@@ -125,9 +125,9 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 }}
                             >
                                 <p
-                                    className="text-xs font-medium uppercase tracking-[0.25em] opacity-40"
+                                    className="text-xs font-medium uppercase tracking-[0.25em]"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
@@ -195,9 +195,9 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 </Link>
                                 <TrackedPhoneLink
                                     source="mobile_menu"
-                                    className="mt-4 block text-center text-xs transition-opacity hover:opacity-60"
+                                    className="mt-4 block text-center text-xs"
                                     style={{
-                                        color: "rgba(30,58,32,0.4)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -231,12 +231,12 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
             <Link
                 href={link.href}
                 onClick={onNavigate}
-                className="flex items-center gap-5 px-8 py-5 transition-opacity hover:opacity-60"
+                className="flex items-center gap-5 px-8 py-5"
             >
                 <span
-                    className="shrink-0 text-xs tabular-nums opacity-25"
+                    className="shrink-0 text-xs tabular-nums"
                     style={{
-                        color: "#1E3A20",
+                        color: "var(--text-light-supporting)",
                         fontFamily: "var(--font-dm-sans)",
                         fontWeight: 300,
                     }}
@@ -269,12 +269,12 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
                             <Link
                                 href={child.href}
                                 onClick={onNavigate}
-                                className="flex items-center gap-5 py-3.5 pl-20 pr-8 transition-opacity hover:opacity-60"
+                                className="flex items-center gap-5 py-3.5 pl-20 pr-8"
                             >
                                 <span
-                                    className="shrink-0 text-xs tabular-nums opacity-20"
+                                    className="shrink-0 text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -284,7 +284,7 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
                                 <span
                                     className="text-sm"
                                     style={{
-                                        color: "rgba(30,58,32,0.65)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}

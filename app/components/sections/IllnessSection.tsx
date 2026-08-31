@@ -19,9 +19,9 @@ const IllnessSection = () => {
                     {/* Scroll indicator */}
                     <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
                         <p
-                            className="mb-2 text-xs uppercase tracking-[0.2em] opacity-30"
+                            className="mb-2 text-xs uppercase tracking-[0.2em]"
                             style={{
-                                color: "#C8E6C9",
+                                color: "var(--text-dark-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -30,7 +30,7 @@ const IllnessSection = () => {
                         </p>
                         <svg
                             className="mx-auto h-4 w-4 animate-bounce"
-                            style={{ color: "rgba(200,230,201,0.3)" }}
+                            style={{ color: "var(--text-dark-supporting)" }}
                             fill="none"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -56,7 +56,10 @@ const IllnessSection = () => {
                     <Container size="narrow">
                         <Divider variant="cream" className="mb-16" />
 
-                        <Eyebrow className="mb-8" style={{ color: "#C8E6C9" }}>
+                        <Eyebrow
+                            className="mb-8"
+                            style={{ color: "var(--text-dark-supporting)" }}
+                        >
                             Still unsure?
                         </Eyebrow>
 
@@ -83,7 +86,7 @@ const IllnessSection = () => {
                             </p>
                             <Text
                                 className="text-base"
-                                style={{ color: "rgba(200,230,201,0.65)" }}
+                                style={{ color: "var(--text-dark-body)" }}
                             >
                                 I&apos;m here to help with any illness or
                                 concern, even if it&apos;s not listed. Reach out
@@ -109,7 +112,9 @@ const IllnessSectionList = () => {
         <section aria-labelledby="illness-list-heading" className="lg:hidden">
             <Container size="wide">
                 <div className="mb-10 md:mb-14">
-                    <Eyebrow style={{ color: "#C8E6C9" }}>Conditions</Eyebrow>
+                    <Eyebrow style={{ color: "var(--text-dark-supporting)" }}>
+                        Conditions
+                    </Eyebrow>
                     <div id="illness-list-heading">
                         <Heading className="text-white">
                             Are you <em>experiencing</em> any of the following?
@@ -189,7 +194,7 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
                             <span
                                 className="text-sm leading-relaxed md:text-base"
                                 style={{
-                                    color: "rgba(200,230,201,0.9)",
+                                    color: "var(--text-dark-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -232,7 +237,9 @@ const IllnessSectionCarousel = () => {
                 style={{ opacity }}
                 className="sticky top-[130px] z-10 pb-20 md:top-16"
             >
-                <Eyebrow style={{ color: "#C8E6C9" }}>Conditions</Eyebrow>
+                <Eyebrow style={{ color: "var(--text-dark-supporting)" }}>
+                    Conditions
+                </Eyebrow>
                 <Heading className="text-white">
                     Are you <em>experiencing</em> any of the following?
                 </Heading>
@@ -287,9 +294,9 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                 <div className="absolute inset-0 flex flex-col justify-between p-7">
                     {/* Index */}
                     <span
-                        className="text-xs tabular-nums opacity-40"
+                        className="text-xs tabular-nums"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -327,7 +334,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                                     <span
                                         className="text-sm leading-snug"
                                         style={{
-                                            color: "rgba(200,230,201,0.9)",
+                                            color: "var(--text-dark-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}

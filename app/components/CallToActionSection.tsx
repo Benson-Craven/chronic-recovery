@@ -26,15 +26,17 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
     fadeInVariants,
 }) => {
     return (
-        <motion.section
-            variants={fadeInVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+        <section
             style={{ backgroundColor: "#F7F4EF" }}
             className="w-full px-6 py-20 md:py-28 lg:py-36"
         >
-            <div className="mx-auto max-w-5xl">
+            <motion.div
+                variants={fadeInVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="relative z-10 mx-auto max-w-5xl"
+            >
                 <div
                     className="mb-12 h-px w-full"
                     style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
@@ -42,9 +44,9 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                 <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -67,7 +69,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         <div
                             className="space-y-5 text-base leading-relaxed md:text-lg"
                             style={{
-                                color: "rgba(30,58,32,0.65)",
+                                color: "var(--text-light-body)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -119,9 +121,9 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                             </Link>
                             <TrackedPhoneLink
                                 source="main_consultation_cta"
-                                className="text-sm transition-opacity hover:opacity-70 sm:basis-full"
+                                className="text-sm sm:basis-full"
                                 style={{
-                                    color: "rgba(30,58,32,0.4)",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -130,7 +132,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                                 <span
                                     className="underline underline-offset-2"
                                     style={{
-                                        color: "rgba(30,58,32,0.65)",
+                                        color: "var(--text-light-body)",
                                         fontWeight: 400,
                                     }}
                                 >
@@ -141,7 +143,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         <p
                             className="max-w-sm text-xs leading-relaxed"
                             style={{
-                                color: "rgba(30,58,32,0.4)",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -151,8 +153,8 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         </p>
                     </div>
                 </div>
-            </div>
-        </motion.section>
+            </motion.div>
+        </section>
     )
 }
 

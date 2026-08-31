@@ -23,6 +23,10 @@ const config: Config = {
                 "secondary-text": "#A4AC96", // dark mellow green
                 "tertiary-text": "#CFDDA5", // mellow green
                 accent: "#c9fd74", // neon green
+                "light-body": "rgba(30, 58, 32, 0.78)",
+                "light-supporting": "rgba(30, 58, 32, 0.72)",
+                "dark-body": "rgba(200, 230, 201, 0.8)",
+                "dark-supporting": "rgba(200, 230, 201, 0.75)",
             },
             fontFamily: {
                 butler: ["Butler", "serif"],

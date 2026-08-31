@@ -81,9 +81,9 @@ const ConditionsPage = () => {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -104,7 +104,7 @@ const ConditionsPage = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -134,9 +134,9 @@ const ConditionsPage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -154,9 +154,9 @@ const ConditionsPage = () => {
                             <em>are treatable</em>
                         </h2>
                         <p
-                            className="text-sm opacity-40"
+                            className="text-sm"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                                 fontWeight: 300,
                             }}
@@ -192,9 +192,9 @@ const ConditionsPage = () => {
                                 style={{ backgroundColor: "#F7F4EF" }}
                             >
                                 <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums opacity-25"
+                                    className="mt-0.5 shrink-0 text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -204,7 +204,7 @@ const ConditionsPage = () => {
                                 <p
                                     className="text-sm leading-relaxed md:text-base"
                                     style={{
-                                        color: "rgba(30,58,32,0.75)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -228,9 +228,9 @@ const ConditionsPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -245,9 +245,9 @@ const ConditionsPage = () => {
                         <em>not treatable here</em>
                     </h2>
                     <p
-                        className="mb-14 max-w-xl text-sm leading-relaxed opacity-50"
+                        className="mb-14 max-w-xl text-sm leading-relaxed"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -277,9 +277,9 @@ const ConditionsPage = () => {
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
                             <span
-                                className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-0.5 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -289,7 +289,7 @@ const ConditionsPage = () => {
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(200,230,201,0.65)",
+                                    color: "var(--text-dark-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -320,9 +320,9 @@ const ConditionsPage = () => {
                 >
                     <div>
                         <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                             style={{
-                                color: "#1E3A20",
+                                color: "var(--text-light-supporting)",
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
@@ -354,9 +354,9 @@ const ConditionsPage = () => {
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -366,7 +366,7 @@ const ConditionsPage = () => {
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30,58,32,0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -390,9 +390,9 @@ const ConditionsPage = () => {
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -402,7 +402,7 @@ const ConditionsPage = () => {
                             <p
                                 className="text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(30,58,32,0.65)",
+                                    color: "var(--text-light-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -410,7 +410,7 @@ const ConditionsPage = () => {
                                 Not sure if this is right for you?{" "}
                                 <Link
                                     href="/self-assessment"
-                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                    className="underline underline-offset-2"
                                     style={{ color: "#1E3A20" }}
                                 >
                                     Take the self-assessment questionnaire
@@ -440,9 +440,9 @@ const ConditionsPage = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#C8E6C9",
+                                    color: "var(--text-dark-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -464,7 +464,7 @@ const ConditionsPage = () => {
                             <div
                                 className="space-y-5 text-base leading-relaxed md:text-lg"
                                 style={{
-                                    color: "rgba(200,230,201,0.65)",
+                                    color: "var(--text-dark-body)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -480,7 +480,7 @@ const ConditionsPage = () => {
                                     style={{
                                         fontFamily: "var(--font-dm-serif)",
                                         fontStyle: "italic",
-                                        color: "rgba(200,230,201,0.9)",
+                                        color: "var(--text-dark-body)",
                                         fontSize: "1.15rem",
                                     }}
                                 >
@@ -510,7 +510,7 @@ const ConditionsPage = () => {
                                 <p
                                     className="text-sm sm:basis-full"
                                     style={{
-                                        color: "rgba(200,230,201,0.35)",
+                                        color: "var(--text-dark-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -518,9 +518,9 @@ const ConditionsPage = () => {
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="conditions_closing_cta"
-                                        className="underline underline-offset-2 transition-opacity hover:opacity-100"
+                                        className="underline underline-offset-2"
                                         style={{
-                                            color: "rgba(200,230,201,0.6)",
+                                            color: "var(--text-dark-supporting)",
                                         }}
                                     >
                                         {PHONE_DISPLAY}

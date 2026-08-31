@@ -40,9 +40,9 @@ const CredentialsSection = () => {
                                 }}
                             >
                                 <span
-                                    className="text-xs tabular-nums opacity-35"
+                                    className="text-xs tabular-nums"
                                     style={{
-                                        color: "#1E3A20",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
@@ -51,7 +51,7 @@ const CredentialsSection = () => {
                                 <p
                                     className="text-base leading-relaxed md:text-lg"
                                     style={{
-                                        color: "rgba(30,58,32,0.68)",
+                                        color: "var(--text-light-body)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}
@@ -64,7 +64,7 @@ const CredentialsSection = () => {
                             href={authorProfile.atnsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-8 flex max-w-xl items-center gap-4 border-b py-5 transition-opacity hover:opacity-80"
+                            className="mt-8 flex max-w-xl items-center gap-4 border-b py-5"
                             style={{
                                 borderColor: "rgba(30,58,32,0.12)",
                             }}
@@ -89,7 +89,7 @@ const CredentialsSection = () => {
                                 <span
                                     className="mt-1 block text-sm leading-relaxed"
                                     style={{
-                                        color: "rgba(30,58,32,0.55)",
+                                        color: "var(--text-light-supporting)",
                                         fontFamily: "var(--font-dm-sans)",
                                         fontWeight: 300,
                                     }}

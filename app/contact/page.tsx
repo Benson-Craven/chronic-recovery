@@ -59,7 +59,7 @@ const ContactPage = () => {
         fontWeight: 500,
         letterSpacing: "0.2em",
         textTransform: "uppercase",
-        color: "rgba(30,58,32,0.4)",
+        color: "var(--text-light-supporting)",
     }
 
     return (
@@ -76,9 +76,9 @@ const ContactPage = () => {
                     className="mx-auto max-w-3xl"
                 >
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -99,7 +99,7 @@ const ContactPage = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -121,9 +121,9 @@ const ContactPage = () => {
                         {/* Left — context */}
                         <div>
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
@@ -184,9 +184,9 @@ const ContactPage = () => {
                                         className="flex items-start gap-6"
                                     >
                                         <span
-                                            className="mt-0.5 shrink-0 text-xs tabular-nums opacity-30"
+                                            className="mt-0.5 shrink-0 text-xs tabular-nums"
                                             style={{
-                                                color: "#1E3A20",
+                                                color: "var(--text-light-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,
@@ -196,9 +196,9 @@ const ContactPage = () => {
                                         </span>
                                         <div>
                                             <p
-                                                className="mb-1 text-xs uppercase tracking-[0.15em] opacity-40"
+                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
                                                 style={{
-                                                    color: "#1E3A20",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 500,
@@ -209,7 +209,7 @@ const ContactPage = () => {
                                             {item.href ? (
                                                 <TrackedPhoneLink
                                                     source="contact_page"
-                                                    className="text-base underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    className="text-base underline underline-offset-2"
                                                     style={{
                                                         color: "#1E3A20",
                                                         fontFamily:
@@ -223,7 +223,7 @@ const ContactPage = () => {
                                                 <p
                                                     className="text-base leading-relaxed"
                                                     style={{
-                                                        color: "rgba(30,58,32,0.65)",
+                                                        color: "var(--text-light-body)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -345,7 +345,7 @@ const ContactPage = () => {
                                             <p
                                                 className="mt-2 text-right text-xs tabular-nums"
                                                 style={{
-                                                    color: "rgba(30,58,32,0.3)",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -383,9 +383,11 @@ const ContactPage = () => {
                                                         ? "contact-form-error"
                                                         : undefined
                                                 }
-                                                className="cta-interactive w-full rounded-full py-4 text-sm font-medium tracking-wide disabled:cursor-not-allowed disabled:opacity-50 md:w-auto md:px-10"
+                                                className="cta-interactive w-full rounded-full py-4 text-sm font-medium tracking-wide disabled:cursor-not-allowed md:w-auto md:px-10"
                                                 style={{
-                                                    backgroundColor: "#1E3A20",
+                                                    backgroundColor: canSubmit
+                                                        ? "#1E3A20"
+                                                        : "#5B6E5A",
                                                     color: "#F7F4EF",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
@@ -402,7 +404,7 @@ const ContactPage = () => {
                                             <p
                                                 className="text-xs leading-relaxed"
                                                 style={{
-                                                    color: "rgba(30,58,32,0.35)",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -411,7 +413,7 @@ const ContactPage = () => {
                                                 By continuing, you agree to our{" "}
                                                 <Link
                                                     href="/terms-and-conditions"
-                                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    className="underline underline-offset-2"
                                                     style={{ color: "#1E3A20" }}
                                                 >
                                                     Terms & Conditions
@@ -419,7 +421,7 @@ const ContactPage = () => {
                                                 and{" "}
                                                 <Link
                                                     href="/privacy-policy"
-                                                    className="underline underline-offset-2 transition-opacity hover:opacity-60"
+                                                    className="underline underline-offset-2"
                                                     style={{ color: "#1E3A20" }}
                                                 >
                                                     Privacy Policy
@@ -444,9 +446,9 @@ const ContactPage = () => {
                                             }}
                                         />
                                         <p
-                                            className="text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                                            className="text-xs font-medium uppercase tracking-[0.25em]"
                                             style={{
-                                                color: "#1E3A20",
+                                                color: "var(--text-light-supporting)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                             }}
@@ -475,7 +477,7 @@ const ContactPage = () => {
                                         <p
                                             className="text-base leading-relaxed"
                                             style={{
-                                                color: "rgba(30,58,32,0.65)",
+                                                color: "var(--text-light-body)",
                                                 fontFamily:
                                                     "var(--font-dm-sans)",
                                                 fontWeight: 300,

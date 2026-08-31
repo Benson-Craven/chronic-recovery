@@ -47,9 +47,9 @@ const DisclaimerPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -70,7 +70,7 @@ const DisclaimerPage = () => {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -89,9 +89,9 @@ const DisclaimerPage = () => {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -111,9 +111,9 @@ const DisclaimerPage = () => {
                         >
                             {/* Number */}
                             <span
-                                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                                className="mt-1 shrink-0 text-xs tabular-nums"
                                 style={{
-                                    color: "#1E3A20",
+                                    color: "var(--text-light-supporting)",
                                     fontFamily: "var(--font-dm-sans)",
                                     fontWeight: 300,
                                 }}
@@ -137,7 +137,7 @@ const DisclaimerPage = () => {
                                     <p
                                         className="text-base leading-relaxed md:text-lg"
                                         style={{
-                                            color: "rgba(30,58,32,0.65)",
+                                            color: "var(--text-light-body)",
                                             fontFamily: "var(--font-dm-sans)",
                                             fontWeight: 300,
                                         }}
@@ -154,9 +154,9 @@ const DisclaimerPage = () => {
                                                 className="flex items-start gap-4"
                                             >
                                                 <span
-                                                    className="mt-1 shrink-0 text-xs tabular-nums opacity-25"
+                                                    className="mt-1 shrink-0 text-xs tabular-nums"
                                                     style={{
-                                                        color: "#1E3A20",
+                                                        color: "var(--text-light-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,
@@ -170,7 +170,7 @@ const DisclaimerPage = () => {
                                                 <p
                                                     className="text-base leading-relaxed"
                                                     style={{
-                                                        color: "rgba(30,58,32,0.65)",
+                                                        color: "var(--text-light-body)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 300,

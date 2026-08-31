@@ -13,10 +13,7 @@ export default function Blog() {
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            <BreadcrumbJsonLd
-                id="blog-breadcrumb-schema"
-                items={breadcrumbs}
-            />
+            <BreadcrumbJsonLd id="blog-breadcrumb-schema" items={breadcrumbs} />
             <Breadcrumbs items={breadcrumbs} />
             {/* Hero — green */}
             <section
@@ -25,9 +22,9 @@ export default function Blog() {
             >
                 <div className="mx-auto max-w-3xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#C8E6C9",
+                            color: "var(--text-dark-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -48,7 +45,7 @@ export default function Blog() {
                     <p
                         className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
                         style={{
-                            color: "rgba(200,230,201,0.65)",
+                            color: "var(--text-dark-body)",
                             fontFamily: "var(--font-dm-sans)",
                             fontWeight: 300,
                         }}
@@ -66,9 +63,9 @@ export default function Blog() {
             >
                 <div className="mx-auto max-w-6xl">
                     <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em] opacity-50"
+                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
                         style={{
-                            color: "#1E3A20",
+                            color: "var(--text-light-supporting)",
                             fontFamily: "var(--font-dm-sans)",
                         }}
                     >
@@ -108,9 +105,9 @@ export default function Blog() {
                                         {/* Content */}
                                         <div className="flex flex-1 flex-col gap-3 p-7">
                                             <span
-                                                className="text-xs tabular-nums opacity-30"
+                                                className="text-xs tabular-nums"
                                                 style={{
-                                                    color: "#1E3A20",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -123,7 +120,7 @@ export default function Blog() {
                                             </span>
 
                                             <h2
-                                                className="text-xl leading-snug transition-opacity group-hover:opacity-70 md:text-2xl"
+                                                className="text-xl leading-snug md:text-2xl"
                                                 style={{
                                                     fontFamily:
                                                         "var(--font-dm-serif)",
@@ -135,9 +132,9 @@ export default function Blog() {
 
                                             <time
                                                 dateTime={parseBlogDate(date)}
-                                                className="text-xs uppercase tracking-[0.15em] opacity-35"
+                                                className="text-xs uppercase tracking-[0.15em]"
                                                 style={{
-                                                    color: "#1E3A20",
+                                                    color: "var(--text-light-supporting)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -147,9 +144,9 @@ export default function Blog() {
                                             </time>
 
                                             <p
-                                                className="mt-1 text-sm leading-relaxed"
+                                                className="mt-1 text-base leading-relaxed"
                                                 style={{
-                                                    color: "rgba(30,58,32,0.6)",
+                                                    color: "var(--text-light-body)",
                                                     fontFamily:
                                                         "var(--font-dm-sans)",
                                                     fontWeight: 300,
@@ -160,9 +157,9 @@ export default function Blog() {
 
                                             <div className="mt-auto flex items-center gap-2 pt-4">
                                                 <span
-                                                    className="text-xs uppercase tracking-[0.15em] opacity-50 transition-opacity group-hover:opacity-100"
+                                                    className="text-xs uppercase tracking-[0.15em]"
                                                     style={{
-                                                        color: "#1E3A20",
+                                                        color: "var(--text-light-supporting)",
                                                         fontFamily:
                                                             "var(--font-dm-sans)",
                                                         fontWeight: 500,

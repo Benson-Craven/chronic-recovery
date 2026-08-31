@@ -36,9 +36,11 @@ export const NumberRow: React.FC<NumberRowProps> = ({
             }}
         >
             <span
-                className="mt-1 shrink-0 text-xs tabular-nums opacity-30"
+                className="mt-1 shrink-0 text-xs tabular-nums"
                 style={{
-                    color: isGreen ? "#C8E6C9" : "#1E3A20",
+                    color: isGreen
+                        ? "var(--text-dark-supporting)"
+                        : "var(--text-light-supporting)",
                     fontFamily: "var(--font-dm-sans)",
                     fontWeight: 300,
                 }}
@@ -52,8 +54,8 @@ export const NumberRow: React.FC<NumberRowProps> = ({
                     <Text
                         style={{
                             color: isGreen
-                                ? "rgba(200, 230, 201, 0.7)"
-                                : "rgba(30, 58, 32, 0.65)",
+                                ? "var(--text-dark-body)"
+                                : "var(--text-light-body)",
                         }}
                     >
                         {children}
