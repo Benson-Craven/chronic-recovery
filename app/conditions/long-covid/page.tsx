@@ -60,8 +60,8 @@ export default function LongCovidPage() {
                             alt: "",
                         },
                         body: [
-                            "Long covid support must be paced carefully. The aim is not to force exercise or ignore post-exertional symptom flares. Instead, the work starts with understanding your current limits, triggers, fears, and the ways your nervous system responds to exertion, rest, stress, and sensation.",
-                            "For suitable clients, sessions may include nervous system education, somatic tracking, calming threat responses, working with fear of symptoms, and gradually restoring confidence in daily activity.",
+                            "Long covid support should not force exercise or dismiss post-exertional symptom flares. The work starts with understanding your symptoms, concerns, and the ways your nervous system responds to exertion, rest, stress, and sensation.",
+                            "For suitable clients, sessions may include nervous system education, somatic tracking, calming threat responses, working with fear of symptoms, and supporting confidence in daily activity.",
                         ],
                     },
                     {
@@ -102,8 +102,8 @@ export default function LongCovidPage() {
                     ],
                 }}
                 safetyNote={{
-                    heading: "Long covid needs medical oversight",
-                    body: "Please seek medical assessment for ongoing symptoms after covid, especially breathing, chest pain, fainting, neurological changes, fever, or worsening symptoms. This page is educational and does not replace diagnosis or treatment from a medical professional.",
+                    heading: "Your next step",
+                    body: "If you have questions about long covid-related symptoms and this approach, get in touch to discuss whether a first conversation may be useful.",
                 }}
                 relatedLinks={[
                     {

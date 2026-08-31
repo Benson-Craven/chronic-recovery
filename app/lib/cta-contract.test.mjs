@@ -61,3 +61,20 @@ test("Cork service copy avoids the unnatural street-address disclaimer", () => {
         /No home street address is published on this website\./,
     )
 })
+
+test("illustrations are sticky by default while photos remain in normal flow", () => {
+    const editorialSplit = read("app/components/ui/EditorialSplit.tsx")
+
+    assert.match(
+        editorialSplit,
+        /const shouldStick = stickyVisual \?\? isIllustration/,
+    )
+    assert.match(
+        editorialSplit,
+        /shouldStick \? "lg:items-start" : "lg:items-center"/,
+    )
+    assert.match(
+        editorialSplit,
+        /shouldStick && "lg:sticky lg:top-28 lg:self-start"/,
+    )
+})

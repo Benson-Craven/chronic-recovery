@@ -281,12 +281,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    I'm a chronic pain therapist based in
-                                    Rochestown, Cork. I provide educational,
-                                    recovery-oriented support for people
-                                    exploring persistent pain and possible
-                                    neuroplastic symptoms after appropriate
-                                    medical assessment.
+                                    Marsha Canny is a chronic pain therapist
+                                    based in Rochestown, Cork. Her work draws on
+                                    pain neuroscience education, Pain
+                                    Reprocessing Therapy, Dr Howard Schubiner's
+                                    mind-body methods, and a biopsychosocial
+                                    approach to support people with persistent
+                                    pain when serious medical causes have been
+                                    assessed.
                                 </p>
                                 <p
                                     className="mb-4 text-base leading-relaxed"
@@ -296,11 +298,24 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontWeight: 300,
                                     }}
                                 >
-                                    My public profile is listed in the ATNS
-                                    Practitioner & Coach Directory. Please use
-                                    that directory profile and ask me directly
-                                    to verify the training and scope relevant to
-                                    your needs.
+                                    Listed in the ATNS Practitioner & Coach
+                                    Directory and trained in pain neuroscience,
+                                    Pain Reprocessing Therapy, and Dr Howard
+                                    Schubiner's mind-body methods.
+                                </p>
+                                <p
+                                    className="mb-5 text-base leading-relaxed"
+                                    style={{
+                                        color: "rgba(30,58,32,0.68)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                        fontWeight: 300,
+                                    }}
+                                >
+                                    Marsha also brings lived experience of
+                                    recovering from long-term migraines and neck
+                                    pain, which informs her compassionate,
+                                    practical approach to chronic pain recovery
+                                    work.
                                 </p>
                                 <Link
                                     href={authorProfile.url}
@@ -310,7 +325,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                         fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
-                                    About me
+                                    About Marsha
                                 </Link>
                             </div>
                         </div>
@@ -338,7 +353,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Have questions?
+                                Ready to begin?
                             </p>
                             <h2
                                 className="text-5xl leading-[1.05] md:text-6xl"
@@ -347,9 +362,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                     fontFamily: "var(--font-dm-serif)",
                                 }}
                             >
-                                Explore your next step.
+                                Recovery is possible.
                                 <br />
-                                <em>Ask before you decide.</em>
+                                <em>Let&apos;s talk.</em>
                             </h2>
                         </div>
 

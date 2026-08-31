@@ -48,7 +48,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
-                            Your next step
+                            Take the first step
                         </p>
                         <h2
                             className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
@@ -57,9 +57,9 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                                 fontFamily: "var(--font-dm-serif)",
                             }}
                         >
-                            Ready to explore
+                            Ready to feel
                             <br />
-                            <em>your next step?</em>
+                            <em>like yourself again?</em>
                         </h2>
                     </div>
 
@@ -73,20 +73,16 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                             }}
                         >
                             <p>
-                                If persistent pain has continued despite
-                                previous care, a consultation can help you
-                                explore whether this approach is relevant to
-                                your situation.
+                                Tired of being told there&apos;s nothing more
+                                that can be done?
                             </p>
-                            <p
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-serif)",
-                                    fontStyle: "italic",
-                                    fontSize: "1.15rem",
-                                }}
-                            >
-                                Ask questions before deciding your next step.
+                            <p>
+                                Ready for an approach that addresses the root
+                                cause of your pain?
+                            </p>
+                            <p>
+                                Looking for someone who truly believes in your
+                                capacity to heal?
                             </p>
                         </div>
 
@@ -142,6 +138,17 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                                 </span>
                             </TrackedPhoneLink>
                         </CtaActionRow>
+                        <p
+                            className="max-w-sm text-xs leading-relaxed"
+                            style={{
+                                color: "rgba(30,58,32,0.4)",
+                                fontFamily: "var(--font-dm-sans)",
+                            }}
+                        >
+                            Reach out via the contact form, phone, or WhatsApp.
+                            I typically respond within 24 hours and we&apos;ll
+                            schedule at a time that works for you.
+                        </p>
                     </div>
                 </div>
             </div>

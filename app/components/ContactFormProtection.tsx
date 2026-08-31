@@ -59,14 +59,14 @@ export function ContactFormFeedback({
                         source="contact_form_error"
                         className="underline underline-offset-2"
                     >
-                        call me
+                        call
                     </TrackedPhoneLink>{" "}
                     or{" "}
                     <a
                         href="https://wa.me/353871025108"
                         className="underline underline-offset-2"
                     >
-                        WhatsApp me
+                        WhatsApp
                     </a>{" "}
                     +353 (0) 87-102-5108.
                 </p>

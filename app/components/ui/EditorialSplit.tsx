@@ -27,15 +27,16 @@ export function EditorialSplit({
     visual,
     reverse = false,
     surface = "cream",
-    stickyVisual = false,
+    stickyVisual,
 }: EditorialSplitProps) {
     const isIllustration = visual.kind === "illustration"
+    const shouldStick = stickyVisual ?? isIllustration
 
     return (
         <div
             className={cn(
                 "mx-auto grid max-w-5xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20",
-                stickyVisual ? "lg:items-start" : "lg:items-center",
+                shouldStick ? "lg:items-start" : "lg:items-center",
             )}
         >
             <div className={cn(reverse && "lg:order-2")}>{children}</div>
@@ -43,7 +44,7 @@ export function EditorialSplit({
             <div
                 className={cn(
                     reverse && "lg:order-1",
-                    stickyVisual && "lg:sticky lg:top-28 lg:self-start",
+                    shouldStick && "lg:sticky lg:top-28 lg:self-start",
                 )}
             >
                 <div

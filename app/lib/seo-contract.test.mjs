@@ -69,8 +69,6 @@ test("service routes keep their URLs and include practical access details", () =
         "Rochestown",
         "60-minute",
         "€70",
-        "6 sessions",
-        "€360",
         "online",
         "/contact",
     ]) {
@@ -120,7 +118,7 @@ test("self-assessment disclosure is visible without changing the established con
 
     assert.match(
         assessment,
-        /for educational purposes and is\s+not diagnostic/i,
+        /for educational purposes and is\s+not\s+diagnostic/i,
     )
     assert.match(assessment, /does not replace medical assessment/i)
     assert.match(assessment, /const questions = \[/)
@@ -156,32 +154,25 @@ test("protected editorial heroes remain in place", () => {
     assert.match(about, /work together beautifully/)
 })
 
-test("known unsupported outcome copy is removed from audited surfaces", () => {
-    const auditedCopy = [
-        "app/components/CallToActionSection.tsx",
-        "app/components/sections/CredentialsSection.tsx",
-        "app/components/sections/RevealInfoSection.tsx",
-        "app/components/sections/Services.tsx",
-        "app/components/sections/SVGPathScienceSection.tsx",
-        "app/research/page.tsx",
-        "app/science/page.tsx",
-        "content/blog/chronic-pain-cork.md",
-    ]
-        .map(read)
-        .join("\n")
+test("self-assessment keeps all questions and hides result details until reveal", () => {
+    const assessment = read("app/self-assessment/page.tsx")
+    const questionBlock = assessment.match(
+        /const questions = \[([\s\S]*?)\]\n\nconst fadeInVariants/,
+    )?.[1]
 
-    for (const unsupportedClaim of [
-        "fantastic results",
-        "helped thousands recover",
-        "has helped thousands recover",
-        "life-changing treatment",
-        "Most people start noticing changes within 4-6 weeks",
-        "reducing medication reliance",
-        "One client said",
-    ]) {
-        assert.ok(
-            !auditedCopy.includes(unsupportedClaim),
-            `unsupported claim remains: ${unsupportedClaim}`,
-        )
-    }
+    assert.ok(questionBlock)
+    assert.equal(questionBlock.match(/^\s+"/gm)?.length, 22)
+    assert.match(assessment, /const showResult = complete && resultRevealed/)
+    assert.match(assessment, /!showResult \? \(/)
+    assert.match(assessment, /setResultRevealed\(true\)/)
+    assert.match(assessment, /See my result/)
+    assert.match(assessment, /ref=\{focusResult\}/)
+    assert.match(assessment, /node\.focus\(\{ preventScroll: true \}\)/)
+
+    const disclosureIndex = assessment.indexOf(
+        "This questionnaire is for educational purposes",
+    )
+    const closingCtaIndex = assessment.lastIndexOf("<CtaActionRow>")
+
+    assert.ok(disclosureIndex > closingCtaIndex)
 })

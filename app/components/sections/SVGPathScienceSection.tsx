@@ -2,14 +2,7 @@
 
 import React, { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import {
-    Brain,
-    AlertTriangle,
-    Activity,
-    ThumbsUp,
-    Shield,
-    Smile,
-} from "lucide-react"
+import { Brain, AlertTriangle, Activity, ThumbsUp, Smile } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -97,10 +90,10 @@ const SVGPathScienceSection = () => {
                             fontWeight: 300,
                         }}
                     >
-                        Persistent pain can have different and overlapping
-                        causes. For some people, nervous-system sensitisation
-                        may be one part of the picture after appropriate medical
-                        assessment.
+                        Chronic pain isn&apos;t always caused by ongoing injury.
+                        Many long-lasting pain conditions come from learned
+                        neural pathways in the brain, patterns that continue to
+                        fire even after the body has healed.
                     </motion.p>
                 </div>
 
@@ -108,7 +101,7 @@ const SVGPathScienceSection = () => {
                     Layout:
                     Row 1–2: [Image 2×2] [Signals 1×2] [Treatment 1×2]
                     Row 3:   [Good News 4×1                             ]
-                    Row 4:   [PRT 2×1          ] [Biopsychosocial 2×1  ]
+                    Row 4:   [PRT 4×1                                  ]
                 */}
                 <div
                     id="treatment"
@@ -147,7 +140,7 @@ const SVGPathScienceSection = () => {
                                     fontFamily: "var(--font-dm-serif)",
                                 }}
                             >
-                                Pain is real and shaped by brain-body processing
+                                All pain is real, and it starts in the brain
                             </h3>
                             <p
                                 className="mb-5 text-sm leading-relaxed"
@@ -157,10 +150,10 @@ const SVGPathScienceSection = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                Pain is a protective experience shaped by the
-                                nervous system, signals from the body, past
-                                experience, and context. A brain-body
-                                perspective does not make pain imagined.
+                                95% of brain function is unconscious, constantly
+                                interpreting signals to determine safety or
+                                danger. Pain originates here, not in imagined
+                                injury.
                             </p>
                             <BentoLink
                                 href="/contact"
@@ -174,8 +167,8 @@ const SVGPathScienceSection = () => {
                     <BentoCard
                         delay={0.1}
                         icon={<AlertTriangle className="h-4 w-4" />}
-                        title="Signals that remain sensitive"
-                        body="For some people, protective warning responses may stay more sensitive after the original trigger has changed. That possibility needs to be considered alongside medical assessment."
+                        title="Signals that won't switch off"
+                        body="Warning signals can persist long after healing, creating a cycle of chronic pain. Physical symptoms are the language between your unconscious and conscious brain, and that language can be retrained."
                         href="/self-assessment"
                         linkLabel="Take the Self-Assessment"
                         bg="cream"
@@ -197,10 +190,10 @@ const SVGPathScienceSection = () => {
                         extra={
                             <ul className="mt-3 space-y-2">
                                 {[
-                                    "Pain science education",
-                                    "Pain Reprocessing Therapy where appropriate",
-                                    "Guided symptom reflection",
-                                    "Clear medical-care boundaries",
+                                    "Pain Reprocessing Therapy",
+                                    "Somatic Tracking Techniques",
+                                    "Graded Exposure Therapy",
+                                    "Emotional Awareness & Expression Therapy",
                                 ].map((t, i) => (
                                     <li
                                         key={i}
@@ -234,38 +227,25 @@ const SVGPathScienceSection = () => {
                     <BentoCard
                         delay={0.1}
                         icon={<ThumbsUp className="h-4 w-4" />}
-                        title="Why context matters"
-                        body="The nervous system can change over time. For some people, understanding pain and responding to sensations with less threat may be helpful alongside appropriate medical care."
+                        title="The good news"
+                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
                         href="/contact"
-                        linkLabel="Ask a Question"
+                        linkLabel="Start Your Healing"
                         bg="cream"
                         colSpan={4}
                         rowSpan={1}
                     />
 
-                    {/* 05 — PRT 2×1 */}
+                    {/* 05 — PRT 4×1 */}
                     <BentoCard
                         delay={0.1}
                         icon={<Smile className="h-4 w-4" />}
                         title="Pain Reprocessing Therapy"
-                        body="PRT uses education and guided attention to help suitable participants consider sensations with less threat. It does not diagnose the cause of pain or replace medical assessment."
+                        body="PRT helps retrain the brain to turn off misfiring pain signals, especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
                         href="/science"
                         linkLabel="Learn More"
                         bg="green"
-                        colSpan={2}
-                        rowSpan={1}
-                    />
-
-                    {/* 06 — Biopsychosocial 2×1 */}
-                    <BentoCard
-                        delay={0.15}
-                        icon={<Shield className="h-4 w-4" />}
-                        title="Biopsychosocial method"
-                        body="A whole-person perspective considers biological, psychological, and social influences without assuming that any one factor explains a person's pain."
-                        href="/science"
-                        linkLabel="Explore the Science"
-                        bg="cream"
-                        colSpan={2}
+                        colSpan={4}
                         rowSpan={1}
                     />
                 </div>

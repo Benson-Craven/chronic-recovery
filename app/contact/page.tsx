@@ -136,7 +136,7 @@ const ContactPage = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                Contact me
+                                Contact us
                                 <br />
                                 <em>today</em>
                             </h2>
@@ -408,7 +408,7 @@ const ContactPage = () => {
                                                     fontWeight: 300,
                                                 }}
                                             >
-                                                By continuing, you agree to the{" "}
+                                                By continuing, you agree to our{" "}
                                                 <Link
                                                     href="/terms-and-conditions"
                                                     className="underline underline-offset-2 transition-opacity hover:opacity-60"

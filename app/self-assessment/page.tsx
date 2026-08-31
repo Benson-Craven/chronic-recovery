@@ -206,20 +206,6 @@ export default function SelfAssessment() {
                 </div>
 
                 <div className="mx-auto mt-16 max-w-3xl">
-                    <aside
-                        className="mb-10 border-l-2 px-5 py-1 text-sm leading-relaxed md:text-base"
-                        style={{
-                            borderColor: "rgba(30,58,32,0.35)",
-                            color: "rgba(30,58,32,0.65)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
-                        This questionnaire is for educational purposes and is
-                        not diagnostic. It does not replace medical assessment
-                        or advice from a qualified healthcare professional.
-                    </aside>
-
                     {/* Questions */}
                     <div
                         className="divide-y"
@@ -664,6 +650,19 @@ export default function SelfAssessment() {
                     </div>
                 </div>
             </motion.section>
+
+            <aside
+                className="mx-auto max-w-3xl px-6 pb-12 text-xs leading-relaxed"
+                style={{
+                    color: "rgba(30,58,32,0.5)",
+                    fontFamily: "var(--font-dm-sans)",
+                    fontWeight: 300,
+                }}
+            >
+                This questionnaire is for educational purposes and is not
+                diagnostic. It does not replace medical assessment or advice
+                from a qualified healthcare professional.
+            </aside>
         </div>
     )
 }

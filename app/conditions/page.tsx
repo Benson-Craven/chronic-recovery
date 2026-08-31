@@ -93,9 +93,9 @@ const ConditionsPage = () => {
                         className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Persistent pain
+                        Chronic pain
                         <br />
-                        <em>topics people ask about</em>
+                        <em>conditions I treat</em>
                     </h1>
                     <div
                         className="h-px w-full"
@@ -109,10 +109,9 @@ const ConditionsPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        The examples below are not diagnoses and do not mean
-                        that I treat every named condition. Suitability depends
-                        on the person's symptoms, medical context, and the scope
-                        of my service.
+                        Many conditions once considered permanent have been
+                        shown to have a neuroplastic component, meaning recovery
+                        is possible. This is not an exhaustive list.
                     </p>
                 </motion.div>
             </section>
@@ -150,9 +149,9 @@ const ConditionsPage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Topics that
+                            Conditions that
                             <br />
-                            <em>may be discussed</em>
+                            <em>are treatable</em>
                         </h2>
                         <p
                             className="text-sm opacity-40"
@@ -162,8 +161,8 @@ const ConditionsPage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            Inclusion here is not a treatment claim or a
-                            substitute for medical assessment.
+                            This is not an exhaustive list of all treatable
+                            conditions.
                         </p>
                     </div>
                 </EditorialSplit>
@@ -241,9 +240,9 @@ const ConditionsPage = () => {
                         className="mb-4 text-4xl leading-[1.1] text-white md:text-5xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Conditions and situations
+                        Conditions that are
                         <br />
-                        <em>outside my service</em>
+                        <em>not treatable here</em>
                     </h2>
                     <p
                         className="mb-14 max-w-xl text-sm leading-relaxed opacity-50"
@@ -253,9 +252,9 @@ const ConditionsPage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        These require assessment and care from appropriately
-                        qualified medical professionals. This service does not
-                        treat them.
+                        Note: people with structural or disease-related issues
+                        alongside chronic pain can still benefit from this
+                        treatment.
                     </p>
 
                     <div
@@ -416,9 +415,8 @@ const ConditionsPage = () => {
                                 >
                                     Take the self-assessment questionnaire
                                 </Link>{" "}
-                                as an educational reflection. It is not
-                                diagnostic and does not determine whether my
-                                service is a good fit.
+                                to help determine whether this approach is a
+                                good fit.
                             </p>
                         </motion.div>
                     </div>
@@ -472,10 +470,11 @@ const ConditionsPage = () => {
                                 }}
                             >
                                 <p>
-                                    If a symptom or condition above is relevant
-                                    to you, ask me what falls within my scope
-                                    and what medical assessment should happen
-                                    before considering a session.
+                                    If your condition appears above, or if
+                                    you&apos;ve been living with unexplained
+                                    pain that hasn&apos;t responded to
+                                    conventional treatment, this approach may be
+                                    the answer you&apos;ve been looking for.
                                 </p>
                                 <p
                                     style={{
@@ -485,8 +484,7 @@ const ConditionsPage = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    A conversation can clarify fit and
-                                    boundaries.
+                                    Recovery is possible. Let&apos;s talk.
                                 </p>
                             </div>
 

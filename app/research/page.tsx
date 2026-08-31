@@ -14,33 +14,33 @@ const studies = [
         title: "The Boulder Chronic Back Pain Study",
         link: "https://pubmed.ncbi.nlm.nih.gov/34586357/",
         description:
-            "In a randomised trial of 151 adults with primary chronic back pain, 33 of 50 people assigned to PRT reported being pain-free or nearly pain-free immediately after treatment. Group differences were maintained at one year.",
+            "66% became pain or nearly pain-free with pain reprocessing therapy, maintained at one year.",
         stat: "66%",
-        statLabel: "33 of 50 in the PRT group",
+        statLabel: "pain-free",
     },
     {
         title: "Harvard Psychophysiologic Symptom Relief Therapy (PSRT)",
         link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8476063/",
         description:
-            "In this 35-person pilot study of adults with nonspecific chronic back pain, 7 of 11 people in the PSRT group reported being pain-free at 26 weeks, compared with 3 of 12 in MBSR and 2 of 12 in usual care.",
+            "For chronic back pain, 64% of patients reported being pain-free in the PSRT arm versus 25% in MBSR and 17% in usual care.",
         stat: "64%",
-        statLabel: "7 of 11 in a pilot study",
+        statLabel: "pain-free vs 17% usual care",
     },
     {
-        title: "PSRT for Post-Acute Sequelae of COVID-19 (preprint)",
+        title: "Harvard PSRT for Post-Acute Sequelae of COVID-19",
         link: "https://www.medrxiv.org/content/10.1101/2022.10.07.22280732v1.full-text",
         description:
-            "This small preprint reported a median 55% reduction in symptom scores over 13 weeks. It had not completed peer review and should not be treated as settled evidence.",
+            "Up to a 55% decrease in symptoms over 13 weeks. Mean symptom duration prior to the study was 267 days.",
         stat: "55%",
-        statLabel: "median change in a preprint",
+        statLabel: "symptom reduction",
     },
     {
         title: "Emotional Awareness and Expression Therapy, CBT, and Education for Fibromyalgia",
         link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5680092/",
         description:
-            "In a 230-person fibromyalgia trial, EAET did not differ from education on the primary pain-severity outcome. It performed better on several secondary outcomes and had some advantages over CBT.",
+            "A randomised controlled trial showing significant benefit from EAET versus CBT and FM education.",
         stat: "230",
-        statLabel: "participants in the trial",
+        statLabel: "randomised controlled trial",
     },
 ]
 
@@ -80,9 +80,9 @@ const ResearchStudies = () => {
                         className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        Selected research
+                        The research
                         <br />
-                        <em>and its limits</em>
+                        <em>behind the results</em>
                     </h1>
                     <div
                         className="h-px w-full"
@@ -96,10 +96,9 @@ const ResearchStudies = () => {
                             fontWeight: 300,
                         }}
                     >
-                        These studies examine different approaches in specific
-                        populations. Their designs, comparison groups, and
-                        limitations matter, and no study can predict an
-                        individual's outcome.
+                        These peer-reviewed studies demonstrate the
+                        effectiveness of mind-body approaches for chronic pain.
+                        The evidence is clear: the brain can be retrained.
                     </p>
                 </motion.div>
             </section>
@@ -138,9 +137,9 @@ const ResearchStudies = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Research
+                            Peer-reviewed
                             <br />
-                            <em>with study context</em>
+                            <em>research archive</em>
                         </h2>
 
                         <div
@@ -283,9 +282,9 @@ const ResearchStudies = () => {
                             className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                             style={{ fontFamily: "var(--font-dm-serif)" }}
                         >
-                            Read the findings
+                            Science is catching up
                             <br />
-                            <em>in context</em>
+                            <em>to what patients know</em>
                         </h2>
                         <div
                             className="h-px w-full"
@@ -296,11 +295,11 @@ const ResearchStudies = () => {
                         {[
                             {
                                 number: "01",
-                                body: "These studies cover different interventions and populations. Two are relatively small back-pain studies, one is a fibromyalgia trial, and the Long COVID item is a preprint.",
+                                body: "The biopsychosocial method is now taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. This is no longer fringe science.",
                             },
                             {
                                 number: "02",
-                                body: "The results support further investigation of brain-body approaches for some people. They do not establish that an individual's pain is neuroplastic or replace medical assessment.",
+                                body: "These studies represent a new understanding of pain: that the brain can both create and resolve it. If your pain hasn't responded to structural treatments, there is likely a neuroplastic component.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -357,9 +356,9 @@ const ResearchStudies = () => {
                                 color: "rgba(200,230,201,0.8)",
                             }}
                         >
-                            "Research can inform a conversation,
+                            "What the brain has learned,
                             <br />
-                            but it cannot promise an outcome."
+                            it can unlearn."
                         </motion.p>
                     </div>
                 </EditorialSplit>
@@ -397,9 +396,11 @@ const ResearchStudies = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                Want to discuss
+                                The evidence
                                 <br />
-                                <em>whether it fits?</em>
+                                <em>is there.</em>
+                                <br />
+                                Are you?
                             </h2>
                         </div>
 
@@ -413,9 +414,11 @@ const ResearchStudies = () => {
                                 }}
                             >
                                 <p>
-                                    A consultation can help you ask how this
-                                    research relates to your history, medical
-                                    assessment, and goals.
+                                    The research shows it&apos;s possible.
+                                    Thousands of people have recovered from
+                                    conditions conventional medicine
+                                    couldn&apos;t resolve, using exactly this
+                                    approach.
                                 </p>
                                 <p
                                     style={{
@@ -425,8 +428,7 @@ const ResearchStudies = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    Ask questions before deciding your next
-                                    step.
+                                    You could be next.
                                 </p>
                             </div>
 

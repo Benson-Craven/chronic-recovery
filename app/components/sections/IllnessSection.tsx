@@ -61,8 +61,8 @@ const IllnessSection = () => {
                         </Eyebrow>
 
                         <Heading as="h3" className="mb-10 text-white">
-                            Have questions about <em>persistent</em> symptoms
-                            and whether my service <em>may fit?</em>
+                            Have you seen <em>multiple</em> professionals
+                            without finding <em>lasting relief?</em>
                         </Heading>
 
                         <div
@@ -79,16 +79,15 @@ const IllnessSection = () => {
                                     fontFamily: "var(--font-dm-sans)",
                                 }}
                             >
-                                Not seeing your symptoms here?
+                                Not listed above?
                             </p>
                             <Text
                                 className="text-base"
                                 style={{ color: "rgba(200,230,201,0.65)" }}
                             >
-                                These examples do not establish a diagnosis or
-                                promise that my service is appropriate. You can
-                                ask me about my scope and suitability before
-                                booking.
+                                I&apos;m here to help with any illness or
+                                concern, even if it&apos;s not listed. Reach out
+                                to learn more and find the relief you deserve.
                             </Text>
                             <div className="mt-6 max-w-sm">
                                 <WhatsAppCta

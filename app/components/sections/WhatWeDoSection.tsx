@@ -40,7 +40,7 @@ const WeDoSection = () => {
     return (
         <Section id="mission" variant="cream">
             <Container ref={container} size="wide">
-                <Eyebrow>My approach</Eyebrow>
+                <Eyebrow>Our approach</Eyebrow>
                 <Divider className="mb-16" />
 
                 <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
@@ -59,19 +59,20 @@ const WeDoSection = () => {
                         <Heading className="mb-8">
                             The biopsychosocial
                             <br />
-                            <em>approach to support</em>
+                            <em>approach to healing</em>
                         </Heading>
 
                         <Divider className="mb-8 w-12" />
 
                         <Text className="mb-10">
-                            A biopsychosocial perspective considers how
-                            biological, psychological, and social factors may
-                            interact with persistent pain. After appropriate
-                            medical assessment, it can offer some people a
-                            useful framework for education and reflection
-                            without assuming a diagnosis or promising an
-                            outcome.
+                            There is new help for chronic pain sufferers, and
+                            for people with medically unexplained diagnoses such
+                            as IBS, long covid, chronic fatigue, migraines,
+                            anxiety, and depression. If you&apos;ve seen several
+                            medical professionals and are still not getting
+                            better, you may benefit from this approach. I work
+                            with people of all ages on recovery-oriented,
+                            evidence-informed support.
                         </Text>
 
                         <CtaActionRow>

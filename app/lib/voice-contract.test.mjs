@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from "node:fs"
 import { dirname, join, relative } from "node:path"
 import { fileURLToPath } from "node:url"
 import test from "node:test"
+import ts from "typescript"
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "../..")
 
@@ -21,122 +22,135 @@ function sourceFiles(directory) {
     })
 }
 
-const excludedPublicCopyPaths = new Set([
-    "app/disclaimer/page.tsx",
-    "app/lib/seo.tsx",
-    "app/privacy-policy/page.tsx",
-    "app/terms-and-conditions/page.tsx",
-])
+function publicText(path) {
+    const source = readFileSync(path, "utf8")
+
+    if (path.endsWith(".md")) return source
+
+    const sourceFile = ts.createSourceFile(
+        path,
+        source,
+        ts.ScriptTarget.Latest,
+        true,
+        ts.ScriptKind.TSX,
+    )
+    const text = []
+
+    function visit(node) {
+        if (ts.isJsxText(node)) text.push(node.getText(sourceFile))
+        if (
+            ts.isStringLiteral(node) ||
+            ts.isNoSubstitutionTemplateLiteral(node)
+        ) {
+            text.push(node.text)
+        }
+        ts.forEachChild(node, visit)
+    }
+
+    visit(sourceFile)
+    return text.join("\n")
+}
 
 const publicCopySources = [
     ...sourceFiles(join(repoRoot, "app")),
     ...sourceFiles(join(repoRoot, "content", "blog")),
-].filter((path) => {
-    const relativePath = relative(repoRoot, path)
+]
 
-    return (
-        !relativePath.endsWith("/layout.tsx") &&
-        !excludedPublicCopyPaths.has(relativePath)
+test("approved restored wording remains on shared public surfaces", () => {
+    assert.match(
+        read("app/page.tsx"),
+        /Based in Ireland, supporting clients online\s+worldwide\./,
+    )
+    assert.match(
+        read("app/components/sections/Approach.tsx"),
+        /The treatment I provide can support chronic pain\s+recovery, not just coping with symptoms\./,
+    )
+    assert.match(
+        read("app/components/sections/CredentialsSection.tsx"),
+        /<Eyebrow>Credentials & training<\/Eyebrow>/,
+    )
+    assert.match(read("app/components/Footer.tsx"), /Helping you recover,/)
+    assert.match(read("app/components/Custom404Page.tsx"), /Get in touch/)
+    assert.match(read("app/contact/page.tsx"), /Contact us/)
+    assert.match(read("app/blog/[slug]/page.tsx"), /About Marsha/)
+})
+
+test("approved page-specific exceptions remain explicit", () => {
+    const about = read("app/components/sections/RevealInfoSection.tsx")
+    const credentials = read("app/components/sections/CredentialsSection.tsx")
+    const homepageConditions = read(
+        "app/components/sections/IllnessSection.tsx",
+    )
+    const homepageScience = read(
+        "app/components/sections/SVGPathScienceSection.tsx",
+    )
+    const longCovid = read("app/conditions/long-covid/page.tsx")
+    const prt = read("app/treatments/pain-reprocessing-therapy/page.tsx")
+    const science = read("app/science/page.tsx")
+
+    assert.doesNotMatch(
+        about,
+        /trainingItems|id="credentials-training"|A careful fit|Clear expectations/,
+    )
+    assert.match(homepageConditions, /Still unsure\?/)
+    assert.match(homepageConditions, /source="homepage_conditions"/)
+    assert.match(credentials, /View my ATNS directory profile/)
+    assert.doesNotMatch(homepageScience, /Biopsychosocial method/)
+    assert.match(
+        homepageScience,
+        /title="Pain Reprocessing Therapy"[\s\S]*?colSpan=\{4\}/,
+    )
+    assert.doesNotMatch(longCovid, /Long covid needs medical oversight/i)
+    assert.match(longCovid, /Your next step/)
+    assert.match(
+        prt,
+        /Pain Reprocessing Therapy may help suitable people of all ages with neuroplastic chronic pain/,
+    )
+    assert.match(prt, /title: "The Boulder Chronic Back Pain Study"/)
+    assert.match(
+        prt,
+        /title: "Pain Reprocessing Therapy vs Placebo and Usual Care: 5-Year Follow-Up"/,
+    )
+    assert.match(science, /Evidence-based[\s\S]*treatment approaches/)
+    assert.match(
+        science,
+        /I have specialised training in methods developed by Dr Howard Schubiner and I am listed in the Association for the Treatment of Neuroplastic Symptoms Practitioner & Coach Directory\./,
     )
 })
 
-test("owner-spoken public copy uses Marsha's first-person voice", () => {
-    const disallowedConstructions = [
-        /\bMarsha then\b/i,
-        /\bAsk Marsha\b/i,
-        /\bMarsha(?: Canny)? offers\b/i,
-        /\bMarsha(?:'|’)s scope\b/i,
-        /\bMarsha Canny describes her work\b/i,
-        /\bMarsha Canny is a chronic pain therapist\b/i,
-        /\bSessions are provided by Marsha Canny\b/i,
-        /\bHer public ATNS\b/i,
-        /\btell Marsha\b/i,
-        /\bcontact Marsha\b/i,
-        /\bhealthcare professional or Marsha\b/i,
-        /\bAbout Marsha\b/i,
-        /\bView Marsha(?:'|’)s\b/i,
-        /\bContact us\b/i,
-        /\bOur approach\b/i,
-        /\bour sessions end\b/i,
+test("public copy omits packages, free calls, pacing language and dash characters", () => {
+    const disallowed = [
+        /€\s?360/i,
+        /\b(?:six|6)[ -]session package\b/i,
+        /\bpackage of (?:six|6) sessions\b/i,
+        /\bfree (?:consultation|discovery call|call)\b/i,
+        /\b(?:pacing|paced)\b/i,
+        /[—–]/,
     ]
 
     for (const path of publicCopySources) {
-        const source = readFileSync(path, "utf8")
+        const source = publicText(path)
         const relativePath = relative(repoRoot, path)
 
-        for (const construction of disallowedConstructions) {
+        for (const pattern of disallowed) {
             assert.doesNotMatch(
                 source,
-                construction,
-                `${relativePath} uses third-person or implied team copy`,
+                pattern,
+                `${relativePath} contains disallowed public copy`,
             )
         }
     }
 })
 
-test("approved named Marsha contexts remain explicit", () => {
+test("article and practitioner identity keep the approved named contexts", () => {
     assert.match(read("app/components/WhatsAppLink.tsx"), /WhatsApp Marsha/)
     assert.match(read("app/blog/[slug]/page.tsx"), /By \{authorProfile\.name\}/)
     assert.match(
         read("app/components/sections/RevealInfoSection.tsx"),
         /alt="Marsha Canny of Chronic Pain Recovery Cork"/,
     )
-    assert.match(
-        read("app/locations/chronic-pain-management-ireland-online/page.tsx"),
-        /description:\s+"Online chronic pain support across Ireland with Marsha Canny/,
-    )
-})
 
-test("shared owner-spoken surfaces use explicit first person", () => {
-    assert.match(
-        read("app/components/sections/CredentialsSection.tsx"),
-        /I describe my work as educational/,
-    )
-    assert.match(
-        read("app/components/sections/WhatWeDoSection.tsx"),
-        /<Eyebrow>My approach<\/Eyebrow>/,
-    )
-    assert.match(read("app/contact/page.tsx"), /Contact me/)
-    assert.match(read("app/components/ContactFormProtection.tsx"), /call me/)
-    assert.match(
-        read("app/components/Footer.tsx"),
-        /I help you explore recovery/,
-    )
-    assert.match(
-        read("app/components/Custom404Page.tsx"),
-        /Get in touch with me/,
-    )
-    assert.match(
-        read("app/blog/[slug]/page.tsx"),
-        /I'm a chronic pain therapist based in/,
-    )
-    assert.match(read("app/blog/[slug]/page.tsx"), /About me/)
-})
-
-test("service landing pages introduce Marsha once before using first person", () => {
-    for (const path of [
-        "app/locations/chronic-pain-management-cork/page.tsx",
-        "app/locations/chronic-pain-management-ireland-online/page.tsx",
-        "app/locations/chronic-pain-management-dublin-online/page.tsx",
-        "app/treatments/pain-reprocessing-therapy/page.tsx",
-    ]) {
-        const source = read(path)
-
-        assert.equal(
-            source.match(/I'm Marsha Canny/g)?.length,
-            1,
-            `${path} should have one first-person introduction`,
-        )
-    }
-})
-
-test("structured author identity remains third person", () => {
     const seo = read("app/lib/seo.tsx")
-
     assert.match(seo, /name: "Marsha Canny"/)
     assert.match(seo, /"@type": "Person"/)
-    assert.match(
-        seo,
-        /bio: "Marsha Canny is a chronic pain therapist based in Rochestown, Cork\. She provides/,
-    )
 })

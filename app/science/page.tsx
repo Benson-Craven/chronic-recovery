@@ -46,9 +46,9 @@ const SciencePage = () => {
                         >
                             Understanding how
                             <br />
-                            <em>pain signals can persist</em>
+                            <em>your brain creates pain</em>
                             <br />
-                            in a whole-person context
+                            and how to turn it off
                         </h1>
                         <div
                             className="h-px w-full"
@@ -62,10 +62,9 @@ const SciencePage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            Pain is influenced by the nervous system, the body,
-                            and a person's wider context. Research into these
-                            interactions may offer useful options for some
-                            people alongside appropriate medical care.
+                            The most recent science shows that many chronic pain
+                            conditions originate in the brain, and that gives us
+                            a powerful new path to healing.
                         </p>
                     </motion.div>
                 </div>
@@ -117,19 +116,19 @@ const SciencePage = () => {
                             {[
                                 {
                                     number: "01",
-                                    body: "Pain is a real protective experience produced through the nervous system. It is shaped by signals from the body, the brain's interpretation of threat, and the person's wider context.",
+                                    body: "All pain originates in the brain, and to treat chronic pain, you must start with the brain. These insights come from the most recent scientific studies into the causes of chronic pain.",
                                 },
                                 {
                                     number: "02",
-                                    body: "When symptoms persist, a biopsychosocial perspective can help someone consider biological, psychological, and social influences without assuming that one factor explains everything.",
+                                    body: "There is new help for chronic pain sufferers, and for people with medically unexplained diagnoses such as IBS, long covid, chronic fatigue, migraine, anxiety, back pain, and fibromyalgia. If you've seen several medical professionals and are still not getting better, you may benefit from this approach.",
                                 },
                                 {
                                     number: "03",
-                                    body: "For some people, nervous-system sensitisation may contribute to persistent pain after appropriate medical assessment. Stress, fear, sleep, past experiences, and daily demands can interact with symptoms, but none is automatically the cause.",
+                                    body: 'Sufferers of chronic pain are often unaware that pain can get "stuck" in the body when neural circuits keep sending pain signals, even after the body is safe. This can happen for many reasons, including stress, trauma, or unprocessed emotions.',
                                 },
                                 {
                                     number: "04",
-                                    body: "Evidence from specific study populations cannot diagnose an individual or guarantee a result. The research is most useful when its methods and limits are discussed openly.",
+                                    body: "The biopsychosocial method is an evidence-informed approach to supporting chronic pain recovery and is now being taught to medical practitioners worldwide, including in Australia, the US, and the NHS in the UK. I am a graduate of Dr Howard Schubiner, a pioneer in mind-body medicine. I have specialised training in methods developed by Dr Howard Schubiner and I am listed in the Association for the Treatment of Neuroplastic Symptoms Practitioner & Coach Directory.",
                                 },
                             ].map((item, index) => (
                                 <motion.div
@@ -201,13 +200,13 @@ const SciencePage = () => {
                                 fontFamily: "var(--font-dm-sans)",
                             }}
                         >
-                            Contributing factors
+                            Root causes
                         </p>
                         <h2
                             className="text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
                             style={{ fontFamily: "var(--font-dm-serif)" }}
                         >
-                            What can influence
+                            What causes
                             <br />
                             <em>chronic pain?</em>
                         </h2>
@@ -220,16 +219,16 @@ const SciencePage = () => {
                             >
                                 {[
                                     {
-                                        title: "Nervous-system sensitisation",
-                                        body: "For some people, protective pain responses may remain more sensitive after the original trigger has changed.",
+                                        title: "Learned Neural Pathways",
+                                        body: "Your brain created pain pathways when there was an injury, but didn't turn them off when you healed.",
                                     },
                                     {
-                                        title: "Stress and emotional context",
-                                        body: "Stress and emotional experiences may affect symptoms and the nervous system without making pain imagined or proving a single cause.",
+                                        title: "Stress & Unprocessed Emotions",
+                                        body: "Chronic stress, trauma, and emotional pain can activate danger signals in your nervous system.",
                                     },
                                     {
-                                        title: "Fear and avoidance",
-                                        body: "Concern about pain or damage can shape activity and confidence. Any return to activity should respect medical advice and individual limits.",
+                                        title: "Fear & Avoidance",
+                                        body: 'Fear of movement and beliefs that your body is "broken" reinforce and entrench pain pathways.',
                                     },
                                 ].map((item, index) => (
                                     <motion.div
@@ -318,9 +317,9 @@ const SciencePage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Pain patterns
+                            Pain is not
                             <br />
-                            <em>may change over time</em>
+                            <em>a life sentence</em>
                         </h2>
                         <div
                             className="h-px w-full"
@@ -342,12 +341,10 @@ const SciencePage = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                Neuroplasticity describes the nervous system's
-                                capacity to change. Research suggests that
-                                changing how some sensations are interpreted may
-                                be helpful for selected people, but this does
-                                not apply to every cause of pain or promise
-                                recovery.
+                                Just as your brain <em>learned</em> these pain
+                                patterns, it can <em>unlearn</em> them. This is
+                                called neuroplasticity, your brain&apos;s
+                                ability to change and rewire itself at any age.
                             </p>
                         </motion.div>
 
@@ -377,11 +374,11 @@ const SciencePage = () => {
                                 className="text-xl text-white md:text-2xl"
                                 style={{ fontFamily: "var(--font-dm-serif)" }}
                             >
-                                Pain Reprocessing Therapy uses education and
-                                guided attention to help suitable participants
-                                consider sensations with less threat. Evidence
-                                is strongest for the specific populations
-                                studied and does not replace medical assessment.
+                                Pain Reprocessing Therapy teaches your brain to
+                                turn off false danger signals and reinterpret
+                                sensations as safe, which may help reduce
+                                persistent pain when this approach is
+                                appropriate.
                             </p>
                         </motion.div>
 
@@ -401,9 +398,9 @@ const SciencePage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            "The nervous system can change,
+                            "Neuroplasticity works both ways,
                             <br />
-                            but every person's pain context is different."
+                            what the brain learns, it can unlearn."
                         </motion.p>
                     </div>
                 </EditorialSplit>
@@ -444,9 +441,9 @@ const SciencePage = () => {
                             fontWeight: 300,
                         }}
                     >
-                        These patterns may be useful discussion points, but none
-                        can diagnose neuroplastic pain. New, severe, changing,
-                        or unexplained symptoms need medical assessment.
+                        If you&apos;ve been to multiple doctors and are still
+                        suffering, even one of these criteria can indicate
+                        neuroplastic pain.
                     </p>
 
                     <div
@@ -520,9 +517,8 @@ const SciencePage = () => {
                             color: "rgba(200, 230, 201, 0.8)",
                         }}
                     >
-                        "Persistent symptoms can have more than one contributing
-                        factor. A checklist cannot determine which factors
-                        apply."
+                        "If you have a diagnosis but your pain hasn&apos;t
+                        resolved, there&apos;s likely a neuroplastic component."
                     </motion.p>
                 </div>
             </motion.section>
@@ -554,9 +550,9 @@ const SciencePage = () => {
                                 color: "#1E3A20",
                             }}
                         >
-                            Educational
+                            Evidence-based
                             <br />
-                            <em>session focus</em>
+                            <em>treatment approaches</em>
                         </h2>
                         <p
                             className="max-w-xs text-sm leading-relaxed md:text-right"
@@ -566,8 +562,10 @@ const SciencePage = () => {
                                 fontWeight: 300,
                             }}
                         >
-                            Ask me directly to confirm the training and scope
-                            relevant to your needs before booking.
+                            I have specialised training in methods developed by
+                            Dr Howard Schubiner and I am listed in the
+                            Association for the Treatment of Neuroplastic
+                            Symptoms Practitioner & Coach Directory.
                         </p>
                     </div>
 
@@ -579,28 +577,40 @@ const SciencePage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3">
                         {[
                             {
-                                title: "Your symptom context",
-                                body: "Reviewing what has happened, what medical assessment has taken place, and what you want to understand.",
+                                title: "Pain Reprocessing Therapy (PRT)",
+                                body: "Retrains your brain to turn off pain signals by reinterpreting sensations as safe.",
                             },
                             {
-                                title: "Pain science education",
-                                body: "Discussing relevant pain concepts in plain language without assuming they explain every symptom.",
+                                title: "Somatic Tracking",
+                                body: "Learning to observe pain sensations with curiosity rather than fear.",
                             },
                             {
-                                title: "Pain Reprocessing Therapy",
-                                body: "Considering PRT when it appears appropriate to the person's history, assessment, and goals.",
+                                title: "Graded Exposure Therapy",
+                                body: "Gradually reintroducing feared movements to prove safety to your brain.",
                             },
                             {
-                                title: "Guided reflection",
-                                body: "Noticing patterns in symptoms, fear, stress, attention, and daily life without assigning a single cause.",
+                                title: "Emotional Awareness & Expression Therapy (EAET)",
+                                body: "Processing unresolved emotions that may be fueling persistent pain.",
                             },
                             {
-                                title: "Medical boundaries",
-                                body: "Identifying questions that belong with a GP or another regulated healthcare professional.",
+                                title: "Pain Neuroscience Education",
+                                body: "Understanding how your brain creates pain and why it's safe to move.",
                             },
                             {
-                                title: "A clear next step",
-                                body: "Deciding whether further sessions, another form of support, or medical follow-up may be more appropriate.",
+                                title: "Nervous System Regulation",
+                                body: "Techniques to calm your fight-or-flight response and restore balance.",
+                            },
+                            {
+                                title: "Movement Re-training",
+                                body: "Getting back to normal activities and exercise without fear.",
+                            },
+                            {
+                                title: "Mindfulness Practices",
+                                body: "Building awareness of thought patterns that amplify pain.",
+                            },
+                            {
+                                title: "Clinical Hypnotherapy",
+                                body: "Accessing subconscious patterns and rewiring pain responses.",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -714,9 +724,8 @@ const SciencePage = () => {
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
-                            as an educational reflection. It is not diagnostic
-                            and does not determine whether this approach is
-                            right for you.
+                            to help determine whether this approach is right for
+                            you.
                         </p>
                     </motion.div>
                 </div>
@@ -755,9 +764,9 @@ const SciencePage = () => {
                                     color: "#1E3A20",
                                 }}
                             >
-                                Ready to explore
+                                Ready to start
                                 <br />
-                                <em>your next step?</em>
+                                <em>your recovery?</em>
                             </h2>
                         </div>
 
@@ -772,10 +781,10 @@ const SciencePage = () => {
                                 }}
                             >
                                 <p>
-                                    If persistent pain has continued despite
-                                    previous care, a consultation can help you
-                                    explore whether this approach is relevant to
-                                    your situation.
+                                    If you&apos;ve been suffering with chronic
+                                    pain and traditional treatments haven&apos;t
+                                    worked, there is hope. This science-backed
+                                    approach has helped thousands recover.
                                 </p>
                                 <p
                                     style={{
@@ -785,8 +794,7 @@ const SciencePage = () => {
                                         fontSize: "1.15rem",
                                     }}
                                 >
-                                    Ask questions before deciding your next
-                                    step.
+                                    It can help you too.
                                 </p>
                             </div>
 

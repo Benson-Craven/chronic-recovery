@@ -65,7 +65,7 @@ const Footer = () => {
                         className="max-w-md text-3xl leading-snug text-white md:text-4xl"
                         style={{ fontFamily: "var(--font-dm-serif)" }}
                     >
-                        I help you explore recovery,
+                        Helping you recover,
                         <br />
                         <em>not just cope.</em>
                     </p>

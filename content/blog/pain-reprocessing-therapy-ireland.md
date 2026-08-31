@@ -12,9 +12,7 @@ For people in Ireland living with persistent pain, PRT may be worth exploring wh
 
 This does not mean the pain is imagined. It means the brain and nervous system may have learned to produce pain as a protective signal.
 
-If you are looking for sessions rather than an overview, see the [Pain Reprocessing Therapy in Ireland](/treatments/pain-reprocessing-therapy) service page for suitability, session format, Cork and online access, fees, and next steps.
-
-## How Pain Reprocessing Therapy Works
+## What Is Pain Reprocessing Therapy?
 
 Pain Reprocessing Therapy helps suitable clients reinterpret safe body sensations as non-dangerous. It is used most often with neuroplastic pain: pain that is maintained by learned neural pathways and nervous system sensitisation.
 
@@ -83,4 +81,4 @@ If you are in Ireland and wondering whether PRT might be relevant, begin with th
 -   Does the pain pattern suggest the nervous system may be sensitised?
 -   Would reducing fear and building safety around symptoms be a useful next step?
 
-You can review practical details and enquire on the [Pain Reprocessing Therapy in Ireland](/treatments/pain-reprocessing-therapy) service page, read about [why pain persists after healing](/blog/why-pain-persists-after-healing), or explore the [self-assessment](/self-assessment).
+You can learn more on the [Pain Reprocessing Therapy in Ireland](/treatments/pain-reprocessing-therapy) page, read about [why pain persists after healing](/blog/why-pain-persists-after-healing), or explore the [self-assessment](/self-assessment).

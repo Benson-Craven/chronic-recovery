@@ -67,7 +67,8 @@ export default function Home() {
                             </span>
                         </p>
                         <p className="text-balance font-satoshi text-sm font-light leading-7 text-primary-text/65 md:text-base">
-                            Online across Ireland
+                            Based in Ireland, supporting clients online
+                            worldwide.
                         </p>
                     </motion.div>
                 </section>

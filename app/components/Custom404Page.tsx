@@ -38,7 +38,7 @@ const Custom404Page = () => {
         {
             href: "/contact",
             label: "Contact",
-            description: "Get in touch with me",
+            description: "Get in touch",
         },
     ]
 
@@ -303,7 +303,7 @@ const Custom404Page = () => {
                                     fontWeight: 300,
                                 }}
                             >
-                                or call / WhatsApp me on{" "}
+                                or call / WhatsApp{" "}
                                 <a
                                     href="tel:+353871025108"
                                     className="underline underline-offset-2 transition-opacity hover:opacity-100"
@@ -330,7 +330,7 @@ const Custom404Page = () => {
                     >
                         "Still experiencing chronic pain?
                         <br />
-                        You can explore a careful next step with me."
+                        Unlike this error, it has a solution."
                     </p>
                     <Link
                         href="/contact"

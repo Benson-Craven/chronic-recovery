@@ -37,7 +37,7 @@ export default function OnlineDublinPage() {
                             <em>for Dublin clients online</em>
                         </>
                     ),
-                    intro: "I'm Marsha Canny, a chronic pain therapist based in Cork. I offer evidence-informed online support to people in Dublin who want to explore persistent pain and possible neuroplastic symptoms.",
+                    intro: "Online chronic pain management for people in Dublin who want evidence-informed support for persistent pain and neuroplastic symptoms.",
                 }}
                 sections={[
                     {
@@ -49,7 +49,7 @@ export default function OnlineDublinPage() {
                             alt: "",
                         },
                         body: [
-                            "I do not run a physical Dublin clinic. I offer online support for people in Dublin who are exploring whether persistent pain may involve a sensitised nervous system.",
+                            "Chronic Pain Recovery is not a physical Dublin clinic. Support is offered online for people in Dublin who are exploring whether persistent pain may involve a sensitised nervous system.",
                             "This can be useful if travel is difficult, symptoms fluctuate, or you prefer to begin recovery work from home while still receiving structured support.",
                         ],
                     },
@@ -67,39 +67,39 @@ export default function OnlineDublinPage() {
                         ],
                     },
                     {
-                        eyebrow: "Your online session",
-                        heading: "What a 60-minute video session involves",
+                        eyebrow: "Treatment options",
+                        heading: "Brain-body support and PRT online",
                         visual: {
                             kind: "illustration",
                             src: "/images/illustrations/pain-neuroscience.png",
                             alt: "",
                         },
                         body: [
-                            "I begin a session by asking about your current symptoms, medical context, what changes the pain, and the questions you want to explore. I then explain relevant pain science in plain language and discuss an appropriate next step.",
-                            "My online sessions are educational and recovery-oriented. I do not provide a diagnosis, medication advice, emergency care, or a replacement for your healthcare team.",
+                            "Sessions may draw from pain neuroscience education, nervous system regulation, emotional awareness, somatic tracking, and Pain Reprocessing Therapy.",
+                            "The aim is to help you reduce fear, rebuild trust in your body, and take small steps back toward the parts of life pain has interrupted.",
                         ],
                     },
                 ]}
                 listSection={{
-                    eyebrow: "Online session walkthrough",
-                    heading: "A clear, practical process",
-                    intro: "The conversation is shaped by your circumstances and stays grounded in your medical context.",
+                    eyebrow: "Online session focus",
+                    heading: "What Dublin clients can work on",
+                    intro: "Online support is practical, careful, and grounded in your medical context.",
                     items: [
                         {
-                            title: "Before the session",
-                            body: "Share the main reason for your enquiry and any access needs with me when arranging your appointment.",
+                            title: "Map the pain pattern",
+                            body: "Look at when symptoms began, what changes them, what has been ruled out, and what your nervous system may have learned.",
                         },
                         {
-                            title: "During the session",
-                            body: "I review your symptom history, medical assessment, current concerns, and the patterns you have noticed.",
+                            title: "Learn pain science",
+                            body: "Understand how real pain can persist without always meaning ongoing tissue damage.",
                         },
                         {
-                            title: "Explore the pain context",
-                            body: "I discuss pain science with you and explore whether a brain-body perspective may be relevant without assuming a diagnosis.",
+                            title: "Practise safety cues",
+                            body: "Use somatic tracking and nervous system regulation to help the body experience more safety.",
                         },
                         {
-                            title: "Agree a next step",
-                            body: "I summarise what we discussed and whether further sessions or another form of support may be appropriate.",
+                            title: "Build a next-step plan",
+                            body: "Create realistic steps toward movement, rest, work, family life, or activities that matter to you.",
                         },
                     ],
                 }}
@@ -110,7 +110,7 @@ export default function OnlineDublinPage() {
                 relatedLinks={[
                     {
                         href: "/locations/chronic-pain-management-ireland-online",
-                        label: "Primary online service across Ireland",
+                        label: "Online support across Ireland",
                     },
                     {
                         href: "/treatments/pain-reprocessing-therapy",

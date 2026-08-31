@@ -489,7 +489,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     }}
                                                 >
                                                     By continuing, you agree to
-                                                    the{" "}
+                                                    our{" "}
                                                     <Link
                                                         href="/terms-and-conditions"
                                                         className="underline underline-offset-2 transition-opacity hover:opacity-60"

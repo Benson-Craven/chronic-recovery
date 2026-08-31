@@ -15,17 +15,17 @@ const CredentialsSection = () => {
             <Container size="wide">
                 <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:items-start">
                     <div>
-                        <Eyebrow>Practitioner information</Eyebrow>
+                        <Eyebrow>Credentials & training</Eyebrow>
                         <Heading className="mb-6">
-                            Chronic pain support
+                            Practitioner support
                             <br />
-                            <em>with a public directory profile.</em>
+                            <em>with recognised training.</em>
                         </Heading>
                         <Text className="max-w-md">
-                            I describe my work as educational and
-                            recovery-oriented. Please ask me directly to confirm
-                            the training and scope relevant to your needs before
-                            deciding whether to work with me.
+                            Marsha Canny&apos;s work is grounded in pain
+                            neuroscience education, Pain Reprocessing Therapy,
+                            and a biopsychosocial approach to persistent pain
+                            and neuroplastic symptoms.
                         </Text>
                     </div>
 
