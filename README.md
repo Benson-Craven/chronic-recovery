@@ -39,7 +39,8 @@ EMAIL_TO=recipient@example.com
 NEXT_PUBLIC_TURNSTILE_ENABLED=false
 # Required only when Turnstile is enabled:
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key
-TURNSTILE_SECRET_KEY=your_turnstile_secret_key
+TURNSTILE_SECRET=your_turnstile_secret
+TURNSTILE_HOSTNAMES=localhost
 # Optional, defaults shown:
 BREVO_SENDER_EMAIL=noreply@chronicpainrecovery.ie
 BREVO_SENDER_NAME="Chronic Pain Recovery"
@@ -49,7 +50,7 @@ The API route sends enquiries from `noreply@chronicpainrecovery.ie` by default, 
 
 ### Turnstile setup
 
-Turnstile is disabled by default. To enable it after confirming the implementation, set `NEXT_PUBLIC_TURNSTILE_ENABLED=true`, provide both Turnstile keys, and rebuild the app. Leaving the flag unset or setting it to any other value prevents the browser script from loading and skips server-side Turnstile verification.
+Turnstile remains behind an emergency switch. Set `NEXT_PUBLIC_TURNSTILE_ENABLED=true` to load the browser widget and require server-side verification. Leaving the flag unset or setting it to any other value prevents the browser script from loading and skips verification.
 
 In the Cloudflare dashboard, create one production Turnstile widget with:
 
@@ -57,17 +58,28 @@ In the Cloudflare dashboard, create one production Turnstile widget with:
 -   Widget mode: Managed
 -   Allowed hostname: `chronicpainrecovery.ie`
 
-Use the resulting site key for `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and the secret key for `TURNSTILE_SECRET_KEY`. The app renders the widget explicitly with interaction-only appearance and uses the `contact_modal` and `contact_page` actions. Production keys must not be committed or reused as test fixtures.
+The app renders the widget explicitly with interaction-only appearance and uses the `contact_modal` and `contact_page` actions. The server accepts a token only when Cloudflare returns a matching action and a hostname listed in `TURNSTILE_HOSTNAMES`. Separate multiple allowed hostnames with commas. Production secrets must not be committed or reused as test fixtures.
+
+Store the production values in `/opt/chronic-recovery/.env`:
+
+```dotenv
+NEXT_PUBLIC_TURNSTILE_ENABLED=true
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAAAAD6mLPT2ZoUjMKH9
+TURNSTILE_SECRET=<stored manually>
+TURNSTILE_HOSTNAMES=chronicpainrecovery.ie
+```
+
+The public site key is embedded during the Next.js build. A later authorised rollout must rebuild the app, then reload the `chronic-recovery` PM2 process with its updated environment. Do not put the secret in Git, chat, logs, or command arguments.
 
 For local testing, use Cloudflare's official dummy key pairs:
 
-| Scenario            | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | `TURNSTILE_SECRET_KEY`                |
+| Scenario            | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | `TURNSTILE_SECRET`                    |
 | ------------------- | -------------------------------- | ------------------------------------- |
 | Always passes       | `1x00000000000000000000AA`       | `1x0000000000000000000000000000000AA` |
 | Always fails        | `2x00000000000000000000AB`       | `2x0000000000000000000000000000000AA` |
 | Token already spent | `1x00000000000000000000AA`       | `3x0000000000000000000000000000000AA` |
 
-Dummy keys work on localhost and must be paired together; production secrets reject dummy tokens. See [Cloudflare's Turnstile testing guidance](https://developers.cloudflare.com/turnstile/troubleshooting/testing/).
+Dummy keys work on localhost and must be paired together. Use `TURNSTILE_HOSTNAMES=localhost` for this local flow. Production secrets reject dummy tokens. See [Cloudflare's Turnstile testing guidance](https://developers.cloudflare.com/turnstile/troubleshooting/testing/).
 
 ## Available Scripts
 
@@ -161,7 +173,7 @@ The contact page posts to `/api/sendEmail`, which expects:
 -   `turnstileToken` (required only while Turnstile is enabled)
 -   `source` (`contact_modal` or `contact_page`)
 
-The server always validates field bounds and the honeypot before making a Brevo request. When `NEXT_PUBLIC_TURNSTILE_ENABLED=true`, it also requires and verifies the Turnstile token before delivery. It uses `BREVO_API_KEY`, `EMAIL_TO`, and `TURNSTILE_SECRET_KEY` only on the server. Keep all secrets out of source control.
+The server always validates field bounds and the honeypot before making a Brevo request. When `NEXT_PUBLIC_TURNSTILE_ENABLED=true`, it rejects missing or oversized tokens before any external request. It then sends the token and available visitor IP to Cloudflare Siteverify. Verification succeeds only when Cloudflare returns `success: true`, the submitted form action, and a hostname in `TURNSTILE_HOSTNAMES`. It uses `BREVO_API_KEY`, `EMAIL_TO`, and `TURNSTILE_SECRET` only on the server. Keep all secrets out of source control.
 
 ## Deployment
 

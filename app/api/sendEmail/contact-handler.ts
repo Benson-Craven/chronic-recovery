@@ -47,6 +47,14 @@ function isRecord(value: unknown): value is Record<string, unknown> {
     return typeof value === "object" && value !== null && !Array.isArray(value)
 }
 
+function getVisitorIp(headers: Headers) {
+    const cloudflareIp = headers.get("cf-connecting-ip")?.trim()
+    if (cloudflareIp) return cloudflareIp
+
+    const forwardedIp = headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim()
+    return forwardedIp || undefined
+}
+
 function parseContactFields(
     body: Record<string, unknown>,
 ): Omit<ContactSubmission, "turnstileToken"> | null {
@@ -92,6 +100,8 @@ function parseContactFields(
 async function verifyTurnstile(
     submission: ContactSubmission,
     secret: string,
+    allowedHostnames: readonly string[],
+    visitorIp: string | undefined,
     fetcher: typeof fetch,
 ): Promise<VerificationResult> {
     const controller = new AbortController()
@@ -102,6 +112,9 @@ async function verifyTurnstile(
             secret,
             response: submission.turnstileToken,
         })
+        if (visitorIp) {
+            body.set("remoteip", visitorIp)
+        }
         const response = await fetcher(
             "https://challenges.cloudflare.com/turnstile/v0/siteverify",
             {
@@ -142,6 +155,13 @@ async function verifyTurnstile(
         }
 
         if (result.action !== submission.source) {
+            return { status: "failed" }
+        }
+
+        if (
+            typeof result.hostname !== "string" ||
+            !allowedHostnames.includes(result.hostname.trim().toLowerCase())
+        ) {
             return { status: "failed" }
         }
 
@@ -281,14 +301,22 @@ export function createContactHandler({
         }
 
         if (turnstileEnabled) {
-            if (!env.TURNSTILE_SECRET_KEY) {
+            const turnstileSecret = env.TURNSTILE_SECRET?.trim()
+            const allowedHostnames = (env.TURNSTILE_HOSTNAMES ?? "")
+                .split(",")
+                .map((hostname) => hostname.trim().toLowerCase())
+                .filter(Boolean)
+
+            if (!turnstileSecret || allowedHostnames.length === 0) {
                 logRejection("VERIFICATION_UNAVAILABLE", submission.source)
                 return errorResponse("VERIFICATION_UNAVAILABLE", 503)
             }
 
             const verification = await verifyTurnstile(
                 submission,
-                env.TURNSTILE_SECRET_KEY,
+                turnstileSecret,
+                allowedHostnames,
+                getVisitorIp(request.headers),
                 fetcher,
             )
 

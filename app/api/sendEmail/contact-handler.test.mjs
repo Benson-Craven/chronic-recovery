@@ -27,10 +27,10 @@ const VALID_SUBMISSION = {
     source: "contact_page",
 }
 
-function contactRequest(overrides = {}) {
+function contactRequest(overrides = {}, headers = {}) {
     return new Request("http://localhost/api/sendEmail", {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: { "content-type": "application/json", ...headers },
         body: JSON.stringify({ ...VALID_SUBMISSION, ...overrides }),
     })
 }
@@ -44,6 +44,7 @@ function handlerWith({
     return createContactHandler({
         env: {
             NEXT_PUBLIC_TURNSTILE_ENABLED: "true",
+            TURNSTILE_HOSTNAMES: "chronicpainrecovery.ie",
             ...env,
         },
         fetch,
@@ -138,21 +139,83 @@ test("a valid enquiry without a Turnstile token is rejected as unverified", asyn
 })
 
 test("missing Turnstile configuration fails closed before delivery", async () => {
-    const response = await handlerWith()(
-        contactRequest({ turnstileToken: "valid-looking-token" }),
-    )
+    for (const [label, env] of [
+        ["missing secret", { TURNSTILE_SECRET_KEY: "obsolete-secret" }],
+        [
+            "missing hostname allowlist",
+            {
+                TURNSTILE_SECRET: "test-secret",
+                TURNSTILE_HOSTNAMES: undefined,
+            },
+        ],
+    ]) {
+        const response = await handlerWith({ env })(
+            contactRequest({ turnstileToken: "valid-looking-token" }),
+        )
 
-    assert.equal(response.status, 503)
+        assert.equal(response.status, 503, label)
+        assert.deepEqual(
+            await response.json(),
+            {
+                success: false,
+                error: "VERIFICATION_UNAVAILABLE",
+            },
+            label,
+        )
+    }
+})
+
+test("the prescribed Turnstile secret and hostname configuration verifies an enquiry", async () => {
+    let fetchCalls = 0
+    const handler = handlerWith({
+        env: {
+            TURNSTILE_SECRET: "test-secret",
+            TURNSTILE_HOSTNAMES: "chronicpainrecovery.ie",
+            BREVO_API_KEY: "test-brevo-key",
+            EMAIL_TO: "practice@example.com",
+        },
+        fetch: async () => {
+            fetchCalls += 1
+            if (fetchCalls === 1) {
+                return Response.json({
+                    success: true,
+                    action: "contact_page",
+                    hostname: "chronicpainrecovery.ie",
+                })
+            }
+
+            return new Response(null, { status: 201 })
+        },
+    })
+    const response = await handler(contactRequest())
+
+    assert.equal(response.status, 200)
+    assert.deepEqual(await response.json(), { success: true })
+    assert.equal(fetchCalls, 2)
+})
+
+test("an invalid Turnstile token is rejected before delivery", async () => {
+    const handler = handlerWith({
+        env: { TURNSTILE_SECRET: "test-secret" },
+        fetch: async () =>
+            Response.json({
+                success: false,
+                "error-codes": ["invalid-input-response"],
+            }),
+    })
+    const response = await handler(contactRequest())
+
+    assert.equal(response.status, 403)
     assert.deepEqual(await response.json(), {
         success: false,
-        error: "VERIFICATION_UNAVAILABLE",
+        error: "VERIFICATION_FAILED",
     })
 })
 
-test("an invalid, expired, or reused Turnstile token is rejected before delivery", async () => {
+test("a replayed Turnstile token is rejected before delivery", async () => {
     const fetchCalls = []
     const handler = handlerWith({
-        env: { TURNSTILE_SECRET_KEY: "test-secret" },
+        env: { TURNSTILE_SECRET: "test-secret" },
         fetch: async (...args) => {
             fetchCalls.push(args)
             return Response.json({
@@ -180,12 +243,24 @@ test("an invalid, expired, or reused Turnstile token is rejected before delivery
     )
 })
 
+test("an oversized Turnstile token is rejected before external services are called", async () => {
+    const response = await handlerWith()(
+        contactRequest({ turnstileToken: "x".repeat(2049) }),
+    )
+
+    assert.equal(response.status, 403)
+    assert.deepEqual(await response.json(), {
+        success: false,
+        error: "VERIFICATION_FAILED",
+    })
+})
+
 test("a verified enquiry from each form is delivered once with its source", async () => {
     for (const formSource of ["contact_page", "contact_modal"]) {
         const fetchCalls = []
         const handler = handlerWith({
             env: {
-                TURNSTILE_SECRET_KEY: "test-secret",
+                TURNSTILE_SECRET: "test-secret",
                 BREVO_API_KEY: "test-brevo-key",
                 EMAIL_TO: "practice@example.com",
             },
@@ -198,6 +273,7 @@ test("a verified enquiry from each form is delivered once with its source", asyn
                     return Response.json({
                         success: true,
                         action: formSource,
+                        hostname: "chronicpainrecovery.ie",
                     })
                 }
 
@@ -244,6 +320,38 @@ test("a verified enquiry from each form is delivered once with its source", asyn
     }
 })
 
+test("the available visitor IP is forwarded to Turnstile verification", async () => {
+    const fetchCalls = []
+    const handler = handlerWith({
+        env: {
+            TURNSTILE_SECRET: "test-secret",
+            BREVO_API_KEY: "test-brevo-key",
+            EMAIL_TO: "practice@example.com",
+        },
+        fetch: async (url, init) => {
+            fetchCalls.push([url, init])
+            if (
+                url ===
+                "https://challenges.cloudflare.com/turnstile/v0/siteverify"
+            ) {
+                return Response.json({
+                    success: true,
+                    action: "contact_page",
+                    hostname: "chronicpainrecovery.ie",
+                })
+            }
+
+            return new Response(null, { status: 201 })
+        },
+    })
+    const response = await handler(
+        contactRequest({}, { "x-forwarded-for": "203.0.113.8, 10.0.0.1" }),
+    )
+
+    assert.equal(response.status, 200)
+    assert.equal(fetchCalls[0][1].body.get("remoteip"), "203.0.113.8")
+})
+
 test("invalid and oversized contact fields are rejected before verification", async () => {
     const invalidFields = [
         ["short name", { name: "J" }],
@@ -258,7 +366,7 @@ test("invalid and oversized contact fields are rejected before verification", as
         ["invalid source", { source: "homepage" }],
     ]
     const handler = handlerWith({
-        env: { TURNSTILE_SECRET_KEY: "test-secret" },
+        env: { TURNSTILE_SECRET: "test-secret" },
     })
 
     for (const [label, override] of invalidFields) {
@@ -275,7 +383,7 @@ test("invalid and oversized contact fields are rejected before verification", as
 
 test("a Turnstile action mismatch is rejected before delivery", async () => {
     const handler = handlerWith({
-        env: { TURNSTILE_SECRET_KEY: "test-secret" },
+        env: { TURNSTILE_SECRET: "test-secret" },
         fetch: async () =>
             Response.json({
                 success: true,
@@ -291,9 +399,28 @@ test("a Turnstile action mismatch is rejected before delivery", async () => {
     })
 })
 
+test("a Turnstile hostname outside the configured allowlist is rejected before delivery", async () => {
+    const handler = handlerWith({
+        env: { TURNSTILE_SECRET: "test-secret" },
+        fetch: async () =>
+            Response.json({
+                success: true,
+                action: "contact_page",
+                hostname: "attacker.example",
+            }),
+    })
+    const response = await handler(contactRequest())
+
+    assert.equal(response.status, 403)
+    assert.deepEqual(await response.json(), {
+        success: false,
+        error: "VERIFICATION_FAILED",
+    })
+})
+
 test("a Cloudflare failure returns verification unavailable", async () => {
     const handler = handlerWith({
-        env: { TURNSTILE_SECRET_KEY: "test-secret" },
+        env: { TURNSTILE_SECRET: "test-secret" },
         fetch: async () => {
             throw new Error("Cloudflare unavailable")
         },
@@ -311,7 +438,7 @@ test("a Brevo failure returns delivery failed after successful verification", as
     let fetchCalls = 0
     const handler = handlerWith({
         env: {
-            TURNSTILE_SECRET_KEY: "test-secret",
+            TURNSTILE_SECRET: "test-secret",
             BREVO_API_KEY: "test-brevo-key",
             EMAIL_TO: "practice@example.com",
         },
@@ -321,6 +448,7 @@ test("a Brevo failure returns delivery failed after successful verification", as
                 return Response.json({
                     success: true,
                     action: "contact_modal",
+                    hostname: "chronicpainrecovery.ie",
                 })
             }
             return new Response(null, { status: 500 })

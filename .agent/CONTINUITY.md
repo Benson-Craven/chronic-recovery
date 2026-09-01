@@ -2,6 +2,8 @@
 
 [PLANS]
 
+-   2026-09-01: Finish the existing Turnstile integration for both contact forms. Keep the emergency switch, require the prescribed secret and hostname allowlist when enabled, and stop before deployment or a real enquiry.
+-   2026-08-31: Complete a site-wide public contrast pass with direct AA-safe semantic text colours and no compounded text opacity. Preserve existing body weights and the general type scale, except for larger homepage science-bento copy and Journal card excerpts. Preserve wording, routes, behaviour, imagery, headings, and the current homepage science-path stacking work.
 -   2026-08-31: Keep `1f9a333` as the technical base and restore visitor-visible copy from `d65c8be` through a forward change, subject to the approved CPRIE exceptions for pricing, calls, service wording, page sections, assessment disclosure, sticky illustrations, CTAs, SEO, and contact behaviour.
 -   2026-07-23: Standardise public owner-spoken copy around Marsha's first-person voice while preserving named identity contexts, legal organisational voice, service facts, cautious health language, and protected hero copy.
 -   2026-07-23: Keep paired WhatsApp and consultation CTAs side by side when their container can support both, use one global CTA hover treatment, remove the unnatural public-address disclaimer, and preserve page position when the contact modal locks scrolling.
@@ -9,13 +11,14 @@
 -   2026-07-23: Remove decorative `01` labels from editorial rows that have no subsequent numbered row, while preserving genuine numbered sequences.
 -   2026-07-23: Standardise site-wide closing CTA sections around the two-column editorial layout, with one primary action and at most one secondary action.
 -   2026-07-21: Remove em dashes from public-facing site copy while leaving internal comments and planning documents unchanged.
--   2026-07-23: Keep the restored Turnstile implementation available but disabled by default until it can be confirmed in production; preserve the honeypot, field validation, and Brevo delivery path while protection is off.
 -   2026-07-17: Make direct WhatsApp contact the primary action across the header, mobile menu, footer, main consultation CTA sections, and contact page; retain smaller contextual consultation links unchanged.
 -   2026-07-17: Selectively introduce two-column editorial splits on text-heavy marketing and educational pages, normally using two or three illustrations per long page.
 
 [DECISIONS]
 
--   2026-08-31: The approved restoration supersedes the blanket first-person copy contract and selected earlier content-removal decisions. Preserve current routes, metadata and canonical structure, structured data, analytics, contact handling, responsive layouts, assessment logic, default-off Turnstile, and shared CTA behaviour.
+-   2026-09-01: Production Turnstile uses Managed mode, the public site key `0x4AAAAAAD6mLPT2ZoUjMKH9`, `TURNSTILE_SECRET`, and `TURNSTILE_HOSTNAMES=chronicpainrecovery.ie`. `NEXT_PUBLIC_TURNSTILE_ENABLED` remains the emergency switch. Local development uses Cloudflare's dummy keys and a `localhost` allowlist.
+-   2026-09-01: The removed Old/Middle/Current client-review worktrees and workbook workflow are obsolete. Do not recreate any `client-review` material unless the user explicitly starts a new review task.
+-   2026-08-31: The approved restoration supersedes the blanket first-person copy contract and selected earlier content-removal decisions. Preserve current routes, metadata and canonical structure, structured data, analytics, contact handling, responsive layouts, assessment logic, the Turnstile emergency switch, and shared CTA behaviour.
 -   2026-07-23: Public owner-spoken copy uses `I`, `me`, and `my`. Keep Marsha named in formal introductions, author credits, WhatsApp labels, accessibility text, metadata, structured data, and other identity-critical contexts; retain organisational voice in legal and categorical safety copy.
 -   2026-07-23: Paired closing CTAs remain full-width and stacked below `sm`; from `sm` upward they use a wrapping row, so constrained two-column layouts can fall back to two rows without squeezing either label.
 -   2026-07-23: Button-style CTAs share the global `cta-interactive` scale-and-shadow treatment. It only animates hover on fine pointers, keeps active feedback, skips disabled controls, and removes transforms for reduced-motion users.
@@ -32,7 +35,7 @@
 -   Use the site’s dark-green and cream palette for WhatsApp controls rather than WhatsApp brand green. Use an icon plus “WhatsApp Marsha” on desktop and an accessible icon-only control on narrow mobile.
 -   Replace misleading combined call/WhatsApp behavior on the main contact surfaces: WhatsApp opens the direct chat, while the phone number remains an explicit click-to-call fallback in places such as the footer and contact page.
 -   Track anonymous WhatsApp clicks by CTA source using the existing Google Analytics setup. Do not add a pre-chat health-information or response-time guardrail as part of this change.
--   Turnstile is an explicit opt-in controlled by `NEXT_PUBLIC_TURNSTILE_ENABLED=true`; when the flag is absent or has any other value, the client does not load Cloudflare and the server skips token verification. Keep the restored implementation and existing stash until production confirmation is complete.
+-   Turnstile is controlled by `NEXT_PUBLIC_TURNSTILE_ENABLED=true`; when the flag is absent or has any other value, the client does not load Cloudflare and the server skips token verification. When enabled, the server fails closed unless its secret and hostname allowlist are configured.
 -   Preserve the original checkerboard PNGs and place cleaned transparent versions under `public/images/illustrations/`.
 -   Use deterministic alpha extraction for the final illustration assets; reject generated edits that redraw or rescale the source artwork.
 -   Preserve the homepage forest image, homepage condition-card photos, About therapy reveal, Marsha and Cork photography, homepage Lottie animation, blog imagery, and contact page composition.
@@ -45,8 +48,11 @@
 
 [PROGRESS]
 
+-   2026-09-01: Replaced the server's `TURNSTILE_SECRET_KEY` interface with `TURNSTILE_SECRET`; added hostname allowlisting, visitor-IP forwarding, and separate 403/503 handling for rejected verification and unavailable configuration or service. Preserved the honeypot, field validation, Brevo delivery, client token gating, and failed-submission reset flow.
+-   2026-08-31: Moved the homepage CTA below `SVGPathScienceSection` and adjusted their stacking so the science path can continue over the CTA background while the CTA content remains above it.
 -   2026-08-31: Restored visitor-visible page, component, location, and blog copy from `d65c8be` on the `1f9a333` technical base, with the approved pricing, call, wording, page-section, assessment, PRT, Science, Long Covid, sticky-illustration, CTA, SEO, analytics, contact, and Turnstile exceptions. Updated the content contracts to cover the restoration and exceptions.
 -   2026-08-31: Removed the three clean detached Old, Middle, and Current client-review worktrees at the user's request. Their source commits remain available if the references are needed again.
+-   2026-08-26: Created `client-review/three-snapshot-client-review-workbook.docx`, a 19-page client-facing workbook with aligned Old/Middle/Current links, route-by-route decision sheets, and separate consolidation pages for copy, CTA hierarchy, assessment behaviour, contact behaviour, and final approval.
 -   2026-07-23: Rewrote the four location/PRT landing pages, shared About and credentials copy, Conditions, Contact forms and modal, footer, 404, article author biography, and practitioner references in the Cork article to first person; added the focused public-copy voice contract to `npm test`.
 -   2026-07-23: Added a default-off Turnstile gate to the shared client form flow and server contact handler; the disabled path still validates fields and the honeypot before delivering through Brevo.
 -   2026-07-23: Converted the paired WhatsApp and Book Consultation groups across blog, homepage, Info, Conditions, Research, Resources, Science, Self-assessment, and shared service pages to responsive wrapping rows; retained stacked mobile controls.
@@ -72,6 +78,7 @@
 
 [DISCOVERIES]
 
+-   2026-09-01: The Browser runtime again reported no available connection. The enabled dummy-key build passed, but widget completion and submit-control gating on the contact page and modal remain interactively unverified.
 -   2026-08-31: The Browser runtime reported no available browser connection. Automated source, build, and rendered-HTML checks were completed, but responsive screenshots, sticky release-at-boundary behaviour, and interactive assessment focus remain visually unverified.
 -   2026-07-23: `authorProfile` in `app/lib/seo.tsx` supplies both structured author identity and article-template content. The structured third-person record remains unchanged, while the visible article biography now uses first-person copy in the template.
 -   2026-07-23: Turnstile is already contained in pushed commit `63016e1`, so stashing working-tree changes cannot exclude it from a deployment; a reversible default-off flag is required instead.
@@ -87,7 +94,10 @@
 
 [OUTCOMES]
 
+-   2026-09-01: The completed Turnstile repository changes pass 34 tests, TypeScript, lint, targeted Prettier, `git diff --check`, and an isolated enabled production build with Cloudflare's dummy key pair and `localhost` allowlisted. No contact form was submitted, and no production file, deployment, PM2 process, nginx configuration, commit, or remote branch was changed.
+-   2026-08-31: The homepage science-path and CTA stacking change passes the existing 29-test suite, TypeScript, lint, targeted Prettier, `git diff --check`, and a local homepage HTTP 200 smoke test. Browser visual verification remains unavailable because no browser is connected.
 -   2026-08-31: The approved copy restoration passes 29 tests, TypeScript, lint, targeted Prettier, `git diff --check`, default-off and enabled-test-key production builds, the 20-route rendered SEO verifier, default-off contact HTML checks, initial assessment-result hiding, public-copy source and rendered audits, and final diff review. Browser-based responsive and interaction checks remain unavailable because no browser is connected.
+-   2026-08-26: The client review workbook passes OOXML integrity, content/link checks, exact table-geometry audit, and the document accessibility audit with zero findings. macOS Quick Look generated and visually confirmed the opening-page preview; complete LibreOffice page rendering remains unavailable because `soffice` is not installed.
 -   2026-07-23: First-person voice standardisation passes the 29-test suite, typecheck, lint, targeted Prettier, an isolated 28-page production build, representative rendered-copy checks, the 20-route SEO verifier, diff checks, and final review. Browser screenshot verification remains unavailable because no browser is connected.
 -   2026-07-23: Turnstile now defaults off while the implementation remains available behind `NEXT_PUBLIC_TURNSTILE_ENABLED=true`. The disabled and enabled paths pass 29 tests, typecheck, lint, targeted Prettier, isolated 28-page production builds in both flag states, rendered contact-form state assertions, the 20-route SEO verifier, diff checks, and final Spec/Standards review.
 -   2026-07-23: Responsive paired CTAs, global CTA motion, Cork disclaimer removal, and modal scroll preservation pass 22 tests, typecheck, lint, targeted Prettier, an isolated 28-page production build, the 20-route rendered SEO verifier, source audits, diff checks, and final Standards/Spec reviews with no findings. Browser screenshot verification remains unavailable because no browser is connected.
