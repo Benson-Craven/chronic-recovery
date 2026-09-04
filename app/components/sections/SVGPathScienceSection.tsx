@@ -194,9 +194,12 @@ const SVGPathScienceSection = () => {
                                     "Somatic Tracking Techniques",
                                     "Graded Exposure Therapy",
                                     "Emotional Awareness & Expression Therapy",
-                                ].map((t, i) => (
+                                    "Pain Neuroscience Education",
+                                    "Nervous System Regulation",
+                                    "Movement Re-training",
+                                ].map((treatment, index) => (
                                     <li
-                                        key={i}
+                                        key={index}
                                         className="flex items-start gap-2"
                                     >
                                         <span
@@ -207,7 +210,7 @@ const SVGPathScienceSection = () => {
                                             }}
                                         />
                                         <span
-                                            className="text-sm leading-relaxed"
+                                            className="text-base leading-relaxed"
                                             style={{
                                                 color: "var(--text-dark-supporting)",
                                                 fontFamily:
@@ -215,28 +218,14 @@ const SVGPathScienceSection = () => {
                                                 fontWeight: 300,
                                             }}
                                         >
-                                            {t}
+                                            {treatment}
                                         </span>
                                     </li>
                                 ))}
                             </ul>
                         }
                     />
-
-                    {/* 04 — The Good News 4×1 */}
-                    <BentoCard
-                        delay={0.1}
-                        icon={<ThumbsUp className="h-4 w-4" />}
-                        title="The good news"
-                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
-                        href="/contact"
-                        linkLabel="Start Your Healing"
-                        bg="cream"
-                        colSpan={4}
-                        rowSpan={1}
-                    />
-
-                    {/* 05 — PRT 4×1 */}
+                    {/* 04 — PRT 4×1 */}
                     <BentoCard
                         delay={0.1}
                         icon={<Smile className="h-4 w-4" />}
@@ -244,6 +233,19 @@ const SVGPathScienceSection = () => {
                         body="PRT helps retrain the brain to turn off misfiring pain signals, especially where pain lingers long after an injury has healed, or where stress and unprocessed emotions are driving the cycle."
                         href="/science"
                         linkLabel="Learn More"
+                        bg="cream"
+                        colSpan={4}
+                        rowSpan={1}
+                    />
+
+                    {/* 05 — The Good News 4×1 */}
+                    <BentoCard
+                        delay={0.1}
+                        icon={<ThumbsUp className="h-4 w-4" />}
+                        title="The good news"
+                        body="Turning off these signals is safe, and possible. Just as your brain learned these pain patterns, it can unlearn them. Neuroplasticity works both ways, and that is exactly what this approach harnesses."
+                        href="/contact"
+                        linkLabel="Start Your Healing"
                         bg="green"
                         colSpan={4}
                         rowSpan={1}
