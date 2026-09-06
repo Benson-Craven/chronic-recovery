@@ -50,19 +50,10 @@ const PrivacyPolicyPage = () => {
                 className="w-full px-6 py-24 md:py-36"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Legal
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         Privacy
                         <br />
                         <em>policy</em>
@@ -71,14 +62,7 @@ const PrivacyPolicyPage = () => {
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         How Chronic Pain Recovery Project collects, uses, and
                         protects your information.
                     </p>
@@ -91,13 +75,7 @@ const PrivacyPolicyPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         {sections.length} sections
                     </p>
 
@@ -113,36 +91,16 @@ const PrivacyPolicyPage = () => {
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
                             {/* Number */}
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 {section.number}
                             </span>
 
                             {/* Content */}
                             <div className="flex flex-col gap-4">
-                                <p
-                                    className="text-base font-medium md:text-lg"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="font-satoshi text-base font-medium text-[#1E3A20] md:text-lg">
                                     {section.heading}
                                 </p>
-                                <p
-                                    className="text-base leading-relaxed md:text-lg"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                     {section.body}
                                 </p>
                                 {"links" in section && section.links && (
@@ -153,13 +111,7 @@ const PrivacyPolicyPage = () => {
                                                 href={link.href}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="underline underline-offset-4"
-                                                style={{
-                                                    color: "#1E3A20",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 400,
-                                                }}
+                                                className="font-satoshi font-normal text-[#1E3A20] underline underline-offset-4"
                                             >
                                                 {link.label}
                                             </a>

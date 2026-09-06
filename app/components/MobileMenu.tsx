@@ -124,13 +124,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                         "1px solid rgba(30,58,32,0.1)",
                                 }}
                             >
-                                <p
-                                    className="text-xs font-medium uppercase tracking-[0.25em]"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                     Menu
                                 </p>
                             </div>
@@ -164,14 +158,8 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 <WhatsAppLink
                                     source="mobile_menu"
                                     onClick={onToggle}
-                                    className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-4 text-xs font-medium uppercase tracking-wide"
-                                    style={{
-                                        backgroundColor: "#1E3A20",
-                                        color: "#F7F4EF",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.08em",
-                                    }}
+                                    className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF]"
+                                    style={{ backgroundColor: "#1E3A20" }}
                                 >
                                     <FaWhatsapp
                                         aria-hidden="true"
@@ -182,25 +170,14 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 <Link
                                     href="/contact"
                                     onClick={onToggle}
-                                    className="cta-interactive mt-3 flex w-full items-center justify-center rounded-full border py-4 text-xs font-medium uppercase tracking-wide"
-                                    style={{
-                                        borderColor: "#1E3A20",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.08em",
-                                    }}
+                                    className="cta-interactive mt-3 flex w-full items-center justify-center rounded-full border py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
+                                    style={{ borderColor: "#1E3A20" }}
                                 >
                                     Book Consultation
                                 </Link>
                                 <TrackedPhoneLink
                                     source="mobile_menu"
-                                    className="mt-4 block text-center text-xs"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
+                                    className="mt-4 block text-center font-satoshi text-xs font-light text-light-supporting"
                                 >
                                     Call {PHONE_DISPLAY}
                                 </TrackedPhoneLink>
@@ -233,24 +210,10 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
                 onClick={onNavigate}
                 className="flex items-center gap-5 px-8 py-5"
             >
-                <span
-                    className="shrink-0 text-xs tabular-nums"
-                    style={{
-                        color: "var(--text-light-supporting)",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 300,
-                    }}
-                >
+                <span className="shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                     {link.number}
                 </span>
-                <span
-                    className="text-lg"
-                    style={{
-                        color: "#1E3A20",
-                        fontFamily: "var(--font-dm-serif)",
-                        fontStyle: "italic",
-                    }}
-                >
+                <span className="font-satoshi text-lg italic text-[#1E3A20]">
                     {link.label}
                 </span>
             </Link>
@@ -271,24 +234,10 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
                                 onClick={onNavigate}
                                 className="flex items-center gap-5 py-3.5 pl-20 pr-8"
                             >
-                                <span
-                                    className="shrink-0 text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {child.number}
                                 </span>
-                                <span
-                                    className="text-sm"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="font-satoshi text-sm font-light text-light-body">
                                     {child.label}
                                 </span>
                             </Link>

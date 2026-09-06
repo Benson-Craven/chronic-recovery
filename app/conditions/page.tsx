@@ -80,19 +80,10 @@ const ConditionsPage = () => {
                     transition={{ duration: 0.8 }}
                     className="mx-auto max-w-3xl"
                 >
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Conditions
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         Chronic pain
                         <br />
                         <em>conditions I treat</em>
@@ -101,14 +92,7 @@ const ConditionsPage = () => {
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         Many conditions once considered permanent have been
                         shown to have a neuroplastic component, meaning recovery
                         is possible. This is not an exhaustive list.
@@ -133,34 +117,15 @@ const ConditionsPage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             {treatable.length} examples
                         </p>
-                        <h2
-                            className="mb-4 text-4xl leading-[1.1] md:text-5xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="mb-4 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                             Conditions that
                             <br />
                             <em>are treatable</em>
                         </h2>
-                        <p
-                            className="text-sm"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-sm font-light text-light-supporting">
                             This is not an exhaustive list of all treatable
                             conditions.
                         </p>
@@ -191,24 +156,10 @@ const ConditionsPage = () => {
                                 className="flex items-start gap-4 p-6"
                                 style={{ backgroundColor: "#F7F4EF" }}
                             >
-                                <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <p
-                                    className="text-sm leading-relaxed md:text-base"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light leading-relaxed text-light-body md:text-base">
                                     {condition}
                                 </p>
                             </motion.div>
@@ -227,31 +178,15 @@ const ConditionsPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Outside this approach
                     </p>
-                    <h2
-                        className="mb-4 text-4xl leading-[1.1] text-white md:text-5xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-4 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl">
                         Conditions that are
                         <br />
                         <em>not treatable here</em>
                     </h2>
-                    <p
-                        className="mb-14 max-w-xl text-sm leading-relaxed"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mb-14 max-w-xl font-satoshi text-sm font-light leading-relaxed text-dark-body">
                         Note: people with structural or disease-related issues
                         alongside chronic pain can still benefit from this
                         treatment.
@@ -276,24 +211,10 @@ const ConditionsPage = () => {
                             className="flex items-start gap-6 border-b py-7"
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
-                            <span
-                                className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                 {String(index + 1).padStart(2, "0")}
                             </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-dark-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                                 {condition}
                             </p>
                         </motion.div>
@@ -319,22 +240,10 @@ const ConditionsPage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             Before we begin
                         </p>
-                        <h2
-                            className="mb-14 text-4xl leading-[1.1] md:text-5xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                             Please rule out
                             <br />
                             <em>structural issues first</em>
@@ -353,24 +262,10 @@ const ConditionsPage = () => {
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 01
                             </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 Please consult your doctor to rule out a
                                 structural abnormality, disease, or infection
                                 before beginning this approach.
@@ -389,29 +284,14 @@ const ConditionsPage = () => {
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 02
                             </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 Not sure if this is right for you?{" "}
                                 <Link
                                     href="/self-assessment"
-                                    className="underline underline-offset-2"
-                                    style={{ color: "#1E3A20" }}
+                                    className="text-[#1E3A20] underline underline-offset-2"
                                 >
                                     Take the self-assessment questionnaire
                                 </Link>{" "}
@@ -439,19 +319,10 @@ const ConditionsPage = () => {
                     />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                 Your next step
                             </p>
-                            <h2
-                                className="text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
-                            >
+                            <h2 className="font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                                 Recognise
                                 <br />
                                 <em>your condition</em>
@@ -461,14 +332,7 @@ const ConditionsPage = () => {
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
-                            <div
-                                className="space-y-5 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-dark-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <div className="space-y-5 font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                                 <p>
                                     If your condition appears above, or if
                                     you&apos;ve been living with unexplained
@@ -476,14 +340,7 @@ const ConditionsPage = () => {
                                     conventional treatment, this approach may be
                                     the answer you&apos;ve been looking for.
                                 </p>
-                                <p
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                        fontStyle: "italic",
-                                        color: "var(--text-dark-body)",
-                                        fontSize: "1.15rem",
-                                    }}
-                                >
+                                <p className="font-satoshi text-[1.15rem] italic text-dark-body">
                                     Recovery is possible. Let&apos;s talk.
                                 </p>
                             </div>
@@ -495,33 +352,19 @@ const ConditionsPage = () => {
                                 />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#F0EBE1] sm:w-auto sm:px-10"
                                     style={{
                                         backgroundColor: "transparent",
                                         border: "1px solid rgba(240,235,225,0.75)",
-                                        color: "#F0EBE1",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
                                     }}
                                 >
                                     Book Consultation
                                 </Link>
-                                <p
-                                    className="text-sm sm:basis-full"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light text-dark-supporting sm:basis-full">
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="conditions_closing_cta"
-                                        className="underline underline-offset-2"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                        }}
+                                        className="text-dark-supporting underline underline-offset-2"
                                     >
                                         {PHONE_DISPLAY}
                                     </TrackedPhoneLink>

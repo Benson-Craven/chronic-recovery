@@ -78,11 +78,7 @@ const WeDoSection = () => {
                         <CtaActionRow>
                             <WhatsAppLink
                                 source="homepage_approach"
-                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF] sm:w-auto"
-                                style={{
-                                    fontFamily: "var(--font-dm-sans)",
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#1E3A20] px-8 py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] sm:w-auto"
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -93,19 +89,11 @@ const WeDoSection = () => {
                             <CtaButton href="/contact" variant="outline">
                                 Book Consultation
                             </CtaButton>
-                            <p
-                                className="text-sm sm:basis-full"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-sm font-light text-light-supporting sm:basis-full">
                                 Call{" "}
                                 <TrackedPhoneLink
                                     source="homepage_approach"
-                                    className="underline underline-offset-2"
-                                    style={{ color: "var(--text-light-body)" }}
+                                    className="text-light-body underline underline-offset-2"
                                 >
                                     {PHONE_DISPLAY}
                                 </TrackedPhoneLink>

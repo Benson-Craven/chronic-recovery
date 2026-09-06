@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import type { ReactNode } from "react"
+import { cn } from "@/utils/cn"
 import CtaActionRow from "./CtaActionRow"
 import { EditorialSplit, type EditorialVisual } from "./ui/EditorialSplit"
 import { WhatsAppCta } from "./WhatsAppLink"
@@ -80,33 +81,17 @@ export default function SeoContentPage({
                     transition={{ duration: 0.8 }}
                     className="mx-auto max-w-3xl"
                 >
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         {hero.eyebrow}
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         {hero.title}
                     </h1>
                     <div
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         {hero.intro}
                     </p>
                 </motion.div>
@@ -114,32 +99,26 @@ export default function SeoContentPage({
 
             {sections.map((section, index) => {
                 const isGreen = index % 2 === 1
-                const foreground = isGreen
-                    ? "var(--text-dark-supporting)"
-                    : "var(--text-light-supporting)"
-                const bodyColor = isGreen
-                    ? "var(--text-dark-body)"
-                    : "var(--text-light-body)"
 
                 const content = (
                     <div>
                         {section.eyebrow && (
                             <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: foreground,
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
+                                className={cn(
+                                    "mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em]",
+                                    isGreen
+                                        ? "text-dark-supporting"
+                                        : "text-light-supporting",
+                                )}
                             >
                                 {section.eyebrow}
                             </p>
                         )}
                         <h2
-                            className="mb-8 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                color: isGreen ? "#FFFFFF" : "#1E3A20",
-                                fontFamily: "var(--font-dm-serif)",
-                            }}
+                            className={cn(
+                                "mb-8 font-satoshi text-4xl leading-[1.1] md:text-5xl lg:text-6xl",
+                                isGreen ? "text-white" : "text-[#1E3A20]",
+                            )}
                         >
                             {section.heading}
                         </h2>
@@ -155,12 +134,12 @@ export default function SeoContentPage({
                             {section.body.map((paragraph) => (
                                 <p
                                     key={paragraph}
-                                    className="text-base leading-relaxed md:text-lg"
-                                    style={{
-                                        color: bodyColor,
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
+                                    className={cn(
+                                        "font-satoshi text-base font-light leading-relaxed md:text-lg",
+                                        isGreen
+                                            ? "text-dark-body"
+                                            : "text-light-body",
+                                    )}
                                 >
                                     {paragraph}
                                 </p>
@@ -205,30 +184,14 @@ export default function SeoContentPage({
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         {listSection.eyebrow}
                     </p>
-                    <h2
-                        className="mb-6 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-6 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                         {listSection.heading}
                     </h2>
                     {listSection.intro && (
-                        <p
-                            className="mb-14 max-w-2xl text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-dark-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="mb-14 max-w-2xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                             {listSection.intro}
                         </p>
                     )}
@@ -250,32 +213,13 @@ export default function SeoContentPage({
                                 className="p-7"
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
-                                <span
-                                    className="mb-5 block text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="mb-5 block font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <h3
-                                    className="mb-4 text-lg text-white"
-                                    style={{
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <h3 className="mb-4 font-satoshi text-lg text-white">
                                     {item.title}
                                 </h3>
-                                <p
-                                    className="text-sm leading-relaxed md:text-base"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light leading-relaxed text-dark-supporting md:text-base">
                                     {item.body}
                                 </p>
                             </motion.div>
@@ -290,34 +234,15 @@ export default function SeoContentPage({
                     className="w-full px-6 py-20 md:py-28"
                 >
                     <div className="mx-auto max-w-5xl">
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             Research links
                         </p>
-                        <h2
-                            className="mb-6 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-serif)",
-                            }}
-                        >
+                        <h2 className="mb-6 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                             Evidence behind
                             <br />
                             <em>this approach</em>
                         </h2>
-                        <p
-                            className="mb-12 max-w-2xl text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="mb-12 max-w-2xl font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                             These external research links are included for
                             transparency. They do not replace personalised
                             medical advice or assessment.
@@ -335,51 +260,19 @@ export default function SeoContentPage({
                                     className="group flex min-h-64 flex-col p-7 transition-colors"
                                     style={{ backgroundColor: "#F7F4EF" }}
                                 >
-                                    <span
-                                        className="mb-5 block text-xs tabular-nums"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="mb-5 block font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
-                                    <span
-                                        className="mb-3 text-xs font-medium uppercase tracking-[0.16em]"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
+                                    <span className="mb-3 font-satoshi text-xs font-medium uppercase tracking-[0.16em] text-light-supporting">
                                         {link.source}
                                     </span>
-                                    <h3
-                                        className="mb-5 text-xl leading-snug md:text-2xl"
-                                        style={{
-                                            color: "#1E3A20",
-                                            fontFamily: "var(--font-dm-serif)",
-                                        }}
-                                    >
+                                    <h3 className="mb-5 font-satoshi text-xl leading-snug text-[#1E3A20] md:text-2xl">
                                         {link.title}
                                     </h3>
-                                    <p
-                                        className="text-sm leading-relaxed md:text-base"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <p className="font-satoshi text-sm font-light leading-relaxed text-light-body md:text-base">
                                         {link.summary}
                                     </p>
-                                    <span
-                                        className="mt-auto pt-8 text-xs font-medium uppercase tracking-[0.16em]"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
+                                    <span className="mt-auto pt-8 font-satoshi text-xs font-medium uppercase tracking-[0.16em] text-light-supporting">
                                         View research
                                     </span>
                                 </a>
@@ -400,46 +293,25 @@ export default function SeoContentPage({
                     />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Before you begin
                             </p>
-                            <h2
-                                className="text-4xl leading-[1.1] md:text-5xl"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-serif)",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                                 {safetyNote.heading}
                             </h2>
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 {safetyNote.body}
                             </p>
                             <CtaActionRow>
                                 <WhatsAppCta source={whatsAppSource} />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full border px-8 py-4 text-center text-sm font-medium tracking-wide sm:w-auto"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border px-8 py-4 text-center font-satoshi text-sm font-medium tracking-wide text-[#1E3A20] sm:w-auto"
                                     style={{
                                         borderColor: "rgba(30,58,32,0.22)",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
                                     }}
                                 >
                                     Book Consultation
@@ -455,13 +327,7 @@ export default function SeoContentPage({
                 className="w-full px-6 py-16 md:py-20"
             >
                 <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-8 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-8 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Related reading
                     </p>
                     <div className="grid grid-cols-1 gap-px md:grid-cols-3">
@@ -469,13 +335,10 @@ export default function SeoContentPage({
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="p-6"
+                                className="p-6 font-satoshi font-light text-dark-body"
                                 style={{
                                     borderTop:
                                         "1px solid rgba(200,230,201,0.12)",
-                                    color: "var(--text-dark-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
                                 }}
                             >
                                 {link.label}

@@ -1,4 +1,5 @@
 import type { ContactFormError } from "@/app/hooks/useContactForm"
+import { cn } from "@/utils/cn"
 import type { TurnstileState } from "./Turnstile"
 import TrackedPhoneLink from "./TrackedPhoneLink"
 
@@ -16,7 +17,6 @@ type ContactFormFeedbackProps = {
     error: ContactFormError | null
     errorId: string
     errorClassName: string
-    errorColor: string
     turnstileState: TurnstileState
 }
 
@@ -24,7 +24,6 @@ export function ContactFormFeedback({
     error,
     errorId,
     errorClassName,
-    errorColor,
     turnstileState,
 }: ContactFormFeedbackProps) {
     return (
@@ -32,12 +31,7 @@ export function ContactFormFeedback({
             {turnstileState === "loading" && (
                 <p
                     role="status"
-                    className="text-xs"
-                    style={{
-                        color: "var(--text-light-supporting)",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 300,
-                    }}
+                    className="font-satoshi text-xs font-light text-light-supporting"
                 >
                     Preparing security verification…
                 </p>
@@ -47,12 +41,10 @@ export function ContactFormFeedback({
                 <p
                     id={errorId}
                     role="alert"
-                    className={errorClassName}
-                    style={{
-                        color: errorColor,
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 300,
-                    }}
+                    className={cn(
+                        "font-satoshi font-light text-[rgba(150,45,45,0.9)]",
+                        errorClassName,
+                    )}
                 >
                     {ERROR_MESSAGES[error]}
                     <TrackedPhoneLink

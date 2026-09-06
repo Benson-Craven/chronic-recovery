@@ -2,6 +2,7 @@ import Image from "next/image"
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
+import { cn } from "@/utils/cn"
 
 interface CardProps {
     i: number
@@ -80,26 +81,23 @@ const Card: React.FC<CardProps> = ({
                     <div>
                         {/* Index */}
                         <span
-                            className="mb-6 block text-xs tabular-nums"
-                            style={{
-                                color: isEven
-                                    ? "var(--text-dark-supporting)"
-                                    : "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
+                            className={cn(
+                                "mb-6 block font-satoshi text-xs font-light tabular-nums",
+                                isEven
+                                    ? "text-dark-supporting"
+                                    : "text-light-supporting",
+                            )}
                         >
                             {String(i + 1).padStart(2, "0")}
                         </span>
 
                         {/* Title */}
                         <h2
-                            className="mb-6 text-3xl leading-[1.1] md:text-4xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: isEven ? "#ffffff" : "#1E3A20",
-                                fontStyle: i % 3 === 1 ? "italic" : "normal",
-                            }}
+                            className={cn(
+                                "mb-6 font-satoshi text-3xl leading-[1.1] md:text-4xl",
+                                isEven ? "text-white" : "text-[#1E3A20]",
+                                i % 3 === 1 && "italic",
+                            )}
                         >
                             {title}
                         </h2>
@@ -116,14 +114,10 @@ const Card: React.FC<CardProps> = ({
 
                         {/* Description */}
                         <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: isEven
-                                    ? "var(--text-dark-body)"
-                                    : "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
+                            className={cn(
+                                "font-satoshi text-base font-light leading-relaxed md:text-lg",
+                                isEven ? "text-dark-body" : "text-light-body",
+                            )}
                         >
                             {description}
                         </p>
@@ -133,14 +127,8 @@ const Card: React.FC<CardProps> = ({
                     {i === totalCards - 1 && (
                         <Link href="/contact" className="mt-8 inline-block">
                             <motion.span
-                                className="cta-interactive inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide"
-                                style={{
-                                    backgroundColor: "#F0EBE1",
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive inline-flex items-center gap-3 rounded-full px-7 py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]"
+                                style={{ backgroundColor: "#F0EBE1" }}
                             >
                                 Enquire About a Consultation
                                 <svg

@@ -7,6 +7,7 @@ import CtaActionRow from "../components/CtaActionRow"
 import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
+import { cn } from "@/utils/cn"
 
 const questions = [
     "Has your doctor completed diagnostic testing without finding a definite cause for your pain or illness?",
@@ -44,27 +45,23 @@ const getResult = (count: number) => {
             label: "Low likelihood",
             summary:
                 "Your responses do not strongly indicate a brain-to-body disorder. That said, if you're still experiencing pain, it's worth speaking with a professional.",
-            colour: "var(--text-dark-body)",
         }
     if (count <= 7)
         return {
             label: "Mild likelihood",
             summary:
                 "Your responses suggest there may be a mild brain-to-body component to your condition. This approach may be worth exploring.",
-            colour: "var(--text-dark-body)",
         }
     if (count <= 12)
         return {
             label: "Moderate likelihood",
             summary:
                 "Your responses suggest a moderate likelihood of a brain-to-body disorder. Many people in this range respond very well to this approach.",
-            colour: "var(--text-dark-body)",
         }
     return {
         label: "High likelihood",
         summary:
             "Your responses suggest a high likelihood of a brain-to-body disorder. You are a strong candidate for this approach, and recovery is possible.",
-        colour: "var(--text-dark-body)",
     }
 }
 
@@ -120,19 +117,10 @@ export default function SelfAssessment() {
                     transition={{ duration: 0.8 }}
                     className="mx-auto max-w-3xl"
                 >
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Self assessment
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         Could this approach
                         <br />
                         <em>be right for you?</em>
@@ -141,14 +129,7 @@ export default function SelfAssessment() {
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         These questions help identify whether a brain-to-body
                         disorder may be playing a role in your condition. The
                         more "Yes" answers, the more likely this approach could
@@ -169,23 +150,10 @@ export default function SelfAssessment() {
                 <div className="mx-auto max-w-3xl">
                     {/* Progress indicator */}
                     <div className="mb-14 flex items-center justify-between">
-                        <p
-                            className="text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             {answeredCount} of {questions.length} answered
                         </p>
-                        <p
-                            className="text-xs tabular-nums"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                             {progress}%
                         </p>
                     </div>
@@ -225,27 +193,13 @@ export default function SelfAssessment() {
                                 className="grid grid-cols-[48px_1fr] gap-6 py-8"
                             >
                                 {/* Index */}
-                                <span
-                                    className="mt-0.5 text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="mt-0.5 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
 
                                 {/* Question + buttons */}
                                 <div className="flex flex-col gap-5">
-                                    <p
-                                        className="text-base leading-relaxed md:text-lg"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                         {question}
                                     </p>
 
@@ -269,25 +223,12 @@ export default function SelfAssessment() {
                                                         stiffness: 300,
                                                         damping: 20,
                                                     }}
-                                                    className="rounded-full px-6 py-2 text-sm font-medium tracking-wide transition-all"
-                                                    style={{
-                                                        backgroundColor:
-                                                            selected
-                                                                ? "#1E3A20"
-                                                                : "transparent",
-                                                        color: selected
-                                                            ? "#F7F4EF"
-                                                            : "var(--text-light-body)",
-                                                        border: selected
-                                                            ? "1px solid #1E3A20"
-                                                            : "1px solid rgba(30,58,32,0.2)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: selected
-                                                            ? 500
-                                                            : 300,
-                                                        letterSpacing: "0.04em",
-                                                    }}
+                                                    className={cn(
+                                                        "rounded-full px-6 py-2 font-satoshi text-sm tracking-[0.04em] transition-all",
+                                                        selected
+                                                            ? "border border-[#1E3A20] bg-[#1E3A20] font-medium text-[#F7F4EF]"
+                                                            : "border border-[rgba(30,58,32,0.2)] bg-transparent font-light text-light-body",
+                                                    )}
                                                 >
                                                     {option
                                                         .charAt(0)
@@ -323,19 +264,10 @@ export default function SelfAssessment() {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                             Your result
                         </p>
-                        <h2
-                            className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
-                        >
+                        <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                             Assessment
                             <br />
                             <em>summary</em>
@@ -363,27 +295,12 @@ export default function SelfAssessment() {
                                 >
                                     <div className="flex flex-col items-start gap-4">
                                         <div className="flex flex-col gap-2">
-                                            <p
-                                                className="text-sm font-medium uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: "#C8E6C9",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-sm font-medium uppercase tracking-[0.15em] text-[#C8E6C9]">
                                                 {complete
                                                     ? "Assessment complete"
                                                     : "Result locked"}
                                             </p>
-                                            <p
-                                                className="text-base leading-relaxed md:text-lg"
-                                                style={{
-                                                    color: "var(--text-dark-body)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                                                 {complete
                                                     ? "Your result is ready when you are."
                                                     : `Answer the remaining ${remainingCount} ${
@@ -400,13 +317,9 @@ export default function SelfAssessment() {
                                                 onClick={() =>
                                                     setResultRevealed(true)
                                                 }
-                                                className="cta-interactive rounded-full px-8 py-3 text-sm font-medium tracking-wide"
+                                                className="cta-interactive rounded-full px-8 py-3 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]"
                                                 style={{
                                                     backgroundColor: "#C8E6C9",
-                                                    color: "#1E3A20",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    letterSpacing: "0.04em",
                                                 }}
                                             >
                                                 See my result
@@ -435,59 +348,20 @@ export default function SelfAssessment() {
                                                 "rgba(200,230,201,0.12)",
                                         }}
                                     >
-                                        <span
-                                            className="mt-1 shrink-0 text-xs tabular-nums"
-                                            style={{
-                                                color: "var(--text-dark-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             01
                                         </span>
                                         <div className="flex flex-col gap-2">
-                                            <p
-                                                className="text-sm uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: "var(--text-dark-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-sm font-light uppercase tracking-[0.15em] text-dark-supporting">
                                                 Score
                                             </p>
-                                            <p
-                                                className="text-5xl leading-none"
-                                                style={{
-                                                    fontFamily:
-                                                        "var(--font-dm-serif)",
-                                                    color: "#ffffff",
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-5xl leading-none text-white">
                                                 {yesCount}
-                                                <span
-                                                    className="text-2xl"
-                                                    style={{
-                                                        color: "var(--text-dark-supporting)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <span className="font-satoshi text-2xl font-light text-dark-supporting">
                                                     /{questions.length}
                                                 </span>
                                             </p>
-                                            <p
-                                                className="text-sm"
-                                                style={{
-                                                    color: "var(--text-dark-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-sm font-light text-dark-supporting">
                                                 "Yes" answers
                                             </p>
                                         </div>
@@ -501,37 +375,14 @@ export default function SelfAssessment() {
                                                 "rgba(200,230,201,0.12)",
                                         }}
                                     >
-                                        <span
-                                            className="mt-1 shrink-0 text-xs tabular-nums"
-                                            style={{
-                                                color: "var(--text-dark-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             02
                                         </span>
                                         <div className="flex flex-col gap-3">
-                                            <p
-                                                className="text-sm font-medium uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: result.colour,
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-sm font-medium uppercase tracking-[0.15em] text-dark-body">
                                                 {result.label}
                                             </p>
-                                            <p
-                                                className="text-base leading-relaxed md:text-lg"
-                                                style={{
-                                                    color: "var(--text-dark-body)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                                                 {result.summary}
                                             </p>
                                         </div>
@@ -559,22 +410,10 @@ export default function SelfAssessment() {
                     />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Next step
                             </p>
-                            <h2
-                                className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-5xl leading-[1.05] text-[#1E3A20] md:text-6xl lg:text-7xl">
                                 This could
                                 <br />
                                 <em>be the start</em>
@@ -584,28 +423,14 @@ export default function SelfAssessment() {
                         </div>
 
                         <div className="flex flex-col justify-between gap-10">
-                            <div
-                                className="space-y-5 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <div className="space-y-5 font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 <p>
                                     This questionnaire is a starting point, not
                                     a diagnosis. If your responses suggest a
                                     brain-to-body component, the next step is a
                                     conversation.
                                 </p>
-                                <p
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                        fontStyle: "italic",
-                                        color: "#1E3A20",
-                                        fontSize: "1.15rem",
-                                    }}
-                                >
+                                <p className="font-satoshi text-[1.15rem] italic text-[#1E3A20]">
                                     I'm here when you're ready.
                                 </p>
                             </div>
@@ -614,33 +439,19 @@ export default function SelfAssessment() {
                                 <WhatsAppCta source="self_assessment_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                     style={{
                                         backgroundColor: "transparent",
                                         border: "1px solid rgba(30,58,32,0.3)",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
                                     }}
                                 >
                                     Book Consultation
                                 </Link>
-                                <p
-                                    className="text-sm sm:basis-full"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light text-light-supporting sm:basis-full">
                                     Call{" "}
                                     <a
                                         href={PHONE_HREF}
-                                        className="underline underline-offset-2"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                        }}
+                                        className="text-light-body underline underline-offset-2"
                                     >
                                         {PHONE_DISPLAY}
                                     </a>
@@ -651,14 +462,7 @@ export default function SelfAssessment() {
                 </div>
             </motion.section>
 
-            <aside
-                className="mx-auto max-w-3xl px-6 pb-12 text-xs leading-relaxed"
-                style={{
-                    color: "var(--text-light-supporting)",
-                    fontFamily: "var(--font-dm-sans)",
-                    fontWeight: 300,
-                }}
-            >
+            <aside className="mx-auto max-w-3xl px-6 pb-12 font-satoshi text-xs font-light leading-relaxed text-light-supporting">
                 This questionnaire is for educational purposes and is not
                 diagnostic. It does not replace medical assessment or advice
                 from a qualified healthcare professional.

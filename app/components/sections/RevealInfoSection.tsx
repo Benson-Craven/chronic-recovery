@@ -122,8 +122,7 @@ const AboutPage = () => {
                                 specialise in helping people with{" "}
                                 <Link
                                     href="/#illness"
-                                    className="underline underline-offset-2"
-                                    style={{ color: "#1E3A20" }}
+                                    className="text-[#1E3A20] underline underline-offset-2"
                                 >
                                     persistent pain conditions
                                 </Link>{" "}
@@ -138,21 +137,11 @@ const AboutPage = () => {
                                 <CtaButton href="/contact">
                                     Book Your Consultation
                                 </CtaButton>
-                                <p
-                                    className="text-sm"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light text-light-supporting">
                                     or call / WhatsApp{" "}
                                     <TrackedPhoneLink
                                         source="info_intro"
-                                        className="underline underline-offset-2"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                        }}
+                                        className="text-light-body underline underline-offset-2"
                                     >
                                         +353 (0) 87-102-5108
                                     </TrackedPhoneLink>
@@ -174,25 +163,10 @@ const AboutPage = () => {
                                         className="h-16 w-16 shrink-0 object-contain"
                                     />
                                     <span className="min-w-0">
-                                        <span
-                                            className="block text-xs font-medium uppercase tracking-[0.16em]"
-                                            style={{
-                                                color: "#1E3A20",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                            }}
-                                        >
+                                        <span className="block font-satoshi text-xs font-medium uppercase tracking-[0.16em] text-[#1E3A20]">
                                             View my verified ATNS profile
                                         </span>
-                                        <span
-                                            className="mt-1 block text-sm leading-relaxed"
-                                            style={{
-                                                color: "var(--text-light-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="mt-1 block font-satoshi text-sm font-light leading-relaxed text-light-supporting">
                                             I am listed in the Practitioner &
                                             Coach Directory.
                                         </span>
@@ -283,9 +257,7 @@ const AboutPage = () => {
                     }}
                 >
                     <div>
-                        <Eyebrow
-                            style={{ color: "var(--text-dark-supporting)" }}
-                        >
+                        <Eyebrow className="text-dark-supporting">
                             My background
                         </Eyebrow>
                         <Heading className="mb-14 text-white">
@@ -332,22 +304,10 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         A different approach
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                         Why I&apos;m different
                         <br />
                         from practitioners
@@ -384,34 +344,14 @@ const AboutPage = () => {
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 {item.number}
                             </span>
                             <div>
-                                <p
-                                    className="mb-3 text-base font-medium md:text-lg"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="mb-3 font-satoshi text-base font-medium text-[#1E3A20] md:text-lg">
                                     {item.heading}
                                 </p>
-                                <p
-                                    className="text-base leading-relaxed md:text-lg"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                     {item.body}
                                 </p>
                             </div>
@@ -426,12 +366,7 @@ const AboutPage = () => {
                             delay: 0.2,
                             ease: "easeOut",
                         }}
-                        className="mt-12 text-2xl leading-snug md:text-3xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "#1E3A20",
-                        }}
+                        className="mt-12 font-satoshi text-2xl italic leading-snug text-[#1E3A20] md:text-3xl"
                     >
                         "Pain is not a life sentence,
                         <br />
@@ -450,31 +385,15 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Who I work with
                     </p>
-                    <h2
-                        className="mb-6 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-6 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                         You don&apos;t have to keep
                         <br />
                         <em>living like this.</em>
                     </h2>
-                    <p
-                        className="mb-16 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mb-16 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         I specialise in helping people whose pain has persisted
                         long after conventional medicine ran out of answers.
                     </p>
@@ -527,32 +446,13 @@ const AboutPage = () => {
                                 className="flex flex-col gap-3 p-8"
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
-                                <span
-                                    className="text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <h3
-                                    className="text-base font-medium text-white md:text-lg"
-                                    style={{
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <h3 className="font-satoshi text-base font-medium text-white md:text-lg">
                                     {item.title}
                                 </h3>
-                                <p
-                                    className="text-sm leading-relaxed"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light leading-relaxed text-dark-supporting">
                                     {item.conditions}
                                 </p>
                             </motion.div>
@@ -567,12 +467,7 @@ const AboutPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="max-w-2xl text-xl leading-relaxed md:text-2xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "var(--text-dark-body)",
-                        }}
+                        className="max-w-2xl font-satoshi text-xl italic leading-relaxed text-dark-body md:text-2xl"
                     >
                         "If you&apos;ve been told it&apos;s all in your head,
                         you&apos;re partially right. Your pain lives in your
@@ -601,34 +496,15 @@ const AboutPage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             How it works
                         </p>
-                        <h2
-                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                             What working
                             <br />
                             <em>together looks like</em>
                         </h2>
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                             One-to-one, 60-minute sessions working with your
                             body, nervous system, and brain to restore your
                             health.
@@ -656,36 +532,14 @@ const AboutPage = () => {
                                     }}
                                     className="flex items-start gap-6 py-5"
                                 >
-                                    <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         0{index + 1}
                                     </span>
                                     <div>
-                                        <p
-                                            className="mb-1 text-sm font-medium"
-                                            style={{
-                                                color: "#1E3A20",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                            }}
-                                        >
+                                        <p className="mb-1 font-satoshi text-sm font-medium text-[#1E3A20]">
                                             {item.label}
                                         </p>
-                                        <p
-                                            className="text-base leading-relaxed"
-                                            style={{
-                                                color: "var(--text-light-body)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <p className="font-satoshi text-base font-light leading-relaxed text-light-body">
                                             {item.detail}
                                         </p>
                                     </div>
@@ -700,29 +554,14 @@ const AboutPage = () => {
                             className="mb-14 rounded-2xl px-8 py-7"
                             style={{ backgroundColor: "#1E3A20" }}
                         >
-                            <p
-                                className="mb-1 text-xs uppercase tracking-[0.2em]"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-1 font-satoshi text-xs uppercase tracking-[0.2em] text-dark-supporting">
                                 Investment
                             </p>
-                            <p
-                                className="text-2xl text-white md:text-3xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
-                            >
+                            <p className="font-satoshi text-2xl text-white md:text-3xl">
                                 €70 per session
                             </p>
                         </motion.div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             Evidence-based approaches
                         </p>
                         <div className="divide-y divide-black/10">
@@ -745,24 +584,10 @@ const AboutPage = () => {
                                     }}
                                     className="flex items-start gap-6 py-5"
                                 >
-                                    <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
-                                    <p
-                                        className="text-base leading-relaxed"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <p className="font-satoshi text-base font-light leading-relaxed text-light-body">
                                         {approach}
                                     </p>
                                 </motion.div>
@@ -785,35 +610,16 @@ const AboutPage = () => {
                     {/* Header row */}
                     <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                         <div>
-                            <p
-                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-4 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 What you can expect
                             </p>
-                            <h2
-                                className="text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                                 My commitment
                                 <br />
                                 <em>to you</em>
                             </h2>
                         </div>
-                        <p
-                            className="max-w-xs text-sm leading-relaxed md:text-right"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="max-w-xs font-satoshi text-sm font-light leading-relaxed text-light-supporting md:text-right">
                             When you work with me, you're not just another
                             appointment in my calendar.
                         </p>
@@ -864,26 +670,14 @@ const AboutPage = () => {
                             {/* Large decorative number */}
                             <span
                                 aria-hidden="true"
-                                className="text-5xl leading-none md:text-7xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "rgba(30,58,32,0.08)",
-                                    fontStyle: "italic",
-                                    userSelect: "none",
-                                }}
+                                className="font-satoshi text-5xl italic leading-none text-[rgba(30,58,32,0.08)] md:text-7xl"
+                                style={{ userSelect: "none" }}
                             >
                                 {item.number}
                             </span>
 
                             {/* Commitment text */}
-                            <p
-                                className="pt-2 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="pt-2 font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 {item.text}
                             </p>
                         </motion.div>
@@ -901,22 +695,10 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         Before we begin
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                         Please rule out
                         <br />
                         <em>structural issues first</em>
@@ -933,21 +715,13 @@ const AboutPage = () => {
                         className="flex items-start gap-6 border-b py-10"
                         style={{ borderColor: "rgba(30,58,32,0.12)" }}
                     >
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                             Before we begin, I always recommend consulting your
                             doctor to rule out structural abnormality, disease,
                             or infection. Once you've done that, take my{" "}
                             <Link
                                 href="/self-assessment"
-                                className="underline underline-offset-2"
-                                style={{ color: "#1E3A20" }}
+                                className="text-[#1E3A20] underline underline-offset-2"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -968,19 +742,10 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Don&apos;t wait
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                         Why now is
                         <br />
                         <em>the time to act</em>
@@ -1012,24 +777,10 @@ const AboutPage = () => {
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(200,230,201,0.12)" }}
                         >
-                            <span
-                                className="mt-1 shrink-0 text-xs tabular-nums"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                 {item.number}
                             </span>
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-dark-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                                 {item.body}
                             </p>
                         </motion.div>
@@ -1046,22 +797,10 @@ const AboutPage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         Where to find me
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                         Located in Cork,
                         <br />
                         <em>serving globally</em>
@@ -1078,14 +817,7 @@ const AboutPage = () => {
                         className="flex items-start gap-6 border-b py-10"
                         style={{ borderColor: "rgba(30,58,32,0.12)" }}
                     >
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                             While my home clinic is based in Rochestown, Cork, I
                             work with clients throughout Ireland and worldwide
                             via online video sessions. Location doesn&apos;t
@@ -1112,22 +844,10 @@ const AboutPage = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — headline */}
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Your next step
                             </p>
-                            <h2
-                                className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-5xl leading-[1.05] text-[#1E3A20] md:text-6xl lg:text-7xl">
                                 Something
                                 <br />
                                 <em>different</em>
@@ -1138,14 +858,7 @@ const AboutPage = () => {
 
                         {/* Right — body + CTA */}
                         <div className="flex flex-col justify-between gap-10">
-                            <div
-                                className="space-y-5 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <div className="space-y-5 font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 <p>
                                     You&apos;ve spent long enough suffering.
                                     You&apos;ve tried enough treatments that
@@ -1153,14 +866,7 @@ const AboutPage = () => {
                                     enough with a healthcare system that
                                     couldn&apos;t give you answers.
                                 </p>
-                                <p
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                        fontStyle: "italic",
-                                        color: "#1E3A20",
-                                        fontSize: "1.15rem",
-                                    }}
-                                >
+                                <p className="font-satoshi text-[1.15rem] italic text-[#1E3A20]">
                                     Now it&apos;s time to try something backed
                                     by science, something that treats the root
                                     cause, not just the symptoms.
@@ -1175,33 +881,19 @@ const AboutPage = () => {
                                 <WhatsAppCta source="info_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                     style={{
                                         backgroundColor: "transparent",
                                         border: "1px solid rgba(30,58,32,0.3)",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
                                     }}
                                 >
                                     Book Consultation
                                 </Link>
-                                <p
-                                    className="text-sm sm:basis-full"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light text-light-supporting sm:basis-full">
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="info_closing_cta"
-                                        className="underline underline-offset-2"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                        }}
+                                        className="text-light-body underline underline-offset-2"
                                     >
                                         {PHONE_DISPLAY}
                                     </TrackedPhoneLink>

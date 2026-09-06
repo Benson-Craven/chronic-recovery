@@ -8,6 +8,7 @@ import type {
 import { FaWhatsapp } from "react-icons/fa"
 import { trackWhatsAppClick } from "@/app/lib/analytics"
 import { WHATSAPP_URL, type WhatsAppSource } from "@/app/lib/contact"
+import { cn } from "@/utils/cn"
 
 type WhatsAppLinkProps = Omit<
     ComponentPropsWithoutRef<"a">,
@@ -52,15 +53,15 @@ export function WhatsAppCta({ source, surface = "cream" }: WhatsAppCtaProps) {
     return (
         <WhatsAppLink
             source={source}
-            className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full py-4 text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+            className={cn(
+                "cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full py-4 font-satoshi text-sm font-medium tracking-[0.04em] sm:w-auto sm:px-10",
+                isGreenSurface ? "text-[#1E3A20]" : "text-[#F7F4EF]",
+            )}
             style={{
                 backgroundColor: isGreenSurface ? "#F0EBE1" : "#1E3A20",
                 border: isGreenSurface
                     ? "1px solid rgba(30,58,32,0.12)"
                     : "1px solid transparent",
-                color: isGreenSurface ? "#1E3A20" : "#F7F4EF",
-                fontFamily: "var(--font-dm-sans)",
-                letterSpacing: "0.04em",
             }}
         >
             <FaWhatsapp aria-hidden="true" className="h-5 w-5" />

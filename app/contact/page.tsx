@@ -45,22 +45,15 @@ const ContactPage = () => {
         borderRadius: 0,
         padding: "10px 0",
         outline: "none",
-        color: "#1E3A20",
-        fontFamily: "var(--font-dm-sans)",
-        fontWeight: 300,
-        fontSize: "1rem",
     }
+    const inputClassName = "font-satoshi text-base font-light text-[#1E3A20]"
 
     const labelStyles: React.CSSProperties = {
         display: "block",
         marginBottom: "6px",
-        fontSize: "0.7rem",
-        fontFamily: "var(--font-dm-sans)",
-        fontWeight: 500,
-        letterSpacing: "0.2em",
-        textTransform: "uppercase",
-        color: "var(--text-light-supporting)",
     }
+    const labelClassName =
+        "font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
 
     return (
         <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
@@ -75,19 +68,10 @@ const ContactPage = () => {
                     transition={{ duration: 0.8 }}
                     className="mx-auto max-w-3xl"
                 >
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Get in touch
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         Let's start your
                         <br />
                         <em>recovery together</em>
@@ -96,14 +80,7 @@ const ContactPage = () => {
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         Message me on WhatsApp or fill out the form. I'll get
                         back to you as quickly as possible, usually within 24
                         hours.
@@ -120,22 +97,10 @@ const ContactPage = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — context */}
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Contact
                             </p>
-                            <h2
-                                className="mb-10 text-4xl leading-[1.1] md:text-5xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
+                            <h2 className="mb-10 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                                 Contact us
                                 <br />
                                 <em>today</em>
@@ -150,11 +115,7 @@ const ContactPage = () => {
 
                             <WhatsAppLink
                                 source="contact_page"
-                                className="cta-interactive mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 text-sm font-medium tracking-wide text-[#F7F4EF]"
-                                style={{
-                                    fontFamily: "var(--font-dm-sans)",
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive mb-10 flex w-fit items-center gap-2 rounded-full bg-[#1E3A20] px-8 py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF]"
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -183,52 +144,22 @@ const ContactPage = () => {
                                         key={index}
                                         className="flex items-start gap-6"
                                     >
-                                        <span
-                                            className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                            style={{
-                                                color: "var(--text-light-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                             {String(index + 1).padStart(2, "0")}
                                         </span>
                                         <div>
-                                            <p
-                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 500,
-                                                }}
-                                            >
+                                            <p className="mb-1 font-satoshi text-xs font-medium uppercase tracking-[0.15em] text-light-supporting">
                                                 {item.label}
                                             </p>
                                             {item.href ? (
                                                 <TrackedPhoneLink
                                                     source="contact_page"
-                                                    className="text-base underline underline-offset-2"
-                                                    style={{
-                                                        color: "#1E3A20",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
+                                                    className="font-satoshi text-base font-light text-[#1E3A20] underline underline-offset-2"
                                                 >
                                                     {item.value}
                                                 </TrackedPhoneLink>
                                             ) : (
-                                                <p
-                                                    className="text-base leading-relaxed"
-                                                    style={{
-                                                        color: "var(--text-light-body)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <p className="font-satoshi text-base font-light leading-relaxed text-light-body">
                                                     {item.value}
                                                 </p>
                                             )}
@@ -256,6 +187,7 @@ const ContactPage = () => {
                                         <div>
                                             <label
                                                 htmlFor="name"
+                                                className={labelClassName}
                                                 style={labelStyles}
                                             >
                                                 Name *
@@ -269,6 +201,7 @@ const ContactPage = () => {
                                                 maxLength={100}
                                                 autoComplete="name"
                                                 placeholder="Your full name"
+                                                className={inputClassName}
                                                 style={inputStyles}
                                             />
                                         </div>
@@ -277,6 +210,7 @@ const ContactPage = () => {
                                         <div>
                                             <label
                                                 htmlFor="email"
+                                                className={labelClassName}
                                                 style={labelStyles}
                                             >
                                                 Email *
@@ -289,6 +223,7 @@ const ContactPage = () => {
                                                 maxLength={254}
                                                 autoComplete="email"
                                                 placeholder="your@email.com"
+                                                className={inputClassName}
                                                 style={inputStyles}
                                             />
                                         </div>
@@ -297,6 +232,7 @@ const ContactPage = () => {
                                         <div>
                                             <label
                                                 htmlFor="phone"
+                                                className={labelClassName}
                                                 style={labelStyles}
                                             >
                                                 Phone number *
@@ -310,6 +246,7 @@ const ContactPage = () => {
                                                 maxLength={50}
                                                 autoComplete="tel"
                                                 placeholder="+353..."
+                                                className={inputClassName}
                                                 style={inputStyles}
                                             />
                                         </div>
@@ -318,6 +255,7 @@ const ContactPage = () => {
                                         <div>
                                             <label
                                                 htmlFor="message"
+                                                className={labelClassName}
                                                 style={labelStyles}
                                             >
                                                 Message *
@@ -335,6 +273,7 @@ const ContactPage = () => {
                                                         e.target.value.length,
                                                     )
                                                 }
+                                                className={inputClassName}
                                                 style={{
                                                     ...inputStyles,
                                                     resize: "none",
@@ -342,15 +281,7 @@ const ContactPage = () => {
                                                         "1px solid rgba(30,58,32,0.2)",
                                                 }}
                                             />
-                                            <p
-                                                className="mt-2 text-right text-xs tabular-nums"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="mt-2 text-right font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                 {messageLength}/
                                                 {MAX_MESSAGE_LENGTH}
                                             </p>
@@ -369,7 +300,6 @@ const ContactPage = () => {
                                             error={formError}
                                             errorId="contact-form-error"
                                             errorClassName="text-sm leading-relaxed"
-                                            errorColor="rgba(150,45,45,0.9)"
                                             turnstileState={turnstileState}
                                         />
 
@@ -383,16 +313,11 @@ const ContactPage = () => {
                                                         ? "contact-form-error"
                                                         : undefined
                                                 }
-                                                className="cta-interactive w-full rounded-full py-4 text-sm font-medium tracking-wide disabled:cursor-not-allowed md:w-auto md:px-10"
+                                                className="cta-interactive w-full rounded-full py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed md:w-auto md:px-10"
                                                 style={{
                                                     backgroundColor: canSubmit
                                                         ? "#1E3A20"
                                                         : "#5B6E5A",
-                                                    color: "#F7F4EF",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 500,
-                                                    letterSpacing: "0.04em",
                                                 }}
                                             >
                                                 {isSubmitting
@@ -401,28 +326,18 @@ const ContactPage = () => {
                                             </motion.button>
 
                                             {/* Legal */}
-                                            <p
-                                                className="text-xs leading-relaxed"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-xs font-light leading-relaxed text-light-supporting">
                                                 By continuing, you agree to our{" "}
                                                 <Link
                                                     href="/terms-and-conditions"
-                                                    className="underline underline-offset-2"
-                                                    style={{ color: "#1E3A20" }}
+                                                    className="text-[#1E3A20] underline underline-offset-2"
                                                 >
                                                     Terms & Conditions
                                                 </Link>{" "}
                                                 and{" "}
                                                 <Link
                                                     href="/privacy-policy"
-                                                    className="underline underline-offset-2"
-                                                    style={{ color: "#1E3A20" }}
+                                                    className="text-[#1E3A20] underline underline-offset-2"
                                                 >
                                                     Privacy Policy
                                                 </Link>
@@ -445,24 +360,10 @@ const ContactPage = () => {
                                                     "rgba(30,58,32,0.12)",
                                             }}
                                         />
-                                        <p
-                                            className="text-xs font-medium uppercase tracking-[0.25em]"
-                                            style={{
-                                                color: "var(--text-light-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                            }}
-                                        >
+                                        <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                             Message sent
                                         </p>
-                                        <h2
-                                            className="text-4xl leading-[1.1] md:text-5xl"
-                                            style={{
-                                                fontFamily:
-                                                    "var(--font-dm-serif)",
-                                                color: "#1E3A20",
-                                            }}
-                                        >
+                                        <h2 className="font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                                             Thank you for
                                             <br />
                                             <em>reaching out.</em>
@@ -474,15 +375,7 @@ const ContactPage = () => {
                                                     "rgba(30,58,32,0.12)",
                                             }}
                                         />
-                                        <p
-                                            className="text-base leading-relaxed"
-                                            style={{
-                                                color: "var(--text-light-body)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <p className="font-satoshi text-base font-light leading-relaxed text-light-body">
                                             I'll get back to you as soon as
                                             possible, usually within 24 hours.
                                         </p>

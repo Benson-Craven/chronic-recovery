@@ -55,22 +55,10 @@ export default function Services() {
         >
             {/* Section header */}
             <div id="services" className="mx-auto max-w-5xl px-6 pb-16">
-                <p
-                    className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                    style={{
-                        color: "var(--text-light-supporting)",
-                        fontFamily: "var(--font-dm-sans)",
-                    }}
-                >
+                <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                     Services
                 </p>
-                <h2
-                    className="text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                    style={{
-                        fontFamily: "var(--font-dm-serif)",
-                        color: "#1E3A20",
-                    }}
-                >
+                <h2 className="font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                     How can I
                     <br />
                     <em>help you?</em>
@@ -104,20 +92,12 @@ export default function Services() {
                 className="mx-auto max-w-3xl px-6 py-10"
                 style={{ borderTop: "1px solid rgba(30,58,32,0.1)" }}
             >
-                <p
-                    className="text-center text-sm leading-relaxed md:text-base"
-                    style={{
-                        color: "var(--text-light-supporting)",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 300,
-                    }}
-                >
+                <p className="text-center font-satoshi text-sm font-light leading-relaxed text-light-supporting md:text-base">
                     Please consult your doctor to rule out structural
                     abnormality, disease, or infection. Take the{" "}
                     <Link
                         href="/self-assessment"
-                        className="underline underline-offset-2"
-                        style={{ color: "#1E3A20" }}
+                        className="text-[#1E3A20] underline underline-offset-2"
                     >
                         self-assessment questionnaire
                     </Link>{" "}

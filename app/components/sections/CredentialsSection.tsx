@@ -39,23 +39,10 @@ const CredentialsSection = () => {
                                     borderColor: "rgba(30,58,32,0.12)",
                                 }}
                             >
-                                <span
-                                    className="text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <span className="font-satoshi text-xs tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <p
-                                    className="text-base leading-relaxed md:text-lg"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                     {item}
                                 </p>
                             </div>
@@ -77,23 +64,10 @@ const CredentialsSection = () => {
                                 className="h-16 w-16 shrink-0 object-contain"
                             />
                             <span className="min-w-0">
-                                <span
-                                    className="block text-xs font-medium uppercase tracking-[0.16em]"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <span className="block font-satoshi text-xs font-medium uppercase tracking-[0.16em] text-[#1E3A20]">
                                     View my ATNS directory profile
                                 </span>
-                                <span
-                                    className="mt-1 block text-sm leading-relaxed"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="mt-1 block font-satoshi text-sm font-light leading-relaxed text-light-supporting">
                                     Listed in the Practitioner & Coach
                                     Directory.
                                 </span>

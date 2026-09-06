@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Brain, AlertTriangle, Activity, ThumbsUp, Smile } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { cn } from "@/utils/cn"
 
 const SVGPathScienceSection = () => {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -51,11 +52,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
+                        className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting"
                     >
                         The science
                     </motion.p>
@@ -64,11 +61,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="mb-8 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
+                        className="mb-8 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl"
                     >
                         What causes
                         <br />
@@ -83,12 +76,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-light-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
+                        className="mt-8 max-w-2xl font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg"
                     >
                         Chronic pain isn&apos;t always caused by ongoing injury.
                         Many long-lasting pain conditions come from learned
@@ -133,23 +121,10 @@ const SVGPathScienceSection = () => {
                                 className="mb-3 h-5 w-5 opacity-50"
                                 style={{ color: "#1E3A20" }}
                             />
-                            <h3
-                                className="mb-3 max-w-md text-2xl leading-snug"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-serif)",
-                                }}
-                            >
+                            <h3 className="mb-3 max-w-md font-satoshi text-2xl leading-snug text-[#1E3A20]">
                                 All pain is real, and it starts in the brain
                             </h3>
-                            <p
-                                className="mb-5 text-base leading-relaxed"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="mb-5 font-satoshi text-base font-light leading-relaxed text-light-body">
                                 95% of brain function is unconscious, constantly
                                 interpreting signals to determine safety or
                                 danger. Pain originates here, not in imagined
@@ -209,15 +184,7 @@ const SVGPathScienceSection = () => {
                                                     "rgba(200,230,201,0.5)",
                                             }}
                                         />
-                                        <span
-                                            className="text-base leading-relaxed"
-                                            style={{
-                                                color: "var(--text-dark-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="font-satoshi text-base font-light leading-relaxed text-dark-supporting">
                                             {treatment}
                                         </span>
                                     </li>
@@ -311,34 +278,29 @@ function BentoCard({
             <div>
                 <div className="mb-4 flex items-center gap-2.5">
                     <span
-                        style={{
-                            color: isGreen
-                                ? "var(--text-dark-supporting)"
-                                : "var(--text-light-supporting)",
-                        }}
+                        className={cn(
+                            isGreen
+                                ? "text-dark-supporting"
+                                : "text-light-supporting",
+                        )}
                     >
                         {icon}
                     </span>
                     <h3
-                        className="text-lg leading-snug"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: isGreen ? "#ffffff" : "#1E3A20",
-                        }}
+                        className={cn(
+                            "font-satoshi text-lg leading-snug",
+                            isGreen ? "text-white" : "text-[#1E3A20]",
+                        )}
                     >
                         {title}
                     </h3>
                 </div>
                 {body && (
                     <p
-                        className="text-base leading-relaxed"
-                        style={{
-                            color: isGreen
-                                ? "var(--text-dark-body)"
-                                : "var(--text-light-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
+                        className={cn(
+                            "font-satoshi text-base font-light leading-relaxed",
+                            isGreen ? "text-dark-body" : "text-light-body",
+                        )}
                     >
                         {body}
                     </p>
@@ -363,13 +325,12 @@ function BentoLink({
     return (
         <Link href={href} className="mt-4 inline-block">
             <motion.span
-                className="cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
+                className={cn(
+                    "cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-satoshi text-sm font-medium tracking-[0.04em]",
+                    dark ? "text-[#1E3A20]" : "text-[#F7F4EF]",
+                )}
                 style={{
                     backgroundColor: dark ? "#F0EBE1" : "#1E3A20",
-                    color: dark ? "#1E3A20" : "#F7F4EF",
-                    fontFamily: "var(--font-dm-sans)",
-                    fontWeight: 500,
-                    letterSpacing: "0.04em",
                 }}
             >
                 {label}

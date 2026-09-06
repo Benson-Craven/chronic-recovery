@@ -36,14 +36,10 @@ export const NumberRow: React.FC<NumberRowProps> = ({
             }}
         >
             <span
-                className="mt-1 shrink-0 text-xs tabular-nums"
-                style={{
-                    color: isGreen
-                        ? "var(--text-dark-supporting)"
-                        : "var(--text-light-supporting)",
-                    fontFamily: "var(--font-dm-sans)",
-                    fontWeight: 300,
-                }}
+                className={cn(
+                    "mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums",
+                    isGreen ? "text-dark-supporting" : "text-light-supporting",
+                )}
             >
                 {typeof number === "number"
                     ? String(number).padStart(2, "0")
@@ -52,11 +48,9 @@ export const NumberRow: React.FC<NumberRowProps> = ({
             <div className="flex-1">
                 {typeof children === "string" ? (
                     <Text
-                        style={{
-                            color: isGreen
-                                ? "var(--text-dark-body)"
-                                : "var(--text-light-body)",
-                        }}
+                        className={cn(
+                            isGreen ? "text-dark-body" : "text-light-body",
+                        )}
                     >
                         {children}
                     </Text>

@@ -26,21 +26,12 @@ export default function Home() {
         <>
             <main className="bg-background">
                 <section className="flex h-[80vh] flex-col items-center justify-center gap-6 bg-background px-6 text-center">
-                    <motion.h1
-                        className="max-w-6xl flex-wrap font-butler text-4xl font-extralight uppercase text-primary-text md:text-5xl lg:text-7xl"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                            delay: 0.15,
-                            duration: 1,
-                            ease: "easeInOut",
-                        }}
-                    >
+                    <h1 className="max-w-6xl flex-wrap font-butler text-4xl font-extralight uppercase text-primary-text md:text-5xl lg:text-7xl">
                         The <i>Biopsychosocial Approach </i> to{" "}
                         <span className="text-secondary-text">
                             chronic pain recovery
                         </span>
-                    </motion.h1>
+                    </h1>
                     <motion.div
                         className="flex max-w-3xl flex-col items-center gap-5"
                         initial={{ opacity: 0, y: 8 }}

@@ -56,8 +56,9 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     <Image
                         src="/logos/logo-removebg-preview.png"
                         alt="Chronic Pain Recovery Logo"
-                        width={144}
-                        height={144}
+                        width={796}
+                        height={313}
+                        sizes="(max-width: 767px) 112px, 128px"
                         className="h-auto w-28 md:w-32"
                         priority
                     />
@@ -73,14 +74,8 @@ export default function Navbar({ className = "" }: NavbarProps) {
                             onMouseLeave={() => setIsScienceDropdownOpen(false)}
                         >
                             <button
-                                className="flex items-center gap-1.5"
+                                className="flex items-center gap-1.5 font-satoshi text-xs font-light uppercase tracking-[0.15em] text-[#1E3A20]"
                                 style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                    fontSize: "0.75rem",
-                                    letterSpacing: "0.15em",
-                                    textTransform: "uppercase",
                                     background: "none",
                                     border: "none",
                                     cursor: "pointer",
@@ -141,26 +136,10 @@ export default function Navbar({ className = "" }: NavbarProps) {
                                                             : "none",
                                                 }}
                                             >
-                                                <span
-                                                    className="shrink-0 text-xs tabular-nums"
-                                                    style={{
-                                                        color: "var(--text-light-supporting)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <span className="shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                     {link.number}
                                                 </span>
-                                                <span
-                                                    className="text-sm"
-                                                    style={{
-                                                        color: "#1E3A20",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <span className="font-satoshi text-sm font-light text-[#1E3A20]">
                                                     {link.label}
                                                 </span>
                                             </Link>
@@ -175,15 +154,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className="transition-opacity"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                        fontSize: "0.75rem",
-                                        letterSpacing: "0.15em",
-                                        textTransform: "uppercase",
-                                    }}
+                                    className="font-satoshi text-xs font-light uppercase tracking-[0.15em] text-[#1E3A20] transition-opacity"
                                 >
                                     {link.label}
                                 </Link>
@@ -196,27 +167,18 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="hidden items-center gap-3 lg:flex">
                     <WhatsAppLink
                         source="navbar_desktop"
-                        className="cta-interactive flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-medium uppercase tracking-[0.08em] xl:px-6"
-                        style={{
-                            backgroundColor: "#1E3A20",
-                            color: "#F7F4EF",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
+                        className="cta-interactive flex items-center gap-2 rounded-full px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF] xl:px-6"
+                        style={{ backgroundColor: "#1E3A20" }}
                     >
                         <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
                         <span>WhatsApp Marsha</span>
                     </WhatsAppLink>
                     <motion.button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        className="cta-interactive rounded-full border px-5 py-2.5 text-xs font-medium tracking-wide xl:px-6"
+                        className="cta-interactive rounded-full border px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20] xl:px-6"
                         style={{
                             backgroundColor: "transparent",
                             borderColor: "#1E3A20",
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 500,
-                            letterSpacing: "0.08em",
-                            textTransform: "uppercase",
                         }}
                     >
                         Book Consultation
@@ -227,23 +189,16 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="ml-auto flex items-center gap-2 lg:hidden">
                     <Link
                         href="/contact"
-                        className="cta-interactive hidden items-center justify-center rounded-full border px-4 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] min-[460px]:inline-flex"
-                        style={{
-                            borderColor: "#1E3A20",
-                            color: "#1E3A20",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
+                        className="cta-interactive hidden items-center justify-center rounded-full border px-4 py-2.5 font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[#1E3A20] min-[460px]:inline-flex"
+                        style={{ borderColor: "#1E3A20" }}
                     >
                         Book Consultation
                     </Link>
                     <WhatsAppLink
                         source="navbar_mobile"
                         aria-label="WhatsApp Marsha"
-                        className="cta-interactive flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
-                        style={{
-                            backgroundColor: "#1E3A20",
-                            color: "#F7F4EF",
-                        }}
+                        className="cta-interactive flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#F7F4EF]"
+                        style={{ backgroundColor: "#1E3A20" }}
                     >
                         <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
                     </WhatsAppLink>

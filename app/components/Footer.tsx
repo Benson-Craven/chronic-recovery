@@ -52,19 +52,10 @@ const Footer = () => {
             <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
                 {/* Top — brand statement */}
                 <div className="mb-16">
-                    <p
-                        className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-4 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Chronic Pain Recovery
                     </p>
-                    <p
-                        className="max-w-md text-3xl leading-snug text-white md:text-4xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <p className="max-w-md font-satoshi text-3xl leading-snug text-white md:text-4xl">
                         Helping you recover,
                         <br />
                         <em>not just cope.</em>
@@ -80,13 +71,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 gap-12 py-14 md:grid-cols-3">
                     {/* Site links */}
                     <div className="md:col-span-2">
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                             Pages
                         </p>
                         <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -94,12 +79,7 @@ const Footer = () => {
                                 <li key={name}>
                                     <Link
                                         href={url}
-                                        className="text-sm"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
+                                        className="font-satoshi text-sm font-light text-dark-body"
                                     >
                                         {name}
                                     </Link>
@@ -110,13 +90,7 @@ const Footer = () => {
 
                     {/* Connect */}
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                             Connect
                         </p>
                         <ul className="space-y-4">
@@ -135,14 +109,7 @@ const Footer = () => {
                                             height: 16,
                                         }}
                                     />
-                                    <span
-                                        className="text-sm"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="font-satoshi text-sm font-light text-dark-body">
                                         Facebook
                                     </span>
                                 </a>
@@ -161,14 +128,7 @@ const Footer = () => {
                                             height: 16,
                                         }}
                                     />
-                                    <span
-                                        className="text-sm"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="font-satoshi text-sm font-light text-dark-body">
                                         WhatsApp Marsha
                                     </span>
                                 </WhatsAppLink>
@@ -187,14 +147,7 @@ const Footer = () => {
                                             height: 14,
                                         }}
                                     />
-                                    <span
-                                        className="text-sm"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="font-satoshi text-sm font-light text-dark-body">
                                         {PHONE_DISPLAY}
                                     </span>
                                 </TrackedPhoneLink>
@@ -213,14 +166,7 @@ const Footer = () => {
                                         height={32}
                                         className="h-8 w-8 shrink-0 object-contain"
                                     />
-                                    <span
-                                        className="text-sm"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="font-satoshi text-sm font-light text-dark-body">
                                         My ATNS profile
                                     </span>
                                 </Link>
@@ -231,14 +177,8 @@ const Footer = () => {
                         <div className="mt-8 space-y-3">
                             <WhatsAppLink
                                 source="footer_cta"
-                                className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-3 text-xs font-medium uppercase tracking-wide"
-                                style={{
-                                    backgroundColor: "#F0EBE1",
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.08em",
-                                }}
+                                className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
+                                style={{ backgroundColor: "#F0EBE1" }}
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -248,13 +188,9 @@ const Footer = () => {
                             </WhatsAppLink>
                             <Link
                                 href="/contact"
-                                className="cta-interactive flex w-full items-center justify-center rounded-full border py-3 text-xs font-medium uppercase tracking-wide"
+                                className="cta-interactive flex w-full items-center justify-center rounded-full border py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F0EBE1]"
                                 style={{
                                     borderColor: "rgba(240,235,225,0.65)",
-                                    color: "#F0EBE1",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.08em",
                                 }}
                             >
                                 Book Consultation
@@ -271,19 +207,11 @@ const Footer = () => {
                 {/* Bottom bar */}
                 <div className="flex flex-col gap-4 pt-8 md:flex-row md:items-center md:justify-between">
                     {/* Copyright */}
-                    <p
-                        className="text-xs"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="font-satoshi text-xs font-light text-dark-supporting">
                         © {new Date().getFullYear()}{" "}
                         <Link
                             href="/"
-                            className="transition-opacity"
-                            style={{ color: "var(--text-dark-supporting)" }}
+                            className="text-dark-supporting transition-opacity"
                         >
                             Chronic Pain Recovery
                         </Link>
@@ -296,12 +224,7 @@ const Footer = () => {
                                 <li key={name}>
                                     <Link
                                         href={url}
-                                        className="text-xs"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
+                                        className="font-satoshi text-xs font-light text-dark-supporting"
                                     >
                                         {name}
                                     </Link>
@@ -311,19 +234,11 @@ const Footer = () => {
                     </nav>
 
                     {/* Made by */}
-                    <p
-                        className="text-xs"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="font-satoshi text-xs font-light text-dark-supporting">
                         Made by{" "}
                         <Link
                             href="https://benson.codes"
-                            className="transition-opacity"
-                            style={{ color: "var(--text-dark-supporting)" }}
+                            className="text-dark-supporting transition-opacity"
                         >
                             Code by Benson
                         </Link>

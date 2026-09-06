@@ -29,22 +29,15 @@ const inputStyles: React.CSSProperties = {
     borderRadius: 0,
     padding: "10px 0",
     outline: "none",
-    color: "#1E3A20",
-    fontFamily: "var(--font-dm-sans)",
-    fontWeight: 300,
-    fontSize: "0.95rem",
 }
+const inputClassName = "font-satoshi text-[0.95rem] font-light text-[#1E3A20]"
 
 const labelStyles: React.CSSProperties = {
     display: "block",
     marginBottom: "6px",
-    fontSize: "0.65rem",
-    fontFamily: "var(--font-dm-sans)",
-    fontWeight: 500,
-    letterSpacing: "0.2em",
-    textTransform: "uppercase" as const,
-    color: "var(--text-light-supporting)",
 }
+const labelClassName =
+    "font-satoshi text-[0.65rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [messageLength, setMessageLength] = useState(0)
@@ -119,21 +112,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     className="flex min-h-[360px] flex-col items-start justify-center p-12 md:p-16"
                                     style={{ backgroundColor: "#1E3A20" }}
                                 >
-                                    <p
-                                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                        }}
-                                    >
+                                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                         Message sent
                                     </p>
-                                    <h2
-                                        className="text-4xl leading-[1.1] text-white md:text-5xl"
-                                        style={{
-                                            fontFamily: "var(--font-dm-serif)",
-                                        }}
-                                    >
+                                    <h2 className="font-satoshi text-4xl leading-[1.1] text-white md:text-5xl">
                                         Thank you for
                                         <br />
                                         <em>reaching out.</em>
@@ -145,14 +127,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 "rgba(200,230,201,0.15)",
                                         }}
                                     />
-                                    <p
-                                        className="mt-6 text-base"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <p className="mt-6 font-satoshi text-base font-light text-dark-supporting">
                                         I'll be in touch as soon as possible,
                                         usually within 24 hours.
                                     </p>
@@ -171,23 +146,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         style={{ backgroundColor: "#1E3A20" }}
                                     >
                                         <div>
-                                            <p
-                                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                                style={{
-                                                    color: "var(--text-dark-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                }}
-                                            >
+                                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                                 Get in touch
                                             </p>
-                                            <h2
-                                                className="mb-10 text-3xl leading-[1.1] text-white lg:text-4xl"
-                                                style={{
-                                                    fontFamily:
-                                                        "var(--font-dm-serif)",
-                                                }}
-                                            >
+                                            <h2 className="mb-10 font-satoshi text-3xl leading-[1.1] text-white lg:text-4xl">
                                                 Let's start your
                                                 <br />
                                                 <em>recovery together</em>
@@ -216,40 +178,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         key={index}
                                                         className="flex items-start gap-4"
                                                     >
-                                                        <span
-                                                            className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                                            style={{
-                                                                color: "var(--text-dark-supporting)",
-                                                                fontFamily:
-                                                                    "var(--font-dm-sans)",
-                                                                fontWeight: 300,
-                                                            }}
-                                                        >
+                                                        <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                                             {String(
                                                                 index + 1,
                                                             ).padStart(2, "0")}
                                                         </span>
                                                         <div>
-                                                            <p
-                                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
-                                                                style={{
-                                                                    color: "var(--text-dark-supporting)",
-                                                                    fontFamily:
-                                                                        "var(--font-dm-sans)",
-                                                                    fontWeight: 500,
-                                                                }}
-                                                            >
+                                                            <p className="mb-1 font-satoshi text-xs font-medium uppercase tracking-[0.15em] text-dark-supporting">
                                                                 {item.label}
                                                             </p>
-                                                            <p
-                                                                className="text-sm leading-relaxed"
-                                                                style={{
-                                                                    color: "var(--text-dark-body)",
-                                                                    fontFamily:
-                                                                        "var(--font-dm-sans)",
-                                                                    fontWeight: 300,
-                                                                }}
-                                                            >
+                                                            <p className="font-satoshi text-sm font-light leading-relaxed text-dark-body">
                                                                 {item.value}
                                                             </p>
                                                         </div>
@@ -260,26 +198,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                                         {/* Phone */}
                                         <div className="mt-10">
-                                            <p
-                                                className="mb-1 text-xs uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: "var(--text-dark-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 500,
-                                                }}
-                                            >
+                                            <p className="mb-1 font-satoshi text-xs font-medium uppercase tracking-[0.15em] text-dark-supporting">
                                                 Phone
                                             </p>
                                             <TrackedPhoneLink
                                                 source="contact_modal"
-                                                className="text-sm underline underline-offset-2"
-                                                style={{
-                                                    color: "#C8E6C9",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
+                                                className="font-satoshi text-sm font-light text-[#C8E6C9] underline underline-offset-2"
                                             >
                                                 {PHONE_DISPLAY}
                                             </TrackedPhoneLink>
@@ -293,14 +217,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     >
                                         {/* Close button */}
                                         <div className="mb-8 flex items-center justify-between">
-                                            <p
-                                                className="text-xs font-medium uppercase tracking-[0.25em] md:hidden"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting md:hidden">
                                                 Contact
                                             </p>
                                             <button
@@ -337,6 +254,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <div>
                                                 <label
                                                     htmlFor="modal-name"
+                                                    className={labelClassName}
                                                     style={labelStyles}
                                                 >
                                                     Name *
@@ -350,6 +268,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     maxLength={100}
                                                     autoComplete="name"
                                                     placeholder="Your full name"
+                                                    className={inputClassName}
                                                     style={inputStyles}
                                                 />
                                             </div>
@@ -358,6 +277,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <div>
                                                 <label
                                                     htmlFor="modal-email"
+                                                    className={labelClassName}
                                                     style={labelStyles}
                                                 >
                                                     Email *
@@ -370,6 +290,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     maxLength={254}
                                                     autoComplete="email"
                                                     placeholder="your@email.com"
+                                                    className={inputClassName}
                                                     style={inputStyles}
                                                 />
                                             </div>
@@ -378,6 +299,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <div>
                                                 <label
                                                     htmlFor="modal-phone"
+                                                    className={labelClassName}
                                                     style={labelStyles}
                                                 >
                                                     Phone *
@@ -391,6 +313,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     maxLength={50}
                                                     autoComplete="tel"
                                                     placeholder="+353..."
+                                                    className={inputClassName}
                                                     style={inputStyles}
                                                 />
                                             </div>
@@ -399,6 +322,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <div>
                                                 <label
                                                     htmlFor="modal-message"
+                                                    className={labelClassName}
                                                     style={labelStyles}
                                                 >
                                                     Message *
@@ -414,20 +338,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         handleMessageChange
                                                     }
                                                     placeholder="Tell me a little about what you're experiencing..."
+                                                    className={inputClassName}
                                                     style={{
                                                         ...inputStyles,
                                                         resize: "none",
                                                     }}
                                                 />
-                                                <p
-                                                    className="mt-1 text-right text-xs tabular-nums"
-                                                    style={{
-                                                        color: "var(--text-light-supporting)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <p className="mt-1 text-right font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                     {messageLength}/{MAX_CHARS}
                                                 </p>
                                             </div>
@@ -449,7 +366,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 error={formError}
                                                 errorId="modal-contact-form-error"
                                                 errorClassName="text-xs leading-relaxed"
-                                                errorColor="rgba(150,45,45,0.9)"
                                                 turnstileState={turnstileState}
                                             />
 
@@ -463,17 +379,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             ? "modal-contact-form-error"
                                                             : undefined
                                                     }
-                                                    className="cta-interactive w-full rounded-full py-3.5 text-sm font-medium tracking-wide disabled:cursor-not-allowed"
+                                                    className="cta-interactive w-full rounded-full py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed"
                                                     style={{
                                                         backgroundColor:
                                                             canSubmit
                                                                 ? "#1E3A20"
                                                                 : "#5B6E5A",
-                                                        color: "#F7F4EF",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 500,
-                                                        letterSpacing: "0.04em",
                                                     }}
                                                 >
                                                     {isSubmitting
@@ -481,33 +392,19 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         : "Send Message"}
                                                 </motion.button>
 
-                                                <p
-                                                    className="text-center text-xs leading-relaxed"
-                                                    style={{
-                                                        color: "var(--text-light-supporting)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 300,
-                                                    }}
-                                                >
+                                                <p className="text-center font-satoshi text-xs font-light leading-relaxed text-light-supporting">
                                                     By continuing, you agree to
                                                     our{" "}
                                                     <Link
                                                         href="/terms-and-conditions"
-                                                        className="underline underline-offset-2"
-                                                        style={{
-                                                            color: "#1E3A20",
-                                                        }}
+                                                        className="text-[#1E3A20] underline underline-offset-2"
                                                     >
                                                         Terms & Conditions
                                                     </Link>{" "}
                                                     and{" "}
                                                     <Link
                                                         href="/privacy-policy"
-                                                        className="underline underline-offset-2"
-                                                        style={{
-                                                            color: "#1E3A20",
-                                                        }}
+                                                        className="text-[#1E3A20] underline underline-offset-2"
                                                     >
                                                         Privacy Policy
                                                     </Link>

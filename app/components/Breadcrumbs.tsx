@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import { cn } from "@/utils/cn"
 import type { BreadcrumbItem } from "../lib/seo"
 
 type BreadcrumbsProps = {
@@ -22,14 +23,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                     return (
                         <li
                             key={item.path}
-                            className="flex shrink-0 items-center gap-2"
-                            style={{
-                                color: isCurrent
-                                    ? "#1E3A20"
-                                    : "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 400,
-                            }}
+                            className={cn(
+                                "flex shrink-0 items-center gap-2 font-satoshi font-normal",
+                                isCurrent
+                                    ? "text-[#1E3A20]"
+                                    : "text-light-supporting",
+                            )}
                         >
                             {index > 0 && (
                                 <ChevronRight

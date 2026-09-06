@@ -55,13 +55,7 @@ const Custom404Page = () => {
                     transition={{ duration: 0.8 }}
                     className="mx-auto max-w-3xl"
                 >
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Error 404
                     </p>
 
@@ -75,22 +69,14 @@ const Custom404Page = () => {
                                 repeat: Infinity,
                                 ease: "easeInOut",
                             }}
-                            className="text-[120px] leading-none md:text-[160px]"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                fontStyle: "italic",
-                                color: "rgba(200,230,201,0.08)",
-                                userSelect: "none",
-                            }}
+                            className="font-satoshi text-[120px] italic leading-none text-[rgba(200,230,201,0.08)] md:text-[160px]"
+                            style={{ userSelect: "none" }}
                         >
                             404
                         </motion.p>
                         {/* Overlaid headline */}
                         <div className="absolute inset-0 flex items-center">
-                            <h1
-                                className="text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
-                            >
+                            <h1 className="font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                                 This page has
                                 <br />
                                 <em>wandered off.</em>
@@ -103,14 +89,7 @@ const Custom404Page = () => {
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
 
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         Just like chronic pain, sometimes things don't end up
                         where they should. Unlike chronic pain, this one is easy
                         to fix.
@@ -127,22 +106,10 @@ const Custom404Page = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         Where to go
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] md:text-5xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            color: "#1E3A20",
-                        }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                         Let's get you
                         <br />
                         <em>back on track</em>
@@ -171,37 +138,15 @@ const Custom404Page = () => {
                                         borderColor: "rgba(30,58,32,0.12)",
                                     }}
                                 >
-                                    <span
-                                        className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
                                     <div className="flex flex-1 items-center justify-between">
                                         <div>
-                                            <p
-                                                className="mb-1 text-base font-medium md:text-lg"
-                                                style={{
-                                                    color: "#1E3A20",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                }}
-                                            >
+                                            <p className="mb-1 font-satoshi text-base font-medium text-[#1E3A20] md:text-lg">
                                                 {link.label}
                                             </p>
-                                            <p
-                                                className="text-sm"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="font-satoshi text-sm font-light text-light-supporting">
                                                 {link.description}
                                             </p>
                                         </div>
@@ -246,13 +191,7 @@ const Custom404Page = () => {
                     <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
                         {/* Countdown */}
                         <div>
-                            <p
-                                className="mb-3 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-3 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                 Auto-redirecting
                             </p>
                             <div className="flex items-baseline gap-3">
@@ -261,21 +200,11 @@ const Custom404Page = () => {
                                     initial={{ opacity: 0, y: -8 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.3 }}
-                                    className="text-6xl leading-none text-white"
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                    }}
+                                    className="font-satoshi text-6xl leading-none text-white"
                                 >
                                     {countdown}
                                 </motion.span>
-                                <span
-                                    className="text-base"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="font-satoshi text-base font-light text-dark-supporting">
                                     seconds to home
                                 </span>
                             </div>
@@ -285,32 +214,16 @@ const Custom404Page = () => {
                         <div className="flex flex-col gap-3">
                             <Link
                                 href="/"
-                                className="cta-interactive w-full rounded-full py-4 text-center text-sm font-medium tracking-wide md:w-auto md:px-10"
-                                style={{
-                                    backgroundColor: "#F0EBE1",
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive w-full rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] md:w-auto md:px-10"
+                                style={{ backgroundColor: "#F0EBE1" }}
                             >
                                 Go to Homepage
                             </Link>
-                            <p
-                                className="text-sm"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-sm font-light text-dark-supporting">
                                 or call / WhatsApp{" "}
                                 <a
                                     href="tel:+353871025108"
-                                    className="underline underline-offset-2"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                    }}
+                                    className="text-dark-supporting underline underline-offset-2"
                                 >
                                     +353 (0) 87-102-5108
                                 </a>
@@ -323,29 +236,14 @@ const Custom404Page = () => {
                         className="mt-16 h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
                     />
-                    <p
-                        className="mt-12 max-w-xl text-2xl leading-snug md:text-3xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "var(--text-dark-body)",
-                        }}
-                    >
+                    <p className="mt-12 max-w-xl font-satoshi text-2xl italic leading-snug text-dark-body md:text-3xl">
                         "Still experiencing chronic pain?
                         <br />
                         Unlike this error, it has a solution."
                     </p>
                     <Link
                         href="/contact"
-                        className="mt-6 inline-flex items-center gap-2"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                            fontSize: "0.75rem",
-                            letterSpacing: "0.2em",
-                            textTransform: "uppercase",
-                        }}
+                        className="mt-6 inline-flex items-center gap-2 font-satoshi text-xs font-light uppercase tracking-[0.2em] text-dark-supporting"
                     >
                         Book a consultation
                         <svg

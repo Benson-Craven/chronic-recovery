@@ -21,19 +21,10 @@ export default function Blog() {
                 className="w-full px-6 py-24 md:py-36"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Journal
                     </p>
-                    <h1
-                        className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                         Insights on pain,
                         <br />
                         <em>healing, and the brain</em>
@@ -42,14 +33,7 @@ export default function Blog() {
                         className="h-px w-full"
                         style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                     />
-                    <p
-                        className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         Articles exploring the neuroscience of chronic pain,
                         recovery stories, and practical tools for healing.
                     </p>
@@ -62,13 +46,7 @@ export default function Blog() {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-6xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         {allPostsData.length} articles
                     </p>
 
@@ -104,67 +82,30 @@ export default function Blog() {
 
                                         {/* Content */}
                                         <div className="flex flex-1 flex-col gap-3 p-7">
-                                            <span
-                                                className="text-xs tabular-nums"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <span className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                 {String(index + 1).padStart(
                                                     2,
                                                     "0",
                                                 )}
                                             </span>
 
-                                            <h2
-                                                className="text-xl leading-snug md:text-2xl"
-                                                style={{
-                                                    fontFamily:
-                                                        "var(--font-dm-serif)",
-                                                    color: "#1E3A20",
-                                                }}
-                                            >
+                                            <h2 className="font-satoshi text-xl leading-snug text-[#1E3A20] md:text-2xl">
                                                 {title}
                                             </h2>
 
                                             <time
                                                 dateTime={parseBlogDate(date)}
-                                                className="text-xs uppercase tracking-[0.15em]"
-                                                style={{
-                                                    color: "var(--text-light-supporting)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
+                                                className="font-satoshi text-xs font-light uppercase tracking-[0.15em] text-light-supporting"
                                             >
                                                 {formatBlogDate(date)}
                                             </time>
 
-                                            <p
-                                                className="mt-1 text-base leading-relaxed"
-                                                style={{
-                                                    color: "var(--text-light-body)",
-                                                    fontFamily:
-                                                        "var(--font-dm-sans)",
-                                                    fontWeight: 300,
-                                                }}
-                                            >
+                                            <p className="mt-1 font-satoshi text-base font-light leading-relaxed text-light-body">
                                                 {excerpt}
                                             </p>
 
                                             <div className="mt-auto flex items-center gap-2 pt-4">
-                                                <span
-                                                    className="text-xs uppercase tracking-[0.15em]"
-                                                    style={{
-                                                        color: "var(--text-light-supporting)",
-                                                        fontFamily:
-                                                            "var(--font-dm-sans)",
-                                                        fontWeight: 500,
-                                                    }}
-                                                >
+                                                <span className="font-satoshi text-xs font-medium uppercase tracking-[0.15em] text-light-supporting">
                                                     Read
                                                 </span>
                                                 <svg

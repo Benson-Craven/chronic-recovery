@@ -21,6 +21,7 @@ export const CtaButton: React.FC<CtaButtonProps> = ({
         <Link
             href={href}
             className={cn(
+                "font-satoshi tracking-[0.04em]",
                 "cta-interactive inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-medium tracking-wide",
                 variant === "primary"
                     ? "bg-[#1E3A20] text-[#F7F4EF]"
@@ -28,10 +29,6 @@ export const CtaButton: React.FC<CtaButtonProps> = ({
                 fullWidth && "w-full",
                 className,
             )}
-            style={{
-                fontFamily: "var(--font-dm-sans)",
-                letterSpacing: "0.04em",
-            }}
         >
             {children}
         </Link>

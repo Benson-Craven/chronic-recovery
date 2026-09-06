@@ -18,14 +18,7 @@ const IllnessSection = () => {
                 <div className="hidden lg:block">
                     {/* Scroll indicator */}
                     <div className="absolute left-1/2 top-6 -translate-x-1/2 transform text-center">
-                        <p
-                            className="mb-2 text-xs uppercase tracking-[0.2em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="mb-2 font-satoshi text-xs font-light uppercase tracking-[0.2em] text-dark-supporting">
                             Scroll
                         </p>
                         <svg
@@ -56,10 +49,7 @@ const IllnessSection = () => {
                     <Container size="narrow">
                         <Divider variant="cream" className="mb-16" />
 
-                        <Eyebrow
-                            className="mb-8"
-                            style={{ color: "var(--text-dark-supporting)" }}
-                        >
+                        <Eyebrow className="mb-8 text-dark-supporting">
                             Still unsure?
                         </Eyebrow>
 
@@ -75,19 +65,10 @@ const IllnessSection = () => {
                                 border: "1px solid rgba(200,230,201,0.12)",
                             }}
                         >
-                            <p
-                                className="mb-2 text-sm font-medium"
-                                style={{
-                                    color: "#C8E6C9",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-2 font-satoshi text-sm font-medium text-[#C8E6C9]">
                                 Not listed above?
                             </p>
-                            <Text
-                                className="text-base"
-                                style={{ color: "var(--text-dark-body)" }}
-                            >
+                            <Text className="text-base text-dark-body">
                                 I&apos;m here to help with any illness or
                                 concern, even if it&apos;s not listed. Reach out
                                 to learn more and find the relief you deserve.
@@ -112,7 +93,7 @@ const IllnessSectionList = () => {
         <section aria-labelledby="illness-list-heading" className="lg:hidden">
             <Container size="wide">
                 <div className="mb-10 md:mb-14">
-                    <Eyebrow style={{ color: "var(--text-dark-supporting)" }}>
+                    <Eyebrow className="text-dark-supporting">
                         Conditions
                     </Eyebrow>
                     <div id="illness-list-heading">
@@ -157,14 +138,7 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
                 />
 
                 <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
-                    <span
-                        className="text-xs tabular-nums"
-                        style={{
-                            color: "#C8E6C9",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <span className="font-satoshi text-xs font-light tabular-nums text-[#C8E6C9]">
                         {String(index + 1).padStart(2, "0")}
                     </span>
 
@@ -191,14 +165,7 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
                                     backgroundColor: "rgba(200,230,201,0.6)",
                                 }}
                             />
-                            <span
-                                className="text-sm leading-relaxed md:text-base"
-                                style={{
-                                    color: "var(--text-dark-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <span className="font-satoshi text-sm font-light leading-relaxed text-dark-body md:text-base">
                                 {symptom}
                             </span>
                         </li>
@@ -237,9 +204,7 @@ const IllnessSectionCarousel = () => {
                 style={{ opacity }}
                 className="sticky top-[130px] z-10 pb-20 md:top-16"
             >
-                <Eyebrow style={{ color: "var(--text-dark-supporting)" }}>
-                    Conditions
-                </Eyebrow>
+                <Eyebrow className="text-dark-supporting">Conditions</Eyebrow>
                 <Heading className="text-white">
                     Are you <em>experiencing</em> any of the following?
                 </Heading>
@@ -293,14 +258,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
 
                 <div className="absolute inset-0 flex flex-col justify-between p-7">
                     {/* Index */}
-                    <span
-                        className="text-xs tabular-nums"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <span className="font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                         {String(index + 1).padStart(2, "0")}
                     </span>
 
@@ -331,14 +289,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                                                 "rgba(200,230,201,0.6)",
                                         }}
                                     />
-                                    <span
-                                        className="text-sm leading-snug"
-                                        style={{
-                                            color: "var(--text-dark-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="font-satoshi text-sm font-light leading-snug text-dark-body">
                                         {symptom}
                                     </span>
                                 </div>

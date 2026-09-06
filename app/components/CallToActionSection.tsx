@@ -43,22 +43,10 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                 />
                 <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             Take the first step
                         </p>
-                        <h2
-                            className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-serif)",
-                            }}
-                        >
+                        <h2 className="font-satoshi text-5xl leading-[1.05] text-[#1E3A20] md:text-6xl lg:text-7xl">
                             Ready to feel
                             <br />
                             <em>like yourself again?</em>
@@ -66,14 +54,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                     </div>
 
                     <div className="flex flex-col justify-between gap-10">
-                        <div
-                            className="space-y-5 text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <div className="space-y-5 font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                             <p>
                                 Tired of being told there&apos;s nothing more
                                 that can be done?
@@ -91,14 +72,8 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         <CtaActionRow>
                             <WhatsAppLink
                                 source="main_consultation_cta"
-                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-10 py-4 text-sm font-medium tracking-wide sm:w-auto"
-                                style={{
-                                    backgroundColor: "#1E3A20",
-                                    color: "#F7F4EF",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-10 py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] sm:w-auto"
+                                style={{ backgroundColor: "#1E3A20" }}
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -108,45 +83,22 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                             </WhatsAppLink>
                             <Link
                                 href="/contact"
-                                className="cta-interactive w-full whitespace-nowrap rounded-full border px-10 py-4 text-center text-sm font-medium tracking-wide sm:w-auto"
-                                style={{
-                                    borderColor: "rgba(30,58,32,0.3)",
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.04em",
-                                }}
+                                className="cta-interactive w-full whitespace-nowrap rounded-full border px-10 py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto"
+                                style={{ borderColor: "rgba(30,58,32,0.3)" }}
                             >
                                 Book Consultation
                             </Link>
                             <TrackedPhoneLink
                                 source="main_consultation_cta"
-                                className="text-sm sm:basis-full"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
+                                className="font-satoshi text-sm font-light text-light-supporting sm:basis-full"
                             >
                                 Call{" "}
-                                <span
-                                    className="underline underline-offset-2"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontWeight: 400,
-                                    }}
-                                >
+                                <span className="font-normal text-light-body underline underline-offset-2">
                                     {PHONE_DISPLAY}
                                 </span>
                             </TrackedPhoneLink>
                         </CtaActionRow>
-                        <p
-                            className="max-w-sm text-xs leading-relaxed"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="max-w-sm font-satoshi text-xs leading-relaxed text-light-supporting">
                             Reach out via the contact form, phone, or WhatsApp.
                             I typically respond within 24 hours and we&apos;ll
                             schedule at a time that works for you.

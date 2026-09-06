@@ -31,19 +31,10 @@ const SciencePage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                             The science
                         </p>
-                        <h1
-                            className="mb-8 text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
-                        >
+                        <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
                             Understanding how
                             <br />
                             <em>your brain creates pain</em>
@@ -54,14 +45,7 @@ const SciencePage = () => {
                             className="h-px w-full"
                             style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
                         />
-                        <p
-                            className="mt-8 max-w-xl text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-dark-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                             The most recent science shows that many chronic pain
                             conditions originate in the brain, and that gives us
                             a powerful new path to healing.
@@ -88,22 +72,10 @@ const SciencePage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             The foundation
                         </p>
-                        <h2
-                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                             All pain is real,
                             <br />
                             <em>it is not in your head</em>
@@ -146,24 +118,10 @@ const SciencePage = () => {
                                         borderColor: "rgba(30,58,32,0.12)",
                                     }}
                                 >
-                                    <span
-                                        className="mt-1 shrink-0 text-xs tabular-nums"
-                                        style={{
-                                            color: "var(--text-light-supporting)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {item.number}
                                     </span>
-                                    <p
-                                        className="text-base leading-relaxed md:text-lg"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                            fontFamily: "var(--font-dm-sans)",
-                                            fontWeight: 300,
-                                        }}
-                                    >
+                                    <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                         {item.body}
                                     </p>
                                 </motion.div>
@@ -193,19 +151,10 @@ const SciencePage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-dark-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                             Root causes
                         </p>
-                        <h2
-                            className="text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                            style={{ fontFamily: "var(--font-dm-serif)" }}
-                        >
+                        <h2 className="font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                             What causes
                             <br />
                             <em>chronic pain?</em>
@@ -244,35 +193,13 @@ const SciencePage = () => {
                                         className="flex flex-col gap-4 p-8"
                                         style={{ backgroundColor: "#1E3A20" }}
                                     >
-                                        <span
-                                            className="text-xs tabular-nums"
-                                            style={{
-                                                color: "var(--text-dark-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <span className="font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             {String(index + 1).padStart(2, "0")}
                                         </span>
-                                        <h3
-                                            className="text-base font-medium text-white md:text-lg"
-                                            style={{
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                            }}
-                                        >
+                                        <h3 className="font-satoshi text-base font-medium text-white md:text-lg">
                                             {item.title}
                                         </h3>
-                                        <p
-                                            className="text-sm leading-relaxed"
-                                            style={{
-                                                color: "var(--text-dark-supporting)",
-                                                fontFamily:
-                                                    "var(--font-dm-sans)",
-                                                fontWeight: 300,
-                                            }}
-                                        >
+                                        <p className="font-satoshi text-sm font-light leading-relaxed text-dark-supporting">
                                             {item.body}
                                         </p>
                                     </motion.div>
@@ -301,22 +228,10 @@ const SciencePage = () => {
                     }}
                 >
                     <div>
-                        <p
-                            className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
-                        >
+                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             The good news
                         </p>
-                        <h2
-                            className="mb-14 text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                             Pain is not
                             <br />
                             <em>a life sentence</em>
@@ -333,14 +248,7 @@ const SciencePage = () => {
                             className="flex items-start gap-6 border-b py-10"
                             style={{ borderColor: "rgba(30,58,32,0.12)" }}
                         >
-                            <p
-                                className="text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 Just as your brain <em>learned</em> these pain
                                 patterns, it can <em>unlearn</em> them. This is
                                 called neuroplasticity, your brain&apos;s
@@ -361,19 +269,10 @@ const SciencePage = () => {
                             className="mt-12 rounded-2xl px-8 py-7"
                             style={{ backgroundColor: "#1E3A20" }}
                         >
-                            <p
-                                className="mb-1 text-xs uppercase tracking-[0.2em]"
-                                style={{
-                                    color: "var(--text-dark-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-1 font-satoshi text-xs uppercase tracking-[0.2em] text-dark-supporting">
                                 How it works
                             </p>
-                            <p
-                                className="text-xl text-white md:text-2xl"
-                                style={{ fontFamily: "var(--font-dm-serif)" }}
-                            >
+                            <p className="font-satoshi text-xl text-white md:text-2xl">
                                 Pain Reprocessing Therapy teaches your brain to
                                 turn off false danger signals and reinterpret
                                 sensations as safe, which may help reduce
@@ -391,12 +290,7 @@ const SciencePage = () => {
                                 delay: 0.2,
                                 ease: "easeOut",
                             }}
-                            className="mt-12 text-2xl leading-snug md:text-3xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                fontStyle: "italic",
-                                color: "#1E3A20",
-                            }}
+                            className="mt-12 font-satoshi text-2xl italic leading-snug text-[#1E3A20] md:text-3xl"
                         >
                             "Neuroplasticity works both ways,
                             <br />
@@ -416,31 +310,15 @@ const SciencePage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Is this for you?
                     </p>
-                    <h2
-                        className="mb-6 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-6 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                         Signs your pain
                         <br />
                         <em>may be neuroplastic</em>
                     </h2>
-                    <p
-                        className="mb-16 max-w-xl text-base leading-relaxed md:text-lg"
-                        style={{
-                            color: "var(--text-dark-body)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                        }}
-                    >
+                    <p className="mb-16 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                         If you&apos;ve been to multiple doctors and are still
                         suffering, even one of these criteria can indicate
                         neuroplastic pain.
@@ -473,24 +351,10 @@ const SciencePage = () => {
                                 className="flex items-start gap-5 p-6"
                                 style={{ backgroundColor: "#1E3A20" }}
                             >
-                                <span
-                                    className="mt-0.5 shrink-0 text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-dark-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <p
-                                    className="text-sm leading-relaxed md:text-base"
-                                    style={{
-                                        color: "var(--text-dark-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light leading-relaxed text-dark-body md:text-base">
                                     {sign}
                                 </p>
                             </motion.div>
@@ -510,12 +374,7 @@ const SciencePage = () => {
                             delay: 0.1,
                             ease: "easeOut",
                         }}
-                        className="mt-10 max-w-2xl text-xl leading-relaxed md:text-2xl"
-                        style={{
-                            fontFamily: "var(--font-dm-serif)",
-                            fontStyle: "italic",
-                            color: "var(--text-dark-body)",
-                        }}
+                        className="mt-10 max-w-2xl font-satoshi text-xl italic leading-relaxed text-dark-body md:text-2xl"
                     >
                         "If you have a diagnosis but your pain hasn&apos;t
                         resolved, there&apos;s likely a neuroplastic component."
@@ -533,35 +392,16 @@ const SciencePage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-light-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         How I work
                     </p>
                     <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-                        <h2
-                            className="text-4xl leading-[1.1] md:text-5xl lg:text-6xl"
-                            style={{
-                                fontFamily: "var(--font-dm-serif)",
-                                color: "#1E3A20",
-                            }}
-                        >
+                        <h2 className="font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl lg:text-6xl">
                             Evidence-based
                             <br />
                             <em>treatment approaches</em>
                         </h2>
-                        <p
-                            className="max-w-xs text-sm leading-relaxed md:text-right"
-                            style={{
-                                color: "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="max-w-xs font-satoshi text-sm font-light leading-relaxed text-light-supporting md:text-right">
                             I have specialised training in methods developed by
                             Dr Howard Schubiner and I am listed in the
                             Association for the Treatment of Neuroplastic
@@ -632,33 +472,13 @@ const SciencePage = () => {
                                         : {}),
                                 }}
                             >
-                                <span
-                                    className="text-xs tabular-nums"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <span className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <p
-                                    className="text-base font-medium"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="font-satoshi text-base font-medium text-[#1E3A20]">
                                     {item.title}
                                 </p>
-                                <p
-                                    className="text-sm leading-relaxed"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light leading-relaxed text-light-supporting">
                                     {item.body}
                                 </p>
                             </motion.div>
@@ -677,19 +497,10 @@ const SciencePage = () => {
                 className="w-full px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <p
-                        className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Before we begin
                     </p>
-                    <h2
-                        className="mb-14 text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
                         Please rule out
                         <br />
                         <em>structural issues first</em>
@@ -706,21 +517,13 @@ const SciencePage = () => {
                         className="flex items-start gap-6 border-b py-10"
                         style={{ borderColor: "rgba(200,230,201,0.12)" }}
                     >
-                        <p
-                            className="text-base leading-relaxed md:text-lg"
-                            style={{
-                                color: "var(--text-dark-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                             Before beginning this approach, please consult your
                             doctor to rule out structural abnormality, disease,
                             or infection. Once you've done that, take the{" "}
                             <Link
                                 href="/self-assessment"
-                                className="underline underline-offset-2"
-                                style={{ color: "#C8E6C9" }}
+                                className="text-[#C8E6C9] underline underline-offset-2"
                             >
                                 self-assessment questionnaire
                             </Link>{" "}
@@ -748,22 +551,10 @@ const SciencePage = () => {
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — headline */}
                         <div>
-                            <p
-                                className="mb-6 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Your next step
                             </p>
-                            <h2
-                                className="text-5xl leading-[1.05] md:text-6xl lg:text-7xl"
-                                style={{
-                                    fontFamily: "var(--font-dm-serif)",
-                                    color: "#1E3A20",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-5xl leading-[1.05] text-[#1E3A20] md:text-6xl lg:text-7xl">
                                 Ready to start
                                 <br />
                                 <em>your recovery?</em>
@@ -772,28 +563,14 @@ const SciencePage = () => {
 
                         {/* Right — body + CTAs */}
                         <div className="flex flex-col justify-between gap-10">
-                            <div
-                                className="space-y-5 text-base leading-relaxed md:text-lg"
-                                style={{
-                                    color: "var(--text-light-body)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 300,
-                                }}
-                            >
+                            <div className="space-y-5 font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 <p>
                                     If you&apos;ve been suffering with chronic
                                     pain and traditional treatments haven&apos;t
                                     worked, there is hope. This science-backed
                                     approach has helped thousands recover.
                                 </p>
-                                <p
-                                    style={{
-                                        fontFamily: "var(--font-dm-serif)",
-                                        fontStyle: "italic",
-                                        color: "#1E3A20",
-                                        fontSize: "1.15rem",
-                                    }}
-                                >
+                                <p className="font-satoshi text-[1.15rem] italic text-[#1E3A20]">
                                     It can help you too.
                                 </p>
                             </div>
@@ -802,33 +579,19 @@ const SciencePage = () => {
                                 <WhatsAppCta source="science_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                     style={{
                                         backgroundColor: "transparent",
                                         border: "1px solid rgba(30,58,32,0.3)",
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 500,
-                                        letterSpacing: "0.04em",
                                     }}
                                 >
                                     Book Consultation
                                 </Link>
-                                <p
-                                    className="text-sm sm:basis-full"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="font-satoshi text-sm font-light text-light-supporting sm:basis-full">
                                     Call{" "}
                                     <TrackedPhoneLink
                                         source="science_closing_cta"
-                                        className="underline underline-offset-2"
-                                        style={{
-                                            color: "var(--text-light-body)",
-                                        }}
+                                        className="text-light-body underline underline-offset-2"
                                     >
                                         {PHONE_DISPLAY}
                                     </TrackedPhoneLink>

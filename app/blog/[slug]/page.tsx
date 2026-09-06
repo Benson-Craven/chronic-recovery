@@ -93,15 +93,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     {/* Back link */}
                     <Link
                         href="/blog"
-                        className="mb-10 inline-flex items-center gap-2"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                            fontWeight: 300,
-                            fontSize: "0.75rem",
-                            letterSpacing: "0.2em",
-                            textTransform: "uppercase",
-                        }}
+                        className="mb-10 inline-flex items-center gap-2 font-satoshi text-xs font-light uppercase tracking-[0.2em] text-dark-supporting"
                     >
                         <svg
                             width="12"
@@ -120,22 +112,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
                         Journal
                     </Link>
 
-                    <div
-                        className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium uppercase tracking-[0.2em]"
-                        style={{
-                            color: "var(--text-dark-supporting)",
-                            fontFamily: "var(--font-dm-sans)",
-                        }}
-                    >
+                    <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-satoshi text-xs font-medium uppercase tracking-[0.2em] text-dark-supporting">
                         <span>By {authorProfile.name}</span>
                         <span aria-hidden="true">/</span>
                         <time dateTime={publishedDate}>{displayDate}</time>
                     </div>
 
-                    <h1
-                        className="mb-8 text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"
-                        style={{ fontFamily: "var(--font-dm-serif)" }}
-                    >
+                    <h1 className="mb-8 font-satoshi text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl">
                         {postData.title}
                     </h1>
 
@@ -172,7 +155,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
             >
                 <div className="mx-auto max-w-2xl">
                     <article
-                        className="prose prose-lg max-w-none prose-headings:font-normal"
+                        className="prose prose-lg max-w-none font-satoshi font-light prose-headings:font-normal"
                         style={
                             {
                                 "--tw-prose-body": "var(--text-light-body)",
@@ -189,8 +172,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                     "rgba(30,58,32,0.2)",
                                 "--tw-prose-captions":
                                     "var(--text-light-supporting)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
                             } as React.CSSProperties
                         }
                         dangerouslySetInnerHTML={{
@@ -208,22 +189,11 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     >
                         <h2
                             id="medical-disclaimer-heading"
-                            className="mb-3 text-base font-medium"
-                            style={{
-                                color: "#1E3A20",
-                                fontFamily: "var(--font-dm-sans)",
-                            }}
+                            className="mb-3 font-satoshi text-base font-medium text-[#1E3A20]"
                         >
                             Medical disclaimer
                         </h2>
-                        <p
-                            className="text-sm leading-relaxed md:text-base"
-                            style={{
-                                color: "var(--text-light-body)",
-                                fontFamily: "var(--font-dm-sans)",
-                                fontWeight: 300,
-                            }}
-                        >
+                        <p className="font-satoshi text-sm font-light leading-relaxed text-light-body md:text-base">
                             This article is for general education only and is
                             not a substitute for medical advice, diagnosis, or
                             treatment. Please speak with your GP, consultant, or
@@ -247,43 +217,20 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 className="h-28 w-28 shrink-0 rounded-full object-cover"
                             />
                             <div>
-                                <p
-                                    className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="mb-3 font-satoshi text-xs font-medium uppercase tracking-[0.22em] text-light-supporting">
                                     Written by
                                 </p>
                                 <h2
                                     id="author-bio-heading"
-                                    className="mb-2 text-2xl leading-tight md:text-3xl"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-serif)",
-                                    }}
+                                    className="mb-2 font-satoshi text-2xl leading-tight text-[#1E3A20] md:text-3xl"
                                 >
                                     {authorProfile.name}
                                 </h2>
-                                <p
-                                    className="mb-4 text-sm font-medium"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
-                                >
+                                <p className="mb-4 font-satoshi text-sm font-medium text-light-body">
                                     {authorProfile.role} in{" "}
                                     {authorProfile.location}
                                 </p>
-                                <p
-                                    className="mb-4 text-base leading-relaxed"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="mb-4 font-satoshi text-base font-light leading-relaxed text-light-body">
                                     Marsha Canny is a chronic pain therapist
                                     based in Rochestown, Cork. Her work draws on
                                     pain neuroscience education, Pain
@@ -293,27 +240,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                     pain when serious medical causes have been
                                     assessed.
                                 </p>
-                                <p
-                                    className="mb-4 text-base leading-relaxed"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="mb-4 font-satoshi text-base font-light leading-relaxed text-light-body">
                                     Listed in the ATNS Practitioner & Coach
                                     Directory and trained in pain neuroscience,
                                     Pain Reprocessing Therapy, and Dr Howard
                                     Schubiner's mind-body methods.
                                 </p>
-                                <p
-                                    className="mb-5 text-base leading-relaxed"
-                                    style={{
-                                        color: "var(--text-light-body)",
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontWeight: 300,
-                                    }}
-                                >
+                                <p className="mb-5 font-satoshi text-base font-light leading-relaxed text-light-body">
                                     Marsha also brings lived experience of
                                     recovering from long-term migraines and neck
                                     pain, which informs her compassionate,
@@ -322,11 +255,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                                 </p>
                                 <Link
                                     href={authorProfile.url}
-                                    className="inline-flex text-xs font-medium uppercase tracking-[0.16em]"
-                                    style={{
-                                        color: "#1E3A20",
-                                        fontFamily: "var(--font-dm-sans)",
-                                    }}
+                                    className="inline-flex font-satoshi text-xs font-medium uppercase tracking-[0.16em] text-[#1E3A20]"
                                 >
                                     About Marsha
                                 </Link>
@@ -349,22 +278,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
-                            <p
-                                className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
-                                style={{
-                                    color: "var(--text-light-supporting)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            >
+                            <p className="mb-4 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                 Ready to begin?
                             </p>
-                            <h2
-                                className="text-5xl leading-[1.05] md:text-6xl"
-                                style={{
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-serif)",
-                                }}
-                            >
+                            <h2 className="font-satoshi text-5xl leading-[1.05] text-[#1E3A20] md:text-6xl">
                                 Recovery is possible.
                                 <br />
                                 <em>Let&apos;s talk.</em>
@@ -375,14 +292,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
                             <WhatsAppCta source="blog_closing_cta" />
                             <Link
                                 href="/contact"
-                                className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center text-sm font-medium tracking-wide sm:w-auto sm:px-10"
+                                className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                 style={{
                                     backgroundColor: "transparent",
                                     border: "1px solid rgba(30,58,32,0.3)",
-                                    color: "#1E3A20",
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontWeight: 500,
-                                    letterSpacing: "0.04em",
                                 }}
                             >
                                 Book Consultation

@@ -2,6 +2,7 @@
 
 [PLANS]
 
+-   2026-09-04: Complete the low-risk typography and homepage performance cleanup from local commit `4b06052` without changing copy, routes, public interfaces, contact or assessment behaviour, dependencies, deployment state, or the existing font and bento work.
 -   2026-09-01: Finish the existing Turnstile integration for both contact forms. Keep the emergency switch, require the prescribed secret and hostname allowlist when enabled, and stop before deployment or a real enquiry.
 -   2026-08-31: Complete a site-wide public contrast pass with direct AA-safe semantic text colours and no compounded text opacity. Preserve existing body weights and the general type scale, except for larger homepage science-bento copy and Journal card excerpts. Preserve wording, routes, behaviour, imagery, headings, and the current homepage science-path stacking work.
 -   2026-08-31: Keep `1f9a333` as the technical base and restore visitor-visible copy from `d65c8be` through a forward change, subject to the approved CPRIE exceptions for pricing, calls, service wording, page sections, assessment disclosure, sticky illustrations, CTAs, SEO, and contact behaviour.
@@ -16,6 +17,7 @@
 
 [DECISIONS]
 
+-   2026-09-04: Use the existing `font-satoshi` utility for the audited static typography, retain inline runtime layout, motion, SVG, and calculated values, expose the homepage H1 without a fade on every viewport, and give the navbar logo its `796 × 313` source ratio plus responsive `sizes` guidance.
 -   2026-09-01: Production Turnstile uses Managed mode, the public site key `0x4AAAAAAD6mLPT2ZoUjMKH9`, `TURNSTILE_SECRET`, and `TURNSTILE_HOSTNAMES=chronicpainrecovery.ie`. `NEXT_PUBLIC_TURNSTILE_ENABLED` remains the emergency switch. Local development uses Cloudflare's dummy keys and a `localhost` allowlist.
 -   2026-09-01: The removed Old/Middle/Current client-review worktrees and workbook workflow are obsolete. Do not recreate any `client-review` material unless the user explicitly starts a new review task.
 -   2026-08-31: The approved restoration supersedes the blanket first-person copy contract and selected earlier content-removal decisions. Preserve current routes, metadata and canonical structure, structured data, analytics, contact handling, responsive layouts, assessment logic, the Turnstile emergency switch, and shared CTA behaviour.
@@ -48,6 +50,7 @@
 
 [PROGRESS]
 
+-   2026-09-04: Converted static and finite conditional typography in the 31 audited files to Tailwind classes, added `app/lib/typography-contract.test.mjs`, removed the homepage H1 animation, and corrected the navbar logo intrinsic dimensions and `sizes` hint. Preserved the SVG science section's content, order, links, sizing, and runtime styles.
 -   2026-09-01: Replaced the server's `TURNSTILE_SECRET_KEY` interface with `TURNSTILE_SECRET`; added hostname allowlisting, visitor-IP forwarding, and separate 403/503 handling for rejected verification and unavailable configuration or service. Preserved the honeypot, field validation, Brevo delivery, client token gating, and failed-submission reset flow.
 -   2026-08-31: Moved the homepage CTA below `SVGPathScienceSection` and adjusted their stacking so the science path can continue over the CTA background while the CTA content remains above it.
 -   2026-08-31: Restored visitor-visible page, component, location, and blog copy from `d65c8be` on the `1f9a333` technical base, with the approved pricing, call, wording, page-section, assessment, PRT, Science, Long Covid, sticky-illustration, CTA, SEO, analytics, contact, and Turnstile exceptions. Updated the content contracts to cover the restoration and exceptions.
@@ -78,6 +81,7 @@
 
 [DISCOVERIES]
 
+-   2026-09-04: Chrome selected the `w=256` navbar logo candidate, transferring 11.2 kB in the inspected development request. Three Incognito Lighthouse 13.4.1 mobile runs against the isolated production build produced identical rounded scores of 92; their medians were FCP 1.52 s, LCP 3.32 s, TBT 1.5 ms, CLS 0.0013, JavaScript transfer 451.5 KiB, and total transfer 609.4 KiB. Lighthouse still warned about IndexedDB data, so these local results are not like-for-like production PageSpeed evidence.
 -   2026-09-01: The Browser runtime again reported no available connection. The enabled dummy-key build passed, but widget completion and submit-control gating on the contact page and modal remain interactively unverified.
 -   2026-08-31: The Browser runtime reported no available browser connection. Automated source, build, and rendered-HTML checks were completed, but responsive screenshots, sticky release-at-boundary behaviour, and interactive assessment focus remain visually unverified.
 -   2026-07-23: `authorProfile` in `app/lib/seo.tsx` supplies both structured author identity and article-template content. The structured third-person record remains unchanged, while the visible article biography now uses first-person copy in the template.
@@ -94,6 +98,8 @@
 
 [OUTCOMES]
 
+-   2026-09-06: The user authorised one local commit for the completed typography and homepage performance cleanup. No push or deployment was requested.
+-   2026-09-04: The typography, immediate-H1, and logo cleanup passes 37 tests, TypeScript, lint, targeted Prettier, diff checks, source-contract searches, an isolated 28-page production build, and the 20-route rendered SEO verifier. Generated homepage HTML has one H1 with the original wording and accent, no initial opacity, and no Google Font request. Chrome checks covered the representative routes on desktop and mobile, empty contact-page and modal validation without an enquiry, assessment progress without result disclosure, and the logo candidate. Reduced-motion browser emulation, live provider, deployment, and production verification remain outstanding; no commit or remote state changed.
 -   2026-09-01: The completed Turnstile repository changes pass 34 tests, TypeScript, lint, targeted Prettier, `git diff --check`, and an isolated enabled production build with Cloudflare's dummy key pair and `localhost` allowlisted. No contact form was submitted, and no production file, deployment, PM2 process, nginx configuration, commit, or remote branch was changed.
 -   2026-08-31: The homepage science-path and CTA stacking change passes the existing 29-test suite, TypeScript, lint, targeted Prettier, `git diff --check`, and a local homepage HTTP 200 smoke test. Browser visual verification remains unavailable because no browser is connected.
 -   2026-08-31: The approved copy restoration passes 29 tests, TypeScript, lint, targeted Prettier, `git diff --check`, default-off and enabled-test-key production builds, the 20-route rendered SEO verifier, default-off contact HTML checks, initial assessment-result hiding, public-copy source and rendered audits, and final diff review. Browser-based responsive and interaction checks remain unavailable because no browser is connected.

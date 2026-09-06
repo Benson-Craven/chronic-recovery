@@ -4,24 +4,15 @@ import { cn } from "@/utils/cn"
 interface TypographyProps {
     children: React.ReactNode
     className?: string
-    style?: React.CSSProperties
 }
 
-export const Eyebrow: React.FC<TypographyProps> = ({
-    children,
-    className,
-    style,
-}) => (
+export const Eyebrow: React.FC<TypographyProps> = ({ children, className }) => (
     <p
         className={cn(
+            "font-satoshi text-light-supporting",
             "mb-6 text-xs font-medium uppercase tracking-[0.25em]",
             className,
         )}
-        style={{
-            color: "var(--text-light-supporting)",
-            fontFamily: "var(--font-dm-sans)",
-            ...style,
-        }}
     >
         {children}
     </p>
@@ -35,38 +26,28 @@ interface HeadingProps extends TypographyProps {
 export const Heading: React.FC<HeadingProps> = ({
     children,
     className,
-    style,
     as: Component = "h2",
     italic = false,
 }) => (
     <Component
         className={cn(
+            "font-satoshi",
             "text-4xl leading-[1.1] md:text-5xl lg:text-6xl",
             italic && "italic",
             className,
         )}
-        style={{
-            fontFamily: "var(--font-dm-serif)",
-            ...style,
-        }}
     >
         {children}
     </Component>
 )
 
-export const Text: React.FC<TypographyProps> = ({
-    children,
-    className,
-    style,
-}) => (
+export const Text: React.FC<TypographyProps> = ({ children, className }) => (
     <p
-        className={cn("text-base leading-relaxed md:text-lg", className)}
-        style={{
-            color: "var(--text-light-body)",
-            fontFamily: "var(--font-dm-sans)",
-            fontWeight: 300,
-            ...style,
-        }}
+        className={cn(
+            "font-satoshi font-light text-light-body",
+            "text-base leading-relaxed md:text-lg",
+            className,
+        )}
     >
         {children}
     </p>
@@ -75,17 +56,13 @@ export const Text: React.FC<TypographyProps> = ({
 export const ItalicQuote: React.FC<TypographyProps> = ({
     children,
     className,
-    style,
 }) => (
     <p
         className={cn(
+            "font-satoshi",
             "text-xl italic leading-relaxed md:text-2xl lg:text-3xl",
             className,
         )}
-        style={{
-            fontFamily: "var(--font-dm-serif)",
-            ...style,
-        }}
     >
         {children}
     </p>
