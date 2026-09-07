@@ -17,6 +17,7 @@
 
 [DECISIONS]
 
+-   2026-09-07: Load the approach animation within 50px of the viewport. A 200px margin loaded it immediately at the tested 390 by 900 viewport, where the illustration starts at y=969. Reserve its square area and show an SVG export of frame 75 while loading, for reduced motion, or after a chunk failure. Preserve the existing scroll ranges and select the current frame before revealing the player.
 -   2026-09-04: Use the existing `font-satoshi` utility for the audited static typography, retain inline runtime layout, motion, SVG, and calculated values, expose the homepage H1 without a fade on every viewport, and give the navbar logo its `796 × 313` source ratio plus responsive `sizes` guidance.
 -   2026-09-01: Production Turnstile uses Managed mode, the public site key `0x4AAAAAAD6mLPT2ZoUjMKH9`, `TURNSTILE_SECRET`, and `TURNSTILE_HOSTNAMES=chronicpainrecovery.ie`. `NEXT_PUBLIC_TURNSTILE_ENABLED` remains the emergency switch. Local development uses Cloudflare's dummy keys and a `localhost` allowlist.
 -   2026-09-01: The removed Old/Middle/Current client-review worktrees and workbook workflow are obsolete. Do not recreate any `client-review` material unless the user explicitly starts a new review task.
@@ -50,6 +51,7 @@
 
 [PROGRESS]
 
+-   2026-09-07: Added `ApproachAnimation` with viewport and motion-preference gating. Moved the animation JSON into the deferred player module and added `public/assets/women-health-still.svg`, exported from the original artwork. Copy, CTAs, analytics, dependencies, and the source animation are unchanged.
 -   2026-09-04: Converted static and finite conditional typography in the 31 audited files to Tailwind classes, added `app/lib/typography-contract.test.mjs`, removed the homepage H1 animation, and corrected the navbar logo intrinsic dimensions and `sizes` hint. Preserved the SVG science section's content, order, links, sizing, and runtime styles.
 -   2026-09-01: Replaced the server's `TURNSTILE_SECRET_KEY` interface with `TURNSTILE_SECRET`; added hostname allowlisting, visitor-IP forwarding, and separate 403/503 handling for rejected verification and unavailable configuration or service. Preserved the honeypot, field validation, Brevo delivery, client token gating, and failed-submission reset flow.
 -   2026-08-31: Moved the homepage CTA below `SVGPathScienceSection` and adjusted their stacking so the science path can continue over the CTA background while the CTA content remains above it.
@@ -81,6 +83,7 @@
 
 [DISCOVERIES]
 
+-   2026-09-07: Three fresh headless Chrome mobile Lighthouse runs per isolated production version, without overlapping runs, gave baseline/change medians of performance 91/95, FCP 1.51/1.51 s, LCP 3.05/2.87 s, TBT 8/4.5 ms, CLS 0.00128/0.00128, JavaScript transfer 462540/358367 bytes, and total transfer 719860/635910 bytes. No Lighthouse run warnings. These are local measurements, not production PageSpeed results. Reports and browser verification scripts are under `/private/tmp/cprie-lottie-x6kh1135/`.
 -   2026-09-04: Chrome selected the `w=256` navbar logo candidate, transferring 11.2 kB in the inspected development request. Three Incognito Lighthouse 13.4.1 mobile runs against the isolated production build produced identical rounded scores of 92; their medians were FCP 1.52 s, LCP 3.32 s, TBT 1.5 ms, CLS 0.0013, JavaScript transfer 451.5 KiB, and total transfer 609.4 KiB. Lighthouse still warned about IndexedDB data, so these local results are not like-for-like production PageSpeed evidence.
 -   2026-09-01: The Browser runtime again reported no available connection. The enabled dummy-key build passed, but widget completion and submit-control gating on the contact page and modal remain interactively unverified.
 -   2026-08-31: The Browser runtime reported no available browser connection. Automated source, build, and rendered-HTML checks were completed, but responsive screenshots, sticky release-at-boundary behaviour, and interactive assessment focus remain visually unverified.
@@ -98,6 +101,7 @@
 
 [OUTCOMES]
 
+-   2026-09-07: Deferred approach animation passes all 37 existing tests, TypeScript, lint, targeted Prettier, diff checks, an isolated 28-page production build, and the 20-route rendered SEO verifier. Chrome checks at widths 390, 768, and 1440 verified zero initial animation requests, loading near the viewport, stable dimensions, scroll seeking, and motion-preference changes. Reduced-motion initial load, JavaScript-disabled rendering, failed chunk loading, direct section arrival, preference changes during download, and navigation away during download also passed. Inspected mobile/desktop and reduced-motion screenshots. Standards and Spec reviews found no blocking issues. No commit, push, deployment, or live enquiry occurred.
 -   2026-09-06: The user authorised one local commit for the completed typography and homepage performance cleanup. No push or deployment was requested.
 -   2026-09-04: The typography, immediate-H1, and logo cleanup passes 37 tests, TypeScript, lint, targeted Prettier, diff checks, source-contract searches, an isolated 28-page production build, and the 20-route rendered SEO verifier. Generated homepage HTML has one H1 with the original wording and accent, no initial opacity, and no Google Font request. Chrome checks covered the representative routes on desktop and mobile, empty contact-page and modal validation without an enquiry, assessment progress without result disclosure, and the logo candidate. Reduced-motion browser emulation, live provider, deployment, and production verification remain outstanding; no commit or remote state changed.
 -   2026-09-01: The completed Turnstile repository changes pass 34 tests, TypeScript, lint, targeted Prettier, `git diff --check`, and an isolated enabled production build with Cloudflare's dummy key pair and `localhost` allowlisted. No contact form was submitted, and no production file, deployment, PM2 process, nginx configuration, commit, or remote branch was changed.
