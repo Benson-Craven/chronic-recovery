@@ -39,7 +39,7 @@ test("paired closing CTAs use a wrapping horizontal layout when space allows", (
         "app/blog/[slug]/page.tsx",
         "app/components/CallToActionSection.tsx",
         "app/components/SeoContentPage.tsx",
-        "app/components/sections/RevealInfoSection.tsx",
+        "app/components/info/InfoClosingCtaSection.tsx",
         "app/components/sections/WhatWeDoSection.tsx",
         "app/conditions/page.tsx",
         "app/research/page.tsx",

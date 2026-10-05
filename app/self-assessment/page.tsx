@@ -8,6 +8,7 @@ import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact"
 import { cn } from "@/utils/cn"
+import PageHero from "../components/sections/PageHero"
 
 const questions = [
     "Has your doctor completed diagnostic testing without finding a definite cause for your pain or illness?",
@@ -92,51 +93,28 @@ export default function SelfAssessment() {
     }, [])
 
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+        <div className="min-h-screen bg-[#F7F4EF]">
             {/* Sticky progress bar */}
-            <div
-                className="fixed left-0 right-0 top-0 z-50 h-[3px] w-full"
-                style={{ backgroundColor: "rgba(30,58,32,0.08)" }}
-            >
+            <div className="fixed left-0 right-0 top-0 z-50 h-[3px] w-full bg-[rgba(30,58,32,0.08)]">
                 <motion.div
-                    className="h-full"
-                    style={{ backgroundColor: "#1E3A20" }}
+                    className="h-full bg-[#1E3A20]"
                     initial={{ width: "0%" }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 />
             </div>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Self assessment
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Could this approach
-                        <br />
-                        <em>be right for you?</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        These questions help identify whether a brain-to-body
+
+            <PageHero
+                eyebrow="Self assessment"
+                description='These questions help identify whether a brain-to-body
                         disorder may be playing a role in your condition. The
                         more "Yes" answers, the more likely this approach could
-                        help you.
-                    </p>
-                </motion.div>
-            </section>
+                        help you.'
+            >
+                Could this approach
+                <br />
+                <em>be right for you?</em>
+            </PageHero>
 
             {/* Progress bar + questions — cream */}
             <motion.section
@@ -144,28 +122,25 @@ export default function SelfAssessment() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     {/* Progress indicator */}
+
                     <div className="mb-14 flex items-center justify-between">
                         <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             {answeredCount} of {questions.length} answered
                         </p>
+
                         <p className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                             {progress}%
                         </p>
                     </div>
 
                     {/* Thin progress track */}
-                    <div
-                        className="mb-14 h-px w-full overflow-hidden"
-                        style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
-                    >
+                    <div className="mb-14 h-px w-full overflow-hidden bg-[rgba(30,58,32,0.1)]">
                         <motion.div
-                            className="h-full"
-                            style={{ backgroundColor: "#1E3A20" }}
+                            className="h-full bg-[#1E3A20]"
                             initial={{ width: "0%" }}
                             animate={{ width: `${progress}%` }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -175,10 +150,7 @@ export default function SelfAssessment() {
 
                 <div className="mx-auto mt-16 max-w-3xl">
                     {/* Questions */}
-                    <div
-                        className="divide-y"
-                        style={{ borderColor: "rgba(30,58,32,0.12)" }}
-                    >
+                    <div className="divide-y border-[rgba(30,58,32,0.12)]">
                         {questions.map((question, index) => (
                             <motion.div
                                 key={index}
@@ -251,8 +223,7 @@ export default function SelfAssessment() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     reverse
@@ -273,12 +244,7 @@ export default function SelfAssessment() {
                             <em>summary</em>
                         </h2>
 
-                        <div
-                            className="h-px w-full"
-                            style={{
-                                backgroundColor: "rgba(200,230,201,0.15)",
-                            }}
-                        />
+                        <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
 
                         <AnimatePresence mode="wait">
                             {!showResult ? (
@@ -288,10 +254,7 @@ export default function SelfAssessment() {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.4 }}
-                                    className="flex items-start gap-6 border-b py-10"
-                                    style={{
-                                        borderColor: "rgba(200,230,201,0.12)",
-                                    }}
+                                    className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-10"
                                 >
                                     <div className="flex flex-col items-start gap-4">
                                         <div className="flex flex-col gap-2">
@@ -317,10 +280,7 @@ export default function SelfAssessment() {
                                                 onClick={() =>
                                                     setResultRevealed(true)
                                                 }
-                                                className="cta-interactive rounded-full px-8 py-3 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]"
-                                                style={{
-                                                    backgroundColor: "#C8E6C9",
-                                                }}
+                                                className="cta-interactive rounded-full bg-[#C8E6C9] px-8 py-3 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]"
                                             >
                                                 See my result
                                             </motion.button>
@@ -341,13 +301,7 @@ export default function SelfAssessment() {
                                     aria-live="polite"
                                 >
                                     {/* Score row */}
-                                    <div
-                                        className="flex items-start gap-6 border-b py-10"
-                                        style={{
-                                            borderColor:
-                                                "rgba(200,230,201,0.12)",
-                                        }}
-                                    >
+                                    <div className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-10">
                                         <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             01
                                         </span>
@@ -368,13 +322,7 @@ export default function SelfAssessment() {
                                     </div>
 
                                     {/* Result label + summary */}
-                                    <div
-                                        className="flex items-start gap-6 border-b py-10"
-                                        style={{
-                                            borderColor:
-                                                "rgba(200,230,201,0.12)",
-                                        }}
-                                    >
+                                    <div className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-10">
                                         <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             02
                                         </span>
@@ -400,14 +348,10 @@ export default function SelfAssessment() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -439,11 +383,7 @@ export default function SelfAssessment() {
                                 <WhatsAppCta source="self_assessment_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        border: "1px solid rgba(30,58,32,0.3)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-solid border-[rgba(30,58,32,0.3)] bg-transparent py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                 >
                                     Book Consultation
                                 </Link>

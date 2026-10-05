@@ -32,6 +32,7 @@ const SCIENCE_LINKS = [
 const NAV_LINKS = [
     { href: "/#services", label: "Services" },
     { href: "/info", label: "About" },
+    { href: "/success-stories", label: "Success Stories" },
     { href: "/blog", label: "Journal" },
 ]
 
@@ -45,11 +46,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
     return (
         <>
             <nav
-                className={`sticky top-0 z-50 flex h-16 items-center justify-between px-6 md:h-16 ${className}`}
-                style={{
-                    backgroundColor: "#F7F4EF",
-                    borderBottom: "1px solid rgba(30,58,32,0.08)",
-                }}
+                className={`sticky top-0 z-50 flex h-16 items-center justify-between px-6 md:h-16 ${className} border-b border-solid border-b-[rgba(30,58,32,0.08)] bg-[#F7F4EF]`}
             >
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0">
@@ -66,21 +63,14 @@ export default function Navbar({ className = "" }: NavbarProps) {
 
                 {/* Desktop Navigation */}
                 <div className="hidden flex-1 justify-center lg:flex">
-                    <ul className="flex items-center gap-6 xl:gap-10">
+                    <ul className="flex items-center gap-4 xl:gap-10">
                         {/* Science Dropdown */}
                         <li
                             className="relative"
                             onMouseEnter={() => setIsScienceDropdownOpen(true)}
                             onMouseLeave={() => setIsScienceDropdownOpen(false)}
                         >
-                            <button
-                                className="flex items-center gap-1.5 font-satoshi text-xs font-light uppercase tracking-[0.15em] text-[#1E3A20]"
-                                style={{
-                                    background: "none",
-                                    border: "none",
-                                    cursor: "pointer",
-                                }}
-                            >
+                            <button className="flex cursor-pointer items-center gap-1.5 border-0 font-satoshi text-xs font-light uppercase tracking-[0.15em] text-[#1E3A20] [background:none]">
                                 The Science
                                 <motion.svg
                                     animate={{
@@ -91,7 +81,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
                                     height="8"
                                     viewBox="0 0 8 8"
                                     fill="none"
-                                    style={{ opacity: 0.4 }}
+                                    className="opacity-40"
                                 >
                                     <path
                                         d="M1 2.5L4 5.5L7 2.5"
@@ -113,28 +103,18 @@ export default function Navbar({ className = "" }: NavbarProps) {
                                             duration: 0.2,
                                             ease: "easeOut",
                                         }}
-                                        className="absolute left-0 top-full z-50 mt-3 overflow-hidden"
-                                        style={{
-                                            backgroundColor: "#F7F4EF",
-                                            border: "1px solid rgba(30,58,32,0.12)",
-                                            borderRadius: "12px",
-                                            minWidth: "220px",
-                                            boxShadow:
-                                                "0 8px 32px rgba(30,58,32,0.08)",
-                                        }}
+                                        className="absolute left-0 top-full z-50 mt-3 min-w-[220px] overflow-hidden rounded-[12px] border border-solid border-[rgba(30,58,32,0.12)] bg-[#F7F4EF] shadow-[0_8px_32px_rgba(30,58,32,0.08)]"
                                     >
                                         {SCIENCE_LINKS.map((link, index) => (
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className="group flex items-center gap-4 px-5 py-3.5"
-                                                style={{
-                                                    borderBottom:
-                                                        index <
-                                                        SCIENCE_LINKS.length - 1
-                                                            ? "1px solid rgba(30,58,32,0.08)"
-                                                            : "none",
-                                                }}
+                                                className={`group flex items-center gap-4 px-5 py-3.5 ${
+                                                    index <
+                                                    SCIENCE_LINKS.length - 1
+                                                        ? "border-b border-solid border-b-[rgba(30,58,32,0.08)]"
+                                                        : "border-b-0"
+                                                }`}
                                             >
                                                 <span className="shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                     {link.number}
@@ -167,19 +147,14 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="hidden items-center gap-3 lg:flex">
                     <WhatsAppLink
                         source="navbar_desktop"
-                        className="cta-interactive flex items-center gap-2 rounded-full px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF] xl:px-6"
-                        style={{ backgroundColor: "#1E3A20" }}
+                        className="cta-interactive flex items-center gap-2 rounded-full bg-[#1E3A20] px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF] xl:px-6"
                     >
                         <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
                         <span>WhatsApp Marsha</span>
                     </WhatsAppLink>
                     <motion.button
                         onClick={() => setIsContactOpen(!isContactOpen)}
-                        className="cta-interactive rounded-full border px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20] xl:px-6"
-                        style={{
-                            backgroundColor: "transparent",
-                            borderColor: "#1E3A20",
-                        }}
+                        className="cta-interactive rounded-full border border-[#1E3A20] bg-transparent px-5 py-2.5 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20] xl:px-6"
                     >
                         Book Consultation
                     </motion.button>
@@ -189,16 +164,14 @@ export default function Navbar({ className = "" }: NavbarProps) {
                 <div className="ml-auto flex items-center gap-2 lg:hidden">
                     <Link
                         href="/contact"
-                        className="cta-interactive hidden items-center justify-center rounded-full border px-4 py-2.5 font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[#1E3A20] min-[460px]:inline-flex"
-                        style={{ borderColor: "#1E3A20" }}
+                        className="cta-interactive hidden items-center justify-center rounded-full border border-[#1E3A20] px-4 py-2.5 font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[#1E3A20] min-[460px]:inline-flex"
                     >
                         Book Consultation
                     </Link>
                     <WhatsAppLink
                         source="navbar_mobile"
                         aria-label="WhatsApp Marsha"
-                        className="cta-interactive flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#F7F4EF]"
-                        style={{ backgroundColor: "#1E3A20" }}
+                        className="cta-interactive flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1E3A20] text-[#F7F4EF]"
                     >
                         <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
                     </WhatsAppLink>

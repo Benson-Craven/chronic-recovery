@@ -76,7 +76,12 @@ test("approved restored wording remains on shared public surfaces", () => {
 })
 
 test("approved page-specific exceptions remain explicit", () => {
-    const about = read("app/components/sections/RevealInfoSection.tsx")
+    const about = [
+        read("app/components/sections/RevealInfoSection.tsx"),
+        ...sourceFiles(join(repoRoot, "app/components/info")).map((path) =>
+            readFileSync(path, "utf8"),
+        ),
+    ].join("\n")
     const credentials = read("app/components/sections/CredentialsSection.tsx")
     const homepageConditions = read(
         "app/components/sections/IllnessSection.tsx",
@@ -146,7 +151,7 @@ test("article and practitioner identity keep the approved named contexts", () =>
     assert.match(read("app/components/WhatsAppLink.tsx"), /WhatsApp Marsha/)
     assert.match(read("app/blog/[slug]/page.tsx"), /By \{authorProfile\.name\}/)
     assert.match(
-        read("app/components/sections/RevealInfoSection.tsx"),
+        read("app/components/info/InfoIntroSection.tsx"),
         /alt="Marsha Canny of Chronic Pain Recovery Cork"/,
     )
 

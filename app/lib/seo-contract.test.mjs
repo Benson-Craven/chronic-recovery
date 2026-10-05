@@ -145,6 +145,28 @@ test("qualified enquiry signals include forms, WhatsApp and phone clicks", () =>
     }
 })
 
+test("success stories reuse canonical metadata, identity references and contextual links", () => {
+    const page = read("app/success-stories/page.tsx")
+    assert.match(page, /createPageMetadata\(/)
+    assert.match(page, /"@type": "CollectionPage"/)
+    assert.match(page, /about: \{ "@id": personSchema\["@id"\] \}/)
+    assert.match(page, /publisher: \{ "@id": organizationSchema\["@id"\] \}/)
+    assert.doesNotMatch(
+        page,
+        /Review|AggregateRating|isPartOf|noindex|disclaimer/i,
+    )
+    assert.match(page, /href="\/self-assessment"/)
+    for (const path of [
+        "app/components/Navbar.tsx",
+        "app/components/MobileMenu.tsx",
+        "app/components/Footer.tsx",
+        "app/components/info/InfoSessionsSection.tsx",
+        "app/sitemap.ts",
+        "next-sitemap.config.js",
+    ])
+        assert.ok(read(path).includes("/success-stories"), path)
+})
+
 test("protected editorial heroes remain in place", () => {
     const home = read("app/page.tsx")
     const about = read("app/info/page.tsx")

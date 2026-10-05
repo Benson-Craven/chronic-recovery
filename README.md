@@ -119,7 +119,7 @@ test runner.
 -   `app/page.tsx` - homepage composition
 -   `app/layout.tsx` - shared layout, metadata, Google Analytics, and structured data
 -   `app/components/` - shared UI, navigation, footer, CTAs, and homepage sections
--   `app/api/sendEmail/route.ts` - Brevo-backed contact form endpoint
+-   `app/api/send-email/route.ts` - Brevo-backed contact form endpoint
 -   `app/blog/` - blog index and dynamic blog post route
 -   `content/blog/` - markdown blog posts
 -   `public/images/`, `public/logos/`, `public/videos/`, `public/fonts/` - static assets
@@ -163,7 +163,7 @@ Sitemap and robots.txt behavior is configured in `next-sitemap.config.js`. API r
 
 ## Contact Form
 
-The contact page posts to `/api/sendEmail`, which expects:
+The contact page posts to `/api/send-email`, which expects:
 
 -   `name`
 -   `email`

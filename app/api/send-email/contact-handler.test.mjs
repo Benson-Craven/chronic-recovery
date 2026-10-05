@@ -28,7 +28,7 @@ const VALID_SUBMISSION = {
 }
 
 function contactRequest(overrides = {}, headers = {}) {
-    return new Request("http://localhost/api/sendEmail", {
+    return new Request("http://localhost/api/send-email", {
         method: "POST",
         headers: { "content-type": "application/json", ...headers },
         body: JSON.stringify({ ...VALID_SUBMISSION, ...overrides }),
@@ -68,7 +68,7 @@ function handlerWithTurnstileUnset({
 test("malformed JSON is rejected before external services are called", async () => {
     const handler = handlerWith()
     const response = await handler(
-        new Request("http://localhost/api/sendEmail", {
+        new Request("http://localhost/api/send-email", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: "not json",

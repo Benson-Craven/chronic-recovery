@@ -7,8 +7,9 @@ import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import TrackedPhoneLink from "../components/TrackedPhoneLink"
 import { PHONE_DISPLAY } from "../lib/contact"
+import PageHero from "../components/sections/PageHero"
 
-const SciencePage = () => {
+export default function SciencePage() {
     const fadeInVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -20,39 +21,18 @@ const SciencePage = () => {
 
     return (
         <div className="font-Satoshi min-h-screen bg-[#F7F4EF]">
-            {/* Hero */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                            The science
-                        </p>
-                        <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                            Understanding how
-                            <br />
-                            <em>your brain creates pain</em>
-                            <br />
-                            and how to turn it off
-                        </h1>
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                        />
-                        <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                            The most recent science shows that many chronic pain
+            <PageHero
+                eyebrow="The Science"
+                description=" The most recent science shows that many chronic pain
                             conditions originate in the brain, and that gives us
-                            a powerful new path to healing.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
+                            a powerful new path to healing."
+            >
+                Understanding how
+                <br />
+                <em>your brain creates pain</em>
+                <br />
+                and how to turn it off
+            </PageHero>
 
             {/* Revolutionary Discovery — cream */}
             <motion.section
@@ -60,8 +40,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     stickyVisual
@@ -80,10 +59,7 @@ const SciencePage = () => {
                             <br />
                             <em>it is not in your head</em>
                         </h2>
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                        />
+                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                         <div className="mt-16">
                             {[
                                 {
@@ -113,10 +89,7 @@ const SciencePage = () => {
                                         delay: index * 0.08,
                                         ease: "easeOut",
                                     }}
-                                    className="flex items-start gap-6 border-b py-10"
-                                    style={{
-                                        borderColor: "rgba(30,58,32,0.12)",
-                                    }}
+                                    className="flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                                 >
                                     <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {item.number}
@@ -137,8 +110,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     reverse
@@ -160,12 +132,7 @@ const SciencePage = () => {
                             <em>chronic pain?</em>
                         </h2>
                         <div className="mt-16">
-                            <div
-                                className="grid grid-cols-1 gap-px"
-                                style={{
-                                    backgroundColor: "rgba(200,230,201,0.1)",
-                                }}
-                            >
+                            <div className="grid grid-cols-1 gap-px bg-[rgba(200,230,201,0.1)]">
                                 {[
                                     {
                                         title: "Learned Neural Pathways",
@@ -190,8 +157,7 @@ const SciencePage = () => {
                                             delay: index * 0.1,
                                             ease: "easeOut",
                                         }}
-                                        className="flex flex-col gap-4 p-8"
-                                        style={{ backgroundColor: "#1E3A20" }}
+                                        className="flex flex-col gap-4 bg-[#1E3A20] p-8"
                                     >
                                         <span className="font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                             {String(index + 1).padStart(2, "0")}
@@ -216,8 +182,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     stickyVisual
@@ -236,17 +201,13 @@ const SciencePage = () => {
                             <br />
                             <em>a life sentence</em>
                         </h2>
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                        />
+                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                         <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                         >
                             <p className="font-satoshi text-base font-light leading-relaxed text-light-body md:text-lg">
                                 Just as your brain <em>learned</em> these pain
@@ -266,8 +227,7 @@ const SciencePage = () => {
                                 delay: 0.15,
                                 ease: "easeOut",
                             }}
-                            className="mt-12 rounded-2xl px-8 py-7"
-                            style={{ backgroundColor: "#1E3A20" }}
+                            className="mt-12 rounded-2xl bg-[#1E3A20] px-8 py-7"
                         >
                             <p className="mb-1 font-satoshi text-xs uppercase tracking-[0.2em] text-dark-supporting">
                                 How it works
@@ -306,8 +266,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
@@ -324,10 +283,7 @@ const SciencePage = () => {
                         neuroplastic pain.
                     </p>
 
-                    <div
-                        className="mb-12 grid grid-cols-1 gap-px sm:grid-cols-2"
-                        style={{ backgroundColor: "rgba(200,230,201,0.1)" }}
-                    >
+                    <div className="mb-12 grid grid-cols-1 gap-px bg-[rgba(200,230,201,0.1)] sm:grid-cols-2">
                         {[
                             "Pain began without a physical injury",
                             "Pain persists after an injury has healed (3+ months)",
@@ -348,8 +304,7 @@ const SciencePage = () => {
                                     delay: index * 0.05,
                                     ease: "easeOut",
                                 }}
-                                className="flex items-start gap-5 p-6"
-                                style={{ backgroundColor: "#1E3A20" }}
+                                className="flex items-start gap-5 bg-[#1E3A20] p-6"
                             >
                                 <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {String(index + 1).padStart(2, "0")}
@@ -361,10 +316,7 @@ const SciencePage = () => {
                         ))}
                     </div>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
                     <motion.p
                         initial={{ opacity: 0, y: 14 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -388,8 +340,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -409,10 +360,7 @@ const SciencePage = () => {
                         </p>
                     </div>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
                     <div className="grid grid-cols-1 md:grid-cols-3">
                         {[
@@ -463,14 +411,7 @@ const SciencePage = () => {
                                     delay: index * 0.05,
                                     ease: "easeOut",
                                 }}
-                                className="flex flex-col gap-3 border-b border-r px-8 py-8"
-                                style={{
-                                    borderColor: "rgba(30,58,32,0.1)",
-                                    // Remove right border on every 3rd item
-                                    ...(index % 3 === 2
-                                        ? { borderRight: "none" }
-                                        : {}),
-                                }}
+                                className={`flex flex-col gap-3 border-b border-[rgba(30,58,32,0.1)] px-8 py-8 ${index % 3 === 2 ? "border-r-0" : "border-r"}`}
                             >
                                 <span className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
@@ -493,8 +434,7 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
@@ -505,17 +445,13 @@ const SciencePage = () => {
                         <br />
                         <em>structural issues first</em>
                     </h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-start gap-6 border-b py-10"
-                        style={{ borderColor: "rgba(200,230,201,0.12)" }}
+                        className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-10"
                     >
                         <p className="font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
                             Before beginning this approach, please consult your
@@ -540,14 +476,10 @@ const SciencePage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — headline */}
                         <div>
@@ -579,11 +511,7 @@ const SciencePage = () => {
                                 <WhatsAppCta source="science_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        border: "1px solid rgba(30,58,32,0.3)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-solid border-[rgba(30,58,32,0.3)] bg-transparent py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                 >
                                     Book Consultation
                                 </Link>
@@ -604,5 +532,3 @@ const SciencePage = () => {
         </div>
     )
 }
-
-export default SciencePage

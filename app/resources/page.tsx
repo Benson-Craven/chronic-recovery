@@ -7,6 +7,7 @@ import CtaActionRow from "../components/CtaActionRow"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import TrackedPhoneLink from "../components/TrackedPhoneLink"
 import { PHONE_DISPLAY } from "../lib/contact"
+import PageHero from "../components/sections/PageHero"
 
 type Item = {
     title: string
@@ -20,7 +21,7 @@ type LinkSection = {
     items: Item[]
 }
 
-const links: LinkSection[] = [
+const LINKS: LinkSection[] = [
     {
         category: "Podcasts",
         eyebrow: "Listen",
@@ -108,39 +109,19 @@ const ExternalIcon = () => (
     </svg>
 )
 
-const UsefulLinks: React.FC = () => {
+export default function UsefulLinks() {
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Resources
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Useful links
-                        <br />
-                        <em>to go deeper</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Curated podcasts and videos to help you understand
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero
+                eyebrow="Resources"
+                description=" Curated podcasts and videos to help you understand
                         chronic pain, the nervous system, and why recovery is
-                        possible.
-                    </p>
-                </motion.div>
-            </section>
+                        possible."
+            >
+                Useful links
+                <br />
+                <em>to go deeper</em>
+            </PageHero>
 
             {/* Podcasts — cream */}
             <motion.section
@@ -148,8 +129,7 @@ const UsefulLinks: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     <div>
@@ -160,12 +140,9 @@ const UsefulLinks: React.FC = () => {
                             Podcasts
                         </h2>
 
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                        />
+                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                     </div>
-                    {links[0].items.map((item, index) => (
+                    {LINKS[0].items.map((item, index) => (
                         <motion.a
                             key={index}
                             href={item.url}
@@ -179,10 +156,9 @@ const UsefulLinks: React.FC = () => {
                                 delay: index * 0.08,
                                 ease: "easeOut",
                             }}
-                            className="group flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="group flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                         >
-                            {links[0].items.length > 1 && (
+                            {LINKS[0].items.length > 1 && (
                                 <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
@@ -211,8 +187,7 @@ const UsefulLinks: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     <div>
@@ -223,14 +198,9 @@ const UsefulLinks: React.FC = () => {
                             Videos
                         </h2>
 
-                        <div
-                            className="h-px w-full"
-                            style={{
-                                backgroundColor: "rgba(200,230,201,0.15)",
-                            }}
-                        />
+                        <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
                     </div>
-                    {links[1].items.map((item, index) => (
+                    {LINKS[1].items.map((item, index) => (
                         <motion.a
                             key={index}
                             href={item.url}
@@ -244,8 +214,7 @@ const UsefulLinks: React.FC = () => {
                                 delay: index * 0.06,
                                 ease: "easeOut",
                             }}
-                            className="group flex items-start gap-6 border-b py-8"
-                            style={{ borderColor: "rgba(200,230,201,0.12)" }}
+                            className="group flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-8"
                         >
                             <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                 {String(index + 1).padStart(2, "0")}
@@ -286,14 +255,10 @@ const UsefulLinks: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -325,11 +290,7 @@ const UsefulLinks: React.FC = () => {
                                 <WhatsAppCta source="resources_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        border: "1px solid rgba(30,58,32,0.3)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-solid border-[rgba(30,58,32,0.3)] bg-transparent py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                 >
                                     Book Consultation
                                 </Link>
@@ -350,5 +311,3 @@ const UsefulLinks: React.FC = () => {
         </div>
     )
 }
-
-export default UsefulLinks

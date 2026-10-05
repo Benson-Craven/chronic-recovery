@@ -31,6 +31,7 @@ const SITE_LINKS = [
     { name: "Resources", url: "/resources" },
     { name: "Journal", url: "/blog" },
     { name: "About Me", url: "/info" },
+    { name: "Success Stories", url: "/success-stories" },
     { name: "The Science", url: "/science" },
     { name: "Self-Assessment", url: "/self-assessment" },
     { name: "Contact", url: "/contact" },
@@ -42,12 +43,9 @@ const LEGAL_LINKS = [
     { name: "Disclaimer", url: "/disclaimer" },
 ]
 
-const Footer = () => {
+export default function Footer() {
     return (
-        <footer
-            style={{ backgroundColor: "#1E3A20" }}
-            className="relative z-20 w-full"
-        >
+        <footer className="relative z-20 w-full bg-[#1E3A20]">
             {/* Main footer body */}
             <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
                 {/* Top — brand statement */}
@@ -62,10 +60,7 @@ const Footer = () => {
                     </p>
                 </div>
 
-                <div
-                    className="h-px w-full"
-                    style={{ backgroundColor: "rgba(200,230,201,0.12)" }}
-                />
+                <div className="h-px w-full bg-[rgba(200,230,201,0.12)]" />
 
                 {/* Middle — links + connect */}
                 <div className="grid grid-cols-1 gap-12 py-14 md:grid-cols-3">
@@ -101,14 +96,7 @@ const Footer = () => {
                                     rel="noreferrer noopener"
                                     className="flex items-center gap-3"
                                 >
-                                    <FaFacebook
-                                        className="shrink-0"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            width: 16,
-                                            height: 16,
-                                        }}
-                                    />
+                                    <FaFacebook className="h-[16px] w-[16px] shrink-0 text-dark-supporting" />
                                     <span className="font-satoshi text-sm font-light text-dark-body">
                                         Facebook
                                     </span>
@@ -121,12 +109,7 @@ const Footer = () => {
                                 >
                                     <FaWhatsapp
                                         aria-hidden="true"
-                                        className="shrink-0"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            width: 16,
-                                            height: 16,
-                                        }}
+                                        className="h-[16px] w-[16px] shrink-0 text-dark-supporting"
                                     />
                                     <span className="font-satoshi text-sm font-light text-dark-body">
                                         WhatsApp Marsha
@@ -140,12 +123,7 @@ const Footer = () => {
                                 >
                                     <FaPhone
                                         aria-hidden="true"
-                                        className="shrink-0"
-                                        style={{
-                                            color: "var(--text-dark-supporting)",
-                                            width: 14,
-                                            height: 14,
-                                        }}
+                                        className="h-[14px] w-[14px] shrink-0 rotate-90 text-dark-supporting"
                                     />
                                     <span className="font-satoshi text-sm font-light text-dark-body">
                                         {PHONE_DISPLAY}
@@ -177,8 +155,7 @@ const Footer = () => {
                         <div className="mt-8 space-y-3">
                             <WhatsAppLink
                                 source="footer_cta"
-                                className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
-                                style={{ backgroundColor: "#F0EBE1" }}
+                                className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full bg-[#F0EBE1] py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -188,10 +165,7 @@ const Footer = () => {
                             </WhatsAppLink>
                             <Link
                                 href="/contact"
-                                className="cta-interactive flex w-full items-center justify-center rounded-full border py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F0EBE1]"
-                                style={{
-                                    borderColor: "rgba(240,235,225,0.65)",
-                                }}
+                                className="cta-interactive flex w-full items-center justify-center rounded-full border border-[rgba(240,235,225,0.65)] py-3 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F0EBE1]"
                             >
                                 Book Consultation
                             </Link>
@@ -199,10 +173,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div
-                    className="h-px w-full"
-                    style={{ backgroundColor: "rgba(200,230,201,0.12)" }}
-                />
+                <div className="h-px w-full bg-[rgba(200,230,201,0.12)]" />
 
                 {/* Bottom bar */}
                 <div className="flex flex-col gap-4 pt-8 md:flex-row md:items-center md:justify-between">
@@ -248,5 +219,3 @@ const Footer = () => {
         </footer>
     )
 }
-
-export default Footer

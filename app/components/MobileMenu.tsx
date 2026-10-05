@@ -40,8 +40,9 @@ const NAV_LINKS: NavLink[] = [
     },
     { href: "/#services", label: "Services", number: "02" },
     { href: "/info", label: "About", number: "03" },
-    { href: "/blog", label: "Journal", number: "04" },
-    { href: "/contact", label: "Contact", number: "05" },
+    { href: "/success-stories", label: "Success Stories", number: "04" },
+    { href: "/blog", label: "Journal", number: "05" },
+    { href: "/contact", label: "Contact", number: "06" },
 ]
 
 type MobileMenuProps = {
@@ -64,8 +65,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                         isOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }
                     }
                     transition={{ duration: 0.25 }}
-                    className="block h-px w-6 origin-center"
-                    style={{ backgroundColor: "#1E3A20" }}
+                    className="block h-px w-6 origin-center bg-[#1E3A20]"
                 />
                 <motion.span
                     animate={
@@ -74,16 +74,14 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                             : { opacity: 1, scaleX: 1 }
                     }
                     transition={{ duration: 0.15 }}
-                    className="block h-px w-6 origin-center"
-                    style={{ backgroundColor: "#1E3A20" }}
+                    className="block h-px w-6 origin-center bg-[#1E3A20]"
                 />
                 <motion.span
                     animate={
                         isOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
                     }
                     transition={{ duration: 0.25 }}
-                    className="block h-px w-6 origin-center"
-                    style={{ backgroundColor: "#1E3A20" }}
+                    className="block h-px w-6 origin-center bg-[#1E3A20]"
                 />
             </button>
 
@@ -92,11 +90,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                     <>
                         {/* Backdrop */}
                         <motion.div
-                            className="fixed inset-0 z-40"
-                            style={{
-                                backgroundColor: "rgba(30,58,32,0.5)",
-                                backdropFilter: "blur(4px)",
-                            }}
+                            className="fixed inset-0 z-40 bg-[rgba(30,58,32,0.5)] backdrop-blur-sm"
                             variants={fadeOverlay}
                             initial="hidden"
                             animate="visible"
@@ -106,8 +100,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
 
                         {/* Drawer */}
                         <motion.nav
-                            className="fixed inset-y-0 right-0 z-40 flex w-full max-w-sm flex-col"
-                            style={{ backgroundColor: "#F7F4EF" }}
+                            className="fixed inset-y-0 right-0 z-40 flex w-full max-w-sm flex-col bg-[#F7F4EF]"
                             variants={slideInMenu}
                             initial="hidden"
                             animate="visible"
@@ -117,13 +110,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                             aria-label="Mobile navigation"
                         >
                             {/* Drawer header */}
-                            <div
-                                className="flex items-center justify-between px-8 py-6"
-                                style={{
-                                    borderBottom:
-                                        "1px solid rgba(30,58,32,0.1)",
-                                }}
-                            >
+                            <div className="flex items-center justify-between border-b border-solid border-b-[rgba(30,58,32,0.1)] px-8 py-6">
                                 <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                     Menu
                                 </p>
@@ -131,12 +118,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
 
                             {/* Nav links */}
                             <div className="flex flex-1 flex-col overflow-y-auto">
-                                <ul
-                                    className="divide-y"
-                                    style={{
-                                        borderColor: "rgba(30,58,32,0.08)",
-                                    }}
-                                >
+                                <ul className="divide-y border-[rgba(30,58,32,0.08)]">
                                     {NAV_LINKS.map((link, index) => (
                                         <MobileNavItem
                                             key={link.href}
@@ -149,17 +131,11 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                             </div>
 
                             {/* Drawer footer */}
-                            <div
-                                className="px-8 py-8"
-                                style={{
-                                    borderTop: "1px solid rgba(30,58,32,0.1)",
-                                }}
-                            >
+                            <div className="border-t border-solid border-t-[rgba(30,58,32,0.1)] px-8 py-8">
                                 <WhatsAppLink
                                     source="mobile_menu"
                                     onClick={onToggle}
-                                    className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF]"
-                                    style={{ backgroundColor: "#1E3A20" }}
+                                    className="cta-interactive flex w-full items-center justify-center gap-2 rounded-full bg-[#1E3A20] py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#F7F4EF]"
                                 >
                                     <FaWhatsapp
                                         aria-hidden="true"
@@ -170,8 +146,7 @@ export default function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                                 <Link
                                     href="/contact"
                                     onClick={onToggle}
-                                    className="cta-interactive mt-3 flex w-full items-center justify-center rounded-full border py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
-                                    style={{ borderColor: "#1E3A20" }}
+                                    className="cta-interactive mt-3 flex w-full items-center justify-center rounded-full border border-[#1E3A20] py-4 font-satoshi text-xs font-medium uppercase tracking-[0.08em] text-[#1E3A20]"
                                 >
                                     Book Consultation
                                 </Link>
@@ -220,13 +195,7 @@ function MobileNavItem({ link, index, onNavigate }: MobileNavItemProps) {
 
             {/* Children — indented sub-rows */}
             {hasChildren && (
-                <ul
-                    className="divide-y"
-                    style={{
-                        borderColor: "rgba(30,58,32,0.06)",
-                        backgroundColor: "rgba(30,58,32,0.02)",
-                    }}
-                >
+                <ul className="divide-y border-[rgba(30,58,32,0.06)] bg-[rgba(30,58,32,0.02)]">
                     {link.children!.map((child) => (
                         <li key={child.href}>
                             <Link

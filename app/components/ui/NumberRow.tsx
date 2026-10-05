@@ -28,12 +28,12 @@ export const NumberRow: React.FC<NumberRowProps> = ({
                 delay: index * 0.1,
                 ease: "easeOut",
             }}
-            className={cn("flex items-start gap-6 border-b py-10")}
-            style={{
-                borderColor: isGreen
-                    ? "rgba(200,230,201,0.12)"
-                    : "rgba(30,58,32,0.12)",
-            }}
+            className={cn(
+                "flex items-start gap-6 border-b py-10",
+                isGreen
+                    ? "border-[rgba(200,230,201,0.12)]"
+                    : "border-[rgba(30,58,32,0.12)]",
+            )}
         >
             <span
                 className={cn(

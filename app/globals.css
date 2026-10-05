@@ -80,3 +80,15 @@ textarea::placeholder {
     font-style: normal;
     font-display: swap;
 }
+
+.blog-prose {
+    --tw-prose-body: var(--text-light-body);
+    --tw-prose-headings: #1e3a20;
+    --tw-prose-links: #1e3a20;
+    --tw-prose-bold: #1e3a20;
+    --tw-prose-counters: var(--text-light-supporting);
+    --tw-prose-bullets: var(--text-light-supporting);
+    --tw-prose-hr: rgba(30, 58, 32, 0.12);
+    --tw-prose-quotes: #1e3a20, --tw-prose-quote-borders: rgba(30, 58, 32, 0.2);
+    --tw-prose-captions: var(--text-light-supporting);
+}

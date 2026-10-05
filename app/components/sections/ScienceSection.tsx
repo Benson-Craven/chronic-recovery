@@ -1,9 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
 
-const ScienceSection = () => {
+export default function ScienceSection() {
     const container = useRef(null)
 
     const { scrollYProgress } = useScroll({
@@ -12,6 +11,7 @@ const ScienceSection = () => {
     })
 
     const scaleTransform = useTransform(scrollYProgress, [0, 1], [0, 1])
+
     return (
         <section
             id="science"
@@ -20,20 +20,17 @@ const ScienceSection = () => {
         >
             <div className="sticky top-0 z-10 flex min-h-screen w-full items-center justify-center">
                 <motion.div
-                    style={{
-                        scaleX: scaleTransform,
-                        clipPath: "ellipse(50% 100% at 0% 50%)",
-                    }}
-                    className="absolute left-0 top-0 z-10 h-full w-1/2 origin-left bg-[#fafafa]"
+                    style={{ scaleX: scaleTransform }}
+                    className="absolute left-0 top-0 z-10 h-full w-1/2 origin-left bg-[#fafafa] [clip-path:ellipse(50%_100%_at_0%_50%)]"
                 />
+
                 <div className="absolute inset-0 mx-auto flex h-[100vh] max-w-4xl flex-col items-center justify-center px-4 text-center text-white mix-blend-difference">
-                    <h3
-                        className="mb-4 text-xl opacity-75"
-                        style={{ position: "absolute", top: "10%" }}
-                    >
+                    <h3 className="absolute top-[10%] mb-4 text-xl opacity-75">
                         The Legacy We Treasure
                     </h3>
+
                     <h2 className="mb-8 text-8xl font-bold">The Science</h2>
+
                     <p className="mb-8 max-w-md text-xl">
                         Symptoms in the body communicate perceived danger to the
                         conscious mind. These signals can persist long after
@@ -41,12 +38,13 @@ const ScienceSection = () => {
                         we can teach the brain to turn off these signals safely
                         on our own.
                     </p>
+
                     <Link
                         href=""
-                        style={{ position: "absolute", bottom: "10%" }}
-                        className="cta-interactive inline-flex items-center rounded-full border border-white px-6 py-3 text-white hover:bg-white hover:text-gray-900"
+                        className="cta-interactive absolute bottom-[10%] inline-flex items-center rounded-full border border-white px-6 py-3 text-white hover:bg-white hover:text-gray-900"
                     >
                         <span className="mr-2">Explore more</span>
+
                         <svg
                             className="h-5 w-5"
                             fill="none"
@@ -72,35 +70,16 @@ const ScienceSection = () => {
                         loop
                         muted
                         playsInline
-                        src={`/videos/remedies.mp4`}
-                        className="h-full w-full object-cover brightness-50 filter"
+                        src="/videos/remedies.mp4"
+                        className="h-full w-full object-cover brightness-50"
                     />
-                    {/* {[1, 2, 3].map((colIndex) => (
-                        <div key={colIndex} className="flex flex-1 flex-col">
-                            {[1, 2, 3].map((imgIndex) => (
-                                <div key={imgIndex} className="flex-1 p-1">
-                                    <Image
-                                        src={`/img-${colIndex}-${imgIndex}.jpg`}
- ${colIndex}-${imgIndex}`}
-                                        fill
-                                        style={{ objectFit: 'cover' }}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ))} */}
                 </div>
             </div>
-            <motion.div
-                style={{
-                    scaleX: scaleTransform,
 
-                    clipPath: "ellipse(50% 100% at 100% 50%)",
-                }}
-                className="absolute right-0 top-0 z-10 h-full w-1/2 origin-right bg-[#fafafa]"
+            <motion.div
+                style={{ scaleX: scaleTransform }}
+                className="absolute right-0 top-0 z-10 h-full w-1/2 origin-right bg-[#fafafa] [clip-path:ellipse(50%_100%_at_100%_50%)]"
             />
         </section>
     )
 }
-
-export default ScienceSection

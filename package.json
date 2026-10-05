@@ -8,7 +8,7 @@
         "postbuild": "next-sitemap",
         "start": "next start",
         "lint": "next lint",
-        "test": "node --test app/api/sendEmail/contact-handler.test.mjs app/lib/body-scroll-lock.test.mjs app/lib/cta-contract.test.mjs app/lib/seo-contract.test.mjs app/lib/typography-contract.test.mjs app/lib/voice-contract.test.mjs",
+        "test": "node --test app/api/send-email/contact-handler.test.mjs app/lib/body-scroll-lock.test.mjs app/lib/cta-contract.test.mjs app/lib/seo-contract.test.mjs app/lib/typography-contract.test.mjs app/lib/voice-contract.test.mjs app/lib/testimonials.test.mjs app/lib/success-stories-analytics.test.mjs",
         "verify:seo-rendered": "node scripts/verify-seo-rendered.mjs"
     },
     "dependencies": {

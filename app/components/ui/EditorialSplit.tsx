@@ -53,17 +53,11 @@ export function EditorialSplit({
                         "overflow-hidden rounded-3xl",
                         isIllustration &&
                             "mx-auto flex aspect-square w-full max-w-[30rem] items-center justify-center p-8 sm:p-12",
+                        isIllustration &&
+                            (surface === "green"
+                                ? "bg-[#F7F4EF]"
+                                : "bg-[#EDE9E0]"),
                     )}
-                    style={
-                        isIllustration
-                            ? {
-                                  backgroundColor:
-                                      surface === "green"
-                                          ? "#F7F4EF"
-                                          : "#EDE9E0",
-                              }
-                            : undefined
-                    }
                 >
                     <Image
                         src={visual.src}

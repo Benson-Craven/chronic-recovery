@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
-import Link from "next/link"
 
-const Dancehaus: React.FC = () => {
+export default function Dancehaus() {
     const ref = useRef<HTMLDivElement>(null)
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -89,5 +88,3 @@ const Dancehaus: React.FC = () => {
         </div>
     )
 }
-
-export default Dancehaus

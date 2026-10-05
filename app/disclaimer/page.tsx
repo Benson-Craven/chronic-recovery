@@ -1,4 +1,6 @@
-const sections = [
+import PageHero from "../components/sections/PageHero"
+
+const SECTIONS = [
     {
         number: "01",
         heading: "Web use legal agreement",
@@ -37,55 +39,33 @@ const sections = [
     },
 ]
 
-const DisclaimerPage = () => {
+export default function DisclaimerPage() {
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Legal
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Disclaimer
-                        <br />
-                        <em>&amp; terms of use</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Please read this agreement carefully before using this
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero
+                eyebrow="Legal"
+                description=" Please read this agreement carefully before using this
                         website. By continuing to use the site, you agree to be
-                        bound by the terms below.
-                    </p>
-                </div>
-            </section>
+                        bound by the terms below."
+            >
+                Disclaimer
+                <br />
+                <em>&amp; terms of use</em>
+            </PageHero>
 
             {/* Disclaimer content — cream */}
-            <section
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
-            >
+            <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28">
                 <div className="mx-auto max-w-3xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
-                        {sections.length} sections
+                        {SECTIONS.length} sections
                     </p>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
-                    {sections.map((section) => (
+                    {SECTIONS.map((section) => (
                         <div
                             key={section.number}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                         >
                             {/* Number */}
                             <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
@@ -132,5 +112,3 @@ const DisclaimerPage = () => {
         </div>
     )
 }
-
-export default DisclaimerPage

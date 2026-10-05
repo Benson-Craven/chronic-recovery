@@ -19,25 +19,11 @@ type ContactModalProps = {
     onClose: () => void
 }
 
-const inputStyles: React.CSSProperties = {
-    width: "100%",
-    backgroundColor: "transparent",
-    borderBottom: "1px solid rgba(30,58,32,0.2)",
-    borderTop: "none",
-    borderLeft: "none",
-    borderRight: "none",
-    borderRadius: 0,
-    padding: "10px 0",
-    outline: "none",
-}
-const inputClassName = "font-satoshi text-[0.95rem] font-light text-[#1E3A20]"
+const inputClassName =
+    "w-full rounded-none border-x-0 border-t-0 border-b border-solid border-b-[rgba(30,58,32,0.2)] bg-transparent px-0 py-[10px] [outline:none] font-satoshi text-[0.95rem] font-light text-[#1E3A20]"
 
-const labelStyles: React.CSSProperties = {
-    display: "block",
-    marginBottom: "6px",
-}
 const labelClassName =
-    "font-satoshi text-[0.65rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
+    "mb-[6px] block font-satoshi text-[0.65rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const [messageLength, setMessageLength] = useState(0)
@@ -81,11 +67,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 >
                     {/* Backdrop */}
                     <motion.div
-                        className="absolute inset-0"
-                        style={{
-                            backgroundColor: "rgba(30,58,32,0.6)",
-                            backdropFilter: "blur(4px)",
-                        }}
+                        className="absolute inset-0 bg-[rgba(30,58,32,0.6)] backdrop-blur-sm"
                         onClick={onClose}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -94,8 +76,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                     {/* Modal */}
                     <motion.div
-                        className="relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-4xl overflow-y-auto"
-                        style={{ borderRadius: "24px" }}
+                        className="relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-4xl overflow-y-auto rounded-[24px]"
                         variants={modalScale}
                         initial="hidden"
                         animate="visible"
@@ -109,8 +90,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -16 }}
                                     transition={{ duration: 0.5 }}
-                                    className="flex min-h-[360px] flex-col items-start justify-center p-12 md:p-16"
-                                    style={{ backgroundColor: "#1E3A20" }}
+                                    className="flex min-h-[360px] flex-col items-start justify-center bg-[#1E3A20] p-12 md:p-16"
                                 >
                                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                         Message sent
@@ -120,13 +100,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         <br />
                                         <em>reaching out.</em>
                                     </h2>
-                                    <div
-                                        className="mt-8 h-px w-full"
-                                        style={{
-                                            backgroundColor:
-                                                "rgba(200,230,201,0.15)",
-                                        }}
-                                    />
+                                    <div className="mt-8 h-px w-full bg-[rgba(200,230,201,0.15)]" />
                                     <p className="mt-6 font-satoshi text-base font-light text-dark-supporting">
                                         I'll be in touch as soon as possible,
                                         usually within 24 hours.
@@ -141,10 +115,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     className="flex flex-col md:flex-row"
                                 >
                                     {/* Left — green info panel */}
-                                    <div
-                                        className="hidden flex-col justify-between p-10 md:flex md:w-5/12"
-                                        style={{ backgroundColor: "#1E3A20" }}
-                                    >
+                                    <div className="hidden flex-col justify-between bg-[#1E3A20] p-10 md:flex md:w-5/12">
                                         <div>
                                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                                                 Get in touch
@@ -155,13 +126,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <em>recovery together</em>
                                             </h2>
 
-                                            <div
-                                                className="h-px w-full"
-                                                style={{
-                                                    backgroundColor:
-                                                        "rgba(200,230,201,0.15)",
-                                                }}
-                                            />
+                                            <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
 
                                             <div className="mt-8 space-y-7">
                                                 {[
@@ -211,10 +176,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     </div>
 
                                     {/* Right — cream form panel */}
-                                    <div
-                                        className="flex w-full flex-col justify-center p-8 md:w-7/12 md:p-10"
-                                        style={{ backgroundColor: "#F7F4EF" }}
-                                    >
+                                    <div className="flex w-full flex-col justify-center bg-[#F7F4EF] p-8 md:w-7/12 md:p-10">
                                         {/* Close button */}
                                         <div className="mb-8 flex items-center justify-between">
                                             <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting md:hidden">
@@ -223,10 +185,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             <button
                                                 type="button"
                                                 onClick={onClose}
-                                                className="ml-auto flex h-8 w-8 items-center justify-center rounded-full transition-opacity hover:opacity-50"
-                                                style={{
-                                                    border: "1px solid rgba(30,58,32,0.2)",
-                                                }}
+                                                className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-solid border-[rgba(30,58,32,0.2)] transition-opacity hover:opacity-50"
                                                 aria-label="Close"
                                             >
                                                 <svg
@@ -255,7 +214,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <label
                                                     htmlFor="modal-name"
                                                     className={labelClassName}
-                                                    style={labelStyles}
                                                 >
                                                     Name *
                                                 </label>
@@ -269,7 +227,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     autoComplete="name"
                                                     placeholder="Your full name"
                                                     className={inputClassName}
-                                                    style={inputStyles}
                                                 />
                                             </div>
 
@@ -278,7 +235,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <label
                                                     htmlFor="modal-email"
                                                     className={labelClassName}
-                                                    style={labelStyles}
                                                 >
                                                     Email *
                                                 </label>
@@ -291,7 +247,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     autoComplete="email"
                                                     placeholder="your@email.com"
                                                     className={inputClassName}
-                                                    style={inputStyles}
                                                 />
                                             </div>
 
@@ -300,7 +255,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <label
                                                     htmlFor="modal-phone"
                                                     className={labelClassName}
-                                                    style={labelStyles}
                                                 >
                                                     Phone *
                                                 </label>
@@ -314,7 +268,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                     autoComplete="tel"
                                                     placeholder="+353..."
                                                     className={inputClassName}
-                                                    style={inputStyles}
                                                 />
                                             </div>
 
@@ -323,7 +276,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 <label
                                                     htmlFor="modal-message"
                                                     className={labelClassName}
-                                                    style={labelStyles}
                                                 >
                                                     Message *
                                                 </label>
@@ -338,11 +290,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         handleMessageChange
                                                     }
                                                     placeholder="Tell me a little about what you're experiencing..."
-                                                    className={inputClassName}
-                                                    style={{
-                                                        ...inputStyles,
-                                                        resize: "none",
-                                                    }}
+                                                    className={`${inputClassName} resize-none`}
                                                 />
                                                 <p className="mt-1 text-right font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                     {messageLength}/{MAX_CHARS}
@@ -379,13 +327,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             ? "modal-contact-form-error"
                                                             : undefined
                                                     }
-                                                    className="cta-interactive w-full rounded-full py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed"
-                                                    style={{
-                                                        backgroundColor:
-                                                            canSubmit
-                                                                ? "#1E3A20"
-                                                                : "#5B6E5A",
-                                                    }}
+                                                    className={`cta-interactive w-full rounded-full py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed ${canSubmit ? "bg-[#1E3A20]" : "bg-[#5B6E5A]"}`}
                                                 >
                                                     {isSubmitting
                                                         ? "Sending..."

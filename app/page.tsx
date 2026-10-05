@@ -1,9 +1,8 @@
-"use client"
-
+import HomeIntro from "./components/HomeIntro"
+import TestimonialsSection from "./components/sections/TestimonialsSection"
 import MindBodySection from "./components/sections/MindBodySection"
 import WeDoSection from "./components/sections/WhatWeDoSection"
 import IllnessSection from "./components/sections/IllnessSection"
-import { motion } from "framer-motion"
 import Services from "./components/sections/Services"
 import SVGPathScienceSection from "./components/sections/SVGPathScienceSection"
 import Approach from "./components/sections/Approach"
@@ -32,16 +31,7 @@ export default function Home() {
                             chronic pain recovery
                         </span>
                     </h1>
-                    <motion.div
-                        className="flex max-w-3xl flex-col items-center gap-5"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            delay: 0.35,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                    >
+                    <HomeIntro>
                         <span className="h-px w-16 bg-secondary-text/40" />
                         <p className="text-balance font-satoshi text-base font-light leading-8 text-light-body md:text-lg md:leading-9">
                             For{" "}
@@ -61,7 +51,7 @@ export default function Home() {
                             Based in Ireland, supporting clients online
                             worldwide.
                         </p>
-                    </motion.div>
+                    </HomeIntro>
                 </section>
 
                 <section>
@@ -71,6 +61,7 @@ export default function Home() {
                     <CredentialsSection />
                     <Approach />
                     <Services />
+                    <TestimonialsSection />
                     <SVGPathScienceSection />
                     <CallToActionSection fadeInVariants={fadeInVariants} />
                 </section>

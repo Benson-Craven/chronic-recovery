@@ -18,14 +18,13 @@ const SVGPathScienceSection = () => {
     const pathLength = useTransform(scrollYProgress, [0.27, 1], [0, 1])
 
     return (
-        <section className="relative" style={{ backgroundColor: "#F7F4EF" }}>
+        <section className="relative bg-[#F7F4EF]">
             {/* SVG path — behind all content */}
             <motion.svg
                 viewBox="0 0 1000 2000"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="pointer-events-none absolute -left-0 top-32 h-full w-full md:-left-[10%] lg:-left-[15%]"
-                style={{ zIndex: 1 }}
+                className="pointer-events-none absolute -left-0 top-32 z-[1] h-full w-full md:-left-[10%] lg:-left-[15%]"
                 preserveAspectRatio="xMidYMid slice"
             >
                 <motion.path
@@ -42,8 +41,7 @@ const SVGPathScienceSection = () => {
             {/* Content */}
             <div
                 ref={sectionRef}
-                className="container relative mx-auto overflow-hidden"
-                style={{ zIndex: 10 }}
+                className="container relative z-10 mx-auto overflow-hidden"
             >
                 {/* Section header */}
                 <div className="px-6 pb-12 pt-20 md:pt-28">
@@ -67,10 +65,7 @@ const SVGPathScienceSection = () => {
                         <br />
                         <em>chronic pain?</em>
                     </motion.h2>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -101,11 +96,7 @@ const SVGPathScienceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative h-80 overflow-hidden lg:col-span-2 lg:row-span-2 lg:h-auto"
-                        style={{
-                            borderRadius: "20px",
-                            backgroundColor: "#EDE9E0",
-                        }}
+                        className="relative h-80 overflow-hidden rounded-[20px] bg-[#EDE9E0] lg:col-span-2 lg:row-span-2 lg:h-auto"
                     >
                         <Image
                             src="/images/illustrations/group-education.png"
@@ -117,10 +108,7 @@ const SVGPathScienceSection = () => {
                             sizes="(max-width: 1023px) 60vw, 30vw"
                         />
                         <div className="absolute inset-0 flex flex-col justify-end p-7">
-                            <Brain
-                                className="mb-3 h-5 w-5 opacity-50"
-                                style={{ color: "#1E3A20" }}
-                            />
+                            <Brain className="mb-3 h-5 w-5 text-[#1E3A20] opacity-50" />
                             <h3 className="mb-3 max-w-md font-satoshi text-2xl leading-snug text-[#1E3A20]">
                                 All pain is real, and it starts in the brain
                             </h3>
@@ -177,13 +165,7 @@ const SVGPathScienceSection = () => {
                                         key={index}
                                         className="flex items-start gap-2"
                                     >
-                                        <span
-                                            className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(200,230,201,0.5)",
-                                            }}
-                                        />
+                                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[rgba(200,230,201,0.5)]" />
                                         <span className="font-satoshi text-base font-light leading-relaxed text-dark-supporting">
                                             {treatment}
                                         </span>
@@ -269,11 +251,7 @@ function BentoCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay }}
-            className={`relative flex min-h-64 flex-col justify-between overflow-hidden p-7 ${colSpanClass[colSpan]} ${rowSpanClass[rowSpan]}`}
-            style={{
-                borderRadius: "20px",
-                backgroundColor: isGreen ? "#1E3A20" : "#EDE9E0",
-            }}
+            className={`relative flex min-h-64 flex-col justify-between overflow-hidden p-7 ${colSpanClass[colSpan]} ${rowSpanClass[rowSpan]} rounded-[20px] ${isGreen ? "bg-[#1E3A20]" : "bg-[#EDE9E0]"}`}
         >
             <div>
                 <div className="mb-4 flex items-center gap-2.5">
@@ -328,10 +306,8 @@ function BentoLink({
                 className={cn(
                     "cta-interactive inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-satoshi text-sm font-medium tracking-[0.04em]",
                     dark ? "text-[#1E3A20]" : "text-[#F7F4EF]",
+                    dark ? "bg-[#F0EBE1]" : "bg-[#1E3A20]",
                 )}
-                style={{
-                    backgroundColor: dark ? "#F0EBE1" : "#1E3A20",
-                }}
             >
                 {label}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none">

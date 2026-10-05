@@ -1,7 +1,7 @@
 import React from "react"
 import { cn } from "@/utils/cn"
 
-interface SectionProps {
+type SectionProps = {
     children: React.ReactNode
     className?: string
     style?: React.CSSProperties
@@ -12,20 +12,21 @@ interface SectionProps {
 export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     ({ children, className, style, id, variant = "white" }, ref) => {
         const variants = {
-            white: { backgroundColor: "#fafafa", color: "#1E3A20" },
-            cream: { backgroundColor: "#F7F4EF", color: "#1E3A20" },
-            green: { backgroundColor: "#1E3A20", color: "#F7F4EF" },
+            white: "bg-[#fafafa] text-[#1E3A20]",
+            cream: "bg-[#F7F4EF] text-[#1E3A20]",
+            green: "bg-[#1E3A20] text-[#F7F4EF]",
         }
 
         return (
             <section
                 ref={ref}
                 id={id}
-                className={cn("w-full px-6 py-20 md:py-28", className)}
-                style={{
-                    ...variants[variant],
-                    ...style,
-                }}
+                className={cn(
+                    "w-full px-6 py-20 md:py-28",
+                    className,
+                    variants[variant],
+                )}
+                style={style}
             >
                 {children}
             </section>
@@ -35,7 +36,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
 
 Section.displayName = "Section"
 
-interface ContainerProps {
+type ContainerProps = {
     children: React.ReactNode
     className?: string
     size?: "narrow" | "wide"
@@ -60,24 +61,21 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
 
 Container.displayName = "Container"
 
-interface DividerProps {
+type DividerProps = {
     className?: string
     variant?: "cream" | "green"
 }
 
-export const Divider: React.FC<DividerProps> = ({
-    className,
-    variant = "green",
-}) => {
+export function Divider({ className, variant = "green" }: DividerProps) {
     return (
         <div
-            className={cn("h-px w-full", className)}
-            style={{
-                backgroundColor:
-                    variant === "green"
-                        ? "rgba(30,58,32,0.12)"
-                        : "rgba(200,230,201,0.15)",
-            }}
+            className={cn(
+                "h-px w-full",
+                className,
+                variant === "green"
+                    ? "bg-[rgba(30,58,32,0.12)]"
+                    : "bg-[rgba(200,230,201,0.15)]",
+            )}
         />
     )
 }

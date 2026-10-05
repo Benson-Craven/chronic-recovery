@@ -35,13 +35,12 @@ module.exports = {
 
     // Custom transform for priorities and changefreq
     transform: async (config, path) => {
-        // High priority pages
-        if (path === "/") {
+        if (["/", "/info", "/success-stories"].includes(path)) {
             return {
                 loc: path,
                 changefreq: "monthly",
-                priority: 1.0,
-                lastmod: staticLastModified,
+                priority: path === "/" ? 1 : 0.6,
+                lastmod: "2026-10-02T00:00:00.000Z",
             }
         }
 

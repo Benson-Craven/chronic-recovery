@@ -48,11 +48,7 @@ export default function Services() {
     })
 
     return (
-        <main
-            ref={container}
-            className="relative pt-24"
-            style={{ backgroundColor: "#F7F4EF" }}
-        >
+        <main ref={container} className="relative bg-[#F7F4EF] pt-24">
             {/* Section header */}
             <div id="services" className="mx-auto max-w-5xl px-6 pb-16">
                 <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -63,10 +59,7 @@ export default function Services() {
                     <br />
                     <em>help you?</em>
                 </h2>
-                <div
-                    className="mt-10 h-px w-full"
-                    style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                />
+                <div className="mt-10 h-px w-full bg-[rgba(30,58,32,0.12)]" />
             </div>
 
             {/* Stacking cards */}
@@ -88,10 +81,7 @@ export default function Services() {
             </div>
 
             {/* Disclaimer */}
-            <div
-                className="mx-auto max-w-3xl px-6 py-10"
-                style={{ borderTop: "1px solid rgba(30,58,32,0.1)" }}
-            >
+            <div className="mx-auto max-w-3xl border-t border-solid border-t-[rgba(30,58,32,0.1)] px-6 py-10">
                 <p className="text-center font-satoshi text-sm font-light leading-relaxed text-light-supporting md:text-base">
                     Please consult your doctor to rule out structural
                     abnormality, disease, or infection. Take the{" "}

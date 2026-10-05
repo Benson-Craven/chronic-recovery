@@ -8,6 +8,7 @@ import CtaActionRow from "./CtaActionRow"
 import { EditorialSplit, type EditorialVisual } from "./ui/EditorialSplit"
 import { WhatsAppCta } from "./WhatsAppLink"
 import type { WhatsAppSource } from "@/app/lib/contact"
+import PageHero from "./sections/PageHero"
 
 type TextBlock = {
     heading: string
@@ -70,32 +71,10 @@ export default function SeoContentPage({
     relatedLinks,
 }: SeoContentPageProps) {
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        {hero.eyebrow}
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        {hero.title}
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        {hero.intro}
-                    </p>
-                </motion.div>
-            </section>
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero eyebrow={hero.eyebrow} description={hero.intro}>
+                {hero.title}
+            </PageHero>
 
             {sections.map((section, index) => {
                 const isGreen = index % 2 === 1
@@ -123,12 +102,7 @@ export default function SeoContentPage({
                             {section.heading}
                         </h2>
                         <div
-                            className="mb-8 h-px w-full"
-                            style={{
-                                backgroundColor: isGreen
-                                    ? "rgba(200,230,201,0.15)"
-                                    : "rgba(30,58,32,0.12)",
-                            }}
+                            className={`mb-8 h-px w-full ${isGreen ? "bg-[rgba(200,230,201,0.15)]" : "bg-[rgba(30,58,32,0.12)]"}`}
                         />
                         <div className="space-y-5">
                             {section.body.map((paragraph) => (
@@ -155,10 +129,7 @@ export default function SeoContentPage({
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeInVariants}
-                        style={{
-                            backgroundColor: isGreen ? "#1E3A20" : "#F7F4EF",
-                        }}
-                        className="w-full px-6 py-20 md:py-28"
+                        className={`w-full px-6 py-20 md:py-28 ${isGreen ? "bg-[#1E3A20]" : "bg-[#F7F4EF]"}`}
                     >
                         {section.visual ? (
                             <EditorialSplit
@@ -180,8 +151,7 @@ export default function SeoContentPage({
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-5xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
@@ -195,10 +165,7 @@ export default function SeoContentPage({
                             {listSection.intro}
                         </p>
                     )}
-                    <div
-                        className="grid grid-cols-1 gap-px md:grid-cols-2"
-                        style={{ backgroundColor: "rgba(200,230,201,0.1)" }}
-                    >
+                    <div className="grid grid-cols-1 gap-px bg-[rgba(200,230,201,0.1)] md:grid-cols-2">
                         {listSection.items.map((item, index) => (
                             <motion.div
                                 key={item.title}
@@ -210,8 +177,7 @@ export default function SeoContentPage({
                                     delay: Math.min(index * 0.06, 0.4),
                                     ease: "easeOut",
                                 }}
-                                className="p-7"
-                                style={{ backgroundColor: "#1E3A20" }}
+                                className="bg-[#1E3A20] p-7"
                             >
                                 <span className="mb-5 block font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {String(index + 1).padStart(2, "0")}
@@ -229,10 +195,7 @@ export default function SeoContentPage({
             </motion.section>
 
             {researchLinks && researchLinks.length > 0 && (
-                <section
-                    style={{ backgroundColor: "#F7F4EF" }}
-                    className="w-full px-6 py-20 md:py-28"
-                >
+                <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28">
                     <div className="mx-auto max-w-5xl">
                         <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                             Research links
@@ -247,18 +210,14 @@ export default function SeoContentPage({
                             transparency. They do not replace personalised
                             medical advice or assessment.
                         </p>
-                        <div
-                            className="grid grid-cols-1 gap-px md:grid-cols-2"
-                            style={{ backgroundColor: "rgba(30,58,32,0.1)" }}
-                        >
+                        <div className="grid grid-cols-1 gap-px bg-[rgba(30,58,32,0.1)] md:grid-cols-2">
                             {researchLinks.map((link, index) => (
                                 <a
                                     key={link.href}
                                     href={link.href}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="group flex min-h-64 flex-col p-7 transition-colors"
-                                    style={{ backgroundColor: "#F7F4EF" }}
+                                    className="group flex min-h-64 flex-col bg-[#F7F4EF] p-7 transition-colors"
                                 >
                                     <span className="mb-5 block font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {String(index + 1).padStart(2, "0")}
@@ -282,15 +241,9 @@ export default function SeoContentPage({
                 </section>
             )}
 
-            <section
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
-            >
+            <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36">
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -309,10 +262,7 @@ export default function SeoContentPage({
                                 <WhatsAppCta source={whatsAppSource} />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full border px-8 py-4 text-center font-satoshi text-sm font-medium tracking-wide text-[#1E3A20] sm:w-auto"
-                                    style={{
-                                        borderColor: "rgba(30,58,32,0.22)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-[rgba(30,58,32,0.22)] px-8 py-4 text-center font-satoshi text-sm font-medium tracking-wide text-[#1E3A20] sm:w-auto"
                                 >
                                     Book Consultation
                                 </Link>
@@ -322,10 +272,7 @@ export default function SeoContentPage({
                 </div>
             </section>
 
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-16 md:py-20"
-            >
+            <section className="w-full bg-[#1E3A20] px-6 py-16 md:py-20">
                 <div className="mx-auto max-w-5xl">
                     <p className="mb-8 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
                         Related reading
@@ -335,11 +282,7 @@ export default function SeoContentPage({
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="p-6 font-satoshi font-light text-dark-body"
-                                style={{
-                                    borderTop:
-                                        "1px solid rgba(200,230,201,0.12)",
-                                }}
+                                className="border-t border-solid border-t-[rgba(200,230,201,0.12)] p-6 font-satoshi font-light text-dark-body"
                             >
                                 {link.label}
                             </Link>

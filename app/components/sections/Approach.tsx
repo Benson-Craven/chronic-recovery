@@ -5,7 +5,7 @@ import { Heading, Text } from "../ui/Typography"
 import { CtaButton } from "../ui/CtaButton"
 import { EditorialSplit } from "../ui/EditorialSplit"
 
-const Approach = () => {
+export default function Approach() {
     return (
         <Section variant="cream">
             <EditorialSplit
@@ -45,5 +45,3 @@ const Approach = () => {
         </Section>
     )
 }
-
-export default Approach

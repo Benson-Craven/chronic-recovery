@@ -11,11 +11,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     if (items.length < 2) return null
 
     return (
-        <nav
-            aria-label="Breadcrumb"
-            className="w-full px-6"
-            style={{ backgroundColor: "#F7F4EF" }}
-        >
+        <nav aria-label="Breadcrumb" className="w-full bg-[#F7F4EF] px-6">
             <ol className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto py-4 text-xs uppercase tracking-[0.14em]">
                 {items.map((item, index) => {
                     const isCurrent = index === items.length - 1
@@ -33,11 +29,8 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                             {index > 0 && (
                                 <ChevronRight
                                     aria-hidden="true"
-                                    className="h-3 w-3"
+                                    className="h-3 w-3 text-light-supporting"
                                     strokeWidth={1.5}
-                                    style={{
-                                        color: "var(--text-light-supporting)",
-                                    }}
                                 />
                             )}
                             {isCurrent ? (

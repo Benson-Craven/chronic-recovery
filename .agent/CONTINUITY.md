@@ -2,6 +2,11 @@
 
 [PLANS]
 
+-   2026-10-05: Info section extraction is complete. Keep page composition in `app/info/page.tsx` and section implementation in the individual components.
+
+-   2026-10-05: Inline-style cleanup is complete. Preserve runtime animation values, caller style overrides, email CSS, and existing working-tree changes.
+
+-   2026-10-02: Implement the approved homepage testimonials and `/success-stories` plan. Preserve the four supplied quotes, add fixed-parameter analytics, metadata and CollectionPage/breadcrumb schema, update internal links and both sitemaps, and verify locally without committing or deploying.
 -   2026-09-04: Complete the low-risk typography and homepage performance cleanup from local commit `4b06052` without changing copy, routes, public interfaces, contact or assessment behaviour, dependencies, deployment state, or the existing font and bento work.
 -   2026-09-01: Finish the existing Turnstile integration for both contact forms. Keep the emergency switch, require the prescribed secret and hostname allowlist when enabled, and stop before deployment or a real enquiry.
 -   2026-08-31: Complete a site-wide public contrast pass with direct AA-safe semantic text colours and no compounded text opacity. Preserve existing body weights and the general type scale, except for larger homepage science-bento copy and Journal card excerpts. Preserve wording, routes, behaviour, imagery, headings, and the current homepage science-path stacking work.
@@ -17,6 +22,11 @@
 
 [DECISIONS]
 
+-   2026-10-05: Keep `RevealInfoSection` for the desktop image reveal; put the other 11 sections in `app/components/info/`. Keep the animated heading and existing client-page setup. Share the repeated fade variants locally.
+
+-   2026-10-05: Static and finite conditional backgrounds, borders, dimensions, gradients, and form styles use Tailwind classes. Keep Motion values, calculated card offsets, SVG stroke animation, the scroll-driven mask, and the Section caller style prop inline. Preserve the science-path stacking with z-[1] and z-10.
+
+-   2026-10-02: Recovered the supplied testimonial text from the original task `01a0fbf9-f1fb-7433-bbe7-22bd28e1e8f7`. Use the approved `CF and pain` label without expanding CF, excerpts from paragraphs 4/3/2 of the first three quotes, and the agreed self-assessment sentence beneath the full quotes. Add no testimonial disclaimer.
 -   2026-09-07: Load the approach animation within 50px of the viewport. A 200px margin loaded it immediately at the tested 390 by 900 viewport, where the illustration starts at y=969. Reserve its square area and show an SVG export of frame 75 while loading, for reduced motion, or after a chunk failure. Preserve the existing scroll ranges and select the current frame before revealing the player.
 -   2026-09-04: Use the existing `font-satoshi` utility for the audited static typography, retain inline runtime layout, motion, SVG, and calculated values, expose the homepage H1 without a fade on every viewport, and give the navbar logo its `796 × 313` source ratio plus responsive `sizes` guidance.
 -   2026-09-01: Production Turnstile uses Managed mode, the public site key `0x4AAAAAAD6mLPT2ZoUjMKH9`, `TURNSTILE_SECRET`, and `TURNSTILE_HOSTNAMES=chronicpainrecovery.ie`. `NEXT_PUBLIC_TURNSTILE_ENABLED` remains the emergency switch. Local development uses Cloudflare's dummy keys and a `localhost` allowlist.
@@ -51,6 +61,8 @@
 
 [PROGRESS]
 
+-   2026-10-05: Extracted 11 Info components into `app/components/info/`, retained the desktop image reveal in `RevealInfoSection`, and moved the content wrapper and section order into the page. Removed unused page scroll hooks and updated CTA, typography, voice, and SEO test paths.
+
 -   2026-09-07: Added `ApproachAnimation` with viewport and motion-preference gating. Moved the animation JSON into the deferred player module and added `public/assets/women-health-still.svg`, exported from the original artwork. Copy, CTAs, analytics, dependencies, and the source animation are unchanged.
 -   2026-09-04: Converted static and finite conditional typography in the 31 audited files to Tailwind classes, added `app/lib/typography-contract.test.mjs`, removed the homepage H1 animation, and corrected the navbar logo intrinsic dimensions and `sizes` hint. Preserved the SVG science section's content, order, links, sizing, and runtime styles.
 -   2026-09-01: Replaced the server's `TURNSTILE_SECRET_KEY` interface with `TURNSTILE_SECRET`; added hostname allowlisting, visitor-IP forwarding, and separate 403/503 handling for rejected verification and unavailable configuration or service. Preserved the honeypot, field validation, Brevo delivery, client token gating, and failed-submission reset flow.
@@ -83,6 +95,8 @@
 
 [DISCOVERIES]
 
+-   2026-10-05: Before the Info extraction, `npm test` reports 39 passing and four failing tests. Three failures expect blog content in its former page file; the fourth reports testimonial label mismatches. These are outside this refactor.
+
 -   2026-09-07: Three fresh headless Chrome mobile Lighthouse runs per isolated production version, without overlapping runs, gave baseline/change medians of performance 91/95, FCP 1.51/1.51 s, LCP 3.05/2.87 s, TBT 8/4.5 ms, CLS 0.00128/0.00128, JavaScript transfer 462540/358367 bytes, and total transfer 719860/635910 bytes. No Lighthouse run warnings. These are local measurements, not production PageSpeed results. Reports and browser verification scripts are under `/private/tmp/cprie-lottie-x6kh1135/`.
 -   2026-09-04: Chrome selected the `w=256` navbar logo candidate, transferring 11.2 kB in the inspected development request. Three Incognito Lighthouse 13.4.1 mobile runs against the isolated production build produced identical rounded scores of 92; their medians were FCP 1.52 s, LCP 3.32 s, TBT 1.5 ms, CLS 0.0013, JavaScript transfer 451.5 KiB, and total transfer 609.4 KiB. Lighthouse still warned about IndexedDB data, so these local results are not like-for-like production PageSpeed evidence.
 -   2026-09-01: The Browser runtime again reported no available connection. The enabled dummy-key build passed, but widget completion and submit-control gating on the contact page and modal remain interactively unverified.
@@ -100,6 +114,16 @@
 -   2026-07-17: Five SEO/location pages share `app/components/SeoContentPage.tsx`; its section visual is now a discriminated photo-or-illustration union rendered through the shared split component.
 
 [OUTCOMES]
+
+-   2026-10-05: `/success-stories` uses two testimonial columns and a wider container at `lg`, with one column below 1024px. Targeted page lint and diff checks pass. Four of five focused testimonial/analytics tests pass; the content test fails on existing condition-label differences. Browser verification was not run.
+
+-   2026-10-05: `TestimonialsSection` now accepts `variant="green"`, with cream as the default. It passes the variant to `Testimonial` for matching quote, caption, and border colours, using the existing palette. TypeScript, targeted ESLint, six typography and success-stories analytics tests, formatting, and diff checks pass. No browser verification was performed.
+
+-   2026-10-05: Info extraction passes TypeScript, lint, targeted formatting, diff checks, and an isolated 29-page production build without sitemap postbuild. Pre/post server HTML is byte-identical; generated production `/info` matches all 651 baseline HTML events. The 12 SEO and typography tests pass; the full suite remains at 39 passing with the same four unrelated baseline failures. Standards and spec reviews found no issues. Evidence is under `/private/tmp/cprie-info-split-r9oejhu2/`. No browser verification, commit, or deployment.
+
+-   2026-10-05: Homepage testimonial boxes use equal grid row heights, with flexible quotes keeping captions at the bottom. Targeted ESLint and `git diff --check` passed. No browser verification was performed.
+
+-   2026-10-05: Converted safe inline styles across 29 TSX files. TypeScript, lint, Tailwind compilation, generated-CSS coverage for all 76 added utilities, and non-style JSX attribute/text comparisons passed. The test suite has 39 passes and four failures; the same four failures were reproduced in an isolated copy of the pre-edit source. They concern CTA layout source expectations, testimonial text, restored wording, and practitioner identity. No browser verification, production build, commit, or deployment was performed.
 
 -   2026-09-07: Deferred approach animation passes all 37 existing tests, TypeScript, lint, targeted Prettier, diff checks, an isolated 28-page production build, and the 20-route rendered SEO verifier. Chrome checks at widths 390, 768, and 1440 verified zero initial animation requests, loading near the viewport, stable dimensions, scroll seeking, and motion-preference changes. Reduced-motion initial load, JavaScript-disabled rendering, failed chunk loading, direct section arrival, preference changes during download, and navigation away during download also passed. Inspected mobile/desktop and reduced-motion screenshots. Standards and Spec reviews found no blocking issues. No commit, push, deployment, or live enquiry occurred.
 -   2026-09-06: The user authorised one local commit for the completed typography and homepage performance cleanup. No push or deployment was requested.

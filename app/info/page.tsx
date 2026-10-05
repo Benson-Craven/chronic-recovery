@@ -1,18 +1,21 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import React, { useRef } from "react"
+import { motion } from "framer-motion"
 import RevealInfoSection from "../components/sections/RevealInfoSection"
+import InfoIntroSection from "../components/info/InfoIntroSection"
+import InfoEmpathySection from "../components/info/InfoEmpathySection"
+import InfoJourneySection from "../components/info/InfoJourneySection"
+import InfoApproachSection from "../components/info/InfoApproachSection"
+import InfoAudienceSection from "../components/info/InfoAudienceSection"
+import InfoSessionsSection from "../components/info/InfoSessionsSection"
+import InfoCommitmentSection from "../components/info/InfoCommitmentSection"
+import InfoMedicalNoteSection from "../components/info/InfoMedicalNoteSection"
+import InfoWhyNowSection from "../components/info/InfoWhyNowSection"
+import InfoLocationSection from "../components/info/InfoLocationSection"
+import InfoClosingCtaSection from "../components/info/InfoClosingCtaSection"
+import TestimonialsSection from "../components/sections/TestimonialsSection"
 
-const Info = () => {
-    const container = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start start", "end end"],
-    })
-
-    const leftTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"])
-    const rightTransform = useTransform(scrollYProgress, [0, 1], ["0%", "5%"])
+export default function Info() {
     return (
         <>
             <main>
@@ -34,11 +37,23 @@ const Info = () => {
                     </motion.h1>
                 </section>
                 <section>
-                    <RevealInfoSection />
+                    <div className="min-h-screen bg-background font-satoshi text-primary-text">
+                        <RevealInfoSection />
+                        <InfoIntroSection />
+                        <InfoEmpathySection />
+                        <InfoJourneySection />
+                        <InfoApproachSection />
+                        <InfoAudienceSection />
+                        <InfoSessionsSection />
+                        <TestimonialsSection variant="green" />
+                        <InfoCommitmentSection />
+                        <InfoMedicalNoteSection />
+                        <InfoWhyNowSection />
+                        <InfoLocationSection />
+                        <InfoClosingCtaSection />
+                    </div>
                 </section>
             </main>
         </>
     )
 }
-
-export default Info

@@ -3,6 +3,7 @@ import Script from "next/script"
 import "./globals.css"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SuccessStoriesTracking from "./components/SuccessStoriesTracking"
 import {
     JsonLd,
     authorProfile,
@@ -43,14 +44,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="font-satoshi">
-                {/* 2. Google Analytics (stays here, Next.js handles placement) */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-8EWZ9GXF1T"
                     strategy="afterInteractive"
                 />
                 <Script
                     id="google-analytics"
-                    strategy="afterInteractive"
+                    strategy="beforeInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
               window.dataLayer = window.dataLayer || [];
@@ -63,6 +63,7 @@ export default function RootLayout({
 
                 <JsonLd id="organization-schema" data={organizationSchema} />
                 <JsonLd id="person-schema" data={personSchema} />
+                <SuccessStoriesTracking />
 
                 <Navbar />
                 {children}

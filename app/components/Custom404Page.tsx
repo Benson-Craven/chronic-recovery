@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import PageHero from "./sections/PageHero"
 
-const Custom404Page = () => {
+export default function Custom404Page() {
     const router = useRouter()
     const [countdown, setCountdown] = useState(10)
 
@@ -43,67 +44,43 @@ const Custom404Page = () => {
     ]
 
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Error 404
-                    </p>
-
-                    {/* Ghost 404 number */}
-                    <div className="relative mb-4 select-none">
-                        <motion.p
-                            aria-hidden="true"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                            className="font-satoshi text-[120px] italic leading-none text-[rgba(200,230,201,0.08)] md:text-[160px]"
-                            style={{ userSelect: "none" }}
-                        >
-                            404
-                        </motion.p>
-                        {/* Overlaid headline */}
-                        <div className="absolute inset-0 flex items-center">
-                            <h1 className="font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
-                                This page has
-                                <br />
-                                <em>wandered off.</em>
-                            </h1>
-                        </div>
-                    </div>
-
-                    <div
-                        className="mt-6 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Just like chronic pain, sometimes things don't end up
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero
+                eyebrow="Error 404"
+                description="Just like chronic pain, sometimes things don't end up
                         where they should. Unlike chronic pain, this one is easy
-                        to fix.
-                    </p>
-                </motion.div>
-            </section>
+                        to fix."
+            >
+                <div className="relative mb-4 select-none">
+                    <motion.p
+                        aria-hidden="true"
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                        className="select-none font-satoshi text-[120px] italic leading-none text-[rgba(200,230,201,0.08)] md:text-[160px]"
+                    >
+                        404
+                    </motion.p>
+                    {/* Overlaid headline */}
+                    <div className="absolute inset-0 flex items-center">
+                        <h1 className="font-satoshi text-4xl leading-[1.1] text-white md:text-5xl lg:text-6xl">
+                            This page has
+                            <br />
+                            <em>wandered off.</em>
+                        </h1>
+                    </div>
+                </div>
+            </PageHero>
 
             {/* Quick links — cream */}
             <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -115,10 +92,7 @@ const Custom404Page = () => {
                         <em>back on track</em>
                     </h2>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
                     {links.map((link, index) => (
                         <motion.div
@@ -132,12 +106,7 @@ const Custom404Page = () => {
                             }}
                         >
                             <Link href={link.href}>
-                                <div
-                                    className="group flex items-start gap-6 border-b py-8"
-                                    style={{
-                                        borderColor: "rgba(30,58,32,0.12)",
-                                    }}
-                                >
+                                <div className="group flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-8">
                                     <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
@@ -173,20 +142,15 @@ const Custom404Page = () => {
                     ))}
                 </div>
             </motion.section>
-
             {/* Countdown + CTA — green */}
             <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(200,230,201,0.15)]" />
 
                     <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
                         {/* Countdown */}
@@ -214,8 +178,7 @@ const Custom404Page = () => {
                         <div className="flex flex-col gap-3">
                             <Link
                                 href="/"
-                                className="cta-interactive w-full rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] md:w-auto md:px-10"
-                                style={{ backgroundColor: "#F0EBE1" }}
+                                className="cta-interactive w-full rounded-full bg-[#F0EBE1] py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] md:w-auto md:px-10"
                             >
                                 Go to Homepage
                             </Link>
@@ -232,10 +195,7 @@ const Custom404Page = () => {
                     </div>
 
                     {/* Pull quote */}
-                    <div
-                        className="mt-16 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="mt-16 h-px w-full bg-[rgba(200,230,201,0.15)]" />
                     <p className="mt-12 max-w-xl font-satoshi text-2xl italic leading-snug text-dark-body md:text-3xl">
                         "Still experiencing chronic pain?
                         <br />
@@ -266,5 +226,3 @@ const Custom404Page = () => {
         </div>
     )
 }
-
-export default Custom404Page

@@ -14,10 +14,11 @@ import {
 } from "@/app/components/ContactFormProtection"
 import Turnstile from "@/app/components/Turnstile"
 import { useContactForm } from "@/app/hooks/useContactForm"
+import PageHero from "../components/sections/PageHero"
 
 const MAX_MESSAGE_LENGTH = 500
 
-const ContactPage = () => {
+export default function ContactPage() {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
     const [messageLength, setMessageLength] = useState(0)
     const {
@@ -35,64 +36,27 @@ const ContactPage = () => {
         trackContactFormSubmission("contact_page")
     })
 
-    const inputStyles: React.CSSProperties = {
-        width: "100%",
-        backgroundColor: "transparent",
-        borderBottom: "1px solid rgba(30,58,32,0.2)",
-        borderTop: "none",
-        borderLeft: "none",
-        borderRight: "none",
-        borderRadius: 0,
-        padding: "10px 0",
-        outline: "none",
-    }
-    const inputClassName = "font-satoshi text-base font-light text-[#1E3A20]"
+    const inputClassName =
+        "w-full rounded-none border-x-0 border-t-0 border-b border-solid border-b-[rgba(30,58,32,0.2)] bg-transparent px-0 py-[10px] [outline:none] font-satoshi text-base font-light text-[#1E3A20]"
 
-    const labelStyles: React.CSSProperties = {
-        display: "block",
-        marginBottom: "6px",
-    }
     const labelClassName =
-        "font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
+        "mb-[6px] block font-satoshi text-[0.7rem] font-medium uppercase tracking-[0.2em] text-light-supporting"
 
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Get in touch
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Let's start your
-                        <br />
-                        <em>recovery together</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Message me on WhatsApp or fill out the form. I'll get
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero
+                eyebrow="Get in touch"
+                description=" Message me on WhatsApp or fill out the form. I'll get
                         back to you as quickly as possible, usually within 24
-                        hours.
-                    </p>
-                </motion.div>
-            </section>
+                        hours."
+            >
+                Let's start your
+                <br />
+                <em>recovery together</em>
+            </PageHero>
 
             {/* Form section — cream */}
-            <section
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
-            >
+            <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28">
                 <div className="mx-auto max-w-5xl">
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         {/* Left — context */}
@@ -106,12 +70,7 @@ const ContactPage = () => {
                                 <em>today</em>
                             </h2>
 
-                            <div
-                                className="mb-10 h-px w-full"
-                                style={{
-                                    backgroundColor: "rgba(30,58,32,0.12)",
-                                }}
-                            />
+                            <div className="mb-10 h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
                             <WhatsAppLink
                                 source="contact_page"
@@ -188,7 +147,6 @@ const ContactPage = () => {
                                             <label
                                                 htmlFor="name"
                                                 className={labelClassName}
-                                                style={labelStyles}
                                             >
                                                 Name *
                                             </label>
@@ -202,7 +160,6 @@ const ContactPage = () => {
                                                 autoComplete="name"
                                                 placeholder="Your full name"
                                                 className={inputClassName}
-                                                style={inputStyles}
                                             />
                                         </div>
 
@@ -211,7 +168,6 @@ const ContactPage = () => {
                                             <label
                                                 htmlFor="email"
                                                 className={labelClassName}
-                                                style={labelStyles}
                                             >
                                                 Email *
                                             </label>
@@ -224,7 +180,6 @@ const ContactPage = () => {
                                                 autoComplete="email"
                                                 placeholder="your@email.com"
                                                 className={inputClassName}
-                                                style={inputStyles}
                                             />
                                         </div>
 
@@ -233,7 +188,6 @@ const ContactPage = () => {
                                             <label
                                                 htmlFor="phone"
                                                 className={labelClassName}
-                                                style={labelStyles}
                                             >
                                                 Phone number *
                                             </label>
@@ -247,7 +201,6 @@ const ContactPage = () => {
                                                 autoComplete="tel"
                                                 placeholder="+353..."
                                                 className={inputClassName}
-                                                style={inputStyles}
                                             />
                                         </div>
 
@@ -256,7 +209,6 @@ const ContactPage = () => {
                                             <label
                                                 htmlFor="message"
                                                 className={labelClassName}
-                                                style={labelStyles}
                                             >
                                                 Message *
                                             </label>
@@ -273,13 +225,7 @@ const ContactPage = () => {
                                                         e.target.value.length,
                                                     )
                                                 }
-                                                className={inputClassName}
-                                                style={{
-                                                    ...inputStyles,
-                                                    resize: "none",
-                                                    borderBottom:
-                                                        "1px solid rgba(30,58,32,0.2)",
-                                                }}
+                                                className={`${inputClassName} resize-none`}
                                             />
                                             <p className="mt-2 text-right font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                 {messageLength}/
@@ -313,12 +259,7 @@ const ContactPage = () => {
                                                         ? "contact-form-error"
                                                         : undefined
                                                 }
-                                                className="cta-interactive w-full rounded-full py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed md:w-auto md:px-10"
-                                                style={{
-                                                    backgroundColor: canSubmit
-                                                        ? "#1E3A20"
-                                                        : "#5B6E5A",
-                                                }}
+                                                className={`cta-interactive w-full rounded-full py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] disabled:cursor-not-allowed md:w-auto md:px-10 ${canSubmit ? "bg-[#1E3A20]" : "bg-[#5B6E5A]"}`}
                                             >
                                                 {isSubmitting
                                                     ? "Sending..."
@@ -353,13 +294,7 @@ const ContactPage = () => {
                                         transition={{ duration: 0.6 }}
                                         className="flex flex-col gap-6"
                                     >
-                                        <div
-                                            className="h-px w-full"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(30,58,32,0.12)",
-                                            }}
-                                        />
+                                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                                         <p className="font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                                             Message sent
                                         </p>
@@ -368,13 +303,7 @@ const ContactPage = () => {
                                             <br />
                                             <em>reaching out.</em>
                                         </h2>
-                                        <div
-                                            className="h-px w-full"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(30,58,32,0.12)",
-                                            }}
-                                        />
+                                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                                         <p className="font-satoshi text-base font-light leading-relaxed text-light-body">
                                             I'll get back to you as soon as
                                             possible, usually within 24 hours.
@@ -389,5 +318,3 @@ const ContactPage = () => {
         </div>
     )
 }
-
-export default ContactPage

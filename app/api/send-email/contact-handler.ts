@@ -5,6 +5,16 @@ type ApiError =
     | "VERIFICATION_UNAVAILABLE"
     | "DELIVERY_FAILED"
 
+type ContactEnvironment = {
+    BREVO_API_KEY?: string
+    EMAIL_TO?: string
+    BREVO_SENDER_EMAIL?: string
+    BREVO_SENDER_NAME?: string
+    NEXT_PUBLIC_TURNSTILE_ENABLED?: string
+    TURNSTILE_SECRET?: string
+    TURNSTILE_HOSTNAMES?: string
+}
+
 type ContactSubmission = {
     name: string
     email: string
@@ -22,7 +32,7 @@ type VerificationResult =
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email"
 
 type ContactHandlerDependencies = {
-    env: Record<string, string | undefined>
+    env: ContactEnvironment
     fetch: typeof fetch
     logRejection: (
         category: ApiError | "HONEYPOT",
@@ -175,18 +185,25 @@ async function verifyTurnstile(
 
 async function deliverEmail(
     submission: ContactSubmission,
-    env: Record<string, string | undefined>,
+    env: ContactEnvironment,
     fetcher: typeof fetch,
 ) {
     if (!env.BREVO_API_KEY || !env.EMAIL_TO) {
+        console.error("Missing Brevo environment variables", {
+            hasBrevoApiKey: Boolean(env.BREVO_API_KEY),
+            hasEmailTo: Boolean(env.EMAIL_TO),
+        })
         return false
     }
 
     const senderEmail =
         env.BREVO_SENDER_EMAIL ?? "noreply@chronicpainrecovery.ie"
+
     const senderName = env.BREVO_SENDER_NAME ?? "Chronic Pain Recovery"
+
     const sourceLabel =
         submission.source === "contact_modal" ? "Contact modal" : "Contact page"
+
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 10_000)
 
@@ -215,20 +232,93 @@ async function deliverEmail(
                 },
                 subject: `New enquiry from ${submission.name}`,
                 htmlContent: `
-                    <h2>New Contact Form Submission</h2>
-                    <p><strong>Source:</strong> ${sourceLabel}</p>
-                    <p><strong>Name:</strong> ${escapeHtml(submission.name)}</p>
-                    <p><strong>Email:</strong> ${escapeHtml(submission.email)}</p>
-                    <p><strong>Phone:</strong> ${escapeHtml(submission.phone)}</p>
-                    <p><strong>Message:</strong><br>${escapeHtml(submission.message).replaceAll("\n", "<br>")}</p>
+                    <div style="
+                        max-width: 600px;
+                        margin: 0 auto;
+                        padding: 32px;
+                        font-family: Arial, sans-serif;
+                        color: #1E3A20;
+                        background-color: #F7F4EF;
+                    ">
+                        <h2 style="
+                            margin: 0 0 24px;
+                            font-size: 24px;
+                            font-weight: 600;
+                        ">
+                            New enquiry
+                        </h2>
+
+                        <p style="margin: 0 0 8px;">
+                            <strong>Source:</strong> ${sourceLabel}
+                        </p>
+
+                        <p style="margin: 0 0 8px;">
+                            <strong>Name:</strong> ${escapeHtml(submission.name)}
+                        </p>
+
+                        <p style="margin: 0 0 8px;">
+                            <strong>Email:</strong>
+                            <a href="mailto:${escapeHtml(submission.email)}">
+                                ${escapeHtml(submission.email)}
+                            </a>
+                        </p>
+
+                        <p style="margin: 0 0 24px;">
+                            <strong>Phone:</strong>
+                            <a href="tel:${escapeHtml(submission.phone)}">
+                                ${escapeHtml(submission.phone)}
+                            </a>
+                        </p>
+
+                        <div style="
+                            padding: 20px;
+                            border: 1px solid rgba(30, 58, 32, 0.15);
+                            border-radius: 8px;
+                            background-color: #ffffff;
+                        ">
+                            <p style="margin: 0 0 8px;">
+                                <strong>Message</strong>
+                            </p>
+
+                            <p style="margin: 0; line-height: 1.6;">
+                                ${escapeHtml(submission.message).replaceAll("\n", "<br>")}
+                            </p>
+                        </div>
+                    </div>
+                `,
+                textContent: ` 
+                New enquiry
+                
+                Source: ${sourceLabel}
+                Name: ${submission.name}
+                Email: ${submission.email}
+                Phone: ${submission.phone}
+
+                Message:
+                ${submission.message}
                 `,
                 tags: ["contact_form", submission.source],
             }),
             signal: controller.signal,
         })
 
-        return response.ok
-    } catch {
+        if (!response.ok) {
+            // const errorBody = await response.text()
+
+            // console.error("Brevo delivery failed", {
+            //     status: response.status,
+            //     statusText: response.statusText,
+            //     body: errorBody,
+            //     senderEmail,
+            //     emailTo: env.EMAIL_TO,
+            // })
+
+            return false
+        }
+
+        return true
+    } catch (error) {
+        console.error("Brevo request failed", error)
         return false
     } finally {
         clearTimeout(timeout)

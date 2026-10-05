@@ -10,8 +10,9 @@ import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import TrackedPhoneLink from "../components/TrackedPhoneLink"
 import { PHONE_DISPLAY } from "../lib/contact"
+import PageHero from "../components/sections/PageHero"
 
-const treatable = [
+const TREATABLE_CONDITIONS = [
     "Fibromyalgia",
     "Long Covid",
     "Tension headaches & migraine",
@@ -42,7 +43,7 @@ const treatable = [
     "RSI",
 ]
 
-const nonTreatable = [
+const NON_TREATABLE_CONTIDITIONS = [
     "Structural abnormalities requiring surgical intervention",
     "Acute injuries",
     "Oncology: cancer",
@@ -56,49 +57,29 @@ const fadeInVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
-const ConditionsPage = () => {
+export default function ConditionsPage() {
     const breadcrumbs = [
         { name: "Home", path: "/" },
         { name: "Conditions", path: "/conditions" },
     ]
 
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+        <div className="min-h-screen bg-[#F7F4EF]">
             <BreadcrumbJsonLd
                 id="conditions-breadcrumb-schema"
                 items={breadcrumbs}
             />
             <Breadcrumbs items={breadcrumbs} />
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Conditions
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Chronic pain
-                        <br />
-                        <em>conditions I treat</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Many conditions once considered permanent have been
+            <PageHero
+                eyebrow="Conditions"
+                description="     Many conditions once considered permanent have been
                         shown to have a neuroplastic component, meaning recovery
-                        is possible. This is not an exhaustive list.
-                    </p>
-                </motion.div>
-            </section>
+                        is possible. This is not an exhaustive list."
+            >
+                Chronic pain
+                <br />
+                <em>conditions I treat</em>
+            </PageHero>
 
             {/* Treatable conditions — cream */}
             <motion.section
@@ -106,8 +87,7 @@ const ConditionsPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     visual={{
@@ -118,7 +98,7 @@ const ConditionsPage = () => {
                 >
                     <div>
                         <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
-                            {treatable.length} examples
+                            {TREATABLE_CONDITIONS.length} examples
                         </p>
                         <h2 className="mb-4 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
                             Conditions that
@@ -133,16 +113,10 @@ const ConditionsPage = () => {
                 </EditorialSplit>
 
                 <div className="mx-auto mt-16 max-w-5xl">
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
-                    <div
-                        className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3"
-                        style={{ backgroundColor: "rgba(30,58,32,0.08)" }}
-                    >
-                        {treatable.map((condition, index) => (
+                    <div className="grid grid-cols-1 gap-px bg-[rgba(30,58,32,0.08)] sm:grid-cols-2 lg:grid-cols-3">
+                        {TREATABLE_CONDITIONS.map((condition, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 12 }}
@@ -153,8 +127,7 @@ const ConditionsPage = () => {
                                     delay: Math.min(index * 0.03, 0.5),
                                     ease: "easeOut",
                                 }}
-                                className="flex items-start gap-4 p-6"
-                                style={{ backgroundColor: "#F7F4EF" }}
+                                className="flex items-start gap-4 bg-[#F7F4EF] p-6"
                             >
                                 <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
@@ -174,8 +147,7 @@ const ConditionsPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <div className="mx-auto max-w-3xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
@@ -192,12 +164,9 @@ const ConditionsPage = () => {
                         treatment.
                     </p>
 
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
 
-                    {nonTreatable.map((condition, index) => (
+                    {NON_TREATABLE_CONTIDITIONS.map((condition, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 14 }}
@@ -208,8 +177,7 @@ const ConditionsPage = () => {
                                 delay: index * 0.07,
                                 ease: "easeOut",
                             }}
-                            className="flex items-start gap-6 border-b py-7"
-                            style={{ borderColor: "rgba(200,230,201,0.12)" }}
+                            className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-7"
                         >
                             <span className="mt-0.5 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                 {String(index + 1).padStart(2, "0")}
@@ -228,8 +196,7 @@ const ConditionsPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     reverse
@@ -249,18 +216,14 @@ const ConditionsPage = () => {
                             <em>structural issues first</em>
                         </h2>
 
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                        />
+                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
 
                         <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                         >
                             <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 01
@@ -281,8 +244,7 @@ const ConditionsPage = () => {
                                 delay: 0.1,
                                 ease: "easeOut",
                             }}
-                            className="flex items-start gap-6 border-b py-10"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="flex items-start gap-6 border-b border-[rgba(30,58,32,0.12)] py-10"
                         >
                             <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                 02
@@ -309,14 +271,10 @@ const ConditionsPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(200,230,201,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
@@ -352,11 +310,7 @@ const ConditionsPage = () => {
                                 />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#F0EBE1] sm:w-auto sm:px-10"
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        border: "1px solid rgba(240,235,225,0.75)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-solid border-[rgba(240,235,225,0.75)] bg-transparent py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#F0EBE1] sm:w-auto sm:px-10"
                                 >
                                     Book Consultation
                                 </Link>
@@ -377,5 +331,3 @@ const ConditionsPage = () => {
         </div>
     )
 }
-
-export default ConditionsPage

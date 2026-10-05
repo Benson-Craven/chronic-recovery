@@ -34,10 +34,7 @@ const CredentialsSection = () => {
                         {credentials.map((item, index) => (
                             <div
                                 key={item}
-                                className="grid gap-5 border-b py-8 sm:grid-cols-[3rem_1fr]"
-                                style={{
-                                    borderColor: "rgba(30,58,32,0.12)",
-                                }}
+                                className="grid gap-5 border-b border-[rgba(30,58,32,0.12)] py-8 sm:grid-cols-[3rem_1fr]"
                             >
                                 <span className="font-satoshi text-xs tabular-nums text-light-supporting">
                                     {String(index + 1).padStart(2, "0")}
@@ -51,10 +48,7 @@ const CredentialsSection = () => {
                             href={authorProfile.atnsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-8 flex max-w-xl items-center gap-4 border-b py-5"
-                            style={{
-                                borderColor: "rgba(30,58,32,0.12)",
-                            }}
+                            className="mt-8 flex max-w-xl items-center gap-4 border-b border-[rgba(30,58,32,0.12)] py-5"
                         >
                             <Image
                                 src="/atns-logo.webp"

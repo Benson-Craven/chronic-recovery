@@ -1,6 +1,5 @@
 "use client"
 
-import React from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { FaWhatsapp } from "react-icons/fa"
@@ -22,14 +21,11 @@ interface CallToActionSectionProps {
     }
 }
 
-const CallToActionSection: React.FC<CallToActionSectionProps> = ({
+export default function CallToActionSection({
     fadeInVariants,
-}) => {
+}: CallToActionSectionProps) {
     return (
-        <section
-            style={{ backgroundColor: "#F7F4EF" }}
-            className="w-full px-6 py-20 md:py-28 lg:py-36"
-        >
+        <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36">
             <motion.div
                 variants={fadeInVariants}
                 initial="hidden"
@@ -37,10 +33,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                 viewport={{ once: true }}
                 className="relative z-10 mx-auto max-w-5xl"
             >
-                <div
-                    className="mb-12 h-px w-full"
-                    style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                />
+                <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                 <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                     <div>
                         <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -72,8 +65,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                         <CtaActionRow>
                             <WhatsAppLink
                                 source="main_consultation_cta"
-                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-10 py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] sm:w-auto"
-                                style={{ backgroundColor: "#1E3A20" }}
+                                className="cta-interactive flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#1E3A20] px-10 py-4 font-satoshi text-sm font-medium tracking-[0.04em] text-[#F7F4EF] sm:w-auto"
                             >
                                 <FaWhatsapp
                                     aria-hidden="true"
@@ -83,8 +75,7 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
                             </WhatsAppLink>
                             <Link
                                 href="/contact"
-                                className="cta-interactive w-full whitespace-nowrap rounded-full border px-10 py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto"
-                                style={{ borderColor: "rgba(30,58,32,0.3)" }}
+                                className="cta-interactive w-full whitespace-nowrap rounded-full border border-[rgba(30,58,32,0.3)] px-10 py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto"
                             >
                                 Book Consultation
                             </Link>
@@ -109,5 +100,3 @@ const CallToActionSection: React.FC<CallToActionSectionProps> = ({
         </section>
     )
 }
-
-export default CallToActionSection

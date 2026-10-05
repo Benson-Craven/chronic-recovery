@@ -47,7 +47,7 @@ const RevealImageSection = () => {
                             alt="Forest path representing the journey toward chronic pain recovery"
                             fill
                             priority
-                            style={{ objectFit: "cover" }}
+                            className="object-cover"
                         />
                     </motion.div>
                 </div>{" "}

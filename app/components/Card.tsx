@@ -17,7 +17,7 @@ interface CardProps {
     targetScale: number
 }
 
-const Card: React.FC<CardProps> = ({
+export default function Card({
     i,
     totalCards,
     title,
@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
     progress,
     range,
     targetScale,
-}) => {
+}: CardProps) {
     const container = useRef<HTMLDivElement>(null)
     const { scrollYProgress } = useScroll({
         target: container,
@@ -44,13 +44,8 @@ const Card: React.FC<CardProps> = ({
             className="sticky top-0 flex h-screen items-center justify-center"
         >
             <motion.div
-                style={{
-                    scale,
-                    top: `calc(-5vh + ${i * 25}px)`,
-                    backgroundColor: isEven ? "#1E3A20" : "#F7F4EF",
-                    borderRadius: "24px",
-                }}
-                className="relative flex h-[500px] w-[400px] flex-col overflow-hidden md:h-[500px] md:w-[1000px] md:flex-row"
+                style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
+                className={`relative flex h-[500px] w-[400px] flex-col overflow-hidden rounded-[24px] md:h-[500px] md:w-[1000px] md:flex-row ${isEven ? "bg-[#1E3A20]" : "bg-[#F7F4EF]"}`}
             >
                 {/* Image — left half */}
                 <div className="relative h-1/3 overflow-hidden md:h-full md:w-1/2">
@@ -67,12 +62,7 @@ const Card: React.FC<CardProps> = ({
                     </motion.div>
                     {/* Subtle overlay tying image to card colour */}
                     <div
-                        className="absolute inset-0"
-                        style={{
-                            background: isEven
-                                ? "linear-gradient(to right, transparent 60%, #1E3A20)"
-                                : "linear-gradient(to right, transparent 60%, #F7F4EF)",
-                        }}
+                        className={`absolute inset-0 ${isEven ? "[background:linear-gradient(to_right,_transparent_60%,_#1E3A20)]" : "[background:linear-gradient(to_right,_transparent_60%,_#F7F4EF)]"}`}
                     />
                 </div>
 
@@ -104,12 +94,7 @@ const Card: React.FC<CardProps> = ({
 
                         {/* Divider */}
                         <div
-                            className="mb-6 h-px w-12"
-                            style={{
-                                backgroundColor: isEven
-                                    ? "rgba(200,230,201,0.3)"
-                                    : "rgba(30,58,32,0.15)",
-                            }}
+                            className={`mb-6 h-px w-12 ${isEven ? "bg-[rgba(200,230,201,0.3)]" : "bg-[rgba(30,58,32,0.15)]"}`}
                         />
 
                         {/* Description */}
@@ -126,10 +111,7 @@ const Card: React.FC<CardProps> = ({
                     {/* CTA on last card only */}
                     {i === totalCards - 1 && (
                         <Link href="/contact" className="mt-8 inline-block">
-                            <motion.span
-                                className="cta-interactive inline-flex items-center gap-3 rounded-full px-7 py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]"
-                                style={{ backgroundColor: "#F0EBE1" }}
-                            >
+                            <motion.span className="cta-interactive inline-flex items-center gap-3 rounded-full bg-[#F0EBE1] px-7 py-3.5 font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20]">
                                 Enquire About a Consultation
                                 <svg
                                     width="14"
@@ -153,5 +135,3 @@ const Card: React.FC<CardProps> = ({
         </div>
     )
 }
-
-export default Card

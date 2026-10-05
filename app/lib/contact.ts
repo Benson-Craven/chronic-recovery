@@ -24,6 +24,8 @@ export type WhatsAppSource =
     | "dublin_location_closing_cta"
     | "ireland_location_closing_cta"
     | "prt_closing_cta"
+    | "success_stories_intro"
+    | "success_stories_closing"
 
 export type PhoneSource =
     | WhatsAppSource

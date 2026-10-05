@@ -3,6 +3,7 @@ import { formatBlogDate, getSortedPostsData, parseBlogDate } from "../lib/posts"
 import Image from "next/image"
 import { BreadcrumbJsonLd } from "../lib/seo"
 import Breadcrumbs from "../components/Breadcrumbs"
+import PageHero from "../components/sections/PageHero"
 
 export default function Blog() {
     const allPostsData = getSortedPostsData()
@@ -12,48 +13,28 @@ export default function Blog() {
     ]
 
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
+        <div className="min-h-screen bg-[#F7F4EF]">
             <BreadcrumbJsonLd id="blog-breadcrumb-schema" items={breadcrumbs} />
             <Breadcrumbs items={breadcrumbs} />
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <div className="mx-auto max-w-3xl">
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Journal
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        Insights on pain,
-                        <br />
-                        <em>healing, and the brain</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        Articles exploring the neuroscience of chronic pain,
-                        recovery stories, and practical tools for healing.
-                    </p>
-                </div>
-            </section>
 
-            {/* Posts grid — cream */}
-            <section
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+            <PageHero
+                eyebrow="Journal"
+                description="Articles exploring the neuroscience of chronic pain,
+                        recovery stories, and practical tools for healing."
             >
+                Insights on pain,
+                <br />
+                <em>healing, and the brain</em>
+            </PageHero>
+
+            {/* Posts grid */}
+            <section className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28">
                 <div className="mx-auto max-w-6xl">
                     <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
                         {allPostsData.length} articles
                     </p>
 
-                    <div
-                        className="mb-14 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                    />
+                    <div className="mb-14 h-px w-full bg-[#1E3A20]/[0.12]" />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {allPostsData.map(
@@ -62,14 +43,7 @@ export default function Blog() {
                                 index,
                             ) => (
                                 <Link key={id} href={`/blog/${id}`}>
-                                    <article
-                                        className="group flex flex-col border-b border-r"
-                                        style={{
-                                            backgroundColor: "#F7F4EF",
-                                            borderColor: "rgba(30,58,32,0.08)",
-                                        }}
-                                    >
-                                        {/* Cover image */}
+                                    <article className="group flex flex-col border-b border-r border-[#1E3A20]/[0.08] bg-[#F7F4EF]">
                                         <div className="overflow-hidden">
                                             <Image
                                                 src={coverImage}
@@ -80,7 +54,6 @@ export default function Blog() {
                                             />
                                         </div>
 
-                                        {/* Content */}
                                         <div className="flex flex-1 flex-col gap-3 p-7">
                                             <span className="font-satoshi text-xs font-light tabular-nums text-light-supporting">
                                                 {String(index + 1).padStart(
@@ -108,6 +81,7 @@ export default function Blog() {
                                                 <span className="font-satoshi text-xs font-medium uppercase tracking-[0.15em] text-light-supporting">
                                                     Read
                                                 </span>
+
                                                 <svg
                                                     className="opacity-30 transition-opacity group-hover:opacity-70"
                                                     width="12"

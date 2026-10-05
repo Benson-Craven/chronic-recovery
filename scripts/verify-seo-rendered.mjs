@@ -1,11 +1,18 @@
 import assert from "node:assert/strict"
-import { readFileSync } from "node:fs"
+import { readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
+import ts from "typescript"
 
 const root = process.cwd()
 const baseUrl = "https://chronicpainrecovery.ie"
 
 const priorityRoutes = [
+    {
+        path: "/success-stories",
+        file: ".next/server/app/success-stories.html",
+        title: "Chronic Pain Recovery Success Stories | Marsha Canny",
+        h1: "Chronic Pain Recovery Success Stories",
+    },
     {
         path: "/",
         file: ".next/server/app/index.html",
@@ -123,6 +130,18 @@ function validateJsonLd(schema, routePath) {
                 routePath,
             )
             break
+        case "CollectionPage":
+            assert.equal(schema["@id"], `${baseUrl}/success-stories`)
+            assert.equal(schema.url, `${baseUrl}/success-stories`)
+            assert.equal(schema.name, "Chronic Pain Recovery Success Stories")
+            assert.deepEqual(schema.about, {
+                "@id": `${baseUrl}/#marsha-canny`,
+            })
+            assert.deepEqual(schema.publisher, {
+                "@id": `${baseUrl}/#organization`,
+            })
+            assert.equal(schema.isPartOf, undefined)
+            break
         default:
             assert.fail(
                 `unexpected JSON-LD type on ${routePath}: ${schema["@type"]}`,
@@ -165,6 +184,7 @@ const indexedRendered = indexedPaths.map((pathname) => {
     const h1 = extractOne(html, /<h1[^>]*>([\s\S]*?)<\/h1>/g, "H1")
 
     assertCanonical(html, pathname)
+    assert.doesNotMatch(html, /<meta[^>]+(?:noindex|nofollow)/i, pathname)
 
     const schemas = jsonLdItems(html)
     assert.ok(schemas.length >= 2, `${pathname} JSON-LD`)
@@ -172,7 +192,7 @@ const indexedRendered = indexedPaths.map((pathname) => {
 
     assert.doesNotMatch(
         html,
-        /FAQPage|MedicalBusiness|MedicalOrganization|streetAddress|PostalAddress|GeoCoordinates/,
+        /FAQPage|MedicalBusiness|MedicalOrganization|streetAddress|PostalAddress|GeoCoordinates|"@type"\s*:\s*"(?:Review|AggregateRating)"/,
         `${pathname} unsupported structured data`,
     )
 
@@ -211,7 +231,8 @@ assert.equal(
     priorityRoutes.length,
 )
 
-const homeSchemas = jsonLdItems(rendered[0].html)
+const home = rendered.find((route) => route.path === "/")
+const homeSchemas = jsonLdItems(home.html)
 assert.ok(homeSchemas.some((schema) => schema["@type"] === "Organization"))
 assert.ok(homeSchemas.some((schema) => schema["@type"] === "Person"))
 
@@ -248,7 +269,136 @@ for (const sitemapFile of [
     }
 
     assert.doesNotMatch(sitemap, /pain-rehabilitation/)
+    const storiesEntry = sitemap.match(
+        /<url>\s*<loc>https:\/\/chronicpainrecovery\.ie\/success-stories<\/loc>[\s\S]*?<\/url>/,
+    )?.[0]
+    assert.ok(storiesEntry, `${sitemapFile} success stories`)
+    assert.match(storiesEntry, /<changefreq>monthly<\/changefreq>/)
+    assert.match(storiesEntry, /<priority>0\.6<\/priority>/)
+    assert.match(storiesEntry, /<lastmod>2026-10-02T00:00:00\.000Z<\/lastmod>/)
 }
+
+const stories = rendered.find((route) => route.path === "/success-stories")
+const description =
+    "Read first-hand accounts of working with Marsha Canny on chronic pain, including clients' experiences of pain reprocessing and ongoing recovery."
+function metaContent(html, attribute, name) {
+    return extractOne(
+        html,
+        new RegExp(`<meta ${attribute}="${name}" content="([^\"]*)"`, "g"),
+        name,
+    )
+}
+assert.equal(metaContent(stories.html, "name", "description"), description)
+assert.equal(metaContent(stories.html, "property", "og:title"), stories.title)
+assert.equal(
+    metaContent(stories.html, "property", "og:description"),
+    description,
+)
+assert.equal(
+    metaContent(stories.html, "property", "og:url"),
+    `${baseUrl}/success-stories`,
+)
+assert.equal(
+    metaContent(stories.html, "property", "og:image"),
+    `${baseUrl}/og-image.jpg`,
+)
+assert.equal(
+    metaContent(stories.html, "name", "twitter:card"),
+    "summary_large_image",
+)
+assert.equal(metaContent(stories.html, "name", "twitter:title"), stories.title)
+assert.equal(
+    metaContent(stories.html, "name", "twitter:description"),
+    description,
+)
+assert.equal(
+    metaContent(stories.html, "name", "twitter:image"),
+    `${baseUrl}/og-image.jpg`,
+)
+const storiesSchemas = jsonLdItems(stories.html)
+assert.deepEqual(storiesSchemas.map((schema) => schema["@type"]).sort(), [
+    "BreadcrumbList",
+    "CollectionPage",
+    "Organization",
+    "Person",
+])
+assert.equal(
+    storiesSchemas.find((schema) => schema["@type"] === "CollectionPage")
+        .description,
+    description,
+)
+assert.deepEqual(
+    storiesSchemas.find((schema) => schema["@type"] === "BreadcrumbList")
+        .itemListElement,
+    [
+        { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Success Stories",
+            item: `${baseUrl}/success-stories`,
+        },
+    ],
+)
+assert.match(stories.html, /aria-label="Breadcrumb"/)
+assert.match(stories.html, /aria-current="page">Success Stories/)
+assert.match(stories.html, /href="\/self-assessment"/)
+
+const compiledTestimonials = ts.transpileModule(
+    readFileSync(join(root, "app/lib/testimonials.ts"), "utf8"),
+    { compilerOptions: { module: ts.ModuleKind.ESNext } },
+).outputText
+const { testimonials } = await import(
+    `data:text/javascript;base64,${Buffer.from(compiledTestimonials).toString("base64")}`
+)
+function renderedQuotes(html) {
+    return [...html.matchAll(/<figure\b[^>]*>([\s\S]*?)<\/figure>/g)].filter(
+        (match) => match[1].includes("<blockquote"),
+    )
+}
+const fullQuotes = renderedQuotes(stories.html)
+assert.equal(fullQuotes.length, 4)
+for (const [index, testimonial] of testimonials.entries()) {
+    const figure = fullQuotes[index][1]
+    const blockquote = figure.match(
+        /<blockquote[^>]*>([\s\S]*?)<\/blockquote>/,
+    )[1]
+    assert.deepEqual(
+        [...blockquote.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((match) =>
+            decodeText(match[1]),
+        ),
+        testimonial.text.split("\n\n"),
+    )
+    const caption = decodeText(
+        figure.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/)[1],
+    )
+    assert.equal(caption, `${testimonial.name} ${testimonial.condition}`)
+}
+const homeSection = home.html.match(
+    /<section[^>]*id="client-stories"[\s\S]*?<\/section>/,
+)?.[0]
+assert.ok(homeSection)
+assert.match(homeSection, /href="\/success-stories"/)
+const excerpts = renderedQuotes(homeSection)
+assert.equal(excerpts.length, 3)
+for (const [index, testimonial] of testimonials.slice(0, 3).entries()) {
+    const blockquote = excerpts[index][1].match(
+        /<blockquote[^>]*>([\s\S]*?)<\/blockquote>/,
+    )[1]
+    assert.equal(
+        decodeText(blockquote),
+        testimonial.text.split("\n\n")[
+            testimonial.homepageExcerptParagraphIndex
+        ],
+    )
+}
+const robots = readFileSync(join(root, "public/robots.txt"), "utf8")
+assert.match(robots, /Allow: \/(?:\r?\n|$)/)
+assert.doesNotMatch(robots, /Disallow: (?:\/success-stories|\/(?:\r?\n|$))/)
+writeFileSync(
+    join(root, ".agent/success-stories-rendered.json"),
+    `${JSON.stringify(storiesSchemas, null, 2)}\n`,
+)
 
 console.log(
     `Verified ${indexedRendered.length} indexed routes and ${priorityRoutes.length} priority SEO contracts.`,

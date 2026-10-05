@@ -1,14 +1,14 @@
 "use client"
+
 import { motion, useTransform, useScroll } from "framer-motion"
 import { useRef } from "react"
-import React from "react"
 import { FadeInOnScroll } from "../animations/FadeInOnScroll"
 import Image from "next/image"
 import { Section, Container, Divider } from "../ui/Layout"
 import { Heading, Text, Eyebrow } from "../ui/Typography"
 import { WhatsAppCta } from "../WhatsAppLink"
 
-const IllnessSection = () => {
+export default function IllnessSection() {
     return (
         <div id="illness">
             <Section
@@ -21,9 +21,9 @@ const IllnessSection = () => {
                         <p className="mb-2 font-satoshi text-xs font-light uppercase tracking-[0.2em] text-dark-supporting">
                             Scroll
                         </p>
+
                         <svg
-                            className="mx-auto h-4 w-4 animate-bounce"
-                            style={{ color: "var(--text-dark-supporting)" }}
+                            className="mx-auto h-4 w-4 animate-bounce text-dark-supporting"
                             fill="none"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -58,21 +58,17 @@ const IllnessSection = () => {
                             without finding <em>lasting relief?</em>
                         </Heading>
 
-                        <div
-                            className="rounded-2xl px-8 py-7"
-                            style={{
-                                backgroundColor: "rgba(200,230,201,0.07)",
-                                border: "1px solid rgba(200,230,201,0.12)",
-                            }}
-                        >
+                        <div className="rounded-2xl border border-[#C8E6C9]/[0.12] bg-[#C8E6C9]/[0.07] px-8 py-7">
                             <p className="mb-2 font-satoshi text-sm font-medium text-[#C8E6C9]">
                                 Not listed above?
                             </p>
+
                             <Text className="text-base text-dark-body">
                                 I&apos;m here to help with any illness or
                                 concern, even if it&apos;s not listed. Reach out
                                 to learn more and find the relief you deserve.
                             </Text>
+
                             <div className="mt-6 max-w-sm">
                                 <WhatsAppCta
                                     source="homepage_conditions"
@@ -82,13 +78,14 @@ const IllnessSection = () => {
                         </div>
                     </Container>
                 </FadeInOnScroll>
+
                 <div className="h-[10vh]" />
             </Section>
         </div>
     )
 }
 
-const IllnessSectionList = () => {
+function IllnessSectionList() {
     return (
         <section aria-labelledby="illness-list-heading" className="lg:hidden">
             <Container size="wide">
@@ -96,6 +93,7 @@ const IllnessSectionList = () => {
                     <Eyebrow className="text-dark-supporting">
                         Conditions
                     </Eyebrow>
+
                     <div id="illness-list-heading">
                         <Heading className="text-white">
                             Are you <em>experiencing</em> any of the following?
@@ -104,7 +102,7 @@ const IllnessSectionList = () => {
                 </div>
 
                 <div className="space-y-6 md:space-y-8">
-                    {cards.map((card, index) => (
+                    {ILLNESS_CARDS.map((card, index) => (
                         <MobileCard key={card.id} card={card} index={index} />
                     ))}
                 </div>
@@ -113,12 +111,14 @@ const IllnessSectionList = () => {
     )
 }
 
-const MobileCard: React.FC<{ card: CardType; index: number }> = ({
-    card,
-    index,
-}) => {
+type MobileCardProps = {
+    card: CardType
+    index: number
+}
+
+function MobileCard({ card, index }: MobileCardProps) {
     return (
-        <article className="overflow-hidden rounded-[20px] border border-[rgba(200,230,201,0.12)]">
+        <article className="overflow-hidden rounded-[20px] border border-[#C8E6C9]/[0.12]">
             <div className="relative h-40 sm:h-48 md:h-56">
                 <Image
                     src={card.url}
@@ -129,13 +129,7 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
                     className="object-cover"
                 />
 
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background:
-                            "linear-gradient(to top, rgba(10,25,12,0.88) 0%, rgba(10,25,12,0.12) 75%)",
-                    }}
-                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,25,12,0.88)_0%,rgba(10,25,12,0.12)_75%)]" />
 
                 <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
                     <span className="font-satoshi text-xs font-light tabular-nums text-[#C8E6C9]">
@@ -151,20 +145,15 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
                 </div>
             </div>
 
-            <div
-                className="px-6 py-7 md:px-8 md:py-9"
-                style={{ backgroundColor: "#0A190C" }}
-            >
+            <div className="bg-[#0A190C] px-6 py-7 md:px-8 md:py-9">
                 <ul className="space-y-3">
                     {card.symptoms?.map((symptom) => (
                         <li key={symptom} className="flex items-start gap-3">
                             <span
                                 aria-hidden="true"
-                                className="mt-2 h-1 w-1 shrink-0 rounded-full"
-                                style={{
-                                    backgroundColor: "rgba(200,230,201,0.6)",
-                                }}
+                                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#C8E6C9]/60"
                             />
+
                             <span className="font-satoshi text-sm font-light leading-relaxed text-dark-body md:text-base">
                                 {symptom}
                             </span>
@@ -176,11 +165,11 @@ const MobileCard: React.FC<{ card: CardType; index: number }> = ({
     )
 }
 
-const IllnessSectionCarousel = () => {
+function IllnessSectionCarousel() {
     const targetRef = useRef<HTMLDivElement | null>(null)
     const { scrollYProgress } = useScroll({ target: targetRef })
 
-    // Scroll mechanics — unchanged
+    // Scroll mechanics
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%"])
     const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0])
 
@@ -188,7 +177,10 @@ const IllnessSectionCarousel = () => {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.3, delayChildren: 0.2 },
+            transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.2,
+            },
         },
     }
 
@@ -205,6 +197,7 @@ const IllnessSectionCarousel = () => {
                 className="sticky top-[130px] z-10 pb-20 md:top-16"
             >
                 <Eyebrow className="text-dark-supporting">Conditions</Eyebrow>
+
                 <Heading className="text-white">
                     Are you <em>experiencing</em> any of the following?
                 </Heading>
@@ -216,10 +209,13 @@ const IllnessSectionCarousel = () => {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{
+                        once: true,
+                        margin: "-100px",
+                    }}
                     className="flex flex-row flex-nowrap gap-4 pl-5 md:gap-5 md:pl-10"
                 >
-                    {cards.map((card, index) => (
+                    {ILLNESS_CARDS.map((card, index) => (
                         <Card key={card.id} card={card} index={index} />
                     ))}
                 </motion.div>
@@ -228,16 +224,14 @@ const IllnessSectionCarousel = () => {
     )
 }
 
-const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
+type CardProps = {
+    card: CardType
+    index: number
+}
+
+function Card({ card, index }: CardProps) {
     return (
-        <motion.div
-            className="group relative shrink-0 overflow-hidden"
-            style={{
-                borderRadius: "20px",
-                width: "360px",
-                height: "440px",
-            }}
-        >
+        <motion.div className="group relative h-[440px] w-[360px] shrink-0 overflow-hidden rounded-[20px]">
             <div className="relative h-full w-full">
                 <Image
                     src={card.url}
@@ -248,13 +242,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background:
-                            "linear-gradient(to top, rgba(10,25,12,1) 0%, rgba(10,25,12,0.88) 40%, rgba(10,25,12,0.25) 70%, rgba(10,25,12,0.1) 100%)",
-                    }}
-                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,25,12,1)_0%,rgba(10,25,12,0.88)_40%,rgba(10,25,12,0.25)_70%,rgba(10,25,12,0.1)_100%)]" />
 
                 <div className="absolute inset-0 flex flex-col justify-between p-7">
                     {/* Index */}
@@ -271,10 +259,7 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                             {card.title}
                         </Heading>
 
-                        <div
-                            className="mb-4 h-px w-10"
-                            style={{ backgroundColor: "rgba(200,230,201,0.4)" }}
-                        />
+                        <div className="mb-4 h-px w-10 bg-[#C8E6C9]/40" />
 
                         <div className="space-y-2.5">
                             {card.symptoms?.map((symptom, idx) => (
@@ -282,13 +267,8 @@ const Card: React.FC<{ card: CardType; index: number }> = ({ card, index }) => {
                                     key={idx}
                                     className="flex items-start gap-3"
                                 >
-                                    <div
-                                        className="mt-2 h-1 w-1 shrink-0 rounded-full"
-                                        style={{
-                                            backgroundColor:
-                                                "rgba(200,230,201,0.6)",
-                                        }}
-                                    />
+                                    <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#C8E6C9]/60" />
+
                                     <span className="font-satoshi text-sm font-light leading-snug text-dark-body">
                                         {symptom}
                                     </span>
@@ -311,7 +291,7 @@ type CardType = {
     acute?: boolean
 }
 
-const cards: CardType[] = [
+const ILLNESS_CARDS: CardType[] = [
     {
         url: "/images/fib.jpg",
         title: "Chronic Pain Syndromes",
@@ -392,5 +372,3 @@ const cards: CardType[] = [
         id: 6,
     },
 ]
-
-export default IllnessSection

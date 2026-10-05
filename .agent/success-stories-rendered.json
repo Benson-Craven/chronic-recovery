@@ -1,0 +1,68 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://chronicpainrecovery.ie/#organization",
+    "name": "Chronic Pain Recovery",
+    "url": "https://chronicpainrecovery.ie",
+    "telephone": "+353871025108",
+    "image": "https://chronicpainrecovery.ie/og-image.jpg",
+    "logo": "https://chronicpainrecovery.ie/logos/logo-removebg-preview.png",
+    "description": "Online-first educational and recovery-oriented support for people in Ireland exploring persistent pain and possible neuroplastic symptoms after appropriate medical assessment, with limited in-person availability in Rochestown, Cork.",
+    "sameAs": [
+      "https://www.facebook.com/chronicpainrecoveryireland"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Ireland"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://chronicpainrecovery.ie/#marsha-canny",
+    "name": "Marsha Canny",
+    "jobTitle": "Chronic pain therapist",
+    "image": "https://chronicpainrecovery.ie/images/marsha-new.jpg",
+    "url": "https://chronicpainrecovery.ie/info",
+    "sameAs": [
+      "https://www.symptomatic.me/practitioner-directory#!biz/id/6931943a34afb87d36038b44/About"
+    ],
+    "worksFor": {
+      "@id": "https://chronicpainrecovery.ie/#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://chronicpainrecovery.ie"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Success Stories",
+        "item": "https://chronicpainrecovery.ie/success-stories"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://chronicpainrecovery.ie/success-stories",
+    "name": "Chronic Pain Recovery Success Stories",
+    "description": "Read first-hand accounts of working with Marsha Canny on chronic pain, including clients' experiences of pain reprocessing and ongoing recovery.",
+    "url": "https://chronicpainrecovery.ie/success-stories",
+    "inLanguage": "en-IE",
+    "about": {
+      "@id": "https://chronicpainrecovery.ie/#marsha-canny"
+    },
+    "publisher": {
+      "@id": "https://chronicpainrecovery.ie/#organization"
+    }
+  }
+]

@@ -8,8 +8,9 @@ import { EditorialSplit } from "../components/ui/EditorialSplit"
 import { WhatsAppCta } from "../components/WhatsAppLink"
 import TrackedPhoneLink from "../components/TrackedPhoneLink"
 import { PHONE_DISPLAY } from "../lib/contact"
+import PageHero from "../components/sections/PageHero"
 
-const studies = [
+const STUDIES = [
     {
         title: "The Boulder Chronic Back Pain Study",
         link: "https://pubmed.ncbi.nlm.nih.gov/34586357/",
@@ -53,39 +54,19 @@ const fadeInVariants = {
     },
 }
 
-const ResearchStudies = () => {
+export default function ResearchStudies() {
     return (
-        <div className="min-h-screen" style={{ backgroundColor: "#F7F4EF" }}>
-            {/* Hero — green */}
-            <section
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-24 md:py-36"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mx-auto max-w-3xl"
-                >
-                    <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-dark-supporting">
-                        Evidence base
-                    </p>
-                    <h1 className="mb-8 font-satoshi text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                        The research
-                        <br />
-                        <em>behind the results</em>
-                    </h1>
-                    <div
-                        className="h-px w-full"
-                        style={{ backgroundColor: "rgba(200,230,201,0.2)" }}
-                    />
-                    <p className="mt-8 max-w-xl font-satoshi text-base font-light leading-relaxed text-dark-body md:text-lg">
-                        These peer-reviewed studies demonstrate the
+        <div className="min-h-screen bg-[#F7F4EF]">
+            <PageHero
+                eyebrow="Evidence Base"
+                description=" These peer-reviewed studies demonstrate the
                         effectiveness of mind-body approaches for chronic pain.
-                        The evidence is clear: the brain can be retrained.
-                    </p>
-                </motion.div>
-            </section>
+                        The evidence is clear: the brain can be retrained."
+            >
+                The research
+                <br />
+                <em>behind the results</em>
+            </PageHero>
 
             {/* Studies — cream */}
             <motion.section
@@ -93,8 +74,7 @@ const ResearchStudies = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     visual={{
@@ -105,7 +85,7 @@ const ResearchStudies = () => {
                 >
                     <div>
                         <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
-                            {studies.length} studies
+                            {STUDIES.length} studies
                         </p>
 
                         <h2 className="mb-14 font-satoshi text-4xl leading-[1.1] text-[#1E3A20] md:text-5xl">
@@ -114,15 +94,12 @@ const ResearchStudies = () => {
                             <em>research archive</em>
                         </h2>
 
-                        <div
-                            className="h-px w-full"
-                            style={{ backgroundColor: "rgba(30,58,32,0.12)" }}
-                        />
+                        <div className="h-px w-full bg-[rgba(30,58,32,0.12)]" />
                     </div>
                 </EditorialSplit>
 
                 <div className="mx-auto mt-16 max-w-4xl">
-                    {studies.map((study, index) => (
+                    {STUDIES.map((study, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 16 }}
@@ -133,8 +110,7 @@ const ResearchStudies = () => {
                                 delay: index * 0.08,
                                 ease: "easeOut",
                             }}
-                            className="grid grid-cols-[48px_1fr] gap-6 border-b py-10 md:grid-cols-[64px_1fr_140px]"
-                            style={{ borderColor: "rgba(30,58,32,0.12)" }}
+                            className="grid grid-cols-[48px_1fr] gap-6 border-b border-[rgba(30,58,32,0.12)] py-10 md:grid-cols-[64px_1fr_140px]"
                         >
                             {/* Index number */}
                             <span className="mt-1 font-satoshi text-xs font-light tabular-nums text-light-supporting">
@@ -195,8 +171,7 @@ const ResearchStudies = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#1E3A20" }}
-                className="w-full px-6 py-20 md:py-28"
+                className="w-full bg-[#1E3A20] px-6 py-20 md:py-28"
             >
                 <EditorialSplit
                     reverse
@@ -216,12 +191,7 @@ const ResearchStudies = () => {
                             <br />
                             <em>to what patients know</em>
                         </h2>
-                        <div
-                            className="h-px w-full"
-                            style={{
-                                backgroundColor: "rgba(200,230,201,0.15)",
-                            }}
-                        />
+                        <div className="h-px w-full bg-[rgba(200,230,201,0.15)]" />
                         {[
                             {
                                 number: "01",
@@ -242,10 +212,7 @@ const ResearchStudies = () => {
                                     delay: index * 0.1,
                                     ease: "easeOut",
                                 }}
-                                className="flex items-start gap-6 border-b py-10"
-                                style={{
-                                    borderColor: "rgba(200,230,201,0.12)",
-                                }}
+                                className="flex items-start gap-6 border-b border-[rgba(200,230,201,0.12)] py-10"
                             >
                                 <span className="mt-1 shrink-0 font-satoshi text-xs font-light tabular-nums text-dark-supporting">
                                     {item.number}
@@ -281,14 +248,10 @@ const ResearchStudies = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariants}
-                style={{ backgroundColor: "#F7F4EF" }}
-                className="w-full px-6 py-20 md:py-28 lg:py-36"
+                className="w-full bg-[#F7F4EF] px-6 py-20 md:py-28 lg:py-36"
             >
                 <div className="mx-auto max-w-5xl">
-                    <div
-                        className="mb-12 h-px w-full"
-                        style={{ backgroundColor: "rgba(30,58,32,0.15)" }}
-                    />
+                    <div className="mb-12 h-px w-full bg-[rgba(30,58,32,0.15)]" />
                     <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
                         <div>
                             <p className="mb-6 font-satoshi text-xs font-medium uppercase tracking-[0.25em] text-light-supporting">
@@ -321,11 +284,7 @@ const ResearchStudies = () => {
                                 <WhatsAppCta source="research_closing_cta" />
                                 <Link
                                     href="/contact"
-                                    className="cta-interactive w-full whitespace-nowrap rounded-full py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        border: "1px solid rgba(30,58,32,0.3)",
-                                    }}
+                                    className="cta-interactive w-full whitespace-nowrap rounded-full border border-solid border-[rgba(30,58,32,0.3)] bg-transparent py-4 text-center font-satoshi text-sm font-medium tracking-[0.04em] text-[#1E3A20] sm:w-auto sm:px-10"
                                 >
                                     Book Consultation
                                 </Link>
@@ -346,5 +305,3 @@ const ResearchStudies = () => {
         </div>
     )
 }
-
-export default ResearchStudies
