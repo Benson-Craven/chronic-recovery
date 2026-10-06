@@ -1,11 +1,7 @@
 export type TestimonialRecord = {
     id: string
     name: string
-    condition?:
-        | "Chronic back pain"
-        | "Chronic migraines"
-        | "Chronic pain"
-        | "Chronic fatigue and pain"
+    condition?: string
     text: string
     homepageExcerptParagraphIndex?: number
 }
@@ -53,5 +49,11 @@ I'd highly recommend working with Marsha to anybody suffering from chronic pain.
         text: `I have suffered from chronic fatigue and pain for 3 years. After only 7 weeks of working with Marsha, I am better. It's life-changing.
 
 Marsha is very thorough but compassionate, and her kindness and patience will never be forgotten by me.`,
+    },
+    {
+        id: "jg",
+        name: "JG",
+        condition: "Chronic arm pain",
+        text: `I suffered with severe chronic arm pain for years. I tried everything to no avail. Marsha helped me understand that this pain was coming from my brain and after only a few sessions and some daily homework my pain is completely gone. I highly recommend marsha and she has a great energy and humour too which helped me to relax and feel at ease.`,
     },
 ]
