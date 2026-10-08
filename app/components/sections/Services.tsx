@@ -33,7 +33,7 @@ const projects: Project[] = [
     {
         title: "In-person in Cork or online",
         description:
-            "€70 per session at my home clinic in Rochestown, Cork, or online anywhere.",
+            "€75 per session at my home clinic in Rochestown, Cork, or online anywhere.",
         src: "cork.avif",
         url: "",
         color: "#1E3A20",

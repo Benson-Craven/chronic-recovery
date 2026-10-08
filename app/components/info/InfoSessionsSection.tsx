@@ -99,7 +99,7 @@ export default function InfoSessionsSection() {
                         </p>
 
                         <p className="font-satoshi text-2xl text-white md:text-3xl">
-                            €70 per session
+                            €75 per session
                         </p>
                     </motion.div>
 

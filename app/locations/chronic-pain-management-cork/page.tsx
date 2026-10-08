@@ -83,7 +83,7 @@ export default function ChronicPainManagementCorkPage() {
                 listSection={{
                     eyebrow: "Common search questions",
                     heading: "What people in Cork often ask",
-                    intro: "These are the questions that usually matter before beginning chronic pain recovery work. One-to-one 60-minute sessions cost €70.",
+                    intro: "These are the questions that usually matter before beginning chronic pain recovery work. One-to-one 60-minute sessions cost €75.",
                     items: [
                         {
                             title: "What if my scans show changes?",

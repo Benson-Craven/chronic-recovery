@@ -115,6 +115,8 @@
 
 [OUTCOMES]
 
+-   2026-10-08: Updated all five public session-price mentions from €70 to €75 and the existing SEO contract expectation. All nine SEO contract tests pass.
+
 -   2026-10-05: `/success-stories` uses two testimonial columns and a wider container at `lg`, with one column below 1024px. Targeted page lint and diff checks pass. Four of five focused testimonial/analytics tests pass; the content test fails on existing condition-label differences. Browser verification was not run.
 
 -   2026-10-05: `TestimonialsSection` now accepts `variant="green"`, with cream as the default. It passes the variant to `Testimonial` for matching quote, caption, and border colours, using the existing palette. TypeScript, targeted ESLint, six typography and success-stories analytics tests, formatting, and diff checks pass. No browser verification was performed.

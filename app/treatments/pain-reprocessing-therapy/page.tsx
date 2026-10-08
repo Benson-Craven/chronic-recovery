@@ -74,7 +74,7 @@ export default function PainReprocessingTherapyPage() {
                 listSection={{
                     eyebrow: "Core principles",
                     heading: "How the work supports change",
-                    intro: "PRT is not positive thinking. It is a structured way of helping the nervous system update its prediction of danger. One-to-one 60-minute sessions cost €70.",
+                    intro: "PRT is not positive thinking. It is a structured way of helping the nervous system update its prediction of danger. One-to-one 60-minute sessions cost €75.",
                     items: [
                         {
                             title: "Pain is real",

@@ -84,7 +84,7 @@ export default function OnlineIrelandPage() {
                 listSection={{
                     eyebrow: "Why online works",
                     heading: "What can be done remotely",
-                    intro: "For many people, the most important recovery work is learning how the brain and body are interpreting threat. One-to-one 60-minute sessions cost €70.",
+                    intro: "For many people, the most important recovery work is learning how the brain and body are interpreting threat. One-to-one 60-minute sessions cost €75.",
                     items: [
                         {
                             title: "Understand your pain patterns",

@@ -68,7 +68,7 @@ test("service routes keep their URLs and include practical access details", () =
         "Marsha Canny",
         "Rochestown",
         "60-minute",
-        "€70",
+        "€75",
         "online",
         "/contact",
     ]) {
